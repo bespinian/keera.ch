@@ -184,13 +184,13 @@
           <div>
             <h1>Your AI stack, run in Switzerland.</h1>
             <p class="lede">
-              Keera Gateway decides who may use which LLMs for what. Keera Code
-              brings the models that write code. Both run in Swiss data centres
-              - and nothing leaves.
+              One endpoint for every AI request - you decide who may use which
+              model, and how. Plus the models that write code. All of it in
+              Swiss data centres - and nothing leaves.
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Try Keera</a>
-              <a class="arrow" href="story.html">Why Keera exists &rarr;</a>
+              <a class="arrow" href="story.html">Why Keera exists &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -206,7 +206,181 @@
         </div>
       </section>
 
-      <section class="band" id="products">
+      <section class="band band--alt" id="problem">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">The problem</p>
+            <h2>Everyone uses AI. Nobody has the full picture.</h2>
+            <p>
+              Without clear rules, teams just get going: an account here, a key
+              there.
+            </p>
+          </div>
+          <div class="facts">
+            <div>
+              <h3>Nobody knows what is running</h3>
+              <p>
+                Six months in, no one can still see which models see which data,
+                or who allowed it.
+              </p>
+            </div>
+            <div>
+              <h3>No control over the cost</h3>
+              <p>
+                No budget per team, no limit, no warning. What AI costs only
+                shows up on the invoice.
+              </p>
+            </div>
+            <div>
+              <h3>Sovereignty stops at AI</h3>
+              <p>
+                We plan cloud exits and still hang on OpenAI, Anthropic,
+                Microsoft and Google.
+              </p>
+            </div>
+          </div>
+          <figure class="sprawl-fig">
+            <div class="sprawl">
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Product team</p>
+                  <p class="sprawl-meta">own API key</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">CI/CD</p>
+                  <p class="sprawl-meta">service account</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Data science</p>
+                  <p class="sprawl-meta">notebook, personal account</p>
+                </div>
+              </div>
+              <svg
+                class="sprawl-links"
+                viewBox="0 0 240 230"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <marker
+                    id="sprawl-tip"
+                    viewBox="0 0 10 10"
+                    refX="9"
+                    refY="5"
+                    markerWidth="9"
+                    markerHeight="9"
+                    markerUnits="userSpaceOnUse"
+                    orient="auto"
+                  >
+                    <path d="M0 1 9 5 0 9Z" fill="currentColor" />
+                  </marker>
+                </defs>
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  vector-effect="non-scaling-stroke"
+                  marker-end="url(#sprawl-tip)"
+                >
+                  <path d="M0 35 C 90 35 150 35 240 35" />
+                  <path d="M0 35 C 90 35 150 115 240 115" />
+                  <path d="M0 115 C 90 115 150 35 240 35" />
+                  <path d="M0 115 C 90 115 150 195 240 195" />
+                  <path d="M0 195 C 90 195 150 115 240 115" />
+                  <path d="M0 195 C 90 195 150 195 240 195" />
+                </g>
+              </svg>
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">OpenAI</p>
+                  <p class="sprawl-meta">US cloud</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Anthropic</p>
+                  <p class="sprawl-meta">US cloud</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Azure OpenAI</p>
+                  <p class="sprawl-meta">EU region</p>
+                </div>
+              </div>
+              <p class="sprawl-void">
+                Nothing in between - no policy, no budget, no log
+              </p>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="solution">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">The solution</p>
+            <h2>One endpoint every AI request passes through</h2>
+            <p class="lede">
+              The answer to both problems: one base URL, with your rules in
+              front of it.
+            </p>
+          </div>
+          <figure class="stack-fig">
+            <div class="stack">
+              <div class="stack-layer stack-layer--api">
+                <p class="stack-label">One API</p>
+                <p class="stack-text">
+                  A single base URL for everything, compatible with OpenAI and
+                  Anthropic. Switching provider means changing one variable.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Guardrails</p>
+                <p class="stack-text">
+                  Rules per team, repo and data class. Secrets and personal data
+                  stay out.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Budgets</p>
+                <p class="stack-text">
+                  Cost per team and cost centre, hard limits, an alert before
+                  the invoice.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Observability</p>
+                <p class="stack-text">
+                  Every request in the audit log and in your SIEM. Block egress,
+                  and shadow AI is over.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Routing</p>
+                <p class="stack-text">
+                  Small tasks to the local model, heavy reasoning to the large
+                  one.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Sovereignty</p>
+                <p class="stack-text">
+                  Inference, logs and backups in Swiss data centres. No training
+                  on your code.
+                </p>
+              </div>
+            </div>
+            <figcaption class="note">
+              One endpoint - and all of it happens before a request reaches a
+              model.
+            </figcaption>
+          </figure>
+          <p>
+            <a class="arrow" href="sovereignty.html"
+              >How that is built &#x2794;</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
             <h2>Two products, one stack</h2>
@@ -235,12 +409,13 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                One endpoint for every model in the company. Policies, budgets,
-                guardrails and an audit log that satisfies risk.
+                The endpoint: a Helm chart in your cluster, driven from a web UI
+                and a CLI. Your tools, agents and notebooks point at it and run
+                as before.
               </p>
               <p>
                 <a class="arrow" href="gateway.html"
-                  >See Keera Gateway &rarr;</a
+                  >See Keera Gateway &#x2794;</a
                 >
               </p>
             </div>
@@ -260,52 +435,15 @@
               </svg>
               <h3>Keera Code</h3>
               <p>
-                Open-weight models for code on an inference server in
-                Switzerland. In the terminal, in the IDE and in the pipeline.
+                Open-weight models on Swiss GPUs - in the terminal, in the IDE
+                and in the pipeline. All weights under Apache-2.0: you can take
+                them with you.
               </p>
-              <p><a class="arrow" href="code.html">See Keera Code &rarr;</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band--alt" id="sovereignty">
-        <div class="wrap">
-          <div class="prose">
-            <h2>Sovereignty is architecture, not a contract clause</h2>
-            <p>
-              Many “EU-hosted” assistants still send metadata or failover
-              traffic abroad. Keera has no other place to fail over to.
-            </p>
-          </div>
-          <div class="facts">
-            <div>
-              <h3>Swiss soil</h3>
               <p>
-                Inference, logs and backups stay in Swiss data centres, run by
-                Swiss companies.
-              </p>
-            </div>
-            <div>
-              <h3>Open weights</h3>
-              <p>
-                Every model is open weight and portable. You can take the whole
-                stack into your own data centre.
-              </p>
-            </div>
-            <div>
-              <h3>No training on your code</h3>
-              <p>
-                Prompts and repository context are never used for training and
-                are discarded at the end of the session.
+                <a class="arrow" href="code.html">See Keera Code &#x2794;</a>
               </p>
             </div>
           </div>
-          <p>
-            <a class="arrow" href="sovereignty.html"
-              >How that is built &rarr;</a
-            >
-          </p>
         </div>
       </section>
 
@@ -381,22 +519,34 @@
 
       <section class="band band--alt" id="story">
         <div class="wrap">
-          <div class="prose">
-            <p class="eyebrow">The story</p>
-            <h2>Keera exists for a reason</h2>
-            <p>
-              She starts out as a bystander in a server room, follows the data
-              into a hall with no address, and comes back with the gate she was
-              missing there. Her adversary is an invented corporation called
-              Omnivor.
-            </p>
-            <p class="btn-row">
-              <a class="btn btn--quiet" href="story.html">Read the story</a>
-            </p>
-            <p class="note">
-              The Omnivor corporation does not exist. The clauses and the data
-              centres we built it from do.
-            </p>
+          <div class="split split--portrait">
+            <div class="prose">
+              <p class="eyebrow">The story</p>
+              <h2>Keera exists for a reason</h2>
+              <p>
+                She starts out as a bystander in a server room, follows the data
+                into a hall with no address, and comes back with the gate she
+                was missing there. Her adversary is an invented corporation
+                called Omnivor.
+              </p>
+              <p class="btn-row">
+                <a class="btn btn--quiet" href="story.html">Read the story</a>
+              </p>
+              <p class="note">
+                The Omnivor corporation does not exist. The clauses and the data
+                centres we built it from do.
+              </p>
+            </div>
+            <figure class="figure">
+              <img
+                src="../assets/img/keera-story-en-page-1.webp"
+                width="1024"
+                height="1536"
+                alt="Page 1 of the story: the small server room, Omnivor’s free plugin and Cache staring at the cable in the wall."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>

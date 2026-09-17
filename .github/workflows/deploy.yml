@@ -2,18 +2,15 @@
 name: Deploy static content via FTP
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 permissions:
   contents: read
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# One deployment at a time. Queued runs are skipped, but a run in progress is
+# never cancelled.
 concurrency:
   group: "ftp-deploy"
   cancel-in-progress: false
@@ -36,10 +33,8 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq lftp
 
-      # The repo keeps plain asset URLs; only the uploaded copy carries the
-      # ?v=<content hash> stamps that let Cache-Control run to a year. Nothing
-      # is committed, so the checkout this step dirties is thrown away with the
-      # runner.
+      # Only the uploaded copy carries the ?v=<content hash> stamps; the
+      # dirtied checkout is thrown away with the runner.
       - name: Stamp cache-busting hashes onto asset URLs
         run: python3 .github/scripts/fingerprint-assets.py
 
@@ -47,13 +42,10 @@ jobs:
         env:
           LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         run: |
-          # Two passes, and the order is load-bearing. The stamps mean a page
-          # can ask for an illustration by a hash whose bytes are not up yet,
-          # and the answer it would get - the old file, still sitting at that
-          # name - is one the browser then keeps for a year under the new URL.
-          # Uploading every asset before any page that cites it closes that
-          # window. The second pass carries --delete, so assets that went away
-          # are still cleaned up; assets already uploaded match and are skipped.
+          # Two passes, and the order is load-bearing: a page must never go
+          # up citing an asset whose bytes are not there yet, or the browser
+          # caches the old file for a year under the new URL. The second pass
+          # carries --delete, so removed assets are still cleaned up.
           lftp -c "
             set net:max-retries 3;
             set net:timeout 20;

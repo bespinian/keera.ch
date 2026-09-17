@@ -180,15 +180,15 @@
           <div>
             <h1>Votre pile IA, exploitée en Suisse.</h1>
             <p class="lede">
-              Keera Gateway décide qui peut utiliser quels LLMs et pour quoi.
-              Keera Code fournit les modèles qui écrivent du code. Les deux
-              tournent dans des centres de données suisses&nbsp;- et rien ne
-              sort.
+              Un point d'accès unique pour chaque requête IA&nbsp;- vous décidez
+              qui peut utiliser quel modèle, et comment. Plus les modèles qui
+              écrivent du code. Le tout dans des centres de données
+              suisses&nbsp;- et rien ne sort.
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Essayer Keera</a>
               <a class="arrow" href="story.html"
-                >Pourquoi Keera existe &rarr;</a
+                >Pourquoi Keera existe &#x2794;</a
               >
             </p>
           </div>
@@ -205,7 +205,182 @@
         </div>
       </section>
 
-      <section class="band" id="products">
+      <section class="band band--alt" id="problem">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">Le problème</p>
+            <h2>Tout le monde utilise l'IA. Personne n'a de vue d'ensemble.</h2>
+            <p>
+              Sans règles claires, les équipes se lancent&nbsp;: un compte ici,
+              une clé là.
+            </p>
+          </div>
+          <div class="facts">
+            <div>
+              <h3>Personne ne sait ce qui tourne</h3>
+              <p>
+                Au bout de six mois, plus personne ne voit quels modèles voient
+                quelles données, ni qui l'a autorisé.
+              </p>
+            </div>
+            <div>
+              <h3>Aucun contrôle des coûts</h3>
+              <p>
+                Pas de budget par équipe, pas de limite, pas d'alerte. Ce que
+                coûte l'IA n'apparaît que sur la facture.
+              </p>
+            </div>
+            <div>
+              <h3>La souveraineté s'arrête à l'IA</h3>
+              <p>
+                Nous planifions des sorties du cloud et restons pourtant
+                accrochés à OpenAI, Anthropic, Microsoft et Google.
+              </p>
+            </div>
+          </div>
+          <figure class="sprawl-fig">
+            <div class="sprawl">
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Équipe produit</p>
+                  <p class="sprawl-meta">clé API à elle</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">CI/CD</p>
+                  <p class="sprawl-meta">compte de service</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Data science</p>
+                  <p class="sprawl-meta">notebook, compte privé</p>
+                </div>
+              </div>
+              <svg
+                class="sprawl-links"
+                viewBox="0 0 240 230"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <marker
+                    id="sprawl-tip"
+                    viewBox="0 0 10 10"
+                    refX="9"
+                    refY="5"
+                    markerWidth="9"
+                    markerHeight="9"
+                    markerUnits="userSpaceOnUse"
+                    orient="auto"
+                  >
+                    <path d="M0 1 9 5 0 9Z" fill="currentColor" />
+                  </marker>
+                </defs>
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  vector-effect="non-scaling-stroke"
+                  marker-end="url(#sprawl-tip)"
+                >
+                  <path d="M0 35 C 90 35 150 35 240 35" />
+                  <path d="M0 35 C 90 35 150 115 240 115" />
+                  <path d="M0 115 C 90 115 150 35 240 35" />
+                  <path d="M0 115 C 90 115 150 195 240 195" />
+                  <path d="M0 195 C 90 195 150 115 240 115" />
+                  <path d="M0 195 C 90 195 150 195 240 195" />
+                </g>
+              </svg>
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">OpenAI</p>
+                  <p class="sprawl-meta">cloud US</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Anthropic</p>
+                  <p class="sprawl-meta">cloud US</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Azure OpenAI</p>
+                  <p class="sprawl-meta">région UE</p>
+                </div>
+              </div>
+              <p class="sprawl-void">
+                Rien entre les deux - pas de règles, pas de budget, pas de
+                journal
+              </p>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="solution">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">La solution</p>
+            <h2>Un point d'accès par lequel passe chaque requête IA</h2>
+            <p class="lede">
+              La réponse aux deux problèmes&nbsp;: une seule base URL, et vos
+              règles devant.
+            </p>
+          </div>
+          <figure class="stack-fig">
+            <div class="stack">
+              <div class="stack-layer stack-layer--api">
+                <p class="stack-label">API unifiée</p>
+                <p class="stack-text">
+                  Une seule base URL pour tout, compatible OpenAI et Anthropic.
+                  Changer de fournisseur, c'est changer une variable.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Garde-fous</p>
+                <p class="stack-text">
+                  Des règles par équipe, par dépôt et par classe de données. Les
+                  secrets et les données personnelles restent dehors.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Budgets</p>
+                <p class="stack-text">
+                  Des coûts par équipe et par centre de coûts, des limites
+                  strictes, une alerte avant la facture.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Observabilité</p>
+                <p class="stack-text">
+                  Chaque requête dans le journal d'audit et dans votre SIEM.
+                  Bloquez la sortie, le shadow AI est terminé.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Routage</p>
+                <p class="stack-text">
+                  Les petites tâches au modèle local, le raisonnement lourd au
+                  grand.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Souveraineté</p>
+                <p class="stack-text">
+                  Inférence, journaux et sauvegardes dans des centres de données
+                  suisses. Aucun entraînement sur votre code.
+                </p>
+              </div>
+            </div>
+            <figcaption class="note">
+              Un point d'accès&nbsp;- et tout cela se passe avant qu'une requête
+              n'atteigne un modèle.
+            </figcaption>
+          </figure>
+          <p>
+            <a class="arrow" href="sovereignty.html"
+              >Comment c'est construit &#x2794;</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
             <h2>Deux produits, une pile</h2>
@@ -234,12 +409,13 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                Un point d'accès pour chaque modèle de l'entreprise. Politiques,
-                budgets, garde-fous et un journal d'audit qui satisfait le risk.
+                Le point d'accès&nbsp;: un chart Helm dans votre cluster, piloté
+                depuis une interface web et une CLI. Vos outils, agents et
+                notebooks pointent dessus et tournent comme avant.
               </p>
               <p>
                 <a class="arrow" href="gateway.html"
-                  >Voir Keera Gateway &rarr;</a
+                  >Voir Keera Gateway &#x2794;</a
                 >
               </p>
             </div>
@@ -259,56 +435,15 @@
               </svg>
               <h3>Keera Code</h3>
               <p>
-                Des modèles à poids ouverts pour le code, sur un serveur
-                d'inférence en Suisse. Dans le terminal, dans l'IDE et dans la
-                pipeline.
+                Des modèles à poids ouverts sur des GPU suisses&nbsp;- dans le
+                terminal, dans l'IDE et dans le pipeline. Tous les poids sous
+                Apache-2.0&nbsp;: vous pouvez les emporter.
               </p>
               <p>
-                <a class="arrow" href="code.html">Voir Keera Code &rarr;</a>
+                <a class="arrow" href="code.html">Voir Keera Code &#x2794;</a>
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="band band--alt" id="sovereignty">
-        <div class="wrap">
-          <div class="prose">
-            <h2>La souveraineté est une architecture, pas une clause</h2>
-            <p>
-              Beaucoup d'assistants «&nbsp;hébergés en UE&nbsp;» envoient
-              toujours des métadonnées ou du trafic de repli à l'étranger. Keera
-              n'a aucun autre endroit où se replier.
-            </p>
-          </div>
-          <div class="facts">
-            <div>
-              <h3>Sol suisse</h3>
-              <p>
-                Inférence, journaux et sauvegardes restent dans des centres de
-                données suisses, exploités par des sociétés suisses.
-              </p>
-            </div>
-            <div>
-              <h3>Poids ouverts</h3>
-              <p>
-                Chaque modèle est à poids ouverts et portable. Vous pouvez
-                emporter toute la pile dans votre propre centre de données.
-              </p>
-            </div>
-            <div>
-              <h3>Aucun entraînement sur votre code</h3>
-              <p>
-                Les prompts et le contexte du dépôt ne servent jamais à
-                l'entraînement et sont supprimés à la fin de la session.
-              </p>
-            </div>
-          </div>
-          <p>
-            <a class="arrow" href="sovereignty.html"
-              >Comment c'est construit &rarr;</a
-            >
-          </p>
         </div>
       </section>
 
@@ -387,22 +522,34 @@
 
       <section class="band band--alt" id="story">
         <div class="wrap">
-          <div class="prose">
-            <p class="eyebrow">L'histoire</p>
-            <h2>Si Keera existe, c'est pour une raison</h2>
-            <p>
-              Elle commence en spectatrice dans une salle serveurs, suit les
-              données jusqu'à une halle sans adresse et revient avec la porte
-              qui lui manquait là-bas. Son adversaire est un groupe inventé
-              nommé Omnivor.
-            </p>
-            <p class="btn-row">
-              <a class="btn btn--quiet" href="story.html">Lire l'histoire</a>
-            </p>
-            <p class="note">
-              Le groupe Omnivor n'existe pas. Les clauses et les centres de
-              données dont nous l'avons fait, si.
-            </p>
+          <div class="split split--portrait">
+            <div class="prose">
+              <p class="eyebrow">L'histoire</p>
+              <h2>Si Keera existe, c'est pour une raison</h2>
+              <p>
+                Elle commence en spectatrice dans une salle serveurs, suit les
+                données jusqu'à une halle sans adresse et revient avec la porte
+                qui lui manquait là-bas. Son adversaire est un groupe inventé
+                nommé Omnivor.
+              </p>
+              <p class="btn-row">
+                <a class="btn btn--quiet" href="story.html">Lire l'histoire</a>
+              </p>
+              <p class="note">
+                Le groupe Omnivor n'existe pas. Les clauses et les centres de
+                données dont nous l'avons fait, si.
+              </p>
+            </div>
+            <figure class="figure">
+              <img
+                src="../assets/img/keera-story-fr-page-1.webp"
+                width="1024"
+                height="1536"
+                alt="Planche 1 de l’histoire : la petite salle serveurs, le plugin gratuit d’Omnivor et Cache qui fixe le câble dans le mur."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>

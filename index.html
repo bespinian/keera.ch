@@ -167,13 +167,15 @@
           <div>
             <h1>Dein KI-Stack, betrieben in der Schweiz.</h1>
             <p class="lede">
-              Keera Gateway bestimmt, wer welche LLMs wofür nutzen darf. Keera
-              Code liefert die Modelle, die Code schreiben. Beides läuft in
-              Schweizer Rechenzentren - und nichts geht hinaus.
+              Ein Endpunkt für jede KI-Anfrage - du bestimmst, wer welches
+              Modell wie nutzen darf. Dazu die Modelle, die Code schreiben.
+              Alles in Schweizer Rechenzentren - und nichts geht hinaus.
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Keera testen</a>
-              <a class="arrow" href="story.html">Warum es Keera gibt &rarr;</a>
+              <a class="arrow" href="story.html"
+                >Warum es Keera gibt &#x2794;</a
+              >
             </p>
           </div>
           <figure class="hero-art">
@@ -189,7 +191,180 @@
         </div>
       </section>
 
-      <section class="band" id="products">
+      <section class="band band--alt" id="problem">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">Das Problem</p>
+            <h2>Alle nutzen KI. Niemand hat den Überblick.</h2>
+            <p>
+              Ohne klare Guidelines legen Teams einfach los: ein Konto hier, ein
+              Schlüssel dort.
+            </p>
+          </div>
+          <div class="facts">
+            <div>
+              <h3>Niemand weiss, was läuft</h3>
+              <p>
+                Nach einem halben Jahr sieht keiner mehr, welche Modelle welche
+                Daten sehen und wer das erlaubt hat.
+              </p>
+            </div>
+            <div>
+              <h3>Keine Kontrolle über die Kosten</h3>
+              <p>
+                Kein Budget pro Team, keine Grenze, keine Warnung. Was KI
+                kostet, zeigt sich erst auf der Rechnung.
+              </p>
+            </div>
+            <div>
+              <h3>Souveränität endet bei KI</h3>
+              <p>
+                Wir planen Cloud-Exits und hängen bei KI trotzdem an OpenAI,
+                Anthropic, Microsoft und Google.
+              </p>
+            </div>
+          </div>
+          <figure class="sprawl-fig">
+            <div class="sprawl">
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Team Produkt</p>
+                  <p class="sprawl-meta">eigener API-Key</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">CI/CD</p>
+                  <p class="sprawl-meta">Service-Account</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Data Science</p>
+                  <p class="sprawl-meta">Notebook, privates Konto</p>
+                </div>
+              </div>
+              <svg
+                class="sprawl-links"
+                viewBox="0 0 240 230"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <marker
+                    id="sprawl-tip"
+                    viewBox="0 0 10 10"
+                    refX="9"
+                    refY="5"
+                    markerWidth="9"
+                    markerHeight="9"
+                    markerUnits="userSpaceOnUse"
+                    orient="auto"
+                  >
+                    <path d="M0 1 9 5 0 9Z" fill="currentColor" />
+                  </marker>
+                </defs>
+                <g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  vector-effect="non-scaling-stroke"
+                  marker-end="url(#sprawl-tip)"
+                >
+                  <path d="M0 35 C 90 35 150 35 240 35" />
+                  <path d="M0 35 C 90 35 150 115 240 115" />
+                  <path d="M0 115 C 90 115 150 35 240 35" />
+                  <path d="M0 115 C 90 115 150 195 240 195" />
+                  <path d="M0 195 C 90 195 150 115 240 115" />
+                  <path d="M0 195 C 90 195 150 195 240 195" />
+                </g>
+              </svg>
+              <div class="sprawl-side">
+                <div class="sprawl-node">
+                  <p class="sprawl-name">OpenAI</p>
+                  <p class="sprawl-meta">US-Cloud</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Anthropic</p>
+                  <p class="sprawl-meta">US-Cloud</p>
+                </div>
+                <div class="sprawl-node">
+                  <p class="sprawl-name">Azure OpenAI</p>
+                  <p class="sprawl-meta">EU-Region</p>
+                </div>
+              </div>
+              <p class="sprawl-void">
+                Nichts dazwischen - keine Policy, kein Budget, kein Log
+              </p>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="solution">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">Die Lösung</p>
+            <h2>Ein Endpunkt, durch den jede KI-Anfrage geht</h2>
+            <p class="lede">
+              Die Antwort auf beide Probleme: eine Base-URL, davor deine Regeln.
+            </p>
+          </div>
+          <figure class="stack-fig">
+            <div class="stack">
+              <div class="stack-layer stack-layer--api">
+                <p class="stack-label">Einheitliche API</p>
+                <p class="stack-text">
+                  Eine Base-URL für alles, kompatibel mit OpenAI und Anthropic.
+                  Anbieter wechseln heisst: eine Variable ändern.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Guardrails</p>
+                <p class="stack-text">
+                  Regeln pro Team, Repo und Datenklasse. Secrets und
+                  Personendaten bleiben draussen.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Budgets</p>
+                <p class="stack-text">
+                  Kosten pro Team und Kostenstelle, harte Grenzen, Alarm vor der
+                  Rechnung.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Observability</p>
+                <p class="stack-text">
+                  Jede Anfrage im Audit-Log und im SIEM. Egress sperren, Shadow
+                  AI ist vorbei.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Routing</p>
+                <p class="stack-text">
+                  Kleine Aufgaben ans lokale Modell, schweres Reasoning ans
+                  grosse.
+                </p>
+              </div>
+              <div class="stack-layer">
+                <p class="stack-label">Souveränität</p>
+                <p class="stack-text">
+                  Inferenz, Logs und Backups in Schweizer Rechenzentren. Kein
+                  Training mit deinem Code.
+                </p>
+              </div>
+            </div>
+            <figcaption class="note">
+              Ein Endpunkt - und das alles passiert, bevor eine Anfrage ein
+              Modell erreicht.
+            </figcaption>
+          </figure>
+          <p>
+            <a class="arrow" href="sovereignty.html"
+              >Wie das gebaut ist &#x2794;</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
             <h2>Zwei Produkte, ein Stack</h2>
@@ -218,12 +393,13 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                Ein Endpunkt für jedes Modell im Unternehmen. Policies, Budgets,
-                Guardrails und ein Audit-Log für Compliance.
+                Der Endpunkt: ein Helm-Chart in deinem Cluster, steuerbar über
+                Web-UI und CLI. Deine Tools, Agenten und Notebooks zeigen darauf
+                und laufen wie bisher.
               </p>
               <p>
                 <a class="arrow" href="gateway.html"
-                  >Keera Gateway ansehen &rarr;</a
+                  >Keera Gateway ansehen &#x2794;</a
                 >
               </p>
             </div>
@@ -243,55 +419,17 @@
               </svg>
               <h3>Keera Code</h3>
               <p>
-                Open-Weight-Modelle für Code auf einem Inferenz-Server in der
-                Schweiz. Im Terminal, in der IDE und in der Pipeline.
+                Open-Weight-Modelle auf Schweizer GPUs - im Terminal, in der IDE
+                und in der Pipeline. Alle Weights unter Apache-2.0: du kannst
+                sie mitnehmen.
               </p>
               <p>
-                <a class="arrow" href="code.html">Keera Code ansehen &rarr;</a>
+                <a class="arrow" href="code.html"
+                  >Keera Code ansehen &#x2794;</a
+                >
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="band band--alt" id="sovereignty">
-        <div class="wrap">
-          <div class="prose">
-            <h2>Souveränität ist Architektur, nicht eine Vertragsklausel</h2>
-            <p>
-              Viele «EU-gehostete» Assistenten schicken Metadaten oder
-              Fallback-Traffic weiterhin ins Ausland. Keera hat keinen anderen
-              Ort, an den sie ausweichen könnte.
-            </p>
-          </div>
-          <div class="facts">
-            <div>
-              <h3>Schweizer Boden</h3>
-              <p>
-                Inferenz, Logs und Backups bleiben in Schweizer Rechenzentren,
-                betrieben von Schweizer Gesellschaften.
-              </p>
-            </div>
-            <div>
-              <h3>Offene Weights</h3>
-              <p>
-                Jedes Modell ist open weight und portierbar. Du kannst den
-                ganzen Stack ins eigene Rechenzentrum mitnehmen.
-              </p>
-            </div>
-            <div>
-              <h3>Kein Training mit deinem Code</h3>
-              <p>
-                Prompts und Repository-Kontext werden nie für Training verwendet
-                und am Ende der Session verworfen.
-              </p>
-            </div>
-          </div>
-          <p>
-            <a class="arrow" href="sovereignty.html"
-              >Wie das gebaut ist &rarr;</a
-            >
-          </p>
         </div>
       </section>
 
@@ -369,24 +507,36 @@
 
       <section class="band band--alt" id="story">
         <div class="wrap">
-          <div class="prose">
-            <p class="eyebrow">Die Geschichte</p>
-            <h2>Keera gibt es aus einem Grund</h2>
-            <p>
-              Sie fängt als Zuschauerin in einem Serverraum an, folgt den Daten
-              bis in eine Halle ohne Adresse und kommt mit dem Tor zurück, das
-              ihr dort gefehlt hat. Ihr Gegner ist ein erfundener Konzern namens
-              Omnivor.
-            </p>
-            <p class="btn-row">
-              <a class="btn btn--quiet" href="story.html"
-                >Die Geschichte lesen</a
-              >
-            </p>
-            <p class="note">
-              Den Konzern Omnivor gibt es nicht. Die Klauseln und die
-              Rechenzentren, aus denen wir ihn gebaut haben, schon.
-            </p>
+          <div class="split split--portrait">
+            <div class="prose">
+              <p class="eyebrow">Die Geschichte</p>
+              <h2>Keera gibt es aus einem Grund</h2>
+              <p>
+                Sie fängt als Zuschauerin in einem Serverraum an, folgt den
+                Daten bis in eine Halle ohne Adresse und kommt mit dem Tor
+                zurück, das ihr dort gefehlt hat. Ihr Gegner ist ein erfundener
+                Konzern namens Omnivor.
+              </p>
+              <p class="btn-row">
+                <a class="btn btn--quiet" href="story.html"
+                  >Die Geschichte lesen</a
+                >
+              </p>
+              <p class="note">
+                Den Konzern Omnivor gibt es nicht. Die Klauseln und die
+                Rechenzentren, aus denen wir ihn gebaut haben, schon.
+              </p>
+            </div>
+            <figure class="figure">
+              <img
+                src="assets/img/keera-story-de-page-1.webp"
+                width="1024"
+                height="1536"
+                alt="Comicseite 1 der Geschichte: der kleine Serverraum, Omnivors Gratis-Plugin und Cache, der das Kabel in der Wand anstarrt."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
           </div>
         </div>
       </section>

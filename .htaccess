@@ -4,29 +4,21 @@
 
 # --- The custom 404 ------------------------------------------------------
 # Without this line Apache answers every missing path with its own stock
-# "Not Found" page and 404.html is never served. 404.html is built with
-# root-absolute URLs throughout precisely so it renders correctly no matter
-# which path - /nope.html, /en/nope.html, /fr/nope.html - was requested.
+# "Not Found" page. 404.html uses root-absolute URLs throughout, so it renders
+# correctly under any requested path.
 ErrorDocument 404 /404.html
 
 # --- No directory listings -----------------------------------------------
-# /assets/img/ was serving a browsable index of every file in it.
 Options -Indexes
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
   # --- One host, one protocol ------------------------------------------
-  # Four spellings of every URL were answering 200: http and https, apex and
-  # www. The canonical tags keep that out of the index, but the crawl and any
-  # inbound links still split four ways. These two rules collapse them.
-  #
-  # TLS is terminated upstream, so Apache sees a plain HTTP request on port 80
-  # even when the visitor asked for https - %{HTTPS} is off and %{SERVER_PORT}
-  # is 80 for everything. The proxy's X-Forwarded-Proto is the only honest
-  # signal here, and the test below is deliberately positive (= http rather
-  # than != https): if that header ever stops being sent the rule does nothing,
-  # instead of redirecting https:// to itself forever and taking the site down.
+  # TLS is terminated upstream, so Apache always sees plain HTTP on port 80 and
+  # X-Forwarded-Proto is the only honest signal. The test is deliberately
+  # positive (= http rather than != https): if the header ever stops being
+  # sent, the rule does nothing instead of redirecting https to itself forever.
   RewriteCond %{HTTP:X-Forwarded-Proto} =http
   RewriteRule ^ https://keera.ch%{REQUEST_URI} [R=301,L]
 
@@ -34,46 +26,28 @@ Options -Indexes
   RewriteRule ^ https://keera.ch%{REQUEST_URI} [R=301,L]
 
   # --- Language on the way in -------------------------------------------
-  # The three languages are three directory trees - German at the root,
-  # en/ and fr/ - and nothing but the DE/FR/EN switcher ever pointed a
-  # visitor at the right one. Someone arriving from a search result or a
-  # shared link got German whatever their browser asked for. These rules
-  # negotiate the entry point: French browsers to /fr/, German ones to the
-  # German root they already landed on, everyone else to /en/.
+  # French browsers to /fr/, German ones to the German root they already landed
+  # on, everyone else to /en/. Only the home page negotiates: a deep link stays
+  # on the page and language it names.
   #
-  # Only the home page negotiates. A deep link to /gateway.html stays on the
-  # page it names, in the language it names - that URL is indexed, hreflang
-  # already tells Google about the other two, and silently swapping the page
-  # out from under an inbound link is worse than leaving it alone.
+  # Matching is on the first tag of Accept-Language, up to its separator, so the
+  # Swiss variants come along for free - de-CH, fr-CH, de_CH, fr-FR. gsw is
+  # Swiss German, which some Android builds send ahead of de-CH. Requiring the
+  # separator keeps frr (Frisian) and the like out.
   #
-  # Matching is on the *first* tag of Accept-Language, which is the one the
-  # browser ranks highest; the q-values behind it are not worth parsing here.
-  # The tag is matched up to its separator, so the Swiss variants come along
-  # for free - de-CH and fr-CH match de and fr, and so do de_CH, fr-FR, or a
-  # bare de followed by a comma or a semicolon. gsw is Swiss German, which a
-  # handful of Android builds send ahead of de-CH. frr (Frisian) and the like
-  # are kept out by requiring that separator.
+  # Both rules skip a request referred from this site, so clicking DE in the
+  # switcher is not bounced straight back to /fr/. Internal navigation wins over
+  # the header: the switcher is a choice, Accept-Language is a guess.
   #
-  # Both rules skip a request that came from this site, by referrer: without
-  # that, a French-speaking visitor who clicks DE in the switcher lands on /
-  # and is bounced straight back to /fr/, and the German home page is not
-  # reachable for them at all. Internal navigation therefore always wins over
-  # the header - the switcher is an explicit choice, Accept-Language is a
-  # guess. (A visitor whose browser sends no referrer at all loses that, and
-  # has to reach German through a subpage. The alternative is a preference
-  # cookie, which needs JavaScript on all eighteen pages to set it.)
-  #
-  # Redirects are to the absolute https:// URL on purpose. Apache sees plain
-  # HTTP here (see above), so a relative target would be expanded to
-  # http://keera.ch/... and either cost a second redirect or downgrade the
-  # connection outright.
+  # Redirects are absolute https:// URLs because Apache sees plain HTTP here: a
+  # relative target would expand to http:// and cost a second redirect.
   RewriteCond %{HTTP_REFERER} !^https?://(www\.)?keera\.ch(/|$) [NC]
   RewriteCond %{HTTP:Accept-Language} ^\s*fr([-_,;]|$) [NC]
   RewriteRule ^(index\.html)?$ https://keera.ch/fr/ [R=302,L]
 
   # Anything that is not German - and not nothing. An empty or absent
-  # Accept-Language is what a crawler sends: Googlebot gets the German root,
-  # which is what x-default points at, rather than a redirect to /en/.
+  # Accept-Language is what a crawler sends, and it gets the German root, which
+  # is what x-default points at.
   RewriteCond %{HTTP_REFERER} !^https?://(www\.)?keera\.ch(/|$) [NC]
   RewriteCond %{HTTP:Accept-Language} .
   RewriteCond %{HTTP:Accept-Language} !^\s*(de|gsw)([-_,;]|$) [NC]
@@ -81,36 +55,29 @@ Options -Indexes
 </IfModule>
 
 # --- Cache lifetimes -----------------------------------------------------
-# Nothing was sending Cache-Control or Expires, so every repeat visit
-# revalidated the fonts and the artwork - one round trip per file, on a host
-# that only speaks HTTP/1.1. This was a mod_expires block until a check against
-# production showed it emitting no headers at all: Infomaniak does not load
-# mod_expires, so the <IfModule> guard skipped the whole thing silently.
-# mod_headers is loaded, and matches on filename rather than MIME type.
+# mod_headers rather than mod_expires: Infomaniak does not load mod_expires, so
+# an <IfModule mod_expires.c> block is skipped silently. mod_headers matches on
+# filename rather than MIME type.
 <IfModule mod_headers.c>
-  # The home page answers differently depending on Accept-Language - German,
-  # or a 302 to /fr/ or /en/ - so every cache between here and the reader has
-  # to key on that header too. `always` is what puts it on the redirect as
-  # well as on the German page; the plain table only covers 2xx.
+  # The home page answers differently per Accept-Language, so every cache in
+  # between has to key on that header. `always` puts it on the redirect as well
+  # as on the German page; the plain table only covers 2xx.
   <IfModule mod_setenvif.c>
     SetEnvIf Request_URI "^/(index\.html)?$" KEERA_LANG_NEG=1
     Header always append Vary "Accept-Language" env=KEERA_LANG_NEG
   </IfModule>
 
   # A year, and immutable, because deploy stamps every asset URL with
-  # ?v=<content hash> (.github/scripts/fingerprint-assets.py). A query string
-  # is part of the cache key, so replacing an illustration in place under the
-  # name it already has changes the URL the pages ask for and the old bytes are
-  # simply never requested again. Without that step this would have to drop
-  # back to a month: nothing in assets/ carries a hash in its filename.
+  # ?v=<content hash> (.github/scripts/fingerprint-assets.py). A query string is
+  # part of the cache key, so replacing a file in place changes the URL the
+  # pages ask for and the old bytes are never requested again.
   <FilesMatch "\.(webp|jpe?g|png|svg|woff2|css|js)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  # Pages carry the stamps, so they are the one thing that must stay fresh -
-  # cache a page and the reader goes on asking for the assets it named when it
-  # was cached. no-cache still allows a cheap ETag revalidation, it only
-  # forbids serving a stale copy without asking.
+  # Pages carry the stamps, so they are the one thing that must stay fresh.
+  # no-cache still allows a cheap ETag revalidation; it only forbids serving a
+  # stale copy without asking.
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>

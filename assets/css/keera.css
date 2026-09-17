@@ -1,9 +1,7 @@
-/* Keera - one stylesheet for all nineteen pages (the eighteen content pages
-   and 404.html).
-   Quiet, one accent, light or dark depending on the viewer's system setting.
-   Layout is a single column: .wrap for full-width bands, .prose for anything
-   meant to be read. Pages carry classes only - no inline styles, no media
-   queries in markup. */
+/* Keera - one stylesheet for all nineteen pages.
+   Quiet, one accent, light or dark from the viewer's system setting. Layout is
+   a single column: .wrap for full-width bands, .prose for anything meant to be
+   read. Pages carry classes only - no inline styles. */
 
 /* ---------- fonts (variable, latin + latin-ext cuts only) ---------- */
 @font-face {
@@ -52,9 +50,9 @@
 }
 
 /* ---------- tokens ---------- */
-/* Every colour on the site comes from these twelve tokens, which is what makes
-   the dark scheme one block instead of a second stylesheet. A hex value
-   anywhere below this point is a bug: it would only be right in one scheme. */
+/* Every colour comes from these thirteen tokens, which is what keeps the dark
+   scheme to one block. A hex value below this point is a bug: it can only be
+   right in one of the two schemes. */
 :root {
   color-scheme: light dark;
   --bg: #ffffff;
@@ -68,12 +66,9 @@
   --btn-ink: #ffffff;
   --ok: #166534;
   --err: #b42318;
-  /* The invented corporation's red, and the one colour here that names nothing
-     on the page but the two brand marks in #omnivor. */
+  /* Read by the Omnivor brand mark in #omnivor, and by nothing else. */
   --omnivor: #c0271d;
-  /* The green the sustainability pages run their whole accent in, and the only
-     green on the site. It is not a second accent loose in the palette: nothing
-     reads it but the .theme-leaf block below. */
+  /* Read by the .theme-leaf block below, and by nothing else. */
   --leaf: #1d7a44;
   --sans:
     "Space Grotesk", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
@@ -84,11 +79,9 @@
   --radius: 10px;
 }
 
-/* Dark scheme. It follows the system setting only - there is no toggle, and
-   adding one would mean JavaScript and a stored preference on a site that
-   currently ships neither. The artwork is left alone: the mascot is a
-   transparent PNG-alpha webp and sits on the dark ground, and the comic pages
-   and the screenshot are framed images that carry their own light. */
+/* Dark scheme, from the system setting only - there is no toggle. The artwork
+   is left alone: the mascot is transparent and sits on either ground, and the
+   comic pages and the screenshot carry their own light. */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f1218;
@@ -107,12 +100,9 @@
   }
 }
 
-/* The sustainability pages, and only those, run the accent green: <body
-   class="theme-leaf">. The page argues about clean power, so the colour it is
-   drawn in is part of the argument rather than decoration. It is a swap, not an
-   addition - no page shows blue and green at once - which is what keeps the
-   one-accent rule intact. --accent picks up whichever --leaf the scheme is
-   already using, so only the hover shade needs saying twice. */
+/* The sustainability pages, and only those, swap the accent to green: <body
+   class="theme-leaf">. --accent picks up whichever --leaf the scheme is already
+   using, so only the hover shade needs saying twice. */
 .theme-leaf {
   --accent: var(--leaf);
   --accent-hover: #16603a;
@@ -148,6 +138,9 @@ svg {
 }
 img {
   height: auto;
+}
+figure {
+  margin: 0;
 }
 a {
   color: var(--accent);
@@ -195,13 +188,23 @@ strong {
   font-weight: 600;
 }
 
-.eyebrow {
+/* The small mono label, in five places. Each rule below adds only its own
+   size and spacing. */
+.eyebrow,
+.stack-label,
+.flow-title,
+thead th,
+.label {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.1em;
   margin: 0 0 12px;
 }
 .lede {
@@ -290,8 +293,8 @@ strong {
   flex-wrap: wrap;
   gap: 6px 18px;
   font-size: 14.5px;
-  /* the DE/EN/FR switcher sits before the nav in the DOM - the menu checkbox
-     has to be the nav's preceding sibling - so the row is ordered here */
+  /* the switcher sits before the nav in the DOM, because the menu checkbox has
+     to be the nav's preceding sibling, so the row is ordered here */
   order: 1;
 }
 .site-nav a {
@@ -302,9 +305,8 @@ strong {
 }
 .lang {
   display: flex;
-  /* the links pick up vertical padding on coarse pointers while the current
-     language and the separators do not, so center them rather than letting
-     the default stretch pull the unpadded items up */
+  /* the links pick up vertical padding on coarse pointers and the separators
+     do not, so center rather than stretch */
   align-items: center;
   gap: 6px;
   order: 2;
@@ -324,14 +326,12 @@ strong {
 .lang span[aria-hidden] {
   color: var(--line);
 }
-/* The nav renders three ways. Above 1000px the six labels fit beside the
-   wordmark and the switcher. Between 700px and 1000px they take a full-width
-   row of their own. Below 700px that row is a panel behind a hamburger.
+/* The nav renders three ways: labels beside the wordmark above 1000px, on a
+   row of their own between 700px and 1000px, and behind a hamburger below.
    The toggle is a <label> for the visually hidden .site-menu-state checkbox
-   that sits just before the <nav>, so the open state is a sibling selector and
-   needs no JavaScript. It is a checkbox rather than <details> on purpose: the
-   same <nav> has to render inline above the breakpoint, and a closed <details>
-   hides its children through a slot CSS cannot reliably re-show. */
+   just before the <nav>, so the open state is a sibling selector and needs no
+   JavaScript. A checkbox rather than <details>, because the same <nav> has to
+   render inline above the breakpoint. */
 .site-menu-state,
 .site-menu-toggle {
   display: none;
@@ -347,13 +347,17 @@ strong {
   .site-header .wrap {
     gap: 10px 14px;
   }
-  .site-menu-state {
+  /* Both stay in the DOM: the checkbox drives the menu, and the word is its
+     accessible name. */
+  .site-menu-state,
+  .site-menu-text {
     position: absolute;
     width: 1px;
     height: 1px;
     margin: 0;
-    opacity: 0;
-    pointer-events: none;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .site-menu-toggle {
     display: flex;
@@ -372,16 +376,6 @@ strong {
   .site-menu-state:focus-visible + .site-menu-toggle {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
-  }
-  /* the toggle is an icon; its word is the accessible name of the checkbox
-     and must stay in the DOM, so it is hidden rather than removed */
-  .site-menu-text {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
   }
   .site-menu-bars {
     display: block;
@@ -445,14 +439,6 @@ strong {
 .hero p {
   margin-top: 18px;
 }
-.hero-art {
-  margin: 0;
-}
-.hero-art img {
-  display: block;
-  width: 100%;
-  border-radius: var(--radius);
-}
 @media (max-width: 780px) {
   .hero--split .wrap {
     grid-template-columns: 1fr;
@@ -484,13 +470,16 @@ strong {
   background: var(--accent-hover);
   border-color: var(--accent-hover);
 }
+/* The outlined secondary. Its border is --muted rather than --line, because it
+   sits on a band--alt where --line and --surface are the same grey. */
 .btn--quiet {
   background: transparent;
   color: var(--ink);
-  border-color: var(--line);
+  border-color: var(--muted);
 }
 .btn--quiet:hover {
-  background: var(--surface);
+  background: var(--card);
+  border-color: var(--ink);
 }
 .arrow {
   font-size: 15.5px;
@@ -514,7 +503,7 @@ strong {
 .card > * + * {
   margin-top: 12px;
 }
-/* Product icons: a line glyph in the accent, above the name it belongs to. */
+/* A line glyph in the accent, above the name it belongs to. */
 .icon {
   display: block;
   width: 30px;
@@ -530,24 +519,19 @@ strong {
 .card > .icon + h3 {
   margin-top: 0;
 }
-/* The two brand marks in #omnivor on the sustainability pages. Not part of the
-   five-glyph icon set: these are filled marks in each side's own colour, and
-   they are built from the same two parts on purpose, so the shapes carry the
-   contrast - Keera's C is open with the square at its mouth, Omnivor's O is
-   closed with the square sealed inside. Each sits inside its own <h3>, to the
-   left of the name, so the mark and the name read as one line - which is why
-   this one is 26px where the product icons above a name are 30px. */
+/* The two brand marks in #omnivor, each inside its own <h3> so the mark and the
+   name read as one line. Not part of the icon set: filled marks in each side's
+   own colour, and the shapes rather than the colours have to carry the
+   contrast. */
 .logo-head {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-/* The same row for the leaf beside the #partners <h2>: the one glyph that sits
-   left of a section heading rather than above a name. It aligns to the top
-   rather than the middle because an <h2> in a 34rem column wraps to two lines
-   and a leaf centred against both would float beside neither; at 1.15em its box
-   is within a hair of the first line's, so flex-start lands it on that line. It
-   is sized in em for the same reason - the heading itself is a clamp. */
+/* The same row for the leaf beside the #partners <h2>: the one glyph left of a
+   heading rather than above a name. It aligns top, so a heading that wraps
+   keeps the leaf on its first line, and it is sized in em because the heading
+   is a clamp. */
 .icon-head {
   display: flex;
   align-items: flex-start;
@@ -558,12 +542,9 @@ strong {
   width: 1.15em;
   height: 1.15em;
 }
-/* This is the one <h2> on the site that sits outside .prose, as a child of
-   .wrap: the 34rem reading measure is for paragraphs, and at 31px it is 30px
-   short of holding "Wie wir Infrastruktur-Partner wählen" and the leaf on one
-   line. Lifting it out puts it under .band > .wrap > * + *, which is the 28px
-   band rhythm rather than the 14px a heading wants over its own paragraph, so
-   the gap is restated here. */
+/* That <h2> is the one on the site outside .prose, so it and the leaf hold one
+   line. Out in .wrap it picks up the 28px band rhythm instead of the 14px a
+   heading wants over its own paragraph, so the gap is restated. */
 .icon-head + .prose {
   margin-top: 14px;
 }
@@ -584,8 +565,8 @@ strong {
 .card p {
   color: var(--muted);
 }
-/* A quieter card than the two product ones: a tinted panel with no border, so
-   the deployment options do not compete with the products above them. */
+/* A quieter card: a tinted panel with no border, so the deployment options do
+   not compete with the products above them. */
 .card--quiet {
   border-color: transparent;
   background: var(--surface);
@@ -618,17 +599,13 @@ strong {
 }
 
 /* ---------- diagrams ---------- */
-/* The diagrams are HTML and CSS rather than SVG on purpose: they reflow from a
-   row into a column instead of scrolling sideways, they inherit the colour
-   tokens in both schemes, and they stay readable to a screen reader in source
-   order. */
+/* The diagrams are HTML and CSS rather than SVG, so they reflow from a row into
+   a column, inherit the colour tokens in both schemes, and stay in source order
+   for a screen reader. */
 
-/* What Keera Code is, as a stack: the layers share their borders so the block
-   reads as one thing seen in cross-section rather than four loose cards. The
-   API layer carries the accent because it is the only layer a client touches. */
-.stack-fig {
-  margin: 0;
-}
+/* Labelled rows sharing their borders, so the block reads as one thing in
+   cross-section rather than as loose cards. The API row carries the accent
+   because it is the only one a client touches. */
 .stack {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -647,14 +624,6 @@ strong {
 .stack-layer--api {
   box-shadow: inset 3px 0 0 var(--accent);
 }
-.stack-label {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
 .stack-layer--api .stack-label {
   color: var(--accent);
 }
@@ -665,9 +634,6 @@ strong {
   color: var(--muted);
   font-size: 16px;
 }
-.stack-fig figcaption {
-  margin-top: 10px;
-}
 @media (max-width: 620px) {
   .stack-layer {
     grid-template-columns: 1fr;
@@ -676,7 +642,6 @@ strong {
 }
 
 .flow {
-  margin: 0;
   display: grid;
   grid-template-columns: 1fr auto minmax(0, 1.25fr) auto 1fr;
   align-items: stretch;
@@ -692,12 +657,6 @@ strong {
   border-color: var(--accent);
 }
 .flow-title {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--muted);
   margin-bottom: 12px;
 }
 .flow-stage--main .flow-title {
@@ -734,10 +693,12 @@ strong {
   font-size: 20px;
   line-height: 1;
 }
+/* In --ok, the way .sprawl-void is in --err: the same slot in the same kind of
+   diagram, saying the opposite thing. The two are a pair and move together. */
 .flow-branch {
   grid-column: 3;
   text-align: center;
-  color: var(--muted);
+  color: var(--ok);
   font-family: var(--mono);
   font-size: 12.5px;
 }
@@ -756,12 +717,89 @@ strong {
   }
 }
 
+/* Three teams, three ways out: the counter-image to #solution's one stack. The
+   crossing paths are the argument, and they are the one SVG among the diagrams,
+   because crossing diagonals are what HTML boxes cannot draw. */
+.sprawl {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr);
+  gap: 12px;
+}
+/* Equal rows on both sides, so a team and its providers line up with the ends
+   of the paths drawn between them. */
+.sprawl-side {
+  grid-row: 1;
+  display: grid;
+  grid-auto-rows: 1fr;
+  gap: 10px;
+}
+.sprawl > .sprawl-side:first-child {
+  grid-column: 1;
+}
+.sprawl > .sprawl-side:last-child {
+  grid-column: 3;
+}
+.sprawl-node {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 12px 16px;
+}
+.sprawl-node p + p {
+  margin-top: 2px;
+}
+.sprawl-name {
+  font-size: 16px;
+}
+.sprawl-meta {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+/* The viewBox stretches to the middle column, so the path ends stay on the node
+   rows at any width; non-scaling strokes keep the hairlines hairlines. */
+.sprawl-links {
+  grid-row: 1;
+  grid-column: 2;
+  width: 100%;
+  height: 100%;
+  /* the quietest thing in the figure. Opacity rather than a paler colour,
+     because a fourth grey would be a hex, right in only one scheme. */
+  color: var(--muted);
+  opacity: 0.55;
+}
+/* The mono line under the gap, the way .flow-branch hangs under the gateway. In
+   --err, because it is the one line in the figure that names a fault rather
+   than a fact. 6.1:1 on the light band, 8.7:1 on the dark one. */
+.sprawl-void {
+  grid-row: 2;
+  grid-column: 2;
+  text-align: center;
+  color: var(--err);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+/* Stacked, the two columns sit above each other and the paths join nothing, so
+   below 700px the figure goes. The whole figure, not just .sprawl: an empty
+   <figure> would leave the band's 28px rhythm as a gap under the cells. */
+@media (max-width: 700px) {
+  .sprawl-fig {
+    display: none;
+  }
+}
+
 /* Text beside an illustration. Same shape as the split hero, one band down. */
 .split {
   display: grid;
   gap: clamp(24px, 4vw, 44px);
   align-items: center;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+/* A portrait image runs half again as tall as the text beside it, so it is
+   capped and centred in its column. */
+.split--portrait .figure {
+  max-width: 360px;
+  justify-self: center;
 }
 @media (max-width: 780px) {
   .split {
@@ -777,8 +815,8 @@ strong {
   gap: 22px 32px;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 }
-/* Four-item groups read better two-up than as three plus an orphan: four
-   tracks of 240px do not fit the 1040px wrap. */
+/* Four items go two-up rather than three plus an orphan: four 240px tracks do
+   not fit the 1040px wrap. */
 .facts--four {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -797,7 +835,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   font-size: 15.5px;
-  min-width: 34rem;
+  min-width: var(--prose);
 }
 th,
 td {
@@ -807,12 +845,6 @@ td {
   border-bottom: 1px solid var(--line);
 }
 thead th {
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
   padding-bottom: 10px;
 }
 tbody th {
@@ -822,34 +854,42 @@ tbody th {
 td {
   color: var(--muted);
 }
-/* Short values like "dein Tenant" read worse broken over two lines
-   than the column reads narrow. */
+/* Short values read worse broken over two lines than the column reads narrow. */
 td.tight {
   white-space: nowrap;
 }
+/* The layer table's last column is the sovereignty page's whole argument in six
+   words, so it carries the page's own accent. :last-child rather than .tight,
+   so a row added without the nowrap class still gets it. */
+.layer-table td:last-child {
+  color: var(--accent);
+}
 
 /* ---------- figures ---------- */
-.figure {
-  margin: 0;
-}
-.figure img {
+/* Every image on the site but the header wordmark sits in a <figure> or in the
+   .cast grid. */
+figure img,
+.cast img {
   display: block;
   width: 100%;
-  border: 1px solid var(--line);
   border-radius: var(--radius);
 }
-.figure figcaption {
-  margin-top: 10px;
+.figure img,
+.comic img,
+.cast img {
+  border: 1px solid var(--line);
 }
 /* Cut-out artwork sits on the page background with no edge of its own - a
    border would frame the transparency, not the image. */
 .figure--plain img {
   border: 0;
 }
+figure figcaption {
+  margin-top: 10px;
+}
 /* The gateway screenshot is 1920px of small UI type: below 700px it scrolls
-   sideways instead of shrinking into a grey smudge. The scrollbar is left
-   visible on purpose - a hidden one leaves the right half of the shot
-   undiscoverable. */
+   sideways rather than shrinking into a grey smudge. The scrollbar stays
+   visible, or the right half of the shot is undiscoverable. */
 @media (max-width: 700px) {
   .figure--shot {
     overflow-x: auto;
@@ -861,14 +901,9 @@ td.tight {
 }
 
 /* ---------- faq ---------- */
-/* The eight questions at the foot of gateway.html, each a <details> the
-   visitor opens. It is a disclosure and not eight open answers because the
-   list is read by scanning the questions - eight answers at once would bury
-   the form under a wall of prose - and <details> is the one disclosure the
-   site can afford, since it needs no JavaScript. Unlike the header menu it can
-   be a <details>: nothing here has to render open above a breakpoint.
-   The native marker is kept rather than drawn: the icon set is closed at eight
-   glyphs, and a disclosure triangle is punctuation rather than one of them. */
+/* The questions at the foot of gateway.html and code.html, each a <details> the
+   visitor opens: the list is read by scanning the questions, and a disclosure
+   needs no JavaScript. The native marker is kept rather than drawn. */
 .faq {
   max-width: var(--prose);
   border-top: 1px solid var(--line);
@@ -885,8 +920,8 @@ td.tight {
 .faq summary:hover {
   color: var(--accent);
 }
-/* The answer hangs off the summary's own bottom padding, so only the gap under
-   it needs saying. */
+/* The answer hangs off the summary's bottom padding, so only the gap under it
+   needs saying. */
 .faq p {
   margin: 0 0 16px;
   color: var(--muted);
@@ -905,20 +940,11 @@ td.tight {
   margin-top: 14px;
   color: var(--muted);
 }
-/* One comic page per act: four rendered pages replaced the 24 single-panel
-   slots. The page is capped below its own pixel width so the lettering stays
-   sharp, and the narration survives as a per-page transcript in the
-   figcaption - a screen reader cannot read text baked into artwork, and the
-   captions are what carry the story's cross-references between panels. */
+/* One comic page per act, capped below its own pixel width so the lettering
+   stays sharp. The narration lives in a transcript in the figcaption: a screen
+   reader cannot read text baked into artwork. */
 .comic {
-  margin: 0;
   max-width: 860px;
-}
-.comic img {
-  display: block;
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
 }
 .comic figcaption {
   margin-top: 14px;
@@ -933,9 +959,9 @@ td.tight {
   letter-spacing: 0.08em;
   color: var(--ink);
 }
-/* decimal-leading-zero reproduces the 01-24 numbering the artwork itself
-   letters, and `start` on each <ol> keeps a page's transcript on its own
-   numbers - act IV's captions refer back to panels 05, 12 and 16 by number. */
+/* decimal-leading-zero reproduces the 01-24 numbering the artwork letters, and
+   `start` on each <ol> keeps a page's transcript on its own numbers - act IV's
+   captions refer back to earlier panels by number. */
 .script {
   margin: 16px 0 0;
   padding-left: 2.6em;
@@ -956,10 +982,6 @@ td.tight {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
 }
 .cast img {
-  display: block;
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
   margin-bottom: 12px;
 }
 .cast h3 {
@@ -977,7 +999,7 @@ td.tight {
 
 /* ---------- contact form ---------- */
 .form {
-  max-width: 34rem;
+  max-width: var(--prose);
 }
 .field + .field,
 .field + .choices,
@@ -987,12 +1009,6 @@ td.tight {
 }
 .label {
   display: block;
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
   margin-bottom: 6px;
 }
 .label span {

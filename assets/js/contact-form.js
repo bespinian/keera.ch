@@ -1,8 +1,7 @@
-/* The #contact form posts to Formspree over fetch, so submitting never leaves
-   the page. The handler is delegated off the document, and every message it
-   prints comes from the data-cf-* attributes on the form itself - so one file
-   serves all nine pages that carry a form, in all three languages. A submission
-   Formspree accepts is the lead-generation conversion Google Ads counts. */
+/* Submit handler for the #contact form: posts to Formspree over fetch so the
+   visitor never leaves the page. Every message comes from the data-cf-*
+   attributes on the form, so one file serves all nine forms in all three
+   languages. */
 (function () {
   var SEL = "form[data-contact-form]";
 
@@ -10,17 +9,15 @@
     var el = form.querySelector("[data-cf-status]");
     if (!el) return;
     el.textContent = form.getAttribute("data-cf-" + key) || "";
-    /* the colour comes from the stylesheet, so it follows the colour scheme */
     el.className = "form-status is-shown " + (ok ? "is-ok" : "is-error");
   }
 
   document.addEventListener("submit", function (ev) {
     var form = ev.target;
-    if (!form || typeof form.matches !== "function" || !form.matches(SEL))
-      return;
+    if (!form.matches || !form.matches(SEL)) return;
     ev.preventDefault();
 
-    /* "at least one of these" is the one rule the browser cannot check itself */
+    /* the one rule the browser cannot check itself */
     var group = form.querySelector("[data-cf-interest]");
     if (group && !group.querySelector("input:checked")) {
       say(form, "need-interest", false);
@@ -44,9 +41,9 @@
         if (fields) fields.style.display = "none";
         say(form, "sent", true);
         form.reset();
-        /* The lead exists only once Formspree has taken it, so this is the
-           one place the Google Ads conversion may fire. Guarded, because the
-           form has to keep working when the tag is blocked or absent. */
+        /* The lead exists once Formspree has taken it, so this is the one
+           place the Google Ads conversion fires. Guarded, because the form has
+           to keep working when the tag is blocked. */
         if (typeof gtag_report_conversion === "function")
           gtag_report_conversion();
       })
