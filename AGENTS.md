@@ -1,14 +1,15 @@
 # Keera Website
 
-Eighteen hand-written static content pages plus `404.html`, served off an
-Infomaniak Apache host with no build step. `.github/workflows/deploy.yml`
-mirrors the repo there over FTP on every push to `main`. `.htaccess` holds
-everything static files cannot express: the 404, the canonical host, the
-language redirect and the cache lifetimes.
+Eighteen hand-written static content pages plus `404.html`, served off GitHub
+Pages with no build step. `.github/workflows/deploy.yml` publishes the repo
+there on every push to `main`. The host runs no configuration of its own: what
+`.htaccess` used to express is now either a Pages setting, a Pages default, or
+gone - see the README.
 
 Markup carries classes only. The whole design lives in `assets/css/keera.css`.
-Two scripts run on the site: `assets/js/contact-form.js` on the nine pages with
-a form, and `assets/js/google-tag.js` on all eighteen content pages.
+Three scripts run on the site: `assets/js/contact-form.js` on the nine pages
+with a form, `assets/js/google-tag.js` on all eighteen content pages, and
+`assets/js/language.js` on the German home page alone.
 
 Never add inline `style` attributes, per-page `<style>` blocks, or client-side
 rendering. Write plain HTML with classes and put new rules in the stylesheet.
@@ -101,8 +102,10 @@ listed: nav, footer, home cards, form checkboxes, sitemap, opening sentence.
 
 ## Root files
 
-`robots.txt`, `sitemap.xml`, `llms.txt`, `404.html` and `.htaccess` sit at the
-root.
+`robots.txt`, `sitemap.xml`, `llms.txt`, `404.html` and `CNAME` sit at the
+root. `CNAME` holds the single line `keera.ch` and is what binds the custom
+domain to the deployment; it has to match the custom domain set under Settings
+-> Pages, and removing it takes the site off that name.
 
 The sitemap lists all eighteen content URLs with `xhtml:link` alternates and a
 `<lastmod>`. Regenerate it when a page is added, and touch the `<lastmod>` of
@@ -120,8 +123,8 @@ order.
 
 ## The 404 page
 
-`ErrorDocument 404 /404.html` serves one page for all three language trees, so
-it is built differently from the eighteen:
+GitHub Pages serves a root `404.html` for every missing path, in all three
+language trees, so this one page is built differently from the eighteen:
 
 - **Every URL in it is root-absolute** (`/assets/...`, `/code.html`, `/`),
   because it renders under the path that was requested. This is the one place
@@ -131,8 +134,9 @@ it is built differently from the eighteen:
 - **The three languages sit in the body.** No DE/FR/EN switcher; a `.facts`
   three-up under the hero carries one sentence and one home link per language,
   each in a `<div lang="...">`. The `<h1>` names all three.
-- Header, footer and nav labels stay German. No form, so it loads neither
-  script. It uses `keera-coding-on-a-laptop.webp` and adds no CSS.
+- Header, footer and nav labels stay German. No form and not the home page, so
+  it loads none of the three scripts. It uses `keera-coding-on-a-laptop.webp`
+  and adds no CSS.
 
 ## Languages
 
@@ -145,10 +149,17 @@ the current language unlinked, and four `rel="alternate" hreflang` links in
 `<head>` (`de`, `fr`, `en`, `x-default`, the last pointing at the German page).
 `<html lang>` is `de-CH`, `en` or `fr`.
 
-`.htaccess` negotiates the entry point, on the home page only: `Accept-Language`
-starting with `fr` gets a 302 to `/fr/`, `de` or `gsw` stays German, anything
-else goes to `/en/`. A request with no `Accept-Language`, and a request referred
-from this site, do not redirect. Subpages never negotiate.
+`assets/js/language.js` negotiates the entry point, on the German home page
+only: a first language tag of `fr` is replaced with `/fr/`, `de` or `gsw` stays
+German, anything else goes to `/en/`. A browser that names no language, and an
+arrival referred from this site, do not redirect; neither does a second arrival
+in the same session, so a click on DE in the switcher is not bounced back.
+Subpages and the two other home pages never negotiate.
+
+Apache did this server-side, and moving it into the page has one consequence
+worth knowing: a crawler that executes JavaScript and reports `en-US` now
+follows the redirect to `/en/`, where the header-less request the old rule saw
+stayed on the German root. `x-default` still points at the German page.
 
 Adding or editing a page means touching all three copies. Beyond the prose, only
 two things differ: asset URLs are `../assets/...`, and the switcher points at
@@ -513,8 +524,12 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   because an ad click lands wherever the ad points. **The file fetches gtag.js
   itself, on `load`**, so the ~120 KB third-party fetch lands after the paint;
   do not put a markup tag back. This is the site's only third-party request and
-  its only cookie, and it has no consent gate by decision. Nothing else on the
-  site runs JavaScript.
+  its only cookie, and it has no consent gate by decision.
+- `assets/js/language.js` - the Accept-Language redirect described under
+  **Languages**. `index.html` alone loads it, and **without `defer` and ahead of
+  the stylesheet**, because it has to run before the page paints; a deferred
+  copy would show a flash of German first. Nothing else on the site runs
+  JavaScript.
 - `assets/fonts/` - JetBrains Mono and Space Grotesk woff2 subsets, `latin` and
   `latin-ext` only, both variable-weight, so four `@font-face` rules cover the
   whole `font-weight: 400 700` range. Every head preloads the two `latin` cuts

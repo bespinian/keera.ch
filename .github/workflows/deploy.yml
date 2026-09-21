@@ -1,5 +1,6 @@
-# Deploys the static site to the Infomaniak web host over FTP
-name: Deploy static content via FTP
+# Publishes the repo as-is to GitHub Pages. There is no build step: the HTML,
+# CSS, fonts and artwork in this checkout are the site.
+name: Deploy static content to GitHub Pages
 
 on:
   push:
@@ -8,56 +9,47 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 # One deployment at a time. Queued runs are skipped, but a run in progress is
 # never cancelled.
 concurrency:
-  group: "ftp-deploy"
+  group: "pages"
   cancel-in-progress: false
-
-env:
-  FTP_HOST: h2park-8d750cc5.infomaniak.ch
-  FTP_PORT: "21"
-  FTP_USER: z27etf_github
-  REMOTE_DIR: "."
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Install lftp
+      # Pages publishes a whole directory, so the two files that document the
+      # repo rather than serve the site are left out of it. CNAME is not: it is
+      # what binds the custom domain to this deployment.
+      - name: Stage the site
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq lftp
+          mkdir -p _site
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '_site/' \
+            --exclude 'AGENTS.md' \
+            --exclude 'README.md' \
+            ./ _site/
 
-      # Only the uploaded copy carries the ?v=<content hash> stamps; the
-      # dirtied checkout is thrown away with the runner.
-      - name: Stamp cache-busting hashes onto asset URLs
-        run: python3 .github/scripts/fingerprint-assets.py
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
 
-      - name: Deploy via FTP
-        env:
-          LFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        run: |
-          # Two passes, and the order is load-bearing: a page must never go
-          # up citing an asset whose bytes are not there yet, or the browser
-          # caches the old file for a year under the new URL. The second pass
-          # carries --delete, so removed assets are still cleaned up.
-          lftp -c "
-            set net:max-retries 3;
-            set net:timeout 20;
-            set ftp:ssl-allow false;
-            open -u '$FTP_USER' --env-password ftp://$FTP_HOST:$FTP_PORT;
-            mirror --reverse --verbose --no-perms --parallel=2 \
-              ./assets $REMOTE_DIR/assets;
-            mirror --reverse --delete --verbose --no-perms --parallel=2 \
-              --exclude '^\.git' \
-              --exclude '^AGENTS\.md$' \
-              --exclude '^README\.md$' \
-              --exclude '^\.ftpquota$' \
-              --exclude '^\.well-known/' \
-              ./ $REMOTE_DIR;
-          "
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
