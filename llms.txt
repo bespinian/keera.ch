@@ -2,7 +2,7 @@
 
 > Keera is the AI stack bespinian runs in Switzerland: Keera Gateway, one
 > endpoint that decides who may use which model for what and logs every request,
-> and Keera Code, a coding agent on open-weight models running on Swiss GPUs.
+> and Keera Code, open-weight coding models running on Swiss GPUs.
 > Inference, logs and backups stay in Swiss data centres.
 
 The site is eighteen static pages in three languages. German is the default and

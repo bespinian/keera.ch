@@ -50,6 +50,12 @@ light/dark screenshot toggle.
 Keera Gateway is the more important product and comes first wherever the two are
 listed: nav, footer, home cards, form checkboxes, sitemap, opening sentence.
 
+That order is one story, and the whole site tells it: the gateway is the wedge,
+because it also governs the models a customer already pays for, and Keera Code
+is the next step. Nothing sells Keera as a coding agent - Keera Code is models,
+an API, an inference server and a place - so the footer line, the home hero and
+the home `og:image:alt` name the endpoint, never an agent.
+
 - `index.html` - hero, the problem (`#problem`), the endpoint that answers it
   (`#solution`), the two products, three deployment options, the story teaser,
   the form. Four visuals and no more: the hero, the `.sprawl` figure, the
@@ -361,10 +367,12 @@ Three answers must not be softened:
   path through policy, budget and log; Smart Filters and Smart Routers call a
   small model and cost more.
 
-The differentiator answer is the sovereignty argument in miniature - enterprise
-support from us, no client or library of its own, so the customer stays
-independent of us as well. Do not turn it into a comparison against a named
-competitor.
+The differentiator answer concedes first that routing is free as open source,
+then names the three things that do not come with a proxy - Swiss operation,
+enterprise support with a contact in Switzerland, the Keera models behind the
+endpoint - and closes on the sovereignty argument in miniature: no client or
+library of its own, so the customer stays independent of us as well. Do not turn
+it into a comparison against a named competitor.
 
 ### Keera Code's four
 
