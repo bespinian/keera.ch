@@ -9,8 +9,11 @@ and the shared files under `assets/`:
   pages with a form.
 - `assets/js/google-tag.js` - the Google Ads tag, on all eighteen content pages.
 - `assets/js/language.js` - the Accept-Language redirect, on `index.html` alone.
-  The site runs no other script.
 - `assets/fonts/`, `assets/img/` - woff2 subsets and artwork.
+
+The one script that is not a local file is the hosted Simple Analytics tag,
+`async` at the end of the body on all eighteen content pages. It is cookieless.
+The site runs nothing else.
 
 `robots.txt`, `sitemap.xml`, `llms.txt` and `CNAME` sit beside them at the root.
 `CNAME` holds `keera.ch` and is what binds the custom domain to the deployment;

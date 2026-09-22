@@ -7,9 +7,10 @@ there on every push to `main`. The host runs no configuration of its own: what
 gone - see the README.
 
 Markup carries classes only. The whole design lives in `assets/css/keera.css`.
-Three scripts run on the site: `assets/js/contact-form.js` on the nine pages
-with a form, `assets/js/google-tag.js` on all eighteen content pages, and
-`assets/js/language.js` on the German home page alone.
+Four scripts run on the site: `assets/js/contact-form.js` on the nine pages
+with a form, `assets/js/google-tag.js` and the hosted Simple Analytics tag on
+all eighteen content pages, and `assets/js/language.js` on the German home page
+alone.
 
 Never add inline `style` attributes, per-page `<style>` blocks, or client-side
 rendering. Write plain HTML with classes and put new rules in the stylesheet.
@@ -141,7 +142,8 @@ language trees, so this one page is built differently from the eighteen:
   three-up under the hero carries one sentence and one home link per language,
   each in a `<div lang="...">`. The `<h1>` names all three.
 - Header, footer and nav labels stay German. No form and not the home page, so
-  it loads none of the three scripts. It uses `keera-coding-on-a-laptop.webp`
+  it loads none of the four scripts, analytics included. It uses
+  `keera-coding-on-a-laptop.webp`
   and adds no CSS.
 
 ## Languages
@@ -531,13 +533,18 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   `defer` by all eighteen content pages, last in the head. It sits on every page
   because an ad click lands wherever the ad points. **The file fetches gtag.js
   itself, on `load`**, so the ~120 KB third-party fetch lands after the paint;
-  do not put a markup tag back. This is the site's only third-party request and
-  its only cookie, and it has no consent gate by decision.
+  do not put a markup tag back. It is the site's only cookie, and it has no
+  consent gate by decision.
+- **Simple Analytics** - `https://scripts.simpleanalyticscdn.com/latest.js`,
+  the one third-party script that is not a local file, because the vendor
+  serves it. It is the last thing in the body on all eighteen content pages,
+  `async` and unannotated. It sets no cookie and collects no personal data, so
+  it needs no consent gate either. Not on `404.html`.
 - `assets/js/language.js` - the Accept-Language redirect described under
   **Languages**. `index.html` alone loads it, and **without `defer` and ahead of
   the stylesheet**, because it has to run before the page paints; a deferred
-  copy would show a flash of German first. Nothing else on the site runs
-  JavaScript.
+  copy would show a flash of German first. Those three files plus the Simple
+  Analytics tag are all the JavaScript the site runs.
 - `assets/fonts/` - JetBrains Mono and Space Grotesk woff2 subsets, `latin` and
   `latin-ext` only, both variable-weight, so four `@font-face` rules cover the
   whole `font-weight: 400 700` range. Every head preloads the two `latin` cuts
