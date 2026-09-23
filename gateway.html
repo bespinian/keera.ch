@@ -400,14 +400,22 @@
             </p>
           </div>
           <figure class="figure figure--shot">
-            <img
-              src="assets/img/keera-gateway-sessions-dark.webp"
-              width="1920"
-              height="952"
-              alt="Der Sessions-Screen der Web-UI von Keera Gateway"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source
+                media="(max-width: 700px)"
+                srcset="assets/img/keera-gateway-live-map-narrow-dark.webp"
+                width="1410"
+                height="1621"
+              />
+              <img
+                src="assets/img/keera-gateway-live-map-dark.webp"
+                width="1920"
+                height="1092"
+                alt="Der Live-Map-Screen der Web-UI von Keera Gateway"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <figcaption class="note">
               Web-UI von Keera Gateway. Die Werte stammen aus einer
               Demo-Instanz.

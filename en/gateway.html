@@ -407,14 +407,22 @@
             </p>
           </div>
           <figure class="figure figure--shot">
-            <img
-              src="../assets/img/keera-gateway-sessions-dark.webp"
-              width="1920"
-              height="952"
-              alt="The sessions screen of the Keera Gateway web UI"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source
+                media="(max-width: 700px)"
+                srcset="../assets/img/keera-gateway-live-map-narrow-dark.webp"
+                width="1410"
+                height="1621"
+              />
+              <img
+                src="../assets/img/keera-gateway-live-map-dark.webp"
+                width="1920"
+                height="1092"
+                alt="The live map screen of the Keera Gateway web UI"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
             <figcaption class="note">
               The Keera Gateway web UI. The figures come from a demo instance.
             </figcaption>

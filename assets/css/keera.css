@@ -868,6 +868,9 @@ td.tight {
 /* ---------- figures ---------- */
 /* Every image on the site but the header wordmark sits in a <figure> or in the
    .cast grid. */
+figure picture {
+  display: block;
+}
 figure img,
 .cast img {
   display: block;
@@ -887,15 +890,17 @@ figure img,
 figure figcaption {
   margin-top: 10px;
 }
-/* The gateway screenshot is 1920px of small UI type: below 700px it scrolls
-   sideways rather than shrinking into a grey smudge. The scrollbar stays
-   visible, or the right half of the shot is undiscoverable. */
+/* The gateway screenshot is small UI type either way: below 700px the narrow
+   capture takes over and the frame scrolls sideways rather than shrinking into
+   a grey smudge. 700px is the width that capture was taken at, so it scrolls
+   only on a phone. The scrollbar stays visible, or the right half of the shot
+   is undiscoverable. */
 @media (max-width: 700px) {
   .figure--shot {
     overflow-x: auto;
   }
   .figure--shot img {
-    width: 860px;
+    width: 700px;
     max-width: none;
   }
 }
