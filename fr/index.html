@@ -6,7 +6,7 @@
     <title>Keera - la pile IA exploitée en Suisse</title>
     <meta
       name="description"
-      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Code fournit les modèles de codage. Les deux tournent dans des centres de données suisses."
+      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Engine exploite tout modèle ouvert. Les deux tournent dans des centres de données suisses."
     />
     <link rel="canonical" href="https://keera.ch/fr/" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/" />
@@ -62,7 +62,7 @@
     />
     <meta
       property="og:description"
-      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Code fournit les modèles de codage. Les deux tournent dans des centres de données suisses."
+      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Engine exploite tout modèle ouvert. Les deux tournent dans des centres de données suisses."
     />
     <meta
       property="og:image"
@@ -82,7 +82,7 @@
     />
     <meta
       name="twitter:description"
-      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Code fournit les modèles de codage. Les deux tournent dans des centres de données suisses."
+      content="Keera Gateway contrôle chaque LLM de l'entreprise, Keera Engine exploite tout modèle ouvert. Les deux tournent dans des centres de données suisses."
     />
     <meta
       name="twitter:image"
@@ -125,7 +125,7 @@
             "@id": "https://keera.ch/#website",
             "url": "https://keera.ch/",
             "name": "Keera",
-            "description": "Keera Gateway contrôle chaque LLM de l'entreprise, Keera Code fournit les modèles de codage. Les deux tournent dans des centres de données suisses.",
+            "description": "Keera Gateway contrôle chaque LLM de l'entreprise, Keera Engine exploite tout modèle ouvert. Les deux tournent dans des centres de données suisses.",
             "publisher": {
               "@id": "https://keera.ch/#organization"
             },
@@ -166,7 +166,7 @@
         >
         <nav class="site-nav" aria-label="Navigation principale">
           <a href="gateway.html">Keera Gateway</a
-          ><a href="code.html">Keera Code</a
+          ><a href="engine.html">Keera Engine</a
           ><a href="sovereignty.html">Souveraineté</a
           ><a href="sustainability.html">Durabilité</a
           ><a href="story.html">L'histoire</a>
@@ -182,7 +182,7 @@
               Un point d'accès unique pour chaque requête IA&nbsp;- vous décidez
               qui peut utiliser quel modèle, et comment, y compris chez les
               fournisseurs que vos équipes utilisent déjà. Et, si vous le
-              souhaitez, les modèles qui écrivent du code. Le tout dans des
+              souhaitez, le moteur pour les modèles ouverts. Le tout dans des
               centres de données suisses.
             </p>
             <p class="btn-row">
@@ -386,8 +386,8 @@
             <h2>D'abord la passerelle, ensuite les modèles</h2>
             <p>
               Commencez par la passerelle&nbsp;: elle pilote aussi les modèles
-              que vous avez déjà sous licence. Keera Code vient ensuite, quand
-              vous voulez les modèles de codage chez vous.
+              que vous avez déjà sous licence. Keera Engine vient ensuite, quand
+              vous voulez les modèles ouverts chez vous.
             </p>
           </div>
           <div class="grid grid--two">
@@ -431,17 +431,21 @@
                 stroke-linejoin="round"
                 aria-hidden="true"
               >
-                <path d="M4.5 7.5 9 12l-4.5 4.5"></path>
-                <path d="M12.5 16.5h7"></path>
+                <rect x="7" y="7" width="10" height="10" rx="1.5"></rect>
+                <path d="M10 3.5V7M14 3.5V7M10 17v3.5M14 17v3.5"></path>
+                <path d="M3.5 10H7M3.5 14H7M17 10h3.5M17 14h3.5"></path>
               </svg>
-              <h3>Keera Code</h3>
+              <h3>Keera Engine</h3>
               <p>
-                L'étape suivante&nbsp;: des modèles à poids ouverts sur des GPU
-                suisses&nbsp;- dans le terminal, dans l'IDE et dans le pipeline.
-                Tous les poids sous Apache-2.0&nbsp;: vous pouvez les emporter.
+                L'étape suivante&nbsp;: le moteur d'inférence pour tout modèle
+                ouvert, construit avec Kubernetes, vLLM et llm-d. Sur des GPU
+                suisses ou dans votre cluster, avec trois fine-tunes Keera dès
+                le premier jour.
               </p>
               <p>
-                <a class="arrow" href="code.html">Voir Keera Code &#x2794;</a>
+                <a class="arrow" href="engine.html"
+                  >Voir Keera Engine &#x2794;</a
+                >
               </p>
             </div>
           </div>
@@ -633,8 +637,8 @@
                   Keera Gateway</label
                 >
                 <label class="choice"
-                  ><input type="checkbox" name="Intérêt" value="Keera Code" />
-                  Keera Code</label
+                  ><input type="checkbox" name="Intérêt" value="Keera Engine" />
+                  Keera Engine</label
                 >
               </fieldset>
               <div class="field">
@@ -674,7 +678,7 @@
         </p>
         <nav aria-label="Navigation de pied de page">
           <a href="gateway.html">Keera Gateway</a
-          ><a href="code.html">Keera Code</a
+          ><a href="engine.html">Keera Engine</a
           ><a href="sovereignty.html">Souveraineté</a
           ><a href="sustainability.html">Durabilité</a
           ><a href="story.html">L'histoire</a><a href="./#contact">Contact</a

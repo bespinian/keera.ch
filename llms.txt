@@ -2,7 +2,8 @@
 
 > Keera is the AI stack bespinian runs in Switzerland: Keera Gateway, one
 > endpoint that decides who may use which model for what and logs every request,
-> and Keera Code, open-weight coding models running on Swiss GPUs.
+> and Keera Engine, the inference engine that runs any open model on Kubernetes,
+> vLLM and llm-d.
 > Inference, logs and backups stay in Swiss data centres.
 
 The site is eighteen static pages in three languages. German is the default and
@@ -17,12 +18,12 @@ is no failover to infrastructure outside Switzerland.
 
 ## Overview
 
-- [Keera](https://keera.ch/en/): Keera Gateway controls every model in the company, Keera Code brings the coding models. Both run in Swiss data centres.
+- [Keera](https://keera.ch/en/): Keera Gateway controls every LLM in the company, Keera Engine runs any open model. Both run in Swiss data centres.
 
 ## Products
 
 - [Keera Gateway](https://keera.ch/en/gateway.html): One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps. Carries the request-flow architecture, the six features and eight FAQ answers.
-- [Keera Code](https://keera.ch/en/code.html): Open-weight models for code, run on Swiss GPUs. In the terminal, in the IDE and in the pipeline. Carries the table of models offered.
+- [Keera Engine](https://keera.ch/en/engine.html): The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster. Carries the table of models offered.
 
 ## Background
 

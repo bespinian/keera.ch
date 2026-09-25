@@ -38,7 +38,7 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
   something the prose does not, or it is decoration.
 - **Keera stays.** The mascot and comic artwork are the point of difference. The
   four hero cut-outs sit in a bare `.hero-art` figure: the mascot with her gun
-  on the home page, Keera at her laptop on Keera Code, Keera striding through a
+  on the home page, Keera at her laptop on Keera Engine, Keera striding through a
   gate on Keera Gateway, Keera patching a rack on Souveränität. Every other page
   leads with one illustration of its own.
 
@@ -52,10 +52,12 @@ Keera Gateway is the more important product and comes first wherever the two are
 listed: nav, footer, home cards, form checkboxes, sitemap, opening sentence.
 
 That order is one story, and the whole site tells it: the gateway is the wedge,
-because it also governs the models a customer already pays for, and Keera Code
-is the next step. Nothing sells Keera as a coding agent - Keera Code is models,
-an API, an inference server and a place - so the footer line, the home hero and
-the home `og:image:alt` name the endpoint, never an agent.
+because it also governs the models a customer already pays for, and Keera Engine
+is the next step. Nothing sells Keera as a coding agent or as a set of models -
+Keera Engine is a model-agnostic inference engine that runs any open model on
+open technology (Kubernetes, vLLM, llm-d), and Keera's own fine-tunes are one
+option on it - so the footer line, the home hero and the home `og:image:alt`
+name the endpoint, never an agent.
 
 - `index.html` - hero, the problem (`#problem`), the endpoint that answers it
   (`#solution`), the two products, three deployment options, the story teaser,
@@ -91,12 +93,19 @@ the home `og:image:alt` name the endpoint, never an agent.
   site and gets no second sentence of framing. Those six names are the
   gateway's own: check the gateway repo before rewording one.
 
-- `code.html` - hero, what it is as a four-layer stack (`#what`), the model
-  table, where it plugs in beside the pair-programming illustration, four
-  questions (`#faq`), the form.
+- `engine.html` - hero, what it is as a four-layer stack (`#what`: API,
+  models, inference server, platform), the model table, the open technology we
+  run beside the pair-programming illustration, three questions (`#faq`), the
+  form.
+
+  The engine is **model-agnostic**: every place that names models says it runs
+  any open model vLLM can serve, and the three Keera fine-tunes are one option,
+  never the whole offer. It sits **behind** the gateway - the gateway routes to
+  it - and is never called a client of it. Its efficiency claims stay with what
+  vLLM and llm-d actually do (batching, cache-aware routing).
 - `sovereignty.html` - the layer table, three questions, what the gateway routes
   abroad and what it does not, the open-source stack. The argument is Keera
-  Gateway's; Keera Code is one client of it, not the subject. `.layer-table` is
+  Gateway's; Keera Engine is one backend behind it, not the subject. `.layer-table` is
   the site's one named table: its last column - _dein Tenant_, _nur CH_,
   _Schweiz_, _Bern_ - is in the accent, because those six words are the page's
   whole argument.
@@ -133,7 +142,7 @@ order.
 GitHub Pages serves a root `404.html` for every missing path, in all three
 language trees, so this one page is built differently from the eighteen:
 
-- **Every URL in it is root-absolute** (`/assets/...`, `/code.html`, `/`),
+- **Every URL in it is root-absolute** (`/assets/...`, `/engine.html`, `/`),
   because it renders under the path that was requested. This is the one place
   where `../assets/...` is wrong.
 - **It carries `noindex, follow`** and no canonical, `hreflang`, Open Graph or
@@ -189,7 +198,7 @@ that ship.
 
 ## Header and footer
 
-The header is one flex row: wordmark, five nav links (Gateway, Code,
+The header is one flex row: wordmark, five nav links (Gateway, Engine,
 Sovereignty, Sustainability, the story), and the DE/FR/EN switcher. No header
 CTA and no header Contact link.
 
@@ -217,7 +226,7 @@ Six line glyphs, all inline `<svg class="icon">` on a 24 viewBox, drawn with
 `stroke="currentColor"` and `aria-hidden`:
 
 - **The two products**, in the accent: an arrow through a gate for Keera
-  Gateway, a terminal prompt for Keera Code. Each appears twice per language -
+  Gateway, a chip for Keera Engine. Each appears twice per language -
   above the `<h3>` on the home product card, and above the eyebrow in that
   product's hero.
 - **The three deployment options** on `index.html#deploy`, in `--muted`: a cloud
@@ -334,11 +343,11 @@ claim_ section.
 
 ## The two FAQs
 
-`#faq` is the last section before the form on `gateway.html` and `code.html`,
+`#faq` is the last section before the form on `gateway.html` and `engine.html`,
 and nowhere else. Each is a heading, one sentence of framing, then a `.faq` list
 of `<details>`. The gateway asks eight, in a plain `.band` after `#features`;
-Keera Code asks four, in a `.band--alt` after the pair-programming split, which
-keeps that page's bands alternating down to the form.
+Keera Engine asks three, in a `.band--alt` after the pair-programming split,
+which keeps that page's bands alternating down to the form.
 
 `<details>` needs no JavaScript and keeps its native marker. The questions are
 plain `<summary>` text, not headings, so the JSON-LD is what carries the Q&A to
@@ -376,28 +385,33 @@ endpoint - and closes on the sovereignty argument in miniature: no client or
 library of its own, so the customer stays independent of us as well. Do not turn
 it into a comparison against a named competitor.
 
-### Keera Code's four
+### Keera Engine's three
 
 Same shape and the same JSON-LD rule, ordered for a different buyer: where the
-code goes first, then the two that decide adoption, then a coda handing the
+data goes first, then the one that decides adoption - whether open models are
+good enough - then a coda placing the engine behind the gateway and handing the
 reader to the other product and the form.
 
 Two answers are load-bearing:
 
 - **The perimeter answer keeps the same line between content and record.** The
-  code and the model's answer are not stored and nothing is trained on them; the
-  request is, in the customer's own log. "Nothing is logged" would contradict
+  prompts, code and the model's answer are not stored and nothing is trained on
+  them; the request is, in the customer's own log. "Nothing is logged" would contradict
   `gateway.html`.
 - **The open-weight answer concedes the benchmark.** On the hardest reasoning
   the large proprietary models are still ahead. The claim is that the customer
   keeps the choice, not that open weights win everywhere.
+- **The gateway answer says the engine is not a client.** It sits behind the
+  gateway and serves the open models the gateway routes to; the gateway decides
+  and logs, the engine computes.
 
 ## Models
 
-`#models` on `code.html` is one table - `MODELL / KONTEXT / IDEAL FÜR`, three
-Keera models and the customer's own fine-tune - then one sentence naming the
-upstreams (Qwen-Coder, Apertus) and the Apache-2.0 licence, then one mono
-footnote.
+`#models` on `engine.html` opens by saying the engine runs any open model vLLM
+can serve, then one table - `MODELL / KONTEXT / IDEAL FÜR`, three Keera
+fine-tunes, the customer's own fine-tune and a row for any other open model -
+then one sentence naming the upstreams (Qwen-Coder, Apertus) and the Apache-2.0
+licence, then one mono footnote.
 
 The footnote is load-bearing: the hosted models are proprietary, run on the
 provider's infrastructure rather than Swiss GPUs, are blocked by default, and a
@@ -434,7 +448,7 @@ Formspree puts field names straight into the notification mail, so they are
 localised: `Sprache`/`Language`/`Langue`, `Name`/`Unternehmen`/`Interesse`,
 `Name`/`Company`/`Interest`, `Nom`/`Entreprise`/`Intérêt`. `email` and `message`
 stay lowercase English. Interest is a checkbox group, not radios, so one visitor
-can ask about both products; on `code.html` and `gateway.html` the page's own
+can ask about both products; on `engine.html` and `gateway.html` the page's own
 product is `checked` and can be unticked.
 
 `assets/js/contact-form.js` takes the submit over: delegated off `document`,
@@ -508,7 +522,7 @@ sections need nothing new.
   `.card`, `.facts` (borderless three-up, `.facts--four` goes two-up),
   `.plain-list`, `.table-wrap` + plain `<table>` (`td.tight` keeps a short value
   on one line; `.layer-table` colours its last column in the accent by
-  `:last-child`, and `code.html`'s model table stays plain), `.figure`, `.faq`,
+  `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
   `.hero` / `.hero--split` / `.hero-art`, `.btn` / `.btn--quiet` / `.btn-row` /
   `.arrow`, the form controls (`.form`, `.field`, `.label`, `.input`,
   `.choices`, `.choice`, `.form-actions`, `.form-status` with `.is-shown` /
@@ -582,7 +596,7 @@ the directory form for the three home pages - `https://keera.ch/`, `/en/`,
 
 The JSON-LD is one `@graph` per page: `Organization` + `WebSite` on the home
 pages, `BreadcrumbList` on the subpages, plus `SoftwareApplication` and
-`FAQPage` on `code.html` and `gateway.html`.
+`FAQPage` on `engine.html` and `gateway.html`.
 
 Keera has no social or directory profiles, so its `Organization` carries no
 `sameAs`; `parentOrganization` points at bespinian's. Give Keera its own

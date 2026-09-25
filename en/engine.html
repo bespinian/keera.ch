@@ -3,19 +3,27 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Code - coding models on Swiss GPUs</title>
+    <title>Keera Engine - open models, run efficiently</title>
     <meta
       name="description"
-      content="Open-weight models for code, run on Swiss GPUs. In the terminal, in the IDE and in the pipeline."
+      content="The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
     />
-    <link rel="canonical" href="https://keera.ch/en/code.html" />
-    <link rel="alternate" hreflang="de" href="https://keera.ch/code.html" />
-    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/code.html" />
-    <link rel="alternate" hreflang="en" href="https://keera.ch/en/code.html" />
+    <link rel="canonical" href="https://keera.ch/en/engine.html" />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/engine.html" />
+    <link
+      rel="alternate"
+      hreflang="fr"
+      href="https://keera.ch/fr/engine.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href="https://keera.ch/en/engine.html"
+    />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://keera.ch/code.html"
+      href="https://keera.ch/engine.html"
     />
     <!-- The LCP element, discovered down in the body and so asked for after the
          fonts and the stylesheet named above it. GitHub Pages serves HTTP/2, so
@@ -59,18 +67,18 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Keera" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:url" content="https://keera.ch/en/code.html" />
+    <meta property="og:url" content="https://keera.ch/en/engine.html" />
     <meta
       property="og:title"
-      content="Keera Code - coding models on Swiss GPUs"
+      content="Keera Engine - open models, run efficiently"
     />
     <meta
       property="og:description"
-      content="Open-weight models for code, run on Swiss GPUs. In the terminal, in the IDE and in the pipeline."
+      content="The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
     />
     <meta
       property="og:image"
-      content="https://keera.ch/assets/img/keera-og-code.jpg"
+      content="https://keera.ch/assets/img/keera-og-engine.jpg"
     />
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
@@ -79,15 +87,15 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Keera Code - coding models on Swiss GPUs"
+      content="Keera Engine - open models, run efficiently"
     />
     <meta
       name="twitter:description"
-      content="Open-weight models for code, run on Swiss GPUs. In the terminal, in the IDE and in the pipeline."
+      content="The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
     />
     <meta
       name="twitter:image"
-      content="https://keera.ch/assets/img/keera-og-code.jpg"
+      content="https://keera.ch/assets/img/keera-og-engine.jpg"
     />
     <script type="application/ld+json">
       {
@@ -105,18 +113,18 @@
               {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Keera Code",
-                "item": "https://keera.ch/en/code.html"
+                "name": "Keera Engine",
+                "item": "https://keera.ch/en/engine.html"
               }
             ]
           },
           {
             "@type": "SoftwareApplication",
-            "name": "Keera Code",
+            "name": "Keera Engine",
             "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Linux, macOS, Windows",
-            "url": "https://keera.ch/en/code.html",
-            "description": "Open-weight models for code, run on Swiss GPUs. In the terminal, in the IDE and in the pipeline.",
+            "operatingSystem": "Kubernetes",
+            "url": "https://keera.ch/en/engine.html",
+            "description": "The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.",
             "publisher": {
               "@id": "https://keera.ch/#organization"
             }
@@ -126,18 +134,10 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Does my code leave the building?",
+                "name": "Does my data leave the building?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. The models run on Swiss GPUs or in your own racks; your code goes there for inference and comes back. It is not stored, the model's answer is not stored, and nothing is trained on either."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Does it run in my IDE?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "CLI, VS Code, JetBrains, headless in the pipeline. All of it hangs off the same OpenAI-compatible base URL - no client of our own, no new SDK, no plugin for someone to maintain. You change one base URL and carry on as before."
+                  "text": "No. The models run on Swiss GPUs or in your own racks; prompts and code go there for inference and come back. They are not stored, the model's answer is not stored, and nothing is trained on either. What is kept is the request itself - who, when, which model - in the log in your own infrastructure."
                 }
               },
               {
@@ -153,7 +153,7 @@
                 "name": "How does this fit with Keera Gateway?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Keera Code is a client, Keera Gateway is the endpoint its requests pass through: the same policies and the same audit log as every other AI application in the house. You can start with one team on Keera Code and put the gateway in front of everything else later - or the other way round."
+                  "text": "Keera Engine sits behind the gateway and runs the open models the gateway routes to. The gateway decides who may use which model and writes every request to the audit log; the engine computes the answer. You can start with the gateway and the providers you already have, and add the engine once the models should move in-house."
                 }
               }
             ]
@@ -179,14 +179,14 @@
         >
         <span class="lang"
           ><a
-            href="../code.html"
+            href="../engine.html"
             lang="de"
             hreflang="de"
             title="Diese Seite auf Deutsch"
             >DE</a
           ><span aria-hidden="true">/</span
           ><a
-            href="../fr/code.html"
+            href="../fr/engine.html"
             lang="fr"
             hreflang="fr"
             title="Cette page en français"
@@ -201,7 +201,7 @@
         >
         <nav class="site-nav" aria-label="Main navigation">
           <a href="gateway.html">Keera Gateway</a
-          ><a href="code.html" aria-current="page">Keera Code</a
+          ><a href="engine.html" aria-current="page">Keera Engine</a
           ><a href="sovereignty.html">Sovereignty</a
           ><a href="sustainability.html">Sustainability</a
           ><a href="story.html">The story</a>
@@ -222,15 +222,17 @@
               stroke-linejoin="round"
               aria-hidden="true"
             >
-              <path d="M4.5 7.5 9 12l-4.5 4.5"></path>
-              <path d="M12.5 16.5h7"></path>
+              <rect x="7" y="7" width="10" height="10" rx="1.5"></rect>
+              <path d="M10 3.5V7M14 3.5V7M10 17v3.5M14 17v3.5"></path>
+              <path d="M3.5 10H7M3.5 14H7M17 10h3.5M17 14h3.5"></path>
             </svg>
-            <p class="eyebrow">Keera Code</p>
-            <h1>Coding models that stay inside your perimeter</h1>
+            <p class="eyebrow">Keera Engine</p>
+            <h1>Open models, run efficiently</h1>
             <p class="lede">
-              Plan, change across file boundaries, run the test suite, open the
-              merge request. In the terminal or in the IDE - and every action
-              belongs to a person with a name.
+              Keera Engine is the inference engine behind the gateway. It runs
+              any open model on open technology - Kubernetes, vLLM and llm-d -
+              on Swiss GPUs or in your own cluster. More answers per GPU, and no
+              layer is a black box.
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Try Keera</a>
@@ -255,11 +257,12 @@
       <section class="band" id="what">
         <div class="wrap">
           <div class="prose">
-            <h2>What Keera Code is</h2>
+            <h2>What Keera Engine is</h2>
             <p class="lede">
-              A set of open-weight models that write code, run on Swiss GPUs or
-              in your own data centre. On top of them sits an ordinary API:
-              whatever talks to OpenAI today talks to Keera tomorrow.
+              An inference engine built from open parts: Kubernetes schedules
+              the GPUs, vLLM and llm-d serve the requests, open models run on
+              top. Above it all sits an ordinary API - whatever talks to OpenAI
+              today talks to Keera tomorrow.
             </p>
           </div>
           <figure class="stack-fig">
@@ -275,24 +278,25 @@
               <div class="stack-layer">
                 <p class="stack-label">The models</p>
                 <p class="stack-text">
-                  Open weights, tuned for code. You can read what is inside
-                  them, and download them and take them with you whenever you
-                  like.
+                  Model-agnostic: any open model vLLM can serve, plus three
+                  Keera fine-tunes and your own. You can read what is inside
+                  them and take all of it with you whenever you like.
                 </p>
               </div>
               <div class="stack-layer">
                 <p class="stack-label">The inference server</p>
                 <p class="stack-text">
-                  vLLM and llm-d spread the requests across many GPUs. That
-                  keeps answers fast even when several teams are working at
-                  once.
+                  vLLM batches many requests onto one GPU. llm-d sends each one
+                  to where its context already sits in cache. The same hardware
+                  computes more tokens.
                 </p>
               </div>
               <div class="stack-layer">
-                <p class="stack-label">The place</p>
+                <p class="stack-label">The platform</p>
                 <p class="stack-text">
-                  Swiss data centres - or your own racks, with no internet at
-                  all if that is what you need.
+                  Kubernetes places the models on the GPUs and scales them with
+                  the load. In Swiss data centres or in your own racks, with no
+                  internet at all if that is what you need.
                 </p>
               </div>
             </div>
@@ -308,9 +312,11 @@
           <div class="prose">
             <h2>The models</h2>
             <p>
-              Open-weight models, tuned for code, run on Swiss GPUs. Pick one
-              per workspace - or let the gateway route: small changes to the
-              fast model, hard reasoning to the strong one.
+              The engine runs any open model vLLM can serve - Qwen, Llama,
+              Mistral, Apertus or your own fine-tune. Three fine-tunes of ours
+              run from day one. Pick one per workspace - or let the gateway
+              route: small tasks to the fast model, hard reasoning to the strong
+              one.
             </p>
           </div>
           <div class="table-wrap">
@@ -343,6 +349,11 @@
                   <td>-</td>
                   <td>Internal frameworks and legacy code</td>
                 </tr>
+                <tr>
+                  <th scope="row">Any other open model</th>
+                  <td>-</td>
+                  <td>Whatever your use case needs</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -364,17 +375,17 @@
         <div class="wrap">
           <div class="split">
             <div class="prose">
-              <h2>Where your engineers already work</h2>
+              <h2>Open technology, run by us</h2>
               <p>
-                CLI, VS Code, JetBrains and headless in the pipeline - all
-                through one OpenAI-compatible base URL. Your MCP servers,
-                internal APIs and tools are declared per project in
-                <span class="mono">AGENTS.md</span>.
+                Kubernetes, vLLM and llm-d are open source and widely used. We
+                reinvent none of it. We tune the parts to each other and run
+                them - in Swiss data centres, or together with your team in your
+                own cluster.
               </p>
               <p>
-                Every token Keera Code spends runs through
-                <a href="gateway.html">Keera Gateway</a>: the same policies and
-                the same audit log as everywhere else.
+                Every token the engine computes passes through
+                <a href="gateway.html">Keera Gateway</a> first: the same
+                policies and the same audit log as everywhere else.
               </p>
             </div>
             <figure class="figure figure--plain">
@@ -395,25 +406,19 @@
           <div class="prose">
             <h2>Common questions</h2>
             <p>
-              What engineering teams ask us most before they try Keera Code.
+              What platform and engineering teams ask us most before they try
+              Keera Engine.
             </p>
           </div>
           <div class="faq">
             <details>
-              <summary>Does my code leave the building?</summary>
+              <summary>Does my data leave the building?</summary>
               <p>
-                No. The models run on Swiss GPUs or in your own racks; your code
-                goes there for inference and comes back. It is not stored, the
-                model's answer is not stored, and nothing is trained on either.
-              </p>
-            </details>
-            <details>
-              <summary>Does it run in my IDE?</summary>
-              <p>
-                CLI, VS Code, JetBrains, headless in the pipeline. All of it
-                hangs off the same OpenAI-compatible base URL - no client of our
-                own, no new SDK, no plugin for someone to maintain. You change
-                one base URL and carry on as before.
+                No. The models run on Swiss GPUs or in your own racks; prompts
+                and code go there for inference and come back. They are not
+                stored, the model's answer is not stored, and nothing is trained
+                on either. What is kept is the request itself - who, when, which
+                model - in the log in your own infrastructure.
               </p>
             </details>
             <details>
@@ -430,11 +435,12 @@
             <details>
               <summary>How does this fit with Keera Gateway?</summary>
               <p>
-                Keera Code is a client, Keera Gateway is the endpoint its
-                requests pass through: the same policies and the same audit log
-                as every other AI application in the house. You can start with
-                one team on Keera Code and put the gateway in front of
-                everything else later - or the other way round.
+                Keera Engine sits behind the gateway and runs the open models
+                the gateway routes to. The gateway decides who may use which
+                model and writes every request to the audit log; the engine
+                computes the answer. You can start with the gateway and the
+                providers you already have, and add the engine once the models
+                should move in-house.
               </p>
             </details>
           </div>
@@ -445,8 +451,8 @@
           <div class="prose">
             <h2>Try Keera</h2>
             <p class="lede">
-              We onboard one team, connect it to your repos and hand you the
-              numbers. After 30 days you decide.
+              We put one team on the engine, measure throughput and cost with
+              you and hand you the numbers. After 30 days you decide.
             </p>
           </div>
           <form
@@ -522,10 +528,10 @@
                   ><input
                     type="checkbox"
                     name="Interest"
-                    value="Keera Code"
+                    value="Keera Engine"
                     checked
                   />
-                  Keera Code</label
+                  Keera Engine</label
                 >
               </fieldset>
               <div class="field">
@@ -564,7 +570,7 @@
         </p>
         <nav aria-label="Footer navigation">
           <a href="gateway.html">Keera Gateway</a
-          ><a href="code.html">Keera Code</a
+          ><a href="engine.html">Keera Engine</a
           ><a href="sovereignty.html">Sovereignty</a
           ><a href="sustainability.html">Sustainability</a
           ><a href="story.html">The story</a><a href="./#contact">Contact</a

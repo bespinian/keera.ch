@@ -906,9 +906,9 @@ figure figcaption {
 }
 
 /* ---------- faq ---------- */
-/* The questions at the foot of gateway.html and code.html, each a <details> the
-   visitor opens: the list is read by scanning the questions, and a disclosure
-   needs no JavaScript. The native marker is kept rather than drawn. */
+/* The questions at the foot of gateway.html and engine.html, each a <details>
+   the visitor opens: the list is read by scanning the questions, and a
+   disclosure needs no JavaScript. The native marker is kept rather than drawn. */
 .faq {
   max-width: var(--prose);
   border-top: 1px solid var(--line);
