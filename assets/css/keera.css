@@ -1,4 +1,4 @@
-/* Keera - one stylesheet for all nineteen pages.
+/* Keera - one stylesheet for the eighteen content pages and 404.html.
    Quiet, one accent, light or dark from the viewer's system setting. Layout is
    a single column: .wrap for full-width bands, .prose for anything meant to be
    read. Pages carry classes only - no inline styles. */
@@ -69,7 +69,7 @@
   /* Read by the Omnivor brand mark in #omnivor, and by nothing else. */
   --omnivor: #c0271d;
   /* Read by the .theme-leaf block below, and by nothing else. */
-  --leaf: #1d7a44;
+  --leaf: #18693a;
   --sans:
     "Space Grotesk", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
     sans-serif;
@@ -105,7 +105,7 @@
    using, so only the hover shade needs saying twice. */
 .theme-leaf {
   --accent: var(--leaf);
-  --accent-hover: #16603a;
+  --accent-hover: #135432;
 }
 @media (prefers-color-scheme: dark) {
   .theme-leaf {
@@ -596,6 +596,30 @@ thead th,
   width: 8px;
   height: 1px;
   background: var(--muted);
+}
+
+/* The partner wordmarks on sovereignty.html#infrastructure, each a link to the
+   partner. They take --ink rather than their own colours: every colour goes
+   through a token, and a partner's brand is not a second accent. A wrapping
+   row, so a second partner needs no new rule. */
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px 48px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.partners a {
+  display: block;
+  color: var(--ink);
+}
+.partners a:hover {
+  color: var(--accent);
+}
+.partners svg {
+  display: block;
 }
 
 /* ---------- diagrams ---------- */
@@ -1128,9 +1152,12 @@ textarea.input {
     --muted: #3f4650;
     --line: #d9dde2;
     --accent: #1657c8;
+    --accent-hover: #0f47a8;
     --btn-ink: #ffffff;
+    --ok: #166534;
+    --err: #b42318;
     --omnivor: #c0271d;
-    --leaf: #1d7a44;
+    --leaf: #18693a;
   }
   .site-header,
   .site-footer,

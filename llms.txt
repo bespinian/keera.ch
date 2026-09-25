@@ -12,9 +12,11 @@ carries the same filename in all three: `gateway.html` is `/gateway.html`,
 `/fr/gateway.html` and `/en/gateway.html`. The links below point at the English
 copies; every page links its alternates with `rel="alternate" hreflang` in its head.
 
-Claims the site makes and stands behind: every model is open weight and
-portable, prompts and repository context are never used for training, and there
-is no failover to infrastructure outside Switzerland.
+Claims the site makes and stands behind: Keera Engine runs open-weight models on
+Swiss GPUs, so they stay portable; a hosted model abroad is blocked by default
+and opened per team and data class; prompts and the model's answers are never
+stored or used for training; and at peak, requests queue in Switzerland rather
+than failing over abroad.
 
 ## Overview
 

@@ -44,7 +44,10 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
 
 Do not add: logo strips, fake terminal sessions, benefit grids, integration
 cards, pricing tiers, customer quotes, hosted-provider model tables, or a
-light/dark screenshot toggle.
+light/dark screenshot toggle. The partner row on
+`sovereignty.html#infrastructure` is not a logo strip: it names the companies
+whose hardware Keera runs on, so a reader can check them, and nobody else goes
+in it.
 
 ## Pages
 
@@ -103,12 +106,22 @@ name the endpoint, never an agent.
   never the whole offer. It sits **behind** the gateway - the gateway routes to
   it - and is never called a client of it. Its efficiency claims stay with what
   vLLM and llm-d actually do (batching, cache-aware routing).
+
 - `sovereignty.html` - the layer table, three questions, what the gateway routes
-  abroad and what it does not, the open-source stack. The argument is Keera
+  abroad and what it does not, the open-source stack, and who runs the hardware
+  (`#infrastructure`). The argument is Keera
   Gateway's; Keera Engine is one backend behind it, not the subject. `.layer-table` is
   the site's one named table: its last column - _dein Tenant_, _nur CH_,
   _Schweiz_, _Bern_ - is in the accent, because those six words are the page's
   whole argument.
+
+  `#infrastructure` names the Swiss infrastructure and inference partners so the reader can put them on the risk
+  questionnaire the closing band asks for. Its prose says _partners_, plural,
+  so a second one is a new `<li>` in `.partners` and a changed name in the
+  sentence, nothing else. It claims only that the partner is Swiss and runs
+  data centres, GPUs and inference; not ownership, not the energy mix. Adding
+  it made the closing questionnaire band a `.band--alt`.
+
 - `sustainability.html` - two levers and one story: how we pick infrastructure
   partners (`#partners`), how Keera spends fewer tokens (`#tokens`), the Omnivor
   contrast, what we claim and what we do not. Swiss hosting is a fact here, not
@@ -134,7 +147,7 @@ summary, a few lines of orientation, then `## Overview`, `## Products`,
 links. It is Markdown despite the `.txt` name. Only the six English URLs are in
 it, with the German and French home pages under `## Optional`. The descriptions
 are the pages' own `<meta name="description">` strings, so a reworded
-description belongs in both places. Keep the products in gateway-then-code
+description belongs in both places. Keep the products in gateway-then-engine
 order.
 
 ## The 404 page
@@ -218,7 +231,8 @@ so the menu needs no JavaScript. Three things are load-bearing:
   hidden with a clip, and is localised (`Menü` / `Menu` / `Menu`).
 
 The footer is one line of prose, one row of links (the five pages, Contact,
-Imprint) and one mono line with the copyright and the inference regions.
+Imprint) and one mono line with the copyright and the city (`© 2026 bespinian ·
+Bern`, `Berne` in French).
 
 ## Icons
 
@@ -249,6 +263,14 @@ and the shapes have to carry the contrast on their own, because red against
 green is the one pair a colour deficiency flattens. Never let colour be the only
 thing telling the two apart.
 
+The partner wordmarks in `sovereignty.html#infrastructure` are a third kind:
+inline SVG in `fill="currentColor"`, coloured `--ink` by `.partners` and never
+in the partner's own colours, each a link to the partner with `role="img"` and
+an `aria-label` naming it. The stepping stone master sits in `artwork/`; its
+exported viewBox is wrong and its colours come from its own site's CSS, so the
+page copy is re-cropped to the path bounds (`0 0 107.29 56.77`) and rounded to
+two decimals. Keep the three copies identical.
+
 The `#partners` `<h2>` is **the one heading on the site outside `.prose`**, as a
 direct child of `.wrap`, so it and the leaf hold one line. Do not move any other
 heading out to match.
@@ -261,7 +283,7 @@ heading out to match.
 traveller, witness again, builder. She is there from the first panel, not only
 at the end.
 
-**Cache** is her sidekick, a male cat who lives in the server room, and he *is*
+**Cache** is her sidekick, a male cat who lives in the server room, and he _is_
 the audit trail: he stares at the wall in panel 05 and someone scratches his
 ears; in panel 22 the staring finally has something to point at - a ledger Keera
 built for him. That pairing is the story's payoff. He is male in all three
@@ -345,9 +367,10 @@ claim_ section.
 
 `#faq` is the last section before the form on `gateway.html` and `engine.html`,
 and nowhere else. Each is a heading, one sentence of framing, then a `.faq` list
-of `<details>`. The gateway asks eight, in a plain `.band` after `#features`;
-Keera Engine asks three, in a `.band--alt` after the pair-programming split,
-which keeps that page's bands alternating down to the form.
+of `<details>`. The gateway asks eight, in a plain `.band` after `#features`,
+with its form in a `.band--alt` below; Keera Engine asks three, in a
+`.band--alt` after the pair-programming split. Both pages' bands alternate down
+to the form.
 
 `<details>` needs no JavaScript and keeps its native marker. The questions are
 plain `<summary>` text, not headings, so the JSON-LD is what carries the Q&A to
@@ -392,7 +415,7 @@ data goes first, then the one that decides adoption - whether open models are
 good enough - then a coda placing the engine behind the gateway and handing the
 reader to the other product and the form.
 
-Two answers are load-bearing:
+Three answers are load-bearing:
 
 - **The perimeter answer keeps the same line between content and record.** The
   prompts, code and the model's answer are not stored and nothing is trained on
@@ -425,16 +448,20 @@ two pages move together.
 `#web-ui` sits between `#security` and `#features`: a heading, two paragraphs
 written off the pixels, the shot in a bordered `figure.figure--shot`, and a mono
 caption. The first paragraph is control - web UI and CLI writing the same
-versioned policy - and the second is visibility: tokens, cost and refused
-requests per team, model and period, in the browser or as CSV. That second
-paragraph is the page's only observability claim and stays. The caption says the
-figures come from a demo instance.
+versioned policy - and the second is visibility: the live map's line where a
+request leaves the network and what ends up outside, then tokens, cost and
+refused requests per team, model and period, in the browser or as CSV. That
+second paragraph is the page's only observability claim and stays. The caption
+says the figures come from a demo instance.
 
-Only the dark shot ships (`keera-gateway-sessions-dark.webp`, 1920×952). Below
-700px the frame scrolls sideways rather than shrinking. A replacement wants the
-window artefacts cleaned off the master, a resize to 1920 wide, `cwebp -q 92`
-(small UI type, not illustration), and its own `width`/`height` read off the
-encoded file - and a re-read of both paragraphs.
+The shot is the live map, dark only, as a `<picture>`:
+`keera-gateway-live-map-dark.webp` (1920×1092) above 700px and the portrait
+`keera-gateway-live-map-narrow-dark.webp` (1410×1621, captured at 700px) below.
+On a phone that narrow capture is held at 700px and the frame scrolls sideways,
+because at full phone width its body text drops to about 5px. A replacement
+wants the window artefacts cleaned off the master, a resize to 1920 wide,
+`cwebp -q 92` (small UI type, not illustration), and its own `width`/`height`
+read off the encoded file - and a re-read of both paragraphs.
 
 ## Contact form
 
@@ -479,10 +506,11 @@ sections need nothing new.
 - **Dark scheme**: one `@media (prefers-color-scheme: dark)` block redefining
   those thirteen colours and nothing else. It follows the system setting; there
   is no toggle. `:root` carries `color-scheme: light dark`. `@media print` puts
-  the light values back.
+  the light values back, with `--muted` and `--line` a step darker for paper.
 - **Contrast**: every text-on-ground pair is at least 5.5:1 in light and 6.7:1
   in dark; button ink on `--accent` is 6.5:1 / 8:1. Recheck if you retune a
-  colour - `--muted` and `--accent` have the least headroom.
+  colour - `--muted` and `--accent` have the least headroom, and the green
+  `--leaf` counts too, since it stands in for `--accent` on three pages.
 - **Layout**: `.wrap` centres and pads a band, `.prose` caps a text column at
   34rem, `.band` is a section with a hairline top border, `.band--alt` adds the
   grey ground. Bands alternate white and grey down the page.
@@ -514,13 +542,13 @@ sections need nothing new.
   and centres it.
 - **`.icon`**: the 30px glyph, coloured from `--accent`.
 - **`.card--quiet`**: a borderless card on a `--surface` tint with a `--muted`
-  icon, for the deployment options. Its fill *is* `--surface`, so it only reads
+  icon, for the deployment options. Its fill _is_ `--surface`, so it only reads
   as a card on a plain white `.band` - `index.html#deploy` therefore keeps a
   white band, and the home page's alternation is laid out around that fixed
   point.
 - **Blocks**: `.grid` (auto-fit cards, `.grid--two` for the two product cards),
   `.card`, `.facts` (borderless three-up, `.facts--four` goes two-up),
-  `.plain-list`, `.table-wrap` + plain `<table>` (`td.tight` keeps a short value
+  `.plain-list`, `.partners`, `.table-wrap` + plain `<table>` (`td.tight` keeps a short value
   on one line; `.layer-table` colours its last column in the accent by
   `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
   `.hero` / `.hero--split` / `.hero-art`, `.btn` / `.btn--quiet` / `.btn-row` /
@@ -571,7 +599,8 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   `artwork/` outside this repo. Re-encoding means re-exporting the source, then
   `magick <src> -resize <w>x\> -strip tmp.png && cwebp -q 82 -alpha_q 90 -m 6`.
   `keera-og-image.jpg` is the 1200×630 social card and
-  `keera-apple-touch-icon.png` the 180×180 iOS icon. Every rendition in the
+  `keera-apple-touch-icon.png` the 256×256 iOS icon, which the JSON-LD also names
+  as the logo. Every rendition in the
   folder is referenced by a page - the deploy mirrors the whole folder, so do
   not leave spares behind.
 
@@ -579,7 +608,7 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   pixel size, `alt`, `decoding="async"`, and either `loading="lazy"` or, for
   heroes, `fetchpriority="high"`. Crop and corners come from the stylesheet.
   **Every head preloads its own hero image** (`<link rel="preload" as="image"
-  fetchpriority="high">`) as the first hint in the head, ahead of the fonts. The
+fetchpriority="high">`) as the first hint in the head, ahead of the fonts. The
   preload `href` must match the `<img src>` exactly, or the image downloads
   twice - a page that changes its hero changes both.
 

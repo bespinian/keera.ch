@@ -38,7 +38,7 @@
       .then(function (res) {
         if (!res.ok) throw new Error("formspree: " + res.status);
         var fields = form.querySelector("[data-cf-fields]");
-        if (fields) fields.style.display = "none";
+        if (fields) fields.hidden = true;
         say(form, "sent", true);
         form.reset();
         /* The lead exists once Formspree has taken it, so this is the one
