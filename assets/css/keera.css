@@ -599,9 +599,10 @@ thead th,
 }
 
 /* The partner wordmarks on sovereignty.html#infrastructure, each a link to the
-   partner. They take --ink rather than their own colours: every colour goes
-   through a token, and a partner's brand is not a second accent. A wrapping
-   row, so a second partner needs no new rule. */
+   partner, in the colours its own SVG came with. A wrapping row, so a second
+   partner needs no new rule. In the dark scheme a brand navy vanishes into the
+   ground, so every path there takes --ink instead: a CSS fill beats the
+   markup's fill attribute. */
 .partners {
   display: flex;
   flex-wrap: wrap;
@@ -613,13 +614,14 @@ thead th,
 }
 .partners a {
   display: block;
-  color: var(--ink);
-}
-.partners a:hover {
-  color: var(--accent);
 }
 .partners svg {
   display: block;
+}
+@media (prefers-color-scheme: dark) {
+  .partners path {
+    fill: var(--ink);
+  }
 }
 
 /* ---------- diagrams ---------- */

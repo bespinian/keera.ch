@@ -21,7 +21,8 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
   ground, following the viewer's system setting. No gradients, no glows, no
   animation.
 - **Every colour goes through a token.** A hex value outside the token block is
-  a bug - it can only be right in one of the two schemes.
+  a bug - it can only be right in one of the two schemes. The one exception is
+  a partner wordmark, which keeps its own brand fills in the light scheme.
 - **The accent is blue (`--accent`)** everywhere but the three sustainability
   pages, which carry `class="theme-leaf"` on `<body>` and run the same design in
   green. That is a swap, not an addition: no page shows both. No other page gets
@@ -264,12 +265,18 @@ green is the one pair a colour deficiency flattens. Never let colour be the only
 thing telling the two apart.
 
 The partner wordmarks in `sovereignty.html#infrastructure` are a third kind:
-inline SVG in `fill="currentColor"`, coloured `--ink` by `.partners` and never
-in the partner's own colours, each a link to the partner with `role="img"` and
-an `aria-label` naming it. The stepping stone master sits in `artwork/`; its
-exported viewBox is wrong and its colours come from its own site's CSS, so the
-page copy is re-cropped to the path bounds (`0 0 107.29 56.77`) and rounded to
-two decimals. Keep the three copies identical.
+inline SVG in the colours the partner's own logo file came with, as `fill`
+attributes in the markup, each a link to the partner with `role="img"` and an
+`aria-label` naming it. These fills are **the one exception to the token rule**:
+they are the partner's brand, not ours, so they stay out of `keera.css`. They
+hold in the light scheme only. In the dark scheme one `.partners path` rule in
+`keera.css` sets every path to `--ink`, because a brand navy disappears on the
+near-black ground; a CSS `fill` beats the attribute, so the markup keeps the
+brand colours untouched. The stepping stone master sits in `artwork/`; its
+viewBox is padded and it sets its navy (`#001280`) and orange (`#ffb133`) in a
+`<style>` block, so the page copy moves them onto `fill` attributes, is
+re-cropped to the path bounds (`0 0 116.18 61.46`) and rounded to two decimals.
+Keep the three copies identical.
 
 The `#partners` `<h2>` is **the one heading on the site outside `.prose`**, as a
 direct child of `.wrap`, so it and the leaf hold one line. Do not move any other
