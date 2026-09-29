@@ -8,31 +8,27 @@
       name="description"
       content="Ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein Fallback ins Ausland."
     />
-    <link rel="canonical" href="https://keera.ch/sovereignty.html" />
+    <link rel="canonical" href="https://keera.ch/sovereignty" />
     <link
       rel="alternate"
       hreflang="de"
-      href="https://keera.ch/sovereignty.html"
+      href="https://keera.ch/sovereignty"
     />
     <link
       rel="alternate"
       hreflang="fr"
-      href="https://keera.ch/fr/sovereignty.html"
+      href="https://keera.ch/fr/sovereignty"
     />
     <link
       rel="alternate"
       hreflang="en"
-      href="https://keera.ch/en/sovereignty.html"
+      href="https://keera.ch/en/sovereignty"
     />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://keera.ch/sovereignty.html"
+      href="https://keera.ch/sovereignty"
     />
-    <!-- The LCP element, discovered down in the body and so asked for after the
-         fonts and the stylesheet named above it. GitHub Pages serves HTTP/2, so
-         this is a question of priority rather than of connections: named here,
-         the hero art is queued as soon as the head is parsed. -->
     <link
       rel="preload"
       href="assets/img/keera-plugging-a-cable-into-a-server-rack.webp"
@@ -64,7 +60,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Keera" />
     <meta property="og:locale" content="de_CH" />
-    <meta property="og:url" content="https://keera.ch/sovereignty.html" />
+    <meta property="og:url" content="https://keera.ch/sovereignty" />
     <meta
       property="og:title"
       content="Souveränität - jede Anfrage unter deiner Kontrolle"
@@ -85,18 +81,6 @@
       content="Keera steckt in einem Rechenzentrum ein Kabel in ein Server-Rack"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Souveränität - jede Anfrage unter deiner Kontrolle"
-    />
-    <meta
-      name="twitter:description"
-      content="Ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein Fallback ins Ausland."
-    />
-    <meta
-      name="twitter:image"
-      content="https://keera.ch/assets/img/keera-og-sovereignty.jpg"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -114,7 +98,7 @@
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Souveränität",
-                "item": "https://keera.ch/sovereignty.html"
+                "item": "https://keera.ch/sovereignty"
               }
             ]
           }
@@ -140,14 +124,14 @@
         <span class="lang"
           ><span aria-current="true">DE</span><span aria-hidden="true">/</span
           ><a
-            href="fr/sovereignty.html"
+            href="fr/sovereignty"
             lang="fr"
             hreflang="fr"
             title="Cette page en français"
             >FR</a
           ><span aria-hidden="true">/</span
           ><a
-            href="en/sovereignty.html"
+            href="en/sovereignty"
             lang="en"
             hreflang="en"
             title="This page in English"
@@ -160,11 +144,11 @@
           ><span class="site-menu-text">Menü</span></label
         >
         <nav class="site-nav" aria-label="Hauptnavigation">
-          <a href="gateway.html">Keera Gateway</a
-          ><a href="engine.html">Keera Engine</a
-          ><a href="sovereignty.html" aria-current="page">Souveränität</a
-          ><a href="sustainability.html">Nachhaltigkeit</a
-          ><a href="story.html">Die Geschichte</a>
+          <a href="gateway">Keera Gateway</a
+          ><a href="engine">Keera Engine</a
+          ><a href="sovereignty" aria-current="page">Souveränität</a
+          ><a href="sustainability">Nachhaltigkeit</a
+          ><a href="story">Die Geschichte</a>
         </nav>
       </div>
     </header>
@@ -220,7 +204,8 @@
                   <th scope="row">Der Endpunkt</th>
                   <td>
                     Deine versionierte Policy entscheidet pro Anfrage, welches
-                    Modell sie sieht. OpenAI-kompatibel, also austauschbar.
+                    Modell sie sieht. OpenAI- und Anthropic-kompatibel, also
+                    austauschbar.
                   </td>
                   <td class="tight">dein Tenant</td>
                 </tr>
@@ -333,15 +318,19 @@
       <section class="band band--alt">
         <div class="wrap">
           <div class="prose">
-            <h2>Aus Open Source gebaut</h2>
+            <h2>Offen einsehbar</h2>
             <p>
               Keera ist keine Blackbox. Dein Security-Team kann lesen, was auf
               seinen Maschinen läuft, statt einem Changelog zu vertrauen.
             </p>
             <ul class="plain-list">
               <li>
-                <strong>Keera Gateway</strong> - als Helm-Chart in deinem
-                Cluster, mit OpenAI-kompatibler API
+                <strong>Keera Gateway</strong> - Quellcode
+                <a href="https://github.com/bespinian/keera-gateway"
+                  >auf GitHub</a
+                >
+                unter der Keera Community Licence, als Helm-Chart in deinem
+                Cluster
               </li>
               <li>
                 <strong>Qwen-Coder und Apertus</strong> - Open-Weight-Modelle,
@@ -366,7 +355,7 @@
           <div class="prose">
             <h2>Wer die Hardware betreibt</h2>
             <p>
-              Die Software ist offen, die Hardware darunter steht in der
+              Den Code kannst du lesen, die Hardware darunter steht in der
               Schweiz. Rechenzentren, GPUs und Inferenz kommen von Schweizer
               Partnern.
             </p>
@@ -398,6 +387,46 @@
                   ></path></svg
               ></a>
             </li>
+            <li>
+              <a href="https://onprem.ai/" class="partner--ink"
+                ><svg
+                  viewBox="0 0 246.51 49.33"
+                  width="150"
+                  height="30"
+                  fill="#47ffd7"
+                  role="img"
+                  aria-label="onprem.ai"
+                >
+                  <path
+                    d="M25.1 0C38.94 0 50.2 11.06 50.2 24.66C50.2 38.26 38.94 49.32 25.1 49.32V49.33C11.26 49.33 0 38.26 0 24.66C0 11.06 11.26 0 25.1 0ZM12.76 36.74L10.87 34.89L19.99 25.93H2.7C3.37 37.5 13.16 46.71 25.1 46.71C37.04 46.71 46.83 37.5 47.5 25.93H30.19L39.31 34.89L37.42 36.74L25.09 24.62L12.76 36.74ZM25.1 2.62C13.19 2.62 3.42 11.78 2.71 23.31H19.99L10.87 14.35L12.76 12.5L25.09 24.62L37.42 12.5L39.31 14.35L30.19 23.31H47.49C46.78 11.78 37.01 2.62 25.1 2.62Z"
+                  ></path>
+                  <path
+                    d="M77.61 36.63C71.61 36.63 67.58 31.89 67.58 25.62C67.58 19.3 71.49 14.64 77.61 14.64C83.73 14.64 87.59 19.26 87.59 25.62C87.59 31.89 83.65 36.63 77.61 36.63ZM77.57 33.35C81.44 33.35 83.73 30.08 83.73 25.62C83.73 21.2 81.44 17.92 77.57 17.92C73.74 17.92 71.45 21.2 71.45 25.62C71.45 30.08 73.74 33.35 77.57 33.35Z"
+                  ></path>
+                  <path
+                    d="M92.13 36V15.27H95.8V17.64C97.46 15.47 100.03 14.64 102.4 14.64C107.06 14.64 110.17 17.72 110.17 22.54V36H106.5V23.21C106.5 19.81 104.69 17.88 101.69 17.88C98.41 17.88 95.8 20.37 95.8 24.63V36H92.13Z"
+                  ></path>
+                  <path
+                    d="M115.69 45.48V15.27H119.36V17.68C120.94 15.51 123.59 14.6 126.15 14.6C131.8 14.6 135.59 19.02 135.59 25.62C135.59 32.25 131.76 36.63 126.23 36.63C123.47 36.63 120.74 35.53 119.36 33.59V45.48H115.69ZM125.52 33.35C129.43 33.35 131.72 30.28 131.72 25.62C131.72 20.96 129.39 17.88 125.48 17.88C121.85 17.88 119.36 20.56 119.36 25.62C119.36 30.79 121.93 33.35 125.52 33.35Z"
+                  ></path>
+                  <path
+                    d="M140.13 36V15.27H143.65V18.91C145.19 16.18 147.51 14.76 151.15 14.76V18.47H150.32C146.72 18.47 143.8 21.39 143.8 25.66V36H140.13Z"
+                  ></path>
+                  <path
+                    d="M162.81 36.63C156.34 36.63 152.82 31.85 152.82 25.58C152.82 19.18 156.53 14.64 162.57 14.64C168.22 14.64 172.17 18.63 172.17 24.91V26.92H156.53C156.93 31.03 159.1 33.35 162.77 33.35C165.69 33.35 167.71 31.97 168.46 30H172.17C171.77 32.84 168.62 36.63 162.81 36.63ZM156.61 23.96H168.46C168.46 20.56 166.13 17.92 162.65 17.92C159.89 17.92 157.17 19.62 156.61 23.96Z"
+                  ></path>
+                  <path
+                    d="M202.5 22.77C202.5 19.34 200.64 17.88 198.47 17.88C195.94 17.88 193.38 19.81 193.38 24.04V36H189.63V22.77C189.63 19.34 187.77 17.88 185.6 17.88C183.07 17.88 180.51 19.81 180.51 24.04V36H176.84V15.27H180.51V17.64C182.09 15.47 184.34 14.64 186.27 14.64C188.68 14.64 191.09 15.87 192.39 18.43C194.29 15.47 196.93 14.64 199.14 14.64C203.13 14.64 206.25 17.25 206.25 22.1V36H202.5V22.77Z"
+                  ></path>
+                  <path d="M210.94 36V31.5H215.36V36H210.94Z"></path>
+                  <path
+                    d="M226.6 36.43C222.25 36.43 219.09 34.38 219.09 30.35C219.09 24.55 225.69 23.37 232.48 23.33H233.66V21.87C233.66 19.34 231.89 17.92 228.81 17.92C225.25 17.92 223.83 19.77 223.6 21.67H219.92C220.16 18.04 222.77 14.64 228.77 14.64C234.26 14.64 237.34 17.33 237.34 22.02V36H233.82V33.39C232.64 35.09 230.19 36.43 226.6 36.43ZM222.96 30.08C222.96 32.21 224.5 33.39 227.23 33.39C230.82 33.39 233.66 31.34 233.66 28.74V26.05H232.32C225.69 26.05 222.96 27.35 222.96 30.08Z"
+                  ></path>
+                  <path
+                    d="M242.84 36V15.27H246.51V36H242.84ZM242.84 10.42V6H246.51V10.42H242.84Z"
+                  ></path></svg
+              ></a>
+            </li>
           </ul>
         </div>
       </section>
@@ -413,7 +442,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="./#contact">Kontakt aufnehmen</a>
-              <a class="arrow" href="sustainability.html"
+              <a class="arrow" href="sustainability"
                 >Woher der Strom kommt &#x2794;</a
               >
             </p>
@@ -428,11 +457,12 @@
           Bern von bespinian.
         </p>
         <nav aria-label="Fussnavigation">
-          <a href="gateway.html">Keera Gateway</a
-          ><a href="engine.html">Keera Engine</a
-          ><a href="sovereignty.html">Souveränität</a
-          ><a href="sustainability.html">Nachhaltigkeit</a
-          ><a href="story.html">Die Geschichte</a
+          <a href="gateway">Keera Gateway</a
+          ><a href="engine">Keera Engine</a
+          ><a href="sovereignty">Souveränität</a
+          ><a href="sustainability">Nachhaltigkeit</a
+          ><a href="story">Die Geschichte</a
+          ><a href="https://github.com/bespinian/keera-gateway">GitHub</a
           ><a href="./#contact">Kontakt</a
           ><a href="https://bespinian.io/de/imprint">Impressum</a>
         </nav>

@@ -8,8 +8,8 @@
 
 The site is eighteen static pages in three languages. German is the default and
 lives at the root, French under `/fr/` and English under `/en/`, and every page
-carries the same filename in all three: `gateway.html` is `/gateway.html`,
-`/fr/gateway.html` and `/en/gateway.html`. The links below point at the English
+carries the same path in all three: the gateway is `/gateway`, `/fr/gateway`
+and `/en/gateway`. The links below point at the English
 copies; every page links its alternates with `rel="alternate" hreflang` in its head.
 
 Claims the site makes and stands behind: Keera Engine runs open-weight models on
@@ -24,14 +24,15 @@ than failing over abroad.
 
 ## Products
 
-- [Keera Gateway](https://keera.ch/en/gateway.html): One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps. Carries the request-flow architecture, the six features and eight FAQ answers.
-- [Keera Engine](https://keera.ch/en/engine.html): The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster. Carries the table of models offered.
+- [Keera Gateway](https://keera.ch/en/gateway): One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps.
+- [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
+- [Keera Engine](https://keera.ch/en/engine): The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 
 ## Background
 
-- [Sovereignty](https://keera.ch/en/sovereignty.html): One endpoint every AI request passes through. Open weights, Swiss operation, no failover abroad.
-- [Sustainability](https://keera.ch/en/sustainability.html): We pick infrastructure partners on how much renewable energy runs their data centres. And Keera saves tokens with smaller models, routing and caching.
-- [Keera's story](https://keera.ch/en/story.html): A comic in four acts: Keera follows the data into a hall with no address and builds the gate she was missing there.
+- [Sovereignty](https://keera.ch/en/sovereignty): One endpoint every AI request passes through. Open weights, Swiss operation, no failover abroad.
+- [Sustainability](https://keera.ch/en/sustainability): We pick infrastructure partners on how much renewable energy runs their data centres. And Keera saves tokens with smaller models, routing and caching.
+- [Keera's story](https://keera.ch/en/story): A comic in four acts: Keera follows the data into a hall with no address and builds the gate she was missing there.
 
 ## Optional
 

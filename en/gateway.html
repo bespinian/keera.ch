@@ -8,27 +8,23 @@
       name="description"
       content="One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps."
     />
-    <link rel="canonical" href="https://keera.ch/en/gateway.html" />
-    <link rel="alternate" hreflang="de" href="https://keera.ch/gateway.html" />
+    <link rel="canonical" href="https://keera.ch/en/gateway" />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/gateway" />
     <link
       rel="alternate"
       hreflang="fr"
-      href="https://keera.ch/fr/gateway.html"
+      href="https://keera.ch/fr/gateway"
     />
     <link
       rel="alternate"
       hreflang="en"
-      href="https://keera.ch/en/gateway.html"
+      href="https://keera.ch/en/gateway"
     />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://keera.ch/gateway.html"
+      href="https://keera.ch/gateway"
     />
-    <!-- The LCP element, discovered down in the body and so asked for after the
-         fonts and the stylesheet named above it. GitHub Pages serves HTTP/2, so
-         this is a question of priority rather than of connections: named here,
-         the hero art is queued as soon as the head is parsed. -->
     <link
       rel="preload"
       href="../assets/img/keera-walking-through-a-gateway.webp"
@@ -67,7 +63,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Keera" />
     <meta property="og:locale" content="en_GB" />
-    <meta property="og:url" content="https://keera.ch/en/gateway.html" />
+    <meta property="og:url" content="https://keera.ch/en/gateway" />
     <meta
       property="og:title"
       content="Keera Gateway - one endpoint for every model"
@@ -88,18 +84,6 @@
       content="Keera walking through a glowing gateway"
     />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Keera Gateway - one endpoint for every model"
-    />
-    <meta
-      name="twitter:description"
-      content="One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps."
-    />
-    <meta
-      name="twitter:image"
-      content="https://keera.ch/assets/img/keera-og-gateway.jpg"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -117,7 +101,7 @@
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Keera Gateway",
-                "item": "https://keera.ch/en/gateway.html"
+                "item": "https://keera.ch/en/gateway"
               }
             ]
           },
@@ -126,7 +110,9 @@
             "name": "Keera Gateway",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Linux, macOS, Windows",
-            "url": "https://keera.ch/en/gateway.html",
+            "sameAs": "https://github.com/bespinian/keera-gateway",
+            "license": "https://github.com/bespinian/keera-gateway/blob/main/LICENSE",
+            "url": "https://keera.ch/en/gateway",
             "description": "One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps.",
             "publisher": {
               "@id": "https://keera.ch/#organization"
@@ -164,7 +150,7 @@
                 "name": "How is it different from other AI gateways?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Others route requests too, and as open source that costs nothing. Three things do not come with them. We run the gateway in Swiss data centres, you get enterprise support directly from us with someone to talk to in Switzerland, and the Keera models sit behind it from day one. None of that needs a special client or a library of its own: your tools keep speaking the APIs they already speak, and you change one base URL. That keeps you independent - of us as well."
+                  "text": "Others route requests too, and as open source that costs nothing. Three things do not come with them. We run the gateway in Swiss data centres, you get enterprise support directly from us with someone to talk to in Switzerland, and the Keera models sit behind it from day one. None of that needs a special client or a library of its own: your tools keep speaking the APIs they already speak, and you change one base URL. That keeps you independent - of us as well. You can read the source code on GitHub."
                 }
               },
               {
@@ -222,14 +208,14 @@
         >
         <span class="lang"
           ><a
-            href="../gateway.html"
+            href="../gateway"
             lang="de"
             hreflang="de"
             title="Diese Seite auf Deutsch"
             >DE</a
           ><span aria-hidden="true">/</span
           ><a
-            href="../fr/gateway.html"
+            href="../fr/gateway"
             lang="fr"
             hreflang="fr"
             title="Cette page en français"
@@ -243,11 +229,11 @@
           ><span class="site-menu-text">Menu</span></label
         >
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="gateway.html" aria-current="page">Keera Gateway</a
-          ><a href="engine.html">Keera Engine</a
-          ><a href="sovereignty.html">Sovereignty</a
-          ><a href="sustainability.html">Sustainability</a
-          ><a href="story.html">The story</a>
+          <a href="gateway" aria-current="page">Keera Gateway</a
+          ><a href="engine">Keera Engine</a
+          ><a href="sovereignty">Sovereignty</a
+          ><a href="sustainability">Sustainability</a
+          ><a href="story">The story</a>
         </nav>
       </div>
     </header>
@@ -280,7 +266,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Try Keera</a>
-              <a class="arrow" href="engine.html">See Keera Engine &#x2794;</a>
+              <a class="arrow" href="engine">See Keera Engine &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -339,8 +325,8 @@
             </p>
           </figure>
           <p class="note">
-            OpenAI-compatible: existing SDKs and agents switch with one
-            environment variable.
+            OpenAI- and Anthropic-compatible: existing SDKs and agents switch
+            with one environment variable.
           </p>
         </div>
       </section>
@@ -379,8 +365,9 @@
             <div>
               <h3>Audit and redaction</h3>
               <p>
-                Secrets and personal data drop out at the edge. Prompt, model,
-                decision and identity stream immutably into your SIEM.
+                Secrets and personal data drop out at the edge. Who, which
+                model, how many tokens and which decision stream immutably into
+                your SIEM - the prompt itself does not.
               </p>
             </div>
           </div>
@@ -535,7 +522,10 @@
                 sit behind it from day one. None of that needs a special client
                 or a library of its own: your tools keep speaking the APIs they
                 already speak, and you change one base URL. That keeps you
-                independent - of us as well.
+                independent - of us as well. You can read the source code
+                <a href="https://github.com/bespinian/keera-gateway"
+                  >on GitHub</a
+                >.
               </p>
             </details>
             <details>
@@ -698,11 +688,13 @@
           in Bern by bespinian.
         </p>
         <nav aria-label="Footer navigation">
-          <a href="gateway.html">Keera Gateway</a
-          ><a href="engine.html">Keera Engine</a
-          ><a href="sovereignty.html">Sovereignty</a
-          ><a href="sustainability.html">Sustainability</a
-          ><a href="story.html">The story</a><a href="./#contact">Contact</a
+          <a href="gateway">Keera Gateway</a
+          ><a href="engine">Keera Engine</a
+          ><a href="sovereignty">Sovereignty</a
+          ><a href="sustainability">Sustainability</a
+          ><a href="story">The story</a
+          ><a href="https://github.com/bespinian/keera-gateway">GitHub</a
+          ><a href="./#contact">Contact</a
           ><a href="https://bespinian.io/en/imprint">Imprint</a>
         </nav>
         <p class="note">© 2026 bespinian · Bern</p>

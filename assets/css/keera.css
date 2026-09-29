@@ -51,8 +51,9 @@
 
 /* ---------- tokens ---------- */
 /* Every colour comes from these thirteen tokens, which is what keeps the dark
-   scheme to one block. A hex value below this point is a bug: it can only be
-   right in one of the two schemes. */
+   scheme to one block. Hex values belong here, in the .theme-leaf hover shades
+   just below and in the print block at the end; anywhere else a hex value is
+   a bug, because it can only be right in one of the two schemes. */
 :root {
   color-scheme: light dark;
   --bg: #ffffff;
@@ -217,9 +218,6 @@ thead th,
   line-height: 1.6;
   color: var(--muted);
 }
-.mono {
-  font-family: var(--mono);
-}
 
 /* ---------- layout ---------- */
 .skip-link {
@@ -347,10 +345,11 @@ thead th,
   .site-header .wrap {
     gap: 10px 14px;
   }
-  /* Both stay in the DOM: the checkbox drives the menu, and the word is its
-     accessible name. */
+  /* Both stay in the accessibility tree: the checkbox drives the menu and takes
+     the keyboard focus, and the word is its accessible name. */
   .site-menu-state,
   .site-menu-text {
+    display: block;
     position: absolute;
     width: 1px;
     height: 1px;
@@ -377,21 +376,22 @@ thead th,
     outline: 2px solid var(--accent);
     outline-offset: 2px;
   }
-  .site-menu-bars {
+  .site-menu-bars,
+  .site-menu-bars::before,
+  .site-menu-bars::after {
     display: block;
-    position: relative;
     width: 15px;
     height: 2px;
     background: currentColor;
+  }
+  .site-menu-bars {
+    position: relative;
   }
   .site-menu-bars::before,
   .site-menu-bars::after {
     content: "";
     position: absolute;
     left: 0;
-    width: 15px;
-    height: 2px;
-    background: currentColor;
   }
   .site-menu-bars::before {
     top: -5px;
@@ -436,7 +436,7 @@ thead th,
 .hero--split .wrap {
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
 }
-.hero p {
+.hero h1 ~ p {
   margin-top: 18px;
 }
 @media (max-width: 780px) {
@@ -457,6 +457,7 @@ thead th,
 }
 .btn {
   display: inline-block;
+  font: inherit;
   background: var(--accent);
   color: var(--btn-ink);
   font-weight: 600;
@@ -471,7 +472,7 @@ thead th,
   border-color: var(--accent-hover);
 }
 /* The outlined secondary. Its border is --muted rather than --line, because it
-   sits on a band--alt where --line and --surface are the same grey. */
+   sits on a band--alt where --line is barely darker than --surface. */
 .btn--quiet {
   background: transparent;
   color: var(--ink);
@@ -516,9 +517,6 @@ thead th,
 .hero .icon {
   margin-bottom: 16px;
 }
-.card > .icon + h3 {
-  margin-top: 0;
-}
 /* The two brand marks in #omnivor, each inside its own <h3> so the mark and the
    name read as one line. Not part of the icon set: filled marks in each side's
    own colour, and the shapes rather than the colours have to carry the
@@ -542,9 +540,9 @@ thead th,
   width: 1.15em;
   height: 1.15em;
 }
-/* That <h2> is the one on the site outside .prose, so it and the leaf hold one
-   line. Out in .wrap it picks up the 28px band rhythm instead of the 14px a
-   heading wants over its own paragraph, so the gap is restated. */
+/* That <h2> is the one heading that is a direct child of .wrap, so it and the
+   leaf hold one line. Out in .wrap it picks up the 28px band rhythm instead of
+   the 14px a heading wants over its own paragraph, so the gap is restated. */
 .icon-head + .prose {
   margin-top: 14px;
 }
@@ -575,7 +573,9 @@ thead th,
   color: var(--muted);
 }
 
-.plain-list {
+.plain-list,
+.partners,
+.flow-steps {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -599,29 +599,46 @@ thead th,
 }
 
 /* The partner wordmarks on sovereignty.html#infrastructure, each a link to the
-   partner, in the colours its own SVG came with. A wrapping row, so a second
+   partner, in the colours its own SVG came with. Each link is a tile with the
+   card's border, all tiles one size with the wordmark centred, so marks of
+   different shapes still line up. auto-fill rather than auto-fit keeps a tile
+   at card width instead of stretching two across the wrap, and a second
    partner needs no new rule. In the dark scheme a brand navy vanishes into the
    ground, so every path there takes --ink instead: a CSS fill beats the
    markup's fill attribute. */
 .partners {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 24px 48px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
 }
 .partners a {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 136px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.partners a:hover {
+  border-color: var(--ink);
 }
 .partners svg {
   display: block;
+  height: auto;
 }
-@media (prefers-color-scheme: dark) {
+/* screen only, so a page printed from a dark system keeps the brand fills */
+@media screen and (prefers-color-scheme: dark) {
   .partners path {
     fill: var(--ink);
   }
+}
+/* A wordmark that only ships in a colour meant for a dark ground - onprem.ai's
+   mint - would vanish on white, so it takes --ink in both schemes. */
+.partners .partner--ink path {
+  fill: var(--ink);
 }
 
 /* ---------- diagrams ---------- */
@@ -656,7 +673,7 @@ thead th,
 .stack-layer p + p {
   margin-top: 0;
 }
-.stack-layer .stack-text {
+.stack-text {
   color: var(--muted);
   font-size: 16px;
 }
@@ -689,9 +706,6 @@ thead th,
   color: var(--accent);
 }
 .flow-steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
   counter-reset: step;
   font-size: 15.5px;
 }
@@ -726,7 +740,7 @@ thead th,
   text-align: center;
   color: var(--ok);
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 12px;
 }
 @media (max-width: 860px) {
   .flow {
@@ -759,10 +773,11 @@ thead th,
   grid-auto-rows: 1fr;
   gap: 10px;
 }
-.sprawl > .sprawl-side:first-child {
+/* of-type, because the last child of .sprawl is the .sprawl-void line */
+.sprawl > .sprawl-side:first-of-type {
   grid-column: 1;
 }
-.sprawl > .sprawl-side:last-child {
+.sprawl > .sprawl-side:last-of-type {
   grid-column: 3;
 }
 .sprawl-node {
@@ -845,6 +860,11 @@ thead th,
    not fit the 1040px wrap. */
 .facts--four {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 620px) {
+  .facts--four {
+    grid-template-columns: 1fr;
+  }
 }
 .facts h3 {
   margin-bottom: 8px;
@@ -959,16 +979,11 @@ figure figcaption {
 }
 
 /* ---------- story ---------- */
-.act {
-  padding: clamp(48px, 7vw, 76px) 0;
-  border-top: 1px solid var(--line);
-}
 .act-intro {
   max-width: var(--prose);
   margin-bottom: clamp(28px, 4vw, 40px);
 }
 .act-intro p {
-  margin-top: 14px;
   color: var(--muted);
 }
 /* One comic page per act, capped below its own pixel width so the lettering
@@ -1015,19 +1030,10 @@ figure figcaption {
 .cast img {
   margin-bottom: 12px;
 }
-.cast h3 {
-  margin-bottom: 6px;
-}
 .cast p {
   color: var(--muted);
   font-size: 16px;
 }
-@media (max-width: 620px) {
-  .facts--four {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* ---------- contact form ---------- */
 .form {
   max-width: var(--prose);
@@ -1088,7 +1094,6 @@ textarea.input {
   flex: 0 0 auto;
 }
 .form-actions {
-  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
   gap: 14px 18px;

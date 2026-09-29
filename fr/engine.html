@@ -8,27 +8,23 @@
       name="description"
       content="Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
     />
-    <link rel="canonical" href="https://keera.ch/fr/engine.html" />
-    <link rel="alternate" hreflang="de" href="https://keera.ch/engine.html" />
+    <link rel="canonical" href="https://keera.ch/fr/engine" />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/engine" />
     <link
       rel="alternate"
       hreflang="fr"
-      href="https://keera.ch/fr/engine.html"
+      href="https://keera.ch/fr/engine"
     />
     <link
       rel="alternate"
       hreflang="en"
-      href="https://keera.ch/en/engine.html"
+      href="https://keera.ch/en/engine"
     />
     <link
       rel="alternate"
       hreflang="x-default"
-      href="https://keera.ch/engine.html"
+      href="https://keera.ch/engine"
     />
-    <!-- The LCP element, discovered down in the body and so asked for after the
-         fonts and the stylesheet named above it. GitHub Pages serves HTTP/2, so
-         this is a question of priority rather than of connections: named here,
-         the hero art is queued as soon as the head is parsed. -->
     <link
       rel="preload"
       href="../assets/img/keera-coding-on-a-laptop.webp"
@@ -67,7 +63,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Keera" />
     <meta property="og:locale" content="fr_CH" />
-    <meta property="og:url" content="https://keera.ch/fr/engine.html" />
+    <meta property="og:url" content="https://keera.ch/fr/engine" />
     <meta
       property="og:title"
       content="Keera Engine - des modèles ouverts, exploités efficacement"
@@ -85,18 +81,6 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Keera programme sur son portable" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Keera Engine - des modèles ouverts, exploités efficacement"
-    />
-    <meta
-      name="twitter:description"
-      content="Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
-    />
-    <meta
-      name="twitter:image"
-      content="https://keera.ch/assets/img/keera-og-engine.jpg"
-    />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -114,7 +98,7 @@
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Keera Engine",
-                "item": "https://keera.ch/fr/engine.html"
+                "item": "https://keera.ch/fr/engine"
               }
             ]
           },
@@ -123,7 +107,7 @@
             "name": "Keera Engine",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Kubernetes",
-            "url": "https://keera.ch/fr/engine.html",
+            "url": "https://keera.ch/fr/engine",
             "description": "Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster.",
             "publisher": {
               "@id": "https://keera.ch/#organization"
@@ -179,7 +163,7 @@
         >
         <span class="lang"
           ><a
-            href="../engine.html"
+            href="../engine"
             lang="de"
             hreflang="de"
             title="Diese Seite auf Deutsch"
@@ -187,7 +171,7 @@
           ><span aria-hidden="true">/</span><span aria-current="true">FR</span
           ><span aria-hidden="true">/</span
           ><a
-            href="../en/engine.html"
+            href="../en/engine"
             lang="en"
             hreflang="en"
             title="This page in English"
@@ -200,11 +184,11 @@
           ><span class="site-menu-text">Menu</span></label
         >
         <nav class="site-nav" aria-label="Navigation principale">
-          <a href="gateway.html">Keera Gateway</a
-          ><a href="engine.html" aria-current="page">Keera Engine</a
-          ><a href="sovereignty.html">Souveraineté</a
-          ><a href="sustainability.html">Durabilité</a
-          ><a href="story.html">L'histoire</a>
+          <a href="gateway">Keera Gateway</a
+          ><a href="engine" aria-current="page">Keera Engine</a
+          ><a href="sovereignty">Souveraineté</a
+          ><a href="sustainability">Durabilité</a
+          ><a href="story">L'histoire</a>
         </nav>
       </div>
     </header>
@@ -237,7 +221,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Essayer Keera</a>
-              <a class="arrow" href="gateway.html"
+              <a class="arrow" href="gateway"
                 >Voir Keera Gateway &#x2794;</a
               >
             </p>
@@ -267,14 +251,14 @@
               demain.
             </p>
           </div>
-          <figure class="stack-fig">
+          <figure>
             <div class="stack">
               <div class="stack-layer stack-layer--api">
                 <p class="stack-label">L'API</p>
                 <p class="stack-text">
-                  Compatible OpenAI. Une base URL, une clé, et tout client qui
-                  parle déjà à OpenAI parle à Keera&nbsp;- sans nouveau SDK ni
-                  plugin.
+                  Compatible OpenAI, et joignable via Keera Gateway. Une base
+                  URL, une clé, et tout client qui parle déjà à OpenAI parle à
+                  Keera&nbsp;- sans nouveau SDK ni plugin.
                 </p>
               </div>
               <div class="stack-layer">
@@ -391,7 +375,7 @@
               </p>
               <p>
                 Chaque token calculé par le moteur passe d'abord par
-                <a href="gateway.html">Keera Gateway</a>&nbsp;: les mêmes
+                <a href="gateway">Keera Gateway</a>&nbsp;: les mêmes
                 politiques et le même journal d'audit que partout ailleurs.
               </p>
             </div>
@@ -581,11 +565,13 @@
           Souveraineté numérique. Conçu à Berne par bespinian.
         </p>
         <nav aria-label="Navigation de pied de page">
-          <a href="gateway.html">Keera Gateway</a
-          ><a href="engine.html">Keera Engine</a
-          ><a href="sovereignty.html">Souveraineté</a
-          ><a href="sustainability.html">Durabilité</a
-          ><a href="story.html">L'histoire</a><a href="./#contact">Contact</a
+          <a href="gateway">Keera Gateway</a
+          ><a href="engine">Keera Engine</a
+          ><a href="sovereignty">Souveraineté</a
+          ><a href="sustainability">Durabilité</a
+          ><a href="story">L'histoire</a
+          ><a href="https://github.com/bespinian/keera-gateway">GitHub</a
+          ><a href="./#contact">Contact</a
           ><a href="https://bespinian.io/en/imprint">Mentions légales</a>
         </nav>
         <p class="note">© 2026 bespinian · Berne</p>

@@ -3,8 +3,8 @@
 Eighteen hand-written static content pages plus `404.html`, served off GitHub
 Pages with no build step. `.github/workflows/deploy.yml` publishes the repo
 there on every push to `main`. The host runs no configuration of its own: what
-`.htaccess` used to express is now either a Pages setting, a Pages default, or
-gone - see the README.
+`.htaccess` used to express is now a Pages setting, a Pages default, a script,
+or gone - see the README.
 
 Markup carries classes only. The whole design lives in `assets/css/keera.css`.
 Four scripts run on the site: `assets/js/contact-form.js` on the nine pages
@@ -19,10 +19,13 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
 
 - **Quiet, one accent, two schemes.** One accent colour on a white or near-black
   ground, following the viewer's system setting. No gradients, no glows, no
-  animation.
-- **Every colour goes through a token.** A hex value outside the token block is
-  a bug - it can only be right in one of the two schemes. The one exception is
-  a partner wordmark, which keeps its own brand fills in the light scheme.
+  animation; the one motion is smooth anchor scrolling, off under
+  `prefers-reduced-motion`.
+- **Every colour goes through a token.** Hex values live in the token blocks -
+  `:root`, its dark copy, the two `.theme-leaf` hover shades and `@media print`.
+  Anywhere else a hex value is a bug - it can only be right in one of the two
+  schemes. The one exception is a partner wordmark, which keeps its own brand
+  fills in the light scheme.
 - **The accent is blue (`--accent`)** everywhere but the three sustainability
   pages, which carry `class="theme-leaf"` on `<body>` and run the same design in
   green. That is a swap, not an addition: no page shows both. No other page gets
@@ -41,7 +44,9 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
   four hero cut-outs sit in a bare `.hero-art` figure: the mascot with her gun
   on the home page, Keera at her laptop on Keera Engine, Keera striding through a
   gate on Keera Gateway, Keera patching a rack on Souveränität. Every other page
-  leads with one illustration of its own.
+  leads with one illustration of its own - in the same `.hero-art` figure on
+  `sustainability.html` and `404.html` - except the story, which leads with its
+  cast.
 
 Do not add: logo strips, fake terminal sessions, benefit grids, integration
 cards, pricing tiers, customer quotes, hosted-provider model tables, or a
@@ -62,6 +67,19 @@ Keera Engine is a model-agnostic inference engine that runs any open model on
 open technology (Kubernetes, vLLM, llm-d), and Keera's own fine-tunes are one
 option on it - so the footer line, the home hero and the home `og:image:alt`
 name the endpoint, never an agent.
+
+Keera Gateway's source is public at `github.com/bespinian/keera-gateway`, under
+the **Keera Community Licence**: source-available, not open source. It is free
+for evaluation, research, personal use and non-profits; production use by a
+company or a public body needs a Keera Enterprise subscription. So the site
+says the source can be _read_ and names the licence, and never calls the
+gateway open source. Open source is what the stack under it is - Kubernetes,
+vLLM, llm-d and the open-weight models. The link appears in five places: the
+footer of every page, `404.html` included, labelled `GitHub` in all three
+languages and pointing at the gateway repository, not the bespinian
+organisation; the differentiator answer on `gateway.html`; the gateway line of
+the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
+`SoftwareApplication` node; and `llms.txt`.
 
 - `index.html` - hero, the problem (`#problem`), the endpoint that answers it
   (`#solution`), the two products, three deployment options, the story teaser,
@@ -86,7 +104,7 @@ name the endpoint, never an agent.
   other.
 
 - `gateway.html` - hero, the request-flow diagram (`#architecture`), four things
-  it controls (`#security`, cards only), the web UI shot, six features
+  it controls (`#security`, a `.facts--four`), the web UI shot, six features
   (`#features`), eight questions (`#faq`), the form. The hero is its only
   illustration.
 
@@ -94,8 +112,10 @@ name the endpoint, never an agent.
   `#security` is what the endpoint decides for the business, `#features` is what
   the product is made of - guardrails, smart filters, smart routers, the live
   map, agent sandboxes, SSO and roles. It is the one six-card section on the
-  site and gets no second sentence of framing. Those six names are the
-  gateway's own: check the gateway repo before rewording one.
+  site and gets one short paragraph of framing, no more. Those six names are
+  the gateway's own: check the gateway repo before rewording one. German and
+  English keep them in English (_Live Map_ in German, _Live map_ in English, as
+  the repo writes it); French translates them.
 
 - `engine.html` - hero, what it is as a four-layer stack (`#what`: API,
   models, inference server, platform), the model table, the open technology we
@@ -109,19 +129,21 @@ name the endpoint, never an agent.
   vLLM and llm-d actually do (batching, cache-aware routing).
 
 - `sovereignty.html` - the layer table, three questions, what the gateway routes
-  abroad and what it does not, the open-source stack, and who runs the hardware
+  abroad and what it does not, the open stack (_Offen einsehbar_: the gateway's
+  source on GitHub beside the open-source parts), and who runs the hardware
   (`#infrastructure`). The argument is Keera
   Gateway's; Keera Engine is one backend behind it, not the subject. `.layer-table` is
-  the site's one named table: its last column - _dein Tenant_, _nur CH_,
-  _Schweiz_, _Bern_ - is in the accent, because those six words are the page's
-  whole argument.
+  the site's one named table: its last column - _dein Tenant_ twice, _nur CH_,
+  _portierbar_, _Schweiz_, _Bern_ - is in the accent, because those six cells
+  are the page's whole argument.
 
   `#infrastructure` names the Swiss infrastructure and inference partners so the reader can put them on the risk
   questionnaire the closing band asks for. Its prose says _partners_, plural,
-  so a second one is a new `<li>` in `.partners` and a changed name in the
-  sentence, nothing else. It claims only that the partner is Swiss and runs
-  data centres, GPUs and inference; not ownership, not the energy mix. Adding
-  it made the closing questionnaire band a `.band--alt`.
+  and names none of them - the wordmarks do - so another one is a new `<li>` in
+  `.partners` and nothing else. It claims only that the partners are Swiss and
+  run data centres, GPUs and inference; not ownership, not the energy mix. It
+  is a plain `.band`, which is why the closing questionnaire band is a
+  `.band--alt`.
 
 - `sustainability.html` - two levers and one story: how we pick infrastructure
   partners (`#partners`), how Keera spends fewer tokens (`#tokens`), the Omnivor
@@ -146,7 +168,9 @@ any page whose content changed. No `<changefreq>`, no `<priority>`, and
 summary, a few lines of orientation, then `## Overview`, `## Products`,
 `## Background` and `## Optional`, each a list of `[title](url): description`
 links. It is Markdown despite the `.txt` name. Only the six English URLs are in
-it, with the German and French home pages under `## Optional`. The descriptions
+it, with the German and French home pages and the sitemap under
+`## Optional`; the one off-site link is the gateway's GitHub repository, under `## Products` right
+after the gateway page, with its licence spelled out. The descriptions
 are the pages' own `<meta name="description">` strings, so a reworded
 description belongs in both places. Keep the products in gateway-then-engine
 order.
@@ -156,14 +180,15 @@ order.
 GitHub Pages serves a root `404.html` for every missing path, in all three
 language trees, so this one page is built differently from the eighteen:
 
-- **Every URL in it is root-absolute** (`/assets/...`, `/engine.html`, `/`),
+- **Every URL in it is root-absolute** (`/assets/...`, `/engine`, `/`),
   because it renders under the path that was requested. This is the one place
   where `../assets/...` is wrong.
 - **It carries `noindex, follow`** and no canonical, `hreflang`, Open Graph or
   JSON-LD.
 - **The three languages sit in the body.** No DE/FR/EN switcher; a `.facts`
   three-up under the hero carries one sentence and one home link per language,
-  each in a `<div lang="...">`. The `<h1>` names all three.
+  each in a `<div lang="...">`. The `<h1>` names all three. Both run DE, FR,
+  EN, the switcher's order.
 - Header, footer and nav labels stay German. No form and not the home page, so
   it loads none of the four scripts, analytics included. It uses
   `keera-coding-on-a-laptop.webp`
@@ -187,14 +212,18 @@ arrival referred from this site, do not redirect; neither does a second arrival
 in the same session, so a click on DE in the switcher is not bounced back.
 Subpages and the two other home pages never negotiate.
 
-Apache did this server-side, and moving it into the page has one consequence
-worth knowing: a crawler that executes JavaScript and reports `en-US` now
-follows the redirect to `/en/`, where the header-less request the old rule saw
-stayed on the German root. `x-default` still points at the German page.
+Apache did this server-side. In the page, a crawler that executes JavaScript
+arrives with no referrer, an empty session and an `en-US` locale, so it would
+follow the redirect to `/en/` and index that in place of the German root that
+`hreflang` and `x-default` name. The script therefore never redirects a
+crawler: `navigator.webdriver`, or a user agent matching `bot`, `crawl`,
+`spider`, `slurp`, `google` or `headless`, stays on the German page, as the
+header-less request did under Apache. Keep that guard ahead of the language
+check.
 
 Adding or editing a page means touching all three copies. Beyond the prose, only
 two things differ: asset URLs are `../assets/...`, and the switcher points at
-`../<page>.html` and `../<other>/<page>.html`.
+`../<page>` and `../<other>/<page>`.
 
 French follows French punctuation spacing - a `&nbsp;` before `:`, `;`, `?` and
 `!`, and inside `«&nbsp;…&nbsp;»`. **Exception:** `<meta name="description">`
@@ -231,8 +260,8 @@ so the menu needs no JavaScript. Three things are load-bearing:
 - `.site-menu-text` is the checkbox's accessible name. It stays in the markup,
   hidden with a clip, and is localised (`Menü` / `Menu` / `Menu`).
 
-The footer is one line of prose, one row of links (the five pages, Contact,
-Imprint) and one mono line with the copyright and the city (`© 2026 bespinian ·
+The footer is one line of prose, one row of links (the five pages, GitHub,
+Contact, Imprint) and one mono line with the copyright and the city (`© 2026 bespinian ·
 Bern`, `Berne` in French).
 
 ## Icons
@@ -266,20 +295,25 @@ thing telling the two apart.
 
 The partner wordmarks in `sovereignty.html#infrastructure` are a third kind:
 inline SVG in the colours the partner's own logo file came with, as `fill`
-attributes in the markup, each a link to the partner with `role="img"` and an
-`aria-label` naming it. These fills are **the one exception to the token rule**:
+attributes in the markup, each an `<svg role="img">` with an `aria-label`
+naming the partner, inside a link to it. These fills are **the one exception to the token rule**:
 they are the partner's brand, not ours, so they stay out of `keera.css`. They
 hold in the light scheme only. In the dark scheme one `.partners path` rule in
-`keera.css` sets every path to `--ink`, because a brand navy disappears on the
+`keera.css` sets every path to `--ink` (screen only, so a print keeps them), because a brand navy disappears on the
 near-black ground; a CSS `fill` beats the attribute, so the markup keeps the
-brand colours untouched. The stepping stone master sits in `artwork/`; its
+brand colours untouched. The stepping stone master sits in `../artwork/`; its
 viewBox is padded and it sets its navy (`#001280`) and orange (`#ffb133`) in a
 `<style>` block, so the page copy moves them onto `fill` attributes, is
 re-cropped to the path bounds (`0 0 116.18 61.46`) and rounded to two decimals.
-Keep the three copies identical.
+The onprem.ai master (`../artwork/onpremai.svg`) is one mint (`#47ffd7`) drawn for
+a dark ground, about 1.2:1 on white, so its `<a>` carries `.partner--ink` and
+takes `--ink` in both schemes; the markup still keeps the mint, cropped to
+`0 0 246.51 49.33` and rounded the same way. Swap it back to a plain link the
+day onprem.ai ships a variant for light grounds. Keep the three copies
+identical.
 
-The `#partners` `<h2>` is **the one heading on the site outside `.prose`**, as a
-direct child of `.wrap`, so it and the leaf hold one line. Do not move any other
+The `#partners` `<h2>` is **the one heading on the site that is a direct child
+of `.wrap`**, outside any `.prose`, so it and the leaf hold one line. Do not move any other
 heading out to match.
 
 ## Keera's story
@@ -304,11 +338,11 @@ headquarters. German _der Konzern_ (_er/ihn/sein_), French _un groupe_
 mono footnote saying so appears on `story.html`, on the home teaser and in
 `sustainability.html`, using the same noun.
 
-The page runs: hero (title, two-sentence lede, the footnote, `Vier Akte · 24
-Bilder` in the eyebrow), the three-portrait cast strip, the four acts, the
+The page runs: hero (a two-sentence title, a one-sentence lede, the footnote,
+`Die Geschichte · Vier Akte, 24 Bilder` in the eyebrow), the three-portrait cast strip, the four acts, the
 figure-to-function list, _what we do not claim_, and one closing CTA.
 
-The four acts, each a `<section class="act">` with an eyebrow, a headline and a
+The four acts, each a plain `<section class="band">` with an eyebrow, a headline and a
 one-sentence lede:
 
 - **Act I - the gift** (01-05). The server room; Omnivor arrives with a free
@@ -325,9 +359,9 @@ one-sentence lede:
   to the Tuesday morning of panels 01-02.
 
 Act IV pays off earlier panels **by number, in the caption text**: 19 answers
-12, 21 catches the client name from 05, 23 lights the houses dark in 16, and 24
-closes the loop on 01-02. Renumbering or dropping a panel means fixing those
-captions.
+12, 21 catches the client name from 05, and 23 lights the houses dark in 16.
+24 closes the loop on 01-02 by its first word, _Dienstagmorgen_, not by
+number. Renumbering or dropping a panel means fixing those captions.
 
 The 24 panels are **drawn, lettered and numbered inside four rendered comic
 pages**, one per act: page 1 is panels 01-05, page 2 is 06-12, page 3 is 13-17,
@@ -412,8 +446,9 @@ The differentiator answer concedes first that routing is free as open source,
 then names the three things that do not come with a proxy - Swiss operation,
 enterprise support with a contact in Switzerland, the Keera models behind the
 endpoint - and closes on the sovereignty argument in miniature: no client or
-library of its own, so the customer stays independent of us as well. Do not turn
-it into a comparison against a named competitor.
+library of its own, so the customer stays independent of us as well, and the
+source is there to read on GitHub. Do not turn it into a comparison against a
+named competitor, and do not let it call the gateway open source.
 
 ### Keera Engine's three
 
@@ -440,15 +475,15 @@ Three answers are load-bearing:
 `#models` on `engine.html` opens by saying the engine runs any open model vLLM
 can serve, then one table - `MODELL / KONTEXT / IDEAL FÜR`, three Keera
 fine-tunes, the customer's own fine-tune and a row for any other open model -
-then one sentence naming the upstreams (Qwen-Coder, Apertus) and the Apache-2.0
-licence, then one mono footnote.
+then a short paragraph naming the upstreams (Qwen-Coder, Apertus) and the
+Apache-2.0 licence, then one mono footnote.
 
 The footnote is load-bearing: the hosted models are proprietary, run on the
 provider's infrastructure rather than Swiss GPUs, are blocked by default, and a
 tenant opens them per team and data class. It carries the month the lineup was
 checked (September 2026) - update the stamp when the sentence changes.
-`gateway.html` names the same provider in the models column of its flow, so the
-two pages move together.
+`gateway.html` calls them external providers opened by policy, in the models
+column of its flow, so the two pages move together.
 
 ## Gateway web UI screenshot
 
@@ -507,11 +542,12 @@ sections need nothing new.
   the Omnivor brand mark and `--leaf` nothing but the `.theme-leaf` block;
   nothing else may read either.
 - **The green theme**: `.theme-leaf` sits under the dark-scheme block and is two
-  rules - `--accent: var(--leaf)` plus an `--accent-hover`, and a dark-scheme
+  rules - `--accent: var(--leaf)` plus a hex `--accent-hover`, and a dark-scheme
   copy of the hover. Custom properties inherit, so a declaration on `<body>`
   beats `:root` for the whole subtree.
 - **Dark scheme**: one `@media (prefers-color-scheme: dark)` block redefining
-  those thirteen colours and nothing else. It follows the system setting; there
+  those thirteen colours and nothing else. Two smaller dark-scheme rules sit
+  with what they colour: the `.theme-leaf` hover and `.partners path`. It follows the system setting; there
   is no toggle. `:root` carries `color-scheme: light dark`. `@media print` puts
   the light values back, with `--muted` and `--line` a step darker for paper.
 - **Contrast**: every text-on-ground pair is at least 5.5:1 in light and 6.7:1
@@ -523,13 +559,13 @@ sections need nothing new.
   grey ground. Bands alternate white and grey down the page.
 - **Type**: `h1`/`h2` scale with `clamp()`, `.lede` is the 19px intro,
   `.eyebrow` the small mono label above a heading, `.note` the small mono
-  footnote, `.mono` for inline code-ish words.
+  footnote.
 - **Diagrams**: `.flow` is the gateway's request path - three `.flow-stage`
   boxes chained by two `.flow-arrow`s, the middle `--main` in the accent with an
   ordered `.flow-steps` list, and `.flow-branch` hanging under it in `--ok`.
   `.stack` is labelled rows sharing their borders inside one rounded block, each
   a `.stack-label` beside a `.stack-text`, with `.stack-layer--api` carrying an
-  inset accent bar; it sits in a `.stack-fig` figure. Rows are parallel, not
+  inset accent bar; it sits in a plain `<figure>`. Rows are parallel, not
   sequential. `.sprawl` is two `.sprawl-side` columns of `.sprawl-node` boxes
   with six SVG paths crossing between them and a `.sprawl-void` line under the
   middle in `--err`; `grid-auto-rows: 1fr` on both sides keeps the path ends on
@@ -554,20 +590,25 @@ sections need nothing new.
   white band, and the home page's alternation is laid out around that fixed
   point.
 - **Blocks**: `.grid` (auto-fit cards, `.grid--two` for the two product cards),
-  `.card`, `.facts` (borderless three-up, `.facts--four` goes two-up),
-  `.plain-list`, `.partners`, `.table-wrap` + plain `<table>` (`td.tight` keeps a short value
-  on one line; `.layer-table` colours its last column in the accent by
+  `.card`, `.facts` (borderless three-up, `.facts--four` goes two-up, then one
+  column at 620px),
+  `.plain-list`, `.partners` (one bordered tile per partner link, wordmark
+  centred), `.table-wrap` + plain `<table>` (`td.tight` keeps a short value on
+  one line; `.layer-table` colours its last column in the accent by
   `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
   `.hero` / `.hero--split` / `.hero-art`, `.btn` / `.btn--quiet` / `.btn-row` /
   `.arrow`, the form controls (`.form`, `.field`, `.label`, `.input`,
   `.choices`, `.choice`, `.form-actions`, `.form-status` with `.is-shown` /
-  `.is-ok` / `.is-error`, `.hp`), and the story's `.act`, `.comic`, `.script`,
-  `.cast`.
+  `.is-ok` / `.is-error`, `.hp`), and the story's `.act-intro`, `.comic`,
+  `.script`, `.cast`.
 - **Grids** are written `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`: the
   `min(100%, …)` lets a track collapse below `N` instead of overflowing.
-- **Breakpoints**, all of them: 1000px (nav takes its own row), 780px (a split
-  hero stacks), 700px (nav becomes the hamburger, the screenshot scrolls, the
-  sprawl figure goes), 620px (the stack's label column stacks). Plus
+  `.partners` alone uses `auto-fill`, so a single tile keeps card width instead
+  of stretching across the wrap.
+- **Breakpoints**, all of them: 1000px (nav takes its own row), 860px (the flow
+  turns into a column), 780px (a split hero and `.split` stack), 700px (nav
+  becomes the hamburger, the screenshot scrolls, the sprawl figure goes), 620px
+  (the stack's label column and `.facts--four` stack). Plus
   `pointer: coarse`, a `print` block, and `prefers-reduced-motion`.
 
 Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
@@ -603,7 +644,7 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   deliberately not preloaded - umlauts and accents sit inside `latin`. Re-add a
   Google Fonts cut only if a page ever contains a glyph in its range.
 - `assets/img/` - artwork and icons, `.webp` only; the masters live in
-  `artwork/` outside this repo. Re-encoding means re-exporting the source, then
+  `../artwork/`, beside this repo rather than in it. Re-encoding means re-exporting the source, then
   `magick <src> -resize <w>x\> -strip tmp.png && cwebp -q 82 -alpha_q 90 -m 6`.
   `keera-og-image.jpg` is the 1200×630 social card and
   `keera-apple-touch-icon.png` the 256×256 iOS icon, which the JSON-LD also names
@@ -611,7 +652,8 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   folder is referenced by a page - the deploy mirrors the whole folder, so do
   not leave spares behind.
 
-  Artwork is plain `<img>` everywhere: `width`/`height` from the file's own
+  Artwork is plain `<img>` everywhere but the screenshot's `<picture>`:
+  `width`/`height` from the file's own
   pixel size, `alt`, `decoding="async"`, and either `loading="lazy"` or, for
   heroes, `fetchpriority="high"`. Crop and corners come from the stylesheet.
   **Every head preloads its own hero image** (`<link rel="preload" as="image"
@@ -622,13 +664,21 @@ fetchpriority="high">`) as the first hint in the head, ahead of the fonts. The
 ## Metadata
 
 Every content page carries its `<title>`, `description`, `rel="canonical"`,
-`hreflang` alternates, icons, Open Graph and Twitter tags and a JSON-LD block in
-`<head>`. `404.html` is the exception.
+`hreflang` alternates, icons, Open Graph tags, `twitter:card` and a JSON-LD
+block in `<head>`. `404.html` is the exception. `twitter:card` is the only
+Twitter tag: X reads title, description and image from `og:*`, so a copy would
+only be a fourth place for the description to drift.
 
 Every URL in the metadata is absolute `https://keera.ch/...`, so all of them
-need updating if the domain changes. Canonicals, `og:url` and the sitemap use
-the directory form for the three home pages - `https://keera.ch/`, `/en/`,
-`/fr/`. Internal links match: `href="./"` for the current language's home page.
+need updating if the domain changes. Canonicals, `og:url`, `hreflang`, the
+JSON-LD, the sitemap and `llms.txt` use the directory form for the three home
+pages - `https://keera.ch/`, `/en/`, `/fr/` - and drop `.html` from the fifteen
+others - `https://keera.ch/gateway`, `/en/gateway`. Internal links match:
+`href="./"` for the current language's home page, `href="gateway"` for a page.
+GitHub Pages resolves `/gateway` to `gateway.html` itself, so the files keep
+their extension; the `.html` URL still answers, and its canonical folds it into
+the short one. A preview opened from disk or served by a plain static server
+does not resolve them, so preview through a server that does (`npx serve`).
 
 The JSON-LD is one `@graph` per page: `Organization` + `WebSite` on the home
 pages, `BreadcrumbList` on the subpages, plus `SoftwareApplication` and

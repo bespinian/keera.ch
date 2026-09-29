@@ -11,9 +11,9 @@
   var path = location.pathname;
   if (path !== "/" && path !== "/index.html") return;
 
-  /* Negotiate at most once per session. Without this, a visitor who picked DE
-     in the switcher and later opened a bookmark - no referrer, same browser -
-     would be sent back to /fr/ again. */
+  /* Negotiate at most once per tab session. Without this, a visitor who picked
+     DE in the switcher and later reloaded or followed a bookmark in the same
+     tab - no referrer - would be sent back to /fr/ again. */
   var negotiated;
   try {
     negotiated = sessionStorage.getItem("keera-lang");
@@ -22,6 +22,16 @@
     /* private mode: negotiate every time rather than never */
   }
   if (negotiated) return;
+
+  /* Crawlers render this page in headless Chrome with no referrer, an empty
+     sessionStorage and an en-US locale, so they would follow the redirect and
+     index /en/ in place of the German root that hreflang and x-default name.
+     They get the page as served, as they did from Apache. */
+  if (
+    navigator.webdriver ||
+    /bot|crawl|spider|slurp|google|headless/i.test(navigator.userAgent)
+  )
+    return;
 
   /* A click from inside the site is a choice; Accept-Language is a guess. The
      switcher's DE link would otherwise be bounced straight back to /fr/. */

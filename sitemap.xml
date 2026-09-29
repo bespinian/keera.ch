@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://keera.ch/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/"/>
@@ -11,7 +11,7 @@
   </url>
   <url>
     <loc>https://keera.ch/en/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/"/>
@@ -19,130 +19,130 @@
   </url>
   <url>
     <loc>https://keera.ch/fr/</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-10-02</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/"/>
   </url>
   <url>
-    <loc>https://keera.ch/gateway.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway.html"/>
+    <loc>https://keera.ch/gateway</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway"/>
   </url>
   <url>
-    <loc>https://keera.ch/en/gateway.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway.html"/>
+    <loc>https://keera.ch/en/gateway</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway"/>
   </url>
   <url>
-    <loc>https://keera.ch/fr/gateway.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway.html"/>
+    <loc>https://keera.ch/fr/gateway</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/gateway"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway"/>
   </url>
   <url>
-    <loc>https://keera.ch/engine.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine.html"/>
+    <loc>https://keera.ch/engine</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
   </url>
   <url>
-    <loc>https://keera.ch/en/engine.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine.html"/>
+    <loc>https://keera.ch/en/engine</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
   </url>
   <url>
-    <loc>https://keera.ch/fr/engine.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine.html"/>
+    <loc>https://keera.ch/fr/engine</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
   </url>
   <url>
-    <loc>https://keera.ch/sovereignty.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty.html"/>
+    <loc>https://keera.ch/sovereignty</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty"/>
   </url>
   <url>
-    <loc>https://keera.ch/en/sovereignty.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty.html"/>
+    <loc>https://keera.ch/en/sovereignty</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty"/>
   </url>
   <url>
-    <loc>https://keera.ch/fr/sovereignty.html</loc>
-    <lastmod>2026-09-28</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty.html"/>
+    <loc>https://keera.ch/fr/sovereignty</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sovereignty"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sovereignty"/>
   </url>
   <url>
-    <loc>https://keera.ch/sustainability.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability.html"/>
+    <loc>https://keera.ch/sustainability</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability"/>
   </url>
   <url>
-    <loc>https://keera.ch/en/sustainability.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability.html"/>
+    <loc>https://keera.ch/en/sustainability</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability"/>
   </url>
   <url>
-    <loc>https://keera.ch/fr/sustainability.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability.html"/>
+    <loc>https://keera.ch/fr/sustainability</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/sustainability"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/sustainability"/>
   </url>
   <url>
-    <loc>https://keera.ch/story.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story.html"/>
+    <loc>https://keera.ch/story</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story"/>
   </url>
   <url>
-    <loc>https://keera.ch/en/story.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story.html"/>
+    <loc>https://keera.ch/en/story</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story"/>
   </url>
   <url>
-    <loc>https://keera.ch/fr/story.html</loc>
-    <lastmod>2026-09-25</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story.html"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story.html"/>
+    <loc>https://keera.ch/fr/story</loc>
+    <lastmod>2026-10-02</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/story"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/story"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/story"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/story"/>
   </url>
 </urlset>
