@@ -465,6 +465,11 @@ thead th,
   padding: 11px 20px;
   border: 1px solid var(--accent);
   border-radius: 8px;
+  cursor: pointer;
+}
+/* The form handler disables the submit button while the request is out. */
+.btn:disabled {
+  cursor: progress;
 }
 .btn:hover {
   text-decoration: none;
