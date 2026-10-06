@@ -640,6 +640,21 @@ thead th,
 .partners .partner--ink path {
   fill: var(--ink);
 }
+/* nine's mark is two-tone for a dark ground: a dark helmet (.partner-cut) on a
+   white plate (.partner-plate) that outlines it. On a light ground the plate
+   takes the tile's colour and the helmet the ink; in the dark scheme they swap
+   back, so the helmet reads as cut out of an ink plate, as nine draws it. */
+.partners .partner--ink .partner-plate {
+  fill: var(--card);
+}
+@media screen and (prefers-color-scheme: dark) {
+  .partners .partner--ink .partner-plate {
+    fill: var(--ink);
+  }
+  .partners .partner--ink .partner-cut {
+    fill: var(--card);
+  }
+}
 
 /* ---------- diagrams ---------- */
 /* The diagrams are HTML and CSS rather than SVG, so they reflow from a row into

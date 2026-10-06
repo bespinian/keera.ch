@@ -309,8 +309,15 @@ The onprem.ai master (`../artwork/onpremai.svg`) is one mint (`#47ffd7`) drawn f
 a dark ground, about 1.2:1 on white, so its `<a>` carries `.partner--ink` and
 takes `--ink` in both schemes; the markup still keeps the mint, cropped to
 `0 0 246.51 49.33` and rounded the same way. Swap it back to a plain link the
-day onprem.ai ships a variant for light grounds. Keep the three copies
-identical.
+day onprem.ai ships a variant for light grounds. The nine master
+(`../artwork/nine-dark.svg`) is drawn for a dark ground too, but in two tones:
+white lettering and a white plate (`#fefefe`) outlining a dark helmet
+(`#231f20`). Its `<a>` carries `.partner--ink` as well, the plate path
+`.partner-plate` and the five helmet paths `.partner-cut`. In the light scheme
+the plate takes `--card` and everything else `--ink`; in the dark scheme the
+plate takes `--ink` and the helmet `--card`, which is nine's own dark-ground
+look. The markup keeps both brand fills, cropped to `0 0 384.67 129.08`. Keep
+the three copies identical.
 
 The `#partners` `<h2>` is **the one heading on the site that is a direct child
 of `.wrap`**, outside any `.prose`, so it and the leaf hold one line. Do not move any other
