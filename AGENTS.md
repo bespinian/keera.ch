@@ -260,7 +260,7 @@ so the menu needs no JavaScript. Three things are load-bearing:
 - `.site-menu-text` is the checkbox's accessible name. It stays in the markup,
   hidden with a clip, and is localised (`Menü` / `Menu` / `Menu`).
 
-The footer is one line of prose, one row of links (the five pages, GitHub,
+The footer is one line of prose, one row of links (the five pages, GitHub, LinkedIn,
 Contact, Imprint) and one mono line with the copyright and the city (`© 2026 bespinian ·
 Bern`, `Berne` in French).
 
@@ -691,9 +691,11 @@ The JSON-LD is one `@graph` per page: `Organization` + `WebSite` on the home
 pages, `BreadcrumbList` on the subpages, plus `SoftwareApplication` and
 `FAQPage` on `engine.html` and `gateway.html`.
 
-Keera has no social or directory profiles, so its `Organization` carries no
-`sameAs`; `parentOrganization` points at bespinian's. Give Keera its own
-`sameAs` the moment it has a real, verified profile.
+Keera's one profile is its LinkedIn showcase page,
+`linkedin.com/showcase/keera-ai`: it is the `sameAs` of Keera's `Organization`
+on the three home pages and the `LinkedIn` link in every footer, after GitHub.
+`parentOrganization` points at bespinian's. Add another profile to `sameAs` only
+once it is real and verified.
 
 Every page carries its own Open Graph image, 1200×630, built from that page's
 artwork on the `#091023` navy of `keera-og-image.jpg`. The home pages keep
