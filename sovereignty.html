@@ -3,17 +3,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Souveränität - jede Anfrage unter deiner Kontrolle</title>
+    <title>KI-Souveränität in der Schweiz - jede Anfrage unter Kontrolle</title>
     <meta
       name="description"
-      content="Ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein Fallback ins Ausland."
+      content="KI-Souveränität in der Schweiz: ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein CLOUD Act, kein Fallback ins Ausland."
     />
     <link rel="canonical" href="https://keera.ch/sovereignty" />
-    <link
-      rel="alternate"
-      hreflang="de"
-      href="https://keera.ch/sovereignty"
-    />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty" />
     <link
       rel="alternate"
       hreflang="fr"
@@ -63,11 +59,11 @@
     <meta property="og:url" content="https://keera.ch/sovereignty" />
     <meta
       property="og:title"
-      content="Souveränität - jede Anfrage unter deiner Kontrolle"
+      content="KI-Souveränität in der Schweiz - jede Anfrage unter Kontrolle"
     />
     <meta
       property="og:description"
-      content="Ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein Fallback ins Ausland."
+      content="KI-Souveränität in der Schweiz: ein Endpunkt, an dem jede KI-Anfrage vorbeikommt. Offene Weights, Schweizer Betrieb, kein CLOUD Act, kein Fallback ins Ausland."
     />
     <meta
       property="og:image"
@@ -99,6 +95,35 @@
                 "position": 2,
                 "name": "Souveränität",
                 "item": "https://keera.ch/sovereignty"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Weisst du, was dein Unternehmen gestern an eine KI geschickt hat?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mit Keera Gateway ja. Sperr den direkten Egress am Proxy, und jede Anfrage steht im Log - statt in einem privaten Konto bei einem Anbieter im Ausland."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Welche ausländische Behörde kann Herausgabe erzwingen?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keine. bespinian hat keine US-Mutter, keine US-Tochter und keine US-Unterauftragsverarbeiter - der CLOUD Act hat keinen Adressaten."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Kannst du weiterarbeiten, wenn der Anbieter morgen verschwindet?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mit Keera ja: Das Gateway kommt als Helm-Chart, die Weights stehen unter Apache-2.0, und die Escrow-Vereinbarung übergibt dir beides."
+                }
               }
             ]
           }
@@ -144,8 +169,7 @@
           ><span class="site-menu-text">Menü</span></label
         >
         <nav class="site-nav" aria-label="Hauptnavigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty" aria-current="page">Souveränität</a
           ><a href="sustainability">Nachhaltigkeit</a
           ><a href="story">Die Geschichte</a>
@@ -184,10 +208,11 @@
       <section class="band">
         <div class="wrap">
           <div class="prose">
-            <h2>Schicht für Schicht</h2>
+            <h2>Datensouveränität, Schicht für Schicht</h2>
             <p>
-              Zuoberst steht Keera Gateway - der eine Ort, an dem deine Regeln
-              greifen. Darunter liegt nichts, was sie umgehen könnte.
+              Zuoberst steht <a href="gateway">Keera Gateway</a> - der eine Ort,
+              an dem deine Regeln greifen. Darunter liegt nichts, was sie
+              umgehen könnte.
             </p>
           </div>
           <div class="table-wrap">
@@ -268,9 +293,9 @@
                 hat?
               </h3>
               <p>
-                Mit dem Gateway ja. Sperr den direkten Egress am Proxy, und jede
-                Anfrage steht im Log - statt in einem privaten Konto bei einem
-                Anbieter im Ausland.
+                Mit Keera Gateway ja. Sperr den direkten Egress am Proxy, und
+                jede Anfrage steht im Log - statt in einem privaten Konto bei
+                einem Anbieter im Ausland.
               </p>
             </div>
             <div>
@@ -338,7 +363,8 @@
               </li>
               <li>
                 <strong>vLLM und llm-d auf Kubernetes</strong> -
-                Inferenz-Serving, Scheduling und Routing
+                Inferenz-Serving, Scheduling und Routing, die Basis von
+                <a href="engine">Keera Engine</a>
               </li>
             </ul>
             <p>
@@ -512,8 +538,7 @@
           Bern von bespinian.
         </p>
         <nav aria-label="Fussnavigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Souveränität</a
           ><a href="sustainability">Nachhaltigkeit</a
           ><a href="story">Die Geschichte</a

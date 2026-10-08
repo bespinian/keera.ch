@@ -3,28 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Engine - open models, run efficiently</title>
+    <title>Keera Engine - Swiss inference for open models on vLLM</title>
     <meta
       name="description"
-      content="The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
+      content="The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
     />
     <link rel="canonical" href="https://keera.ch/en/engine" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/engine" />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href="https://keera.ch/fr/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://keera.ch/en/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://keera.ch/engine"
-    />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/engine" />
+    <link rel="alternate" hreflang="x-default" href="https://keera.ch/engine" />
     <link
       rel="preload"
       href="../assets/img/keera-coding-on-a-laptop.webp"
@@ -66,11 +54,11 @@
     <meta property="og:url" content="https://keera.ch/en/engine" />
     <meta
       property="og:title"
-      content="Keera Engine - open models, run efficiently"
+      content="Keera Engine - Swiss inference for open models on vLLM"
     />
     <meta
       property="og:description"
-      content="The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
+      content="The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster."
     />
     <meta
       property="og:image"
@@ -104,11 +92,20 @@
           },
           {
             "@type": "SoftwareApplication",
+            "@id": "https://keera.ch/#engine",
             "name": "Keera Engine",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Kubernetes",
             "url": "https://keera.ch/en/engine",
-            "description": "The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.",
+            "description": "The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.",
+            "featureList": [
+              "OpenAI-compatible API",
+              "Any open model vLLM can serve",
+              "Keera fine-tunes and your own",
+              "Batching with vLLM",
+              "Cache-aware routing with llm-d",
+              "Kubernetes in Swiss data centres or your own racks"
+            ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
             }
@@ -118,7 +115,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Does my data leave the building?",
+                "name": "Does my data leave the building with Keera Engine?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "No. The models run on Swiss GPUs or in your own racks; prompts and code go there for inference and come back. They are not stored, the model's answer is not stored, and nothing is trained on either. What is kept is the request itself - who, when, which model - in the log in your own infrastructure."
@@ -134,7 +131,7 @@
               },
               {
                 "@type": "Question",
-                "name": "How does this fit with Keera Gateway?",
+                "name": "How does Keera Engine fit with Keera Gateway?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Keera Engine sits behind the gateway and runs the open models the gateway routes to. The gateway decides who may use which model and writes every request to the audit log; the engine computes the answer. You can start with the gateway and the providers you already have, and add the engine once the models should move in-house."
@@ -220,9 +217,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Try Keera</a>
-              <a class="arrow" href="gateway"
-                >See Keera Gateway &#x2794;</a
-              >
+              <a class="arrow" href="gateway">See Keera Gateway &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -294,7 +289,7 @@
       <section class="band band--alt" id="models">
         <div class="wrap">
           <div class="prose">
-            <h2>The models</h2>
+            <h2>Models on Keera Engine</h2>
             <p>
               The engine runs any open model vLLM can serve - Qwen, Llama,
               Mistral, Apertus or your own fine-tune. Three fine-tunes of ours
@@ -368,8 +363,8 @@
               </p>
               <p>
                 Every token the engine computes passes through
-                <a href="gateway">Keera Gateway</a> first: the same
-                policies and the same audit log as everywhere else.
+                <a href="gateway">Keera Gateway</a> first: the same policies and
+                the same audit log as everywhere else.
               </p>
             </div>
             <figure class="figure figure--plain">
@@ -388,7 +383,7 @@
       <section class="band band--alt" id="faq">
         <div class="wrap">
           <div class="prose">
-            <h2>Common questions</h2>
+            <h2>Questions about Keera Engine</h2>
             <p>
               What platform and engineering teams ask us most before they try
               Keera Engine.
@@ -396,7 +391,9 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Does my data leave the building?</summary>
+              <summary>
+                Does my data leave the building with Keera Engine?
+              </summary>
               <p>
                 No. The models run on Swiss GPUs or in your own racks; prompts
                 and code go there for inference and come back. They are not
@@ -417,7 +414,7 @@
               </p>
             </details>
             <details>
-              <summary>How does this fit with Keera Gateway?</summary>
+              <summary>How does Keera Engine fit with Keera Gateway?</summary>
               <p>
                 Keera Engine sits behind the gateway and runs the open models
                 the gateway routes to. The gateway decides who may use which
@@ -553,8 +550,7 @@
           in Bern by bespinian.
         </p>
         <nav aria-label="Footer navigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Sovereignty</a
           ><a href="sustainability">Sustainability</a
           ><a href="story">The story</a

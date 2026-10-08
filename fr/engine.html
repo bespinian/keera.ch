@@ -3,28 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Engine - des modèles ouverts, exploités efficacement</title>
+    <title>Keera Engine - inférence suisse pour modèles ouverts sur vLLM</title>
     <meta
       name="description"
-      content="Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
+      content="Le moteur d'inférence derrière Keera Gateway : tout modèle ouvert sur Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
     />
     <link rel="canonical" href="https://keera.ch/fr/engine" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/engine" />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href="https://keera.ch/fr/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://keera.ch/en/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://keera.ch/engine"
-    />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/engine" />
+    <link rel="alternate" hreflang="x-default" href="https://keera.ch/engine" />
     <link
       rel="preload"
       href="../assets/img/keera-coding-on-a-laptop.webp"
@@ -66,11 +54,11 @@
     <meta property="og:url" content="https://keera.ch/fr/engine" />
     <meta
       property="og:title"
-      content="Keera Engine - des modèles ouverts, exploités efficacement"
+      content="Keera Engine - inférence suisse pour modèles ouverts sur vLLM"
     />
     <meta
       property="og:description"
-      content="Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
+      content="Le moteur d'inférence derrière Keera Gateway : tout modèle ouvert sur Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster."
     />
     <meta
       property="og:image"
@@ -104,11 +92,20 @@
           },
           {
             "@type": "SoftwareApplication",
+            "@id": "https://keera.ch/#engine",
             "name": "Keera Engine",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Kubernetes",
             "url": "https://keera.ch/fr/engine",
-            "description": "Le moteur d'inférence pour tout modèle ouvert : Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster.",
+            "description": "Le moteur d'inférence derrière Keera Gateway : tout modèle ouvert sur Kubernetes, vLLM et llm-d, sur des GPU suisses ou dans votre propre cluster.",
+            "featureList": [
+              "API compatible OpenAI",
+              "Tout modèle ouvert que vLLM sait servir",
+              "Fine-tunes Keera et les vôtres",
+              "Regroupement des requêtes avec vLLM",
+              "Routage selon le cache avec llm-d",
+              "Kubernetes dans des centres de données suisses ou vos propres baies"
+            ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
             }
@@ -118,7 +115,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Mes données restent-elles chez moi ?",
+                "name": "Avec Keera Engine, mes données restent-elles chez moi ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui. Les modèles tournent sur des GPU suisses ou dans vos propres baies ; prompts et code y partent pour l'inférence et reviennent. Ils ne sont pas conservés, la réponse du modèle non plus, et rien n'est entraîné avec. Ce qui est conservé, c'est la requête elle-même - qui, quand, quel modèle - dans le journal de votre propre infrastructure."
@@ -134,7 +131,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Quel rapport avec Keera Gateway ?",
+                "name": "Quel rapport entre Keera Engine et Keera Gateway ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Keera Engine se place derrière la passerelle et exploite les modèles ouverts vers lesquels elle route. La passerelle décide qui peut utiliser quel modèle et inscrit chaque requête au journal d'audit ; le moteur calcule la réponse. Vous pouvez commencer avec la passerelle et les fournisseurs que vous avez déjà, puis ajouter le moteur quand les modèles doivent venir chez vous."
@@ -187,8 +184,7 @@
           <a href="gateway">Keera Gateway</a
           ><a href="engine" aria-current="page">Keera Engine</a
           ><a href="sovereignty">Souveraineté</a
-          ><a href="sustainability">Durabilité</a
-          ><a href="story">L'histoire</a>
+          ><a href="sustainability">Durabilité</a><a href="story">L'histoire</a>
         </nav>
       </div>
     </header>
@@ -221,9 +217,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Essayer Keera</a>
-              <a class="arrow" href="gateway"
-                >Voir Keera Gateway &#x2794;</a
-              >
+              <a class="arrow" href="gateway">Voir Keera Gateway &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -297,7 +291,7 @@
       <section class="band band--alt" id="models">
         <div class="wrap">
           <div class="prose">
-            <h2>Les modèles</h2>
+            <h2>Les modèles sur Keera Engine</h2>
             <p>
               Le moteur exploite tout modèle ouvert que vLLM sait servir&nbsp;-
               Qwen, Llama, Mistral, Apertus ou votre propre fine-tune. Trois
@@ -375,8 +369,8 @@
               </p>
               <p>
                 Chaque token calculé par le moteur passe d'abord par
-                <a href="gateway">Keera Gateway</a>&nbsp;: les mêmes
-                politiques et le même journal d'audit que partout ailleurs.
+                <a href="gateway">Keera Gateway</a>&nbsp;: les mêmes politiques
+                et le même journal d'audit que partout ailleurs.
               </p>
             </div>
             <figure class="figure figure--plain">
@@ -395,7 +389,7 @@
       <section class="band band--alt" id="faq">
         <div class="wrap">
           <div class="prose">
-            <h2>Questions fréquentes</h2>
+            <h2>Questions fréquentes sur Keera Engine</h2>
             <p>
               Ce que les équipes plateforme et d'ingénierie nous demandent le
               plus souvent avant d'essayer Keera Engine.
@@ -403,7 +397,9 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Mes données restent-elles chez moi&nbsp;?</summary>
+              <summary>
+                Avec Keera Engine, mes données restent-elles chez moi&nbsp;?
+              </summary>
               <p>
                 Oui. Les modèles tournent sur des GPU suisses ou dans vos
                 propres baies&nbsp;; prompts et code y partent pour l'inférence
@@ -426,7 +422,9 @@
               </p>
             </details>
             <details>
-              <summary>Quel rapport avec Keera Gateway&nbsp;?</summary>
+              <summary>
+                Quel rapport entre Keera Engine et Keera Gateway&nbsp;?
+              </summary>
               <p>
                 Keera Engine se place derrière la passerelle et exploite les
                 modèles ouverts vers lesquels elle route. La passerelle décide
@@ -565,11 +563,9 @@
           Souveraineté numérique. Conçu à Berne par bespinian.
         </p>
         <nav aria-label="Navigation de pied de page">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Souveraineté</a
-          ><a href="sustainability">Durabilité</a
-          ><a href="story">L'histoire</a
+          ><a href="sustainability">Durabilité</a><a href="story">L'histoire</a
           ><a href="https://github.com/bespinian/keera-gateway">GitHub</a
           ><a href="https://www.linkedin.com/showcase/keera-ai">LinkedIn</a
           ><a href="./#contact">Contact</a

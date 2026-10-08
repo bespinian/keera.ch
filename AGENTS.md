@@ -115,7 +115,9 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   site and gets one short paragraph of framing, no more. Those six names are
   the gateway's own: check the gateway repo before rewording one. German and
   English keep them in English (_Live Map_ in German, _Live map_ in English, as
-  the repo writes it); French translates them.
+  the repo writes it); French translates them. The `featureList` of the
+  gateway's `SoftwareApplication` node is these six `<h3>`s, regenerated from
+  the markup when one changes.
 
 - `engine.html` - hero, what it is as a four-layer stack (`#what`: API,
   models, inference server, platform), the model table, the open technology we
@@ -126,7 +128,9 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   any open model vLLM can serve, and the three Keera fine-tunes are one option,
   never the whole offer. It sits **behind** the gateway - the gateway routes to
   it - and is never called a client of it. Its efficiency claims stay with what
-  vLLM and llm-d actually do (batching, cache-aware routing).
+  vLLM and llm-d actually do (batching, cache-aware routing). The `featureList`
+  of its `SoftwareApplication` node restates the four `#what` layers in six
+  short items; a change to a layer wants a look at it.
 
 - `sovereignty.html` - the layer table, three questions, what the gateway routes
   abroad and what it does not, the open stack (_Offen einsehbar_: the gateway's
@@ -136,6 +140,12 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   the site's one named table: its last column - _dein Tenant_ twice, _nur CH_,
   _portierbar_, _Schweiz_, _Bern_ - is in the accent, because those six cells
   are the page's whole argument.
+
+  The page links both products in its prose: _Keera Gateway_ in the layer
+  table's framing sentence, _Keera Engine_ on the vLLM line of the open stack.
+  The three questions are `.facts` cells, not a `#faq`, but they are mirrored
+  in a `FAQPage` node under the same rule as the two FAQs below, which is why
+  the first answer names _Keera Gateway_ rather than _the gateway_.
 
   `#infrastructure` names the Swiss infrastructure and inference partners so the reader can put them on the risk
   questionnaire the closing band asks for. Its prose says _partners_, plural,
@@ -154,14 +164,18 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
 
 ## Root files
 
-`robots.txt`, `sitemap.xml`, `llms.txt`, `404.html` and `CNAME` sit at the
-root. `CNAME` holds the single line `keera.ch` and is what binds the custom
+`robots.txt`, `sitemap.xml`, `llms.txt`, `404.html`, `CNAME` and the IndexNow
+key file `4f788c756ba49f94dc46567ec756122c.txt` sit at the root. `CNAME` holds the single line `keera.ch` and is what binds the custom
 domain to the deployment; it has to match the custom domain set under Settings
--> Pages, and removing it takes the site off that name.
+-> Pages, and removing it takes the site off that name. The key file holds
+its own name and nothing else; the deploy's IndexNow step names it, so the two
+change together.
 
 The sitemap lists all eighteen content URLs with `xhtml:link` alternates and a
 `<lastmod>`. Regenerate it when a page is added, and touch the `<lastmod>` of
-any page whose content changed. No `<changefreq>`, no `<priority>`, and
+any page whose main content changed - not for an edit to the shared header,
+footer or form, which moves all eighteen dates at once and teaches a search
+engine to ignore them. No `<changefreq>`, no `<priority>`, and
 `404.html` is not in it.
 
 `llms.txt` is the [llmstxt.org](https://llmstxt.org/) file: an H1, a blockquote
@@ -347,7 +361,9 @@ mono footnote saying so appears on `story.html`, on the home teaser and in
 
 The page runs: hero (a two-sentence title, a one-sentence lede, the footnote,
 `Die Geschichte · Vier Akte, 24 Bilder` in the eyebrow), the three-portrait cast strip, the four acts, the
-figure-to-function list, _what we do not claim_, and one closing CTA.
+figure-to-function list, _what we do not claim_, and one closing CTA. The
+figure-to-function paragraph links Keera Gateway and Keera Engine, the page's
+only links into the products.
 
 The four acts, each a plain `<section class="band">` with an eyebrow, a headline and a
 one-sentence lede:
@@ -422,10 +438,13 @@ to the form.
 
 `<details>` needs no JavaScript and keeps its native marker. The questions are
 plain `<summary>` text, not headings, so the JSON-LD is what carries the Q&A to
-a crawler.
+a crawler. Each question names its product - _Does Keera Gateway add
+latency?_, not _Does it add latency?_ - because a search engine or an AI
+answer quotes one question and its answer without the page around it. The
+answer itself may start with a bare _Yes._ or _No._
 
-Both sets are mirrored in a `FAQPage` node in the page's JSON-LD `@graph`, and
-that copy is duplicated prose: regenerate it from the markup rather than
+Both sets - and the three questions on `sovereignty.html` - are mirrored in a
+`FAQPage` node in the page's JSON-LD `@graph`, and that copy is duplicated prose: regenerate it from the markup rather than
 retyping it. The French node carries literal U+00A0 where the prose writes
 `&nbsp;`.
 
@@ -676,6 +695,17 @@ block in `<head>`. `404.html` is the exception. `twitter:card` is the only
 Twitter tag: X reads title, description and image from `og:*`, so a copy would
 only be a fourth place for the description to drift.
 
+The `<title>` and `og:title` are written for search, the `<h1>` for the
+reader. A title leads with what the page is and where - _Keera Gateway - the
+Swiss LLM gateway for every model_, _AI sovereignty in Switzerland - ..._ -
+in the words people search and prompt with (LLM gateway, KI-Gateway,
+passerelle LLM, inference), and the hero keeps its own voice. The two product
+pages open their lede with one definition sentence, _Keera Gateway is a Swiss
+LLM gateway._ / _Keera Engine is the inference engine behind the gateway._,
+because that is the sentence an AI answer lifts. Section headings name their
+subject the same way (_How Keera Gateway works_, not _How it works_): a
+passage gets read without its page.
+
 Every URL in the metadata is absolute `https://keera.ch/...`, so all of them
 need updating if the domain changes. Canonicals, `og:url`, `hreflang`, the
 JSON-LD, the sitemap and `llms.txt` use the directory form for the three home
@@ -689,7 +719,17 @@ does not resolve them, so preview through a server that does (`npx serve`).
 
 The JSON-LD is one `@graph` per page: `Organization` + `WebSite` on the home
 pages, `BreadcrumbList` on the subpages, plus `SoftwareApplication` and
-`FAQPage` on `engine.html` and `gateway.html`.
+`FAQPage` on `engine.html` and `gateway.html`, and `FAQPage` on
+`sovereignty.html`. The `Organization` carries
+`alternateName` _Keera by bespinian_ - Keera is also a given name and other
+companies' - the home page's description, `hello@bespinian.io`, `areaServed`
+`CH` and a short English `knowsAbout`. The two `SoftwareApplication` nodes keep
+one `@id` across all three languages, `https://keera.ch/#gateway` and
+`https://keera.ch/#engine`, so the three copies read as one product, and carry
+the page's description and a `featureList` in the page's language.
+
+A `<title>` past about 65 characters and a description past about 160 get cut
+off in the search result; a description under about 100 wastes the space.
 
 Keera's one profile is its LinkedIn showcase page,
 `linkedin.com/showcase/keera-ai`: it is the `sameAs` of Keera's `Organization`

@@ -3,17 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sovereignty - every request under your control</title>
+    <title>
+      AI sovereignty in Switzerland - every request under your control
+    </title>
     <meta
       name="description"
-      content="One endpoint every AI request passes through. Open weights, Swiss operation, no failover abroad."
+      content="AI sovereignty in Switzerland: one endpoint every AI request passes through. Open weights, Swiss operation, no CLOUD Act, no failover abroad."
     />
     <link rel="canonical" href="https://keera.ch/en/sovereignty" />
-    <link
-      rel="alternate"
-      hreflang="de"
-      href="https://keera.ch/sovereignty"
-    />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/sovereignty" />
     <link
       rel="alternate"
       hreflang="fr"
@@ -70,11 +68,11 @@
     <meta property="og:url" content="https://keera.ch/en/sovereignty" />
     <meta
       property="og:title"
-      content="Sovereignty - every request under your control"
+      content="AI sovereignty in Switzerland - every request under your control"
     />
     <meta
       property="og:description"
-      content="One endpoint every AI request passes through. Open weights, Swiss operation, no failover abroad."
+      content="AI sovereignty in Switzerland: one endpoint every AI request passes through. Open weights, Swiss operation, no CLOUD Act, no failover abroad."
     />
     <meta
       property="og:image"
@@ -106,6 +104,35 @@
                 "position": 2,
                 "name": "Sovereignty",
                 "item": "https://keera.ch/en/sovereignty"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Do you know what your company sent to an AI yesterday?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With Keera Gateway you do. Block direct egress at the proxy, and every request is in the log - instead of in a private account with a provider abroad."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Which foreign authority can compel disclosure?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "None. bespinian has no US parent, no US subsidiary and no US sub-processors - the CLOUD Act has no addressee."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you keep working if the provider disappears tomorrow?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "With Keera, yes: the gateway ships as a Helm chart, the weights are Apache-2.0, and the escrow agreement hands you both."
+                }
               }
             ]
           }
@@ -151,8 +178,7 @@
           ><span class="site-menu-text">Menu</span></label
         >
         <nav class="site-nav" aria-label="Main navigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty" aria-current="page">Sovereignty</a
           ><a href="sustainability">Sustainability</a
           ><a href="story">The story</a>
@@ -191,10 +217,11 @@
       <section class="band">
         <div class="wrap">
           <div class="prose">
-            <h2>Layer by layer</h2>
+            <h2>Data sovereignty, layer by layer</h2>
             <p>
-              Keera Gateway sits on top - the one place your rules are enforced.
-              Nothing underneath it can route around them.
+              <a href="gateway">Keera Gateway</a> sits on top - the one place
+              your rules are enforced. Nothing underneath it can route around
+              them.
             </p>
           </div>
           <div class="table-wrap">
@@ -270,7 +297,7 @@
             <div>
               <h3>Do you know what your company sent to an AI yesterday?</h3>
               <p>
-                With the gateway you do. Block direct egress at the proxy, and
+                With Keera Gateway you do. Block direct egress at the proxy, and
                 every request is in the log - instead of in a private account
                 with a provider abroad.
               </p>
@@ -335,7 +362,8 @@
               </li>
               <li>
                 <strong>vLLM and llm-d on Kubernetes</strong> - inference
-                serving, scheduling and routing
+                serving, scheduling and routing, the base of
+                <a href="engine">Keera Engine</a>
               </li>
             </ul>
             <p>
@@ -508,8 +536,7 @@
           in Bern by bespinian.
         </p>
         <nav aria-label="Footer navigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Sovereignty</a
           ><a href="sustainability">Sustainability</a
           ><a href="story">The story</a

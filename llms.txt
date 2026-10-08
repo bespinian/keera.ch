@@ -1,7 +1,8 @@
 # Keera
 
-> Keera is the AI stack bespinian runs in Switzerland: Keera Gateway, one
-> endpoint that decides who may use which model for what and logs every request,
+> Keera is the AI stack bespinian runs in Switzerland: Keera Gateway, an LLM
+> gateway - one endpoint that decides who may use which model for what and logs
+> every request -
 > and Keera Engine, the inference engine that runs any open model on Kubernetes,
 > vLLM and llm-d.
 > Inference, logs and backups stay in Swiss data centres.
@@ -24,13 +25,13 @@ than failing over abroad.
 
 ## Products
 
-- [Keera Gateway](https://keera.ch/en/gateway): One endpoint between your teams and every LLM: policies, budgets and an audit log with no gaps.
+- [Keera Gateway](https://keera.ch/en/gateway): The Swiss LLM gateway: one endpoint between your teams and every model, with policies, budgets and an audit log with no gaps.
 - [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
-- [Keera Engine](https://keera.ch/en/engine): The inference engine for any open model: Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
+- [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 
 ## Background
 
-- [Sovereignty](https://keera.ch/en/sovereignty): One endpoint every AI request passes through. Open weights, Swiss operation, no failover abroad.
+- [Sovereignty](https://keera.ch/en/sovereignty): AI sovereignty in Switzerland: one endpoint every AI request passes through. Open weights, Swiss operation, no CLOUD Act, no failover abroad.
 - [Sustainability](https://keera.ch/en/sustainability): We pick infrastructure partners on how much renewable energy runs their data centres. And Keera saves tokens with smaller models, routing and caching.
 - [Keera's story](https://keera.ch/en/story): A comic in four acts: Keera follows the data into a hall with no address and builds the gate she was missing there.
 

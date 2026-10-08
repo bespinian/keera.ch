@@ -2,8 +2,8 @@
 
 Plain static pages, no build step. Eighteen content `.html` files - six pages in
 German at the root, English under `en/`, French under `fr/` - plus `404.html`,
-the shared files under `assets/`, and `robots.txt`, `sitemap.xml`, `llms.txt`
-and `CNAME` at the root.
+the shared files under `assets/`, and `robots.txt`, `sitemap.xml`, `llms.txt`,
+`CNAME` and the IndexNow key file at the root.
 
 Edit the HTML by hand. A change to a page's shell - header, footer, contact
 form, metadata - has to be made in all three language copies. `AGENTS.md` has
@@ -17,6 +17,17 @@ on manual dispatch). It copies the checkout into `_site/`, minus `.git/`,
 `.github/`, `_site/` itself, `AGENTS.md` and `README.md`, and hands that to
 `actions/upload-pages-artifact` and `actions/deploy-pages`. Nothing is
 generated, so the deployed bytes are the committed bytes.
+
+After the deploy, the workflow pings [IndexNow](https://www.indexnow.org/) with
+the URLs of the pages the push changed (every page on a manual run). Bing
+shares those pings with the other IndexNow engines, and ChatGPT search,
+Copilot and DuckDuckGo answer from Bing's index. The key is the root file
+`4f788c756ba49f94dc46567ec756122c.txt`, whose name and content are the key; it
+is public by design. A failed ping is logged and does not fail the run.
+
+Google does not take IndexNow. It reads `sitemap.xml`, which `robots.txt`
+names; submit the sitemap once in Google Search Console and in Bing Webmaster
+Tools, which is also where both report what they indexed.
 
 Set-up, once, under **Settings -> Pages**:
 

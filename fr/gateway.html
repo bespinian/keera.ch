@@ -3,23 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Gateway - un point d'accès pour chaque modèle</title>
+    <title>Keera Gateway - la passerelle LLM suisse pour chaque modèle</title>
     <meta
       name="description"
-      content="Un point d'accès entre vos équipes et tous les LLM : politiques, budgets et un journal d'audit sans trou."
+      content="La passerelle LLM suisse : un point d'accès entre vos équipes et tous les modèles, avec politiques, budgets et un journal d'audit sans trou."
     />
     <link rel="canonical" href="https://keera.ch/fr/gateway" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/gateway" />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href="https://keera.ch/fr/gateway"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://keera.ch/en/gateway"
-    />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/gateway" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/gateway" />
     <link
       rel="alternate"
       hreflang="x-default"
@@ -66,11 +58,11 @@
     <meta property="og:url" content="https://keera.ch/fr/gateway" />
     <meta
       property="og:title"
-      content="Keera Gateway - un point d'accès pour chaque modèle"
+      content="Keera Gateway - la passerelle LLM suisse pour chaque modèle"
     />
     <meta
       property="og:description"
-      content="Un point d'accès entre vos équipes et tous les LLM : politiques, budgets et un journal d'audit sans trou."
+      content="La passerelle LLM suisse : un point d'accès entre vos équipes et tous les modèles, avec politiques, budgets et un journal d'audit sans trou."
     />
     <meta
       property="og:image"
@@ -107,13 +99,22 @@
           },
           {
             "@type": "SoftwareApplication",
+            "@id": "https://keera.ch/#gateway",
             "name": "Keera Gateway",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Linux, macOS, Windows",
             "sameAs": "https://github.com/bespinian/keera-gateway",
             "license": "https://github.com/bespinian/keera-gateway/blob/main/LICENSE",
             "url": "https://keera.ch/fr/gateway",
-            "description": "Un point d'accès entre vos équipes et tous les LLM : politiques, budgets et un journal d'audit sans trou.",
+            "description": "La passerelle LLM suisse : un point d'accès entre vos équipes et tous les modèles, avec politiques, budgets et un journal d'audit sans trou.",
+            "featureList": [
+              "Garde-fous",
+              "Filtres intelligents",
+              "Routeurs intelligents",
+              "Carte en direct",
+              "Bacs à sable d'agents",
+              "SSO et rôles"
+            ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
             }
@@ -123,7 +124,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Stockez-vous mes prompts ?",
+                "name": "Keera Gateway stocke-t-elle mes prompts ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Non. Ni le prompt ni la réponse du modèle ne sont conservés : le contenu passe, puis il a disparu. Ce qui est enregistré, c'est la requête elle-même : qui, quand, quel modèle, combien de tokens, quelle décision. C'est de là que viennent les coûts par équipe et la traçabilité, et ce journal reste dans votre infrastructure."
@@ -131,7 +132,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-ce que cela nous rend plus sûrs ?",
+                "name": "Keera Gateway nous rend-elle plus sûrs ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui, surtout grâce aux clés. Les clés d'API de tous les modèles sont réunies au même endroit, au lieu d'être dispersées dans des fichiers .env, des secrets de CI et des portables. Vous les accordez par équipe et vous les révoquez à un seul endroit. Vos applications ne voient jamais la vraie clé."
@@ -139,7 +140,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-ce que cela m'aide pour le règlement européen sur l'IA ?",
+                "name": "Keera Gateway m'aide-t-elle pour le règlement européen sur l'IA ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui. Le règlement vous demande de montrer ce que votre entreprise fait avec l'IA. La passerelle journalise chaque requête avec l'identité, le modèle et la décision, et vous montre l'usage et les coûts par équipe. Les preuves sont là quand on vous les demande. Le travail de conformité, lui, reste le vôtre."
@@ -147,7 +148,7 @@
               },
               {
                 "@type": "Question",
-                "name": "En quoi se distingue-t-elle des autres passerelles IA ?",
+                "name": "En quoi Keera Gateway se distingue-t-elle des autres passerelles IA ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "D'autres savent router les requêtes, et en open source cela ne coûte rien. Trois choses ne viennent pas avec. Nous exploitons la passerelle dans des centres de données suisses, vous avez un support entreprise directement chez nous avec un interlocuteur en Suisse, et les modèles Keera se trouvent derrière elle dès le premier jour. Rien de tout cela n'exige un client particulier ni une bibliothèque maison : vos outils continuent de parler les API qu'ils parlent déjà, et vous changez une seule URL de base. C'est ce qui vous garde indépendants - de nous aussi. Vous pouvez lire le code source sur GitHub."
@@ -155,7 +156,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-ce que Claude Code fonctionne avec ?",
+                "name": "Claude Code fonctionne-t-il avec Keera Gateway ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui. La passerelle parle l'API OpenAI et l'API Anthropic. Claude Code, votre propre agent, une application interne ou un notebook pointent vers l'URL de base de la passerelle et continuent comme avant."
@@ -163,7 +164,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-ce que cela ajoute de la latence ?",
+                "name": "Keera Gateway ajoute-t-elle de la latence ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Très peu. Le passage par la politique, le budget et le journal coûte des microsecondes - à côté d'une réponse de modèle qui prend des secondes, personne ne le remarque. Seuls les filtres intelligents et les routeurs intelligents ajoutent un petit appel de modèle, et c'est vous qui les activez."
@@ -171,7 +172,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-elle légère ?",
+                "name": "Keera Gateway est-elle légère ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui. Elle consomme très peu de mémoire et elle est rapide. Pas de runtime lourd, pas de batterie de services devant elle - vous la posez à côté de vos applications sans construire une plateforme pour elle."
@@ -179,7 +180,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Est-elle cloud native ?",
+                "name": "Keera Gateway est-elle cloud native ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Oui, le cloud et Kubernetes sont sa maison. Elle tourne en conteneur, passe à l'échelle horizontalement et prend sa configuration dans le cluster. Dans votre cloud, dans votre cluster ou dans votre propre centre de données, c'est le même logiciel."
@@ -232,8 +233,7 @@
           <a href="gateway" aria-current="page">Keera Gateway</a
           ><a href="engine">Keera Engine</a
           ><a href="sovereignty">Souveraineté</a
-          ><a href="sustainability">Durabilité</a
-          ><a href="story">L'histoire</a>
+          ><a href="sustainability">Durabilité</a><a href="story">L'histoire</a>
         </nav>
       </div>
     </header>
@@ -260,10 +260,11 @@
             <p class="eyebrow">Keera Gateway</p>
             <h1>Un point d'accès pour chaque modèle de l'entreprise</h1>
             <p class="lede">
-              Entre vos équipes et tous les LLM se trouve une seule base
-              URL&nbsp;: les modèles de Keera, vos propres fine-tunes et les
-              fournisseurs externes là où la politique l'autorise. Politiques,
-              budgets et audit au même endroit.
+              Keera Gateway est une passerelle LLM suisse. Entre vos équipes et
+              tous les modèles se trouve une seule base URL&nbsp;: les modèles
+              de Keera, vos propres fine-tunes et les fournisseurs externes là
+              où la politique l'autorise. Politiques, budgets et audit au même
+              endroit.
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Essayer Keera</a>
@@ -286,7 +287,7 @@
       <section class="band" id="architecture">
         <div class="wrap">
           <div class="prose">
-            <h2>Comment ça marche</h2>
+            <h2>Comment fonctionne Keera Gateway</h2>
             <p>
               Tout ce qui appelle un modèle chez vous pointe vers la même
               adresse. La passerelle vérifie chaque requête, l'écrit au journal
@@ -335,7 +336,7 @@
       <section class="band band--alt" id="security">
         <div class="wrap">
           <div class="prose">
-            <h2>Quatre choses qu'elle contrôle</h2>
+            <h2>Quatre choses que Keera Gateway contrôle</h2>
             <p>
               Un point d'accès qui vous appartient&nbsp;- et quatre décisions
               qu'il prend pour chaque requête.
@@ -425,7 +426,7 @@
       <section class="band band--alt" id="features">
         <div class="wrap">
           <div class="prose">
-            <h2>Fonctionnalités</h2>
+            <h2>Fonctionnalités de Keera Gateway</h2>
             <p>
               La passerelle est plus qu'un proxy. Voici quelques-unes de ses
               fonctionnalités les plus puissantes&nbsp;- chacune dans
@@ -489,7 +490,7 @@
       <section class="band" id="faq">
         <div class="wrap">
           <div class="prose">
-            <h2>Questions fréquentes</h2>
+            <h2>Questions fréquentes sur Keera Gateway</h2>
             <p>
               Ce que les équipes nous demandent le plus souvent avant de mettre
               la passerelle en place.
@@ -497,7 +498,7 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Stockez-vous mes prompts&nbsp;?</summary>
+              <summary>Keera Gateway stocke-t-elle mes prompts&nbsp;?</summary>
               <p>
                 Non. Ni le prompt ni la réponse du modèle ne sont
                 conservés&nbsp;: le contenu passe, puis il a disparu. Ce qui est
@@ -508,7 +509,7 @@
               </p>
             </details>
             <details>
-              <summary>Est-ce que cela nous rend plus sûrs&nbsp;?</summary>
+              <summary>Keera Gateway nous rend-elle plus sûrs&nbsp;?</summary>
               <p>
                 Oui, surtout grâce aux clés. Les clés d'API de tous les modèles
                 sont réunies au même endroit, au lieu d'être dispersées dans des
@@ -519,7 +520,7 @@
             </details>
             <details>
               <summary>
-                Est-ce que cela m'aide pour le règlement européen sur
+                Keera Gateway m'aide-t-elle pour le règlement européen sur
                 l'IA&nbsp;?
               </summary>
               <p>
@@ -533,7 +534,8 @@
             </details>
             <details>
               <summary>
-                En quoi se distingue-t-elle des autres passerelles IA&nbsp;?
+                En quoi Keera Gateway se distingue-t-elle des autres passerelles
+                IA&nbsp;?
               </summary>
               <p>
                 D'autres savent router les requêtes, et en open source cela ne
@@ -552,7 +554,9 @@
               </p>
             </details>
             <details>
-              <summary>Est-ce que Claude Code fonctionne avec&nbsp;?</summary>
+              <summary>
+                Claude Code fonctionne-t-il avec Keera Gateway&nbsp;?
+              </summary>
               <p>
                 Oui. La passerelle parle l'API OpenAI et l'API Anthropic. Claude
                 Code, votre propre agent, une application interne ou un notebook
@@ -561,7 +565,9 @@
               </p>
             </details>
             <details>
-              <summary>Est-ce que cela ajoute de la latence&nbsp;?</summary>
+              <summary>
+                Keera Gateway ajoute-t-elle de la latence&nbsp;?
+              </summary>
               <p>
                 Très peu. Le passage par la politique, le budget et le journal
                 coûte des microsecondes&nbsp;- à côté d'une réponse de modèle
@@ -571,7 +577,7 @@
               </p>
             </details>
             <details>
-              <summary>Est-elle légère&nbsp;?</summary>
+              <summary>Keera Gateway est-elle légère&nbsp;?</summary>
               <p>
                 Oui. Elle consomme très peu de mémoire et elle est rapide. Pas
                 de runtime lourd, pas de batterie de services devant elle&nbsp;-
@@ -580,7 +586,7 @@
               </p>
             </details>
             <details>
-              <summary>Est-elle cloud native&nbsp;?</summary>
+              <summary>Keera Gateway est-elle cloud native&nbsp;?</summary>
               <p>
                 Oui, le cloud et Kubernetes sont sa maison. Elle tourne en
                 conteneur, passe à l'échelle horizontalement et prend sa
@@ -713,11 +719,9 @@
           Souveraineté numérique. Conçu à Berne par bespinian.
         </p>
         <nav aria-label="Navigation de pied de page">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Souveraineté</a
-          ><a href="sustainability">Durabilité</a
-          ><a href="story">L'histoire</a
+          ><a href="sustainability">Durabilité</a><a href="story">L'histoire</a
           ><a href="https://github.com/bespinian/keera-gateway">GitHub</a
           ><a href="https://www.linkedin.com/showcase/keera-ai">LinkedIn</a
           ><a href="./#contact">Contact</a

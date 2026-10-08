@@ -25,8 +25,11 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Full history, so the IndexNow step can diff against the previous push.
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       # Pages publishes a whole directory, so the two files that document the
       # repo rather than serve the site are left out of it. CNAME is not: it is
@@ -53,3 +56,32 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      # Tells Bing - and through its index ChatGPT search, Copilot and
+      # DuckDuckGo - which pages this push changed, so they are recrawled now
+      # rather than whenever the crawler comes round. The key file at the root
+      # proves the site holds the key. A manual run, or a push whose parent is
+      # unknown, submits every page. A failed ping never fails the deploy.
+      - name: Ping IndexNow
+        continue-on-error: true
+        env:
+          BEFORE: ${{ github.event.before }}
+          KEY: 4f788c756ba49f94dc46567ec756122c
+        run: |
+          if [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            pages=$(git diff --name-only "$BEFORE" HEAD -- '*.html')
+          else
+            pages=$(git ls-files '*.html')
+          fi
+          urls=$(printf '%s\n' $pages | grep -vx '404.html' \
+            | sed -E 's#(^|/)index\.html$#\1#; s#\.html$##; s#^#https://keera.ch/#')
+          if [ -z "$urls" ]; then
+            echo "No page changed."
+            exit 0
+          fi
+          printf '%s\n' $urls
+          printf '%s\n' $urls | jq -R . | jq -s --arg key "$KEY" \
+            '{host: "keera.ch", key: $key,
+              keyLocation: ("https://keera.ch/" + $key + ".txt"), urlList: .}' \
+            | curl -fsS -X POST https://api.indexnow.org/indexnow \
+                -H 'Content-Type: application/json; charset=utf-8' --data-binary @-

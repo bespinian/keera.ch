@@ -3,28 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Engine - offene Modelle, effizient betrieben</title>
+    <title>Keera Engine - Schweizer Inferenz für offene Modelle auf vLLM</title>
     <meta
       name="description"
-      content="Die Inferenz-Engine für jedes offene Modell: Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster."
+      content="Die Inferenz-Engine hinter Keera Gateway: jedes offene Modell auf Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster."
     />
     <link rel="canonical" href="https://keera.ch/engine" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/engine" />
-    <link
-      rel="alternate"
-      hreflang="fr"
-      href="https://keera.ch/fr/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="en"
-      href="https://keera.ch/en/engine"
-    />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://keera.ch/engine"
-    />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/engine" />
+    <link rel="alternate" hreflang="x-default" href="https://keera.ch/engine" />
     <link
       rel="preload"
       href="assets/img/keera-coding-on-a-laptop.webp"
@@ -59,11 +47,11 @@
     <meta property="og:url" content="https://keera.ch/engine" />
     <meta
       property="og:title"
-      content="Keera Engine - offene Modelle, effizient betrieben"
+      content="Keera Engine - Schweizer Inferenz für offene Modelle auf vLLM"
     />
     <meta
       property="og:description"
-      content="Die Inferenz-Engine für jedes offene Modell: Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster."
+      content="Die Inferenz-Engine hinter Keera Gateway: jedes offene Modell auf Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster."
     />
     <meta
       property="og:image"
@@ -97,11 +85,20 @@
           },
           {
             "@type": "SoftwareApplication",
+            "@id": "https://keera.ch/#engine",
             "name": "Keera Engine",
             "applicationCategory": "DeveloperApplication",
             "operatingSystem": "Kubernetes",
             "url": "https://keera.ch/engine",
-            "description": "Die Inferenz-Engine für jedes offene Modell: Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster.",
+            "description": "Die Inferenz-Engine hinter Keera Gateway: jedes offene Modell auf Kubernetes, vLLM und llm-d, auf Schweizer GPUs oder in deinem eigenen Cluster.",
+            "featureList": [
+              "OpenAI-kompatible API",
+              "Jedes offene Modell, das vLLM kennt",
+              "Keera-Fine-Tunes und deine eigenen",
+              "Batching mit vLLM",
+              "Cache-bewusstes Routing mit llm-d",
+              "Kubernetes in Schweizer Rechenzentren oder deinen eigenen Racks"
+            ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
             }
@@ -111,7 +108,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Bleiben meine Daten im Haus?",
+                "name": "Bleiben meine Daten mit Keera Engine im Haus?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Ja. Die Modelle laufen auf Schweizer GPUs oder in deinen eigenen Racks; Prompts und Code gehen zur Inferenz dorthin und wieder zurück. Gespeichert werden sie nicht, die Antwort des Modells auch nicht, und trainiert wird damit nichts. Festgehalten wird nur die Anfrage selbst - wer, wann, welches Modell - im Log in deiner Infrastruktur."
@@ -127,7 +124,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Wie hängt das mit Keera Gateway zusammen?",
+                "name": "Wie hängt Keera Engine mit Keera Gateway zusammen?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Keera Engine steht hinter dem Gateway und betreibt die offenen Modelle, an die es routet. Das Gateway entscheidet, wer welches Modell nutzen darf, und schreibt jede Anfrage ins Audit-Log; die Engine rechnet die Antwort. Du kannst mit dem Gateway und den Anbietern anfangen, die du schon hast, und die Engine dazunehmen, sobald die Modelle ins eigene Haus sollen."
@@ -213,9 +210,7 @@
             </p>
             <p class="btn-row">
               <a class="btn" href="#contact">Keera testen</a>
-              <a class="arrow" href="gateway"
-                >Keera Gateway ansehen &#x2794;</a
-              >
+              <a class="arrow" href="gateway">Keera Gateway ansehen &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -289,7 +284,7 @@
       <section class="band band--alt" id="models">
         <div class="wrap">
           <div class="prose">
-            <h2>Die Modelle</h2>
+            <h2>Die Modelle auf Keera Engine</h2>
             <p>
               Die Engine betreibt jedes offene Modell, das vLLM kennt - Qwen,
               Llama, Mistral, Apertus oder deinen eigenen Fine-Tune. Drei
@@ -386,7 +381,7 @@
       <section class="band band--alt" id="faq">
         <div class="wrap">
           <div class="prose">
-            <h2>Häufige Fragen</h2>
+            <h2>Häufige Fragen zu Keera Engine</h2>
             <p>
               Das fragen uns Plattform- und Engineering-Teams am häufigsten,
               bevor sie Keera Engine ausprobieren.
@@ -394,7 +389,7 @@
           </div>
           <div class="faq">
             <details>
-              <summary>Bleiben meine Daten im Haus?</summary>
+              <summary>Bleiben meine Daten mit Keera Engine im Haus?</summary>
               <p>
                 Ja. Die Modelle laufen auf Schweizer GPUs oder in deinen eigenen
                 Racks; Prompts und Code gehen zur Inferenz dorthin und wieder
@@ -416,7 +411,9 @@
               </p>
             </details>
             <details>
-              <summary>Wie hängt das mit Keera Gateway zusammen?</summary>
+              <summary>
+                Wie hängt Keera Engine mit Keera Gateway zusammen?
+              </summary>
               <p>
                 Keera Engine steht hinter dem Gateway und betreibt die offenen
                 Modelle, an die es routet. Das Gateway entscheidet, wer welches
@@ -553,8 +550,7 @@
           Bern von bespinian.
         </p>
         <nav aria-label="Fussnavigation">
-          <a href="gateway">Keera Gateway</a
-          ><a href="engine">Keera Engine</a
+          <a href="gateway">Keera Gateway</a><a href="engine">Keera Engine</a
           ><a href="sovereignty">Souveränität</a
           ><a href="sustainability">Nachhaltigkeit</a
           ><a href="story">Die Geschichte</a
