@@ -605,25 +605,49 @@ thead th,
 .card--quiet .icon {
   color: var(--muted);
 }
-/* A plan on pricing.html: name, price, the daily token volume over a hairline,
-   what it adds, and a button pinned to the foot so the buttons of a row line
-   up whatever the copy above them runs to. */
+/* A plan on pricing.html: name, price, what it includes over a hairline, and a
+   button pinned to the foot so the buttons of a row line up whatever the copy
+   above them runs to. */
 .plan {
   display: flex;
   flex-direction: column;
 }
-.plan-tokens {
+.plan .plain-list {
   padding-top: 14px;
   border-top: 1px solid var(--line);
-}
-.plan-tokens strong {
-  font-family: var(--mono);
-  font-size: 17px;
-  color: var(--ink);
 }
 .card .plan-cta {
   margin-top: auto;
   padding-top: 22px;
+}
+/* Swiss Cloud, where we want a reader to start: an accent frame two lines
+   thick (the inset shadow doubles the border without moving the content, so
+   the three cards still line up) and a small label sitting on the top edge.
+   The label is out of the flow, so the <h3> after it drops the gap a sibling
+   would get. */
+.plan--start {
+  position: relative;
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.card .plan-tag {
+  position: absolute;
+  top: 0;
+  left: clamp(20px, 3vw, 26px);
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--btn-ink);
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.card .plan-tag + h3 {
+  margin-top: 0;
 }
 /* The amount on a pricing.html card, the one large figure on the site: heading
    weight in the ink, the period after it back in the muted body size. */
@@ -996,13 +1020,12 @@ td.tight {
 .layer-table td:last-child {
   color: var(--accent);
 }
-/* The plan comparison on pricing.html: five centred plan columns under two
-   group headings, the row labels pinned left so a phone scrolling the table
-   sideways keeps them in view. Each group heading carries an accent rule, the
-   same hairline weight as the table's own. */
+/* The plan comparison on pricing.html: three centred plan columns, the row
+   labels pinned left so a phone scrolling the table sideways keeps them in
+   view. */
 .plan-table {
-  min-width: 760px;
-  /* fixed, so the five plan columns share what the label column leaves */
+  min-width: 600px;
+  /* fixed, so the three plan columns share what the label column leaves */
   table-layout: fixed;
 }
 .plan-table .plan-label {
@@ -1023,18 +1046,10 @@ td.tight {
   white-space: normal;
   background: var(--bg);
 }
-/* On a phone the pinned labels would take half the screen, so the column
-   narrows and the labels wrap. */
-@media (max-width: 620px) {
-  .plan-table {
-    min-width: 680px;
-  }
-  .plan-table .plan-label {
-    width: 128px;
-  }
-  .plan-table tbody th {
-    font-size: 14.5px;
-  }
+/* The pinned labels need a ground to hide the cells scrolling under them, and
+   it has to be the band's own or the column shows as a strip. */
+.band--alt .plan-table tbody th {
+  background: var(--surface);
 }
 .plan-table thead th[scope="col"] {
   font-family: var(--sans);
@@ -1043,10 +1058,6 @@ td.tight {
   letter-spacing: -0.01em;
   text-transform: none;
   color: var(--ink);
-}
-.plan-table .plan-group {
-  border-bottom-color: var(--accent);
-  padding-bottom: 8px;
 }
 .plan-table tbody tr:first-child td {
   color: var(--ink);
@@ -1063,6 +1074,78 @@ td.tight {
   border: solid var(--accent);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+/* On a phone the table stops scrolling sideways and turns into one block per
+   row: the row label on a line of its own, the three values in three columns
+   under it, and the plan names pinned to the top of the screen while the rows
+   scroll past. Changing a table's display can cost it its table semantics in
+   a screen reader, which is why the markup spells the roles out. */
+@media (max-width: 620px) {
+  .table-wrap:has(.plan-table) {
+    overflow: visible;
+  }
+  .plan-table,
+  .plan-table thead,
+  .plan-table tbody {
+    display: block;
+    min-width: 0;
+  }
+  .plan-table colgroup {
+    display: none;
+  }
+  /* The empty corner stays in the tree, or the header row would have one
+     cell fewer than the rows and a screen reader would pair every value with
+     the wrong plan. */
+  .plan-table thead td {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .plan-table tr {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .plan-table th,
+  .plan-table td {
+    padding: 0;
+    border-bottom: 0;
+    font-size: 14.5px;
+    hyphens: auto;
+  }
+  .plan-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .plan-table thead tr {
+    border-bottom: 0;
+  }
+  .band--alt .plan-table thead {
+    background: var(--surface);
+  }
+  .plan-table thead th[scope="col"] {
+    padding: 12px 0 10px;
+    font-size: 15px;
+  }
+  .plan-table tbody tr {
+    padding: 14px 0;
+    row-gap: 6px;
+  }
+  .plan-table tbody th {
+    position: static;
+    grid-column: 1 / -1;
+    font-size: 14.5px;
+    background: none;
+  }
+  .band--alt .plan-table tbody th {
+    background: none;
+  }
 }
 .visually-hidden {
   position: absolute;

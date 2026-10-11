@@ -6,7 +6,7 @@
     <title>Keera Gateway pricing - the Swiss LLM gateway from CHF 0</title>
     <meta
       name="description"
-      content="Keera Gateway pricing: Free, Pro and Max in the Swiss cloud from CHF 0 a month, an instance of your own at CHF 495, or on-premise on request."
+      content="Keera Gateway pricing: Swiss Cloud with no base fee and unlimited input tokens, an instance of your own at CHF 495 a month, or on-premise on request."
     />
     <link rel="canonical" href="https://keera.ch/en/pricing" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/pricing" />
@@ -56,7 +56,7 @@
     />
     <meta
       property="og:description"
-      content="Keera Gateway pricing: Free, Pro and Max in the Swiss cloud from CHF 0 a month, an instance of your own at CHF 495, or on-premise on request."
+      content="Keera Gateway pricing: Swiss Cloud with no base fee and unlimited input tokens, an instance of your own at CHF 495 a month, or on-premise on request."
     />
     <meta
       property="og:image"
@@ -99,7 +99,7 @@
             "offers": [
               {
                 "@type": "Offer",
-                "name": "Free",
+                "name": "Swiss Cloud",
                 "price": "0",
                 "priceCurrency": "CHF",
                 "priceSpecification": {
@@ -108,35 +108,7 @@
                   "priceCurrency": "CHF",
                   "unitCode": "MON"
                 },
-                "description": "Up to 1,000,000 input tokens a day, at a Swiss cloud provider.",
-                "url": "https://keera.ch/en/pricing"
-              },
-              {
-                "@type": "Offer",
-                "name": "Pro",
-                "price": "29",
-                "priceCurrency": "CHF",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "29",
-                  "priceCurrency": "CHF",
-                  "unitCode": "MON"
-                },
-                "description": "Up to 10,000,000 input tokens a day, at a Swiss cloud provider.",
-                "url": "https://keera.ch/en/pricing"
-              },
-              {
-                "@type": "Offer",
-                "name": "Max",
-                "price": "89",
-                "priceCurrency": "CHF",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "89",
-                  "priceCurrency": "CHF",
-                  "unitCode": "MON"
-                },
-                "description": "Up to 50,000,000 input tokens a day, at a Swiss cloud provider.",
+                "description": "Unlimited input tokens on a shared instance at a Swiss cloud provider. No base fee, only model usage at the provider's list price.",
                 "url": "https://keera.ch/en/pricing"
               },
               {
@@ -150,7 +122,7 @@
                   "priceCurrency": "CHF",
                   "unitCode": "MON"
                 },
-                "description": "A private dedicated instance at a Swiss cloud provider, SSO with group federation, up to 200,000,000 input tokens a day.",
+                "description": "A private dedicated instance at a Swiss cloud provider, SSO with group federation, unlimited input tokens.",
                 "url": "https://keera.ch/en/pricing"
               }
             ],
@@ -186,7 +158,7 @@
             >DE</a
           ><span aria-hidden="true">/</span
           ><a
-            href="../fr/gateway"
+            href="../fr/pricing"
             lang="fr"
             hreflang="fr"
             title="Cette page en français"
@@ -218,9 +190,9 @@
             <p class="eyebrow">Pricing · Keera Gateway</p>
             <h1>Start free, grow with your volume</h1>
             <p class="lede">
-              Keera Gateway comes in five plans. Three run on a shared instance
-              in the Swiss cloud and differ only in how many tokens pass through
-              a day. Two give you a gateway of your own.
+              Keera Gateway comes in three plans. In the Swiss Cloud you pay no
+              base fee, only for model usage. Dedicated and On-Premise give you
+              a gateway of your own.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Start for free</a>
@@ -230,72 +202,46 @@
         </div>
       </section>
 
-      <section class="band" id="cloud">
+      <section class="band" id="plans">
         <div class="wrap">
           <div class="prose">
-            <h2>Keera Gateway in the Swiss cloud</h2>
+            <h2>Three ways to run Keera Gateway</h2>
             <p>
-              Free, Pro and Max run on a shared instance at a Swiss cloud
-              provider and all do the same things. The plan only sets how many
-              input tokens pass through each day. The price is per
-              organisation, <strong>not per user</strong>.
+              Swiss Cloud runs on a shared instance at a Swiss cloud provider.
+              More control, groups from your directory, a data centre you
+              choose: then your company gets an instance of its own. The price
+              is per organisation, <strong>not per user</strong>.
             </p>
           </div>
           <div class="grid">
-            <div class="card plan">
-              <h3>Free</h3>
+            <div class="card plan plan--start">
+              <p class="plan-tag">Start here</p>
+              <h3>Swiss Cloud</h3>
               <p class="price">CHF 0 <span>per month</span></p>
-              <p class="plan-tokens"><strong>1,000,000</strong> input tokens a day</p>
-              <p>For daily users, no base fee.</p>
+              <ul class="plain-list">
+                <li>No base fee, you pay only for model usage</li>
+                <li>A shared instance at a Swiss cloud provider</li>
+                <li>SSO</li>
+              </ul>
               <p class="plan-cta"><a class="btn" href="https://gateway.keera.ch">Start for free</a></p>
             </div>
             <div class="card plan">
-              <h3>Pro</h3>
-              <p class="price">CHF 29 <span>per month</span></p>
-              <p class="plan-tokens"><strong>10,000,000</strong> input tokens a day</p>
-              <p>For power users.</p>
-              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Choose Pro</a></p>
-            </div>
-            <div class="card plan">
-              <h3>Max</h3>
-              <p class="price">CHF 89 <span>per month</span></p>
-              <p class="plan-tokens"><strong>50,000,000</strong> input tokens a day</p>
-              <p>For power users with multiple agents.</p>
-              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Choose Max</a></p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="band band--alt" id="dedicated">
-        <div class="wrap">
-          <div class="prose">
-            <h2>A Keera Gateway of your own</h2>
-            <p>
-              More volume, groups from your directory, a provider or a data
-              centre you choose: then your company gets an instance of its own.
-            </p>
-          </div>
-          <div class="grid grid--two">
-            <div class="card plan">
               <h3>Dedicated</h3>
               <p class="price">CHF 495 <span>per month</span></p>
-              <p class="plan-tokens"><strong>200,000,000</strong> input tokens a day</p>
               <ul class="plain-list">
                 <li>A private dedicated instance at a Swiss cloud provider</li>
                 <li>SSO with group federation</li>
-                <li>SLA support if you want it, at extra cost</li>
+                <li>24/7 support if you want it, at extra cost</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about Dedicated</a></p>
             </div>
             <div class="card plan">
               <h3>On-Premise</h3>
               <p class="price">On request</p>
-              <p class="plan-tokens">On your own infrastructure, in your Kubernetes cluster for example</p>
               <ul class="plain-list">
-                <li>Hosted and maintained in your data center</li>
+                <li>Hosted and maintained on your own infrastructure, in your Kubernetes cluster for example</li>
                 <li>SSO with group federation</li>
-                <li>With an SLA</li>
+                <li>With 24/7 support</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about On-Premise</a></p>
             </div>
@@ -303,98 +249,97 @@
         </div>
       </section>
 
-      <section class="band" id="compare">
+      <section class="band band--alt" id="compare">
         <div class="wrap">
           <div class="prose">
             <h2>Keera Gateway plans compared</h2>
           </div>
           <div class="table-wrap">
-            <table class="plan-table">
+            <table class="plan-table" role="table">
               <colgroup>
                 <col class="plan-label" />
-                <col span="5" />
+                <col span="3" />
               </colgroup>
-              <thead>
-                <tr>
-                  <td></td>
-                  <th scope="colgroup" colspan="3" class="plan-group">Swiss cloud</th>
-                  <th scope="colgroup" colspan="2" class="plan-group">Your own instance</th>
-                </tr>
-                <tr>
-                  <td></td>
-                  <th scope="col">Free</th>
-                  <th scope="col">Pro</th>
-                  <th scope="col">Max</th>
-                  <th scope="col">Dedicated</th>
-                  <th scope="col">On-Premise</th>
+              <thead role="rowgroup">
+                <tr role="row">
+                  <td role="cell"></td>
+                  <th scope="col" role="columnheader">Swiss Cloud</th>
+                  <th scope="col" role="columnheader">Dedicated</th>
+                  <th scope="col" role="columnheader">On-Premise</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Base fee</th>
-                  <td>CHF 0</td>
-                  <td>CHF 29</td>
-                  <td>CHF 89</td>
-                  <td>CHF 495</td>
-                  <td>On request</td>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">Base fee</th>
+                  <td role="cell">CHF 0</td>
+                  <td role="cell">CHF 495</td>
+                  <td role="cell">On request</td>
                 </tr>
-                <tr>
-                  <th scope="row">Input tokens a day</th>
-                  <td>1,000,000</td>
-                  <td>10,000,000</td>
-                  <td>50,000,000</td>
-                  <td>200,000,000</td>
-                  <td>On request</td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Instance</th>
+                  <td role="cell">Shared</td>
+                  <td role="cell">Dedicated</td>
+                  <td role="cell">Dedicated</td>
                 </tr>
-                <tr>
-                  <th scope="row">Instance</th>
-                  <td colspan="3">Shared</td>
-                  <td colspan="2">Private and dedicated</td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Hosting</th>
+                  <td role="cell">Swiss cloud provider</td>
+                  <td role="cell">Swiss cloud provider</td>
+                  <td role="cell">On-premise</td>
                 </tr>
-                <tr>
-                  <th scope="row">Hosting</th>
-                  <td colspan="4">At a Swiss cloud provider</td>
-                  <td>Your own infrastructure</td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Audit log</th>
+                  <td role="cell">In Switzerland</td>
+                  <td role="cell">In your instance</td>
+                  <td role="cell">In your data centre</td>
                 </tr>
-                <tr>
-                  <th scope="row">Every model provider</th>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Network</th>
+                  <td role="cell">Public internet</td>
+                  <td role="cell">Private connection</td>
+                  <td role="cell">Air-gapped if you want</td>
                 </tr>
-                <tr>
-                  <th scope="row">Unlimited API keys and users</th>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
+                <tr role="row">
+                  <th scope="row" role="rowheader"><a href="engine">Keera Engine</a></th>
+                  <td role="cell">On request</td>
+                  <td role="cell">On request</td>
+                  <td role="cell">On request</td>
                 </tr>
-                <tr>
-                  <th scope="row">SSO</th>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Unlimited tokens</th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                 </tr>
-                <tr>
-                  <th scope="row">Group federation</th>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Unlimited API keys and users</th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                 </tr>
-                <tr>
-                  <th scope="row">SLA</th>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td class="no"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
-                  <td>At extra cost</td>
-                  <td class="yes"><span class="visually-hidden">Yes</span></td>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Every model provider</th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">SSO</th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Group federation</th>
+                  <td class="no" role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">No</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Support</th>
+                  <td role="cell">E-mail</td>
+                  <td role="cell">Business hours, 24/7 at extra cost</td>
+                  <td role="cell">24/7</td>
                 </tr>
               </tbody>
             </table>
@@ -406,7 +351,7 @@
         </div>
       </section>
 
-      <section class="band band--alt" id="contact">
+      <section class="band" id="contact">
         <div class="wrap">
           <div class="prose">
             <h2>Questions, comments, quotes</h2>

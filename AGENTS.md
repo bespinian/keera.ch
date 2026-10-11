@@ -156,47 +156,63 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   is a plain `.band`, which is why the closing questionnaire band is a
   `.band--alt`.
 
-- `pricing.html` - what Keera Gateway costs: a text-only hero, the three plans
-  on the shared Swiss cloud (`#cloud`), the two instances of a company's own
-  (`#dedicated`), the comparison table (`#compare`), the form in a
-  `.band--alt`. Gateway only; Keera Engine has no price on the site.
+- `pricing.html` - what Keera Gateway costs: a text-only hero, the three
+  plans (`#plans`), the comparison table (`#compare`) in a `.band--alt`, the
+  form in a plain `.band`. Gateway only; Keera Engine has no price on the
+  site.
 
-  `#cloud` is three cards - Free (CHF 0), Pro (CHF 29), Max (CHF 89) a month -
-  that differ in one number, the input tokens a day (1'000'000,
-  10'000'000, 50'000'000). What all three share is said once, in the paragraph above them.
-  `#dedicated` is two cards in a `.grid--two`, the one place a section holds
-  two cards: Dedicated (CHF 495 a month, 200'000'000 input tokens a day) and
-  On-Premise (on request, on the customer's own infrastructure).
+  `#plans` is three cards, one per way of running the gateway, in the order
+  of `index.html#deploy`: Swiss Cloud (CHF 0 a month, a shared instance - no
+  base fee, the customer pays only for model usage), Dedicated (CHF 495 a
+  month, a private instance at a Swiss cloud provider) and On-Premise (price
+  on request, on the customer's own infrastructure). All three have unlimited
+  tokens; the table says so, the cards do not. The paragraph above them says what sets
+  the shared instance apart from one of your own, and that the price is per
+  organisation, not per user.
 
   Each plan is a `.card.plan`: `<h3>` name, `p.price` with the period in a
-  `<span>`, `p.plan-tokens` over a hairline with the volume in mono, one line or
-  a `.plain-list`, and a `p.plan-cta` button pinned to the card's foot so a
-  row's buttons line up. Free's button and the hero's _Kostenlos starten_ / _Start for
-  free_ / _Commencer gratuitement_ are the filled `.btn` and go straight to
-  the hosted gateway at `https://gateway.keera.ch`; the other four go to
-  `#contact`.
+  `<span>`, a `.plain-list` over a hairline, and a `p.plan-cta` button
+  pinned to the card's foot so the row's buttons line up. Swiss Cloud is
+  where we want a reader to start, so its card alone carries `.plan--start`:
+  a double accent frame and a `p.plan-tag` on its top edge - _Hier beginnen_ /
+  _Start here_ / _Pour commencer_ - ahead of the `<h3>`. Swiss Cloud's button and the hero's _Kostenlos
+  starten_ / _Start for free_ / _Commencer gratuitement_ are the filled `.btn`
+  and go straight to the hosted gateway at `https://gateway.keera.ch`; the
+  other two go to `#contact`.
 
-  `#compare` is the site's second named table, `.plan-table`: two `colgroup`
-  headings (the Swiss cloud, an instance of your own) over the five plans, then
-  base fee, tokens, instance, hosting, every model provider, unlimited keys
-  and users, SSO, group federation and SLA. The plan columns share the width
-  equally, the row labels stay pinned left while a phone scrolls the table
-  sideways, and a value several plans share is one cell spanning them. A yes
-  is a tick drawn in CSS on `td.yes`, a no is a dash on `td.no`, each with its word in a
-  `.visually-hidden` span; the tick is a table mark, not part of the icon set.
-  The mono note under the table says the prices are Swiss francs a month and
-  that model usage comes on top, at each provider's list price - the one place
-  the page says it, as a hint, not a price.
+  `#compare` is the site's second named table, `.plan-table`: the three plans
+  as columns, then base fee, instance, hosting, where the audit log lives,
+  network, Keera Engine (linked, _on request_ on all three plans - the
+  engine has no price on the site and does not always run on GPUs of the
+  customer's own), unlimited tokens and unlimited keys and users (ticks on
+  all three), every model provider, SSO, group federation and support (e-mail, business hours with 24/7
+  at extra cost, 24/7). The plan columns
+  share the width equally, and a value several plans share is repeated
+  in each column, never one cell spanning them - a spanning cell reads as
+  belonging to neither. A yes is a tick drawn in CSS on `td.yes`, a no is a dash on
+  `td.no`, each with its word in a `.visually-hidden` span; the tick is a
+  table mark, not part of the icon set. The mono note under the table says
+  the prices are Swiss francs a month and that model usage comes on top, at
+  each provider's list price - a hint, not a price; the Swiss Cloud card says
+  the same of its own plan.
 
-  The cards, the table, the description, the JSON-LD, `llms.txt` and the _ab
-  CHF 0_ line of `index.html#deploy` all carry prices, so a price change is all
-  six together. Plan names stay English in German and English; French says
-  _Gratuit_, _Pro_, _Max_, _Dédié_, _Sur site_, matching `index.html#deploy`.
-  Numbers follow each language: `1’000’000`, `1,000,000`,
-  `1&#x202F;000&#x202F;000` (a narrow
-  no-break space, a literal U+202F in the JSON-LD). The page's
-  `SoftwareApplication` node reuses `https://keera.ch/#gateway` and carries only
-  the four priced plans as `offers`.
+  Below 620px the table does not scroll sideways: each row becomes a block,
+  its label on a line of its own and the three values in three columns under
+  it, with the plan names pinned to the top of the screen while the rows
+  scroll past. That restyle can strip a table's semantics in a screen reader,
+  so the markup spells the ARIA roles out on every element of it, and the
+  empty corner cell stays in the tree, hidden by a clip, so the header row
+  keeps as many cells as the rows below it.
+
+  The cards, the table, the description, the JSON-LD, `llms.txt` and the
+  Swiss Cloud line of `index.html#deploy` (_ohne Grundgebühr_) all carry
+  prices, so a price change is all six together. Plan names stay English in
+  German and English; French says _Swiss Cloud_, _Dédié_, _Sur site_,
+  matching `index.html#deploy`. A number on the page follows its language:
+  `1’000’000`, `1,000,000`, `1&#x202F;000&#x202F;000` (a narrow no-break
+  space, a literal U+202F in the JSON-LD). The page's `SoftwareApplication` node
+  reuses `https://keera.ch/#gateway` and carries only the two priced plans,
+  Swiss Cloud and Dedicated, as `offers`.
 
 - `sustainability.html` - two levers and one story: how we pick infrastructure
   partners (`#partners`), how Keera spends fewer tokens (`#tokens`), the Omnivor
@@ -676,8 +692,9 @@ sections need nothing new.
 - **Blocks**: `.grid` (auto-fit cards, `.grid--two` for the two product cards),
   `.card`, `.facts` (borderless three-up, `.facts--four` goes two-up, then one
   column at 620px),
-  `.plain-list`, `.plan` / `.price` / `.plan-tokens` / `.plan-cta` and
-  `.plan-table` on the pricing page, `.visually-hidden`, `.partners` (one bordered tile per partner link, wordmark
+  `.plain-list`, `.plan` / `.price` / `.plan-cta` and
+  `.plan-table` on the pricing page (`.plan--start` / `.plan-tag` on the
+  Swiss Cloud card), `.visually-hidden`, `.partners` (one bordered tile per partner link, wordmark
   centred), `.table-wrap` + plain `<table>` (`td.tight` keeps a short value on
   one line; `.layer-table` colours its last column in the accent by
   `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
@@ -694,8 +711,8 @@ sections need nothing new.
   labels plus the login need that width on one line), 860px (the flow
   turns into a column), 780px (a split hero and `.split` stack), 700px (nav
   becomes the hamburger, the screenshot scrolls, the sprawl figure goes), 620px
-  (the stack's label column and `.facts--four` stack, the plan table's
-  label column narrows). Plus
+  (the stack's label column and `.facts--four` stack, the plan table
+  turns into one block per row). Plus
   `pointer: coarse`, a `print` block, and `prefers-reduced-motion`.
 
 Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
