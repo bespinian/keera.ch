@@ -1,4 +1,4 @@
-/* Keera - one stylesheet for the eighteen content pages and 404.html.
+/* Keera - one stylesheet for the twenty-one content pages and 404.html.
    Quiet, one accent, light or dark from the viewer's system setting. Layout is
    a single column: .wrap for full-width bands, .prose for anything meant to be
    read. Pages carry classes only - no inline styles. */
@@ -301,6 +301,27 @@ thead th,
 .site-nav a[aria-current="page"] {
   color: var(--ink);
 }
+/* The login into the hosted gateway, twice in the markup and once on screen:
+   .header-login is an outlined button right of the switcher, and the copy at
+   the end of the <nav> is the row the phone menu shows instead. It sits after
+   the nav in the DOM, because the menu checkbox has to stay the nav's
+   preceding sibling, so its place comes from order. */
+.header-login {
+  order: 3;
+  padding: 0 12px;
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: 14.5px;
+}
+.header-login:hover {
+  text-decoration: none;
+  border-color: var(--ink);
+  background: var(--card);
+}
+.site-nav .nav-login {
+  display: none;
+}
 .lang {
   display: flex;
   /* the links pick up vertical padding on coarse pointers and the separators
@@ -324,8 +345,8 @@ thead th,
 .lang span[aria-hidden] {
   color: var(--line);
 }
-/* The nav renders three ways: labels beside the wordmark above 1000px, on a
-   row of their own between 700px and 1000px, and behind a hamburger below.
+/* The nav renders three ways: labels beside the wordmark above 1100px, on a
+   row of their own between 700px and 1100px, and behind a hamburger below.
    The toggle is a <label> for the visually hidden .site-menu-state checkbox
    just before the <nav>, so the open state is a sibling selector and needs no
    JavaScript. A checkbox rather than <details>, because the same <nav> has to
@@ -334,9 +355,9 @@ thead th,
 .site-menu-toggle {
   display: none;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .site-nav {
-    order: 3;
+    order: 4;
     flex: 1 1 100%;
   }
 }
@@ -420,6 +441,13 @@ thead th,
   /* the header's own bottom border closes the panel */
   .site-menu-state:checked ~ .site-nav a:last-child {
     border-bottom: 0;
+  }
+  /* no room beside the switcher and the toggle on a 320px phone */
+  .header-login {
+    display: none;
+  }
+  .site-menu-state:checked ~ .site-nav .nav-login {
+    display: block;
   }
 }
 
@@ -575,6 +603,41 @@ thead th,
   background: var(--surface);
 }
 .card--quiet .icon {
+  color: var(--muted);
+}
+/* A plan on pricing.html: name, price, the daily token volume over a hairline,
+   what it adds, and a button pinned to the foot so the buttons of a row line
+   up whatever the copy above them runs to. */
+.plan {
+  display: flex;
+  flex-direction: column;
+}
+.plan-tokens {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.plan-tokens strong {
+  font-family: var(--mono);
+  font-size: 17px;
+  color: var(--ink);
+}
+.card .plan-cta {
+  margin-top: auto;
+  padding-top: 22px;
+}
+/* The amount on a pricing.html card, the one large figure on the site: heading
+   weight in the ink, the period after it back in the muted body size. */
+.card .price {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+.price span {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
   color: var(--muted);
 }
 
@@ -894,7 +957,10 @@ thead th,
 }
 
 /* ---------- tables ---------- */
+/* Positioned, so a .visually-hidden label in a cell is held inside the
+   scrolling box rather than widening the page past it. */
 .table-wrap {
+  position: relative;
   overflow-x: auto;
 }
 table {
@@ -929,6 +995,82 @@ td.tight {
    so a row added without the nowrap class still gets it. */
 .layer-table td:last-child {
   color: var(--accent);
+}
+/* The plan comparison on pricing.html: five centred plan columns under two
+   group headings, the row labels pinned left so a phone scrolling the table
+   sideways keeps them in view. Each group heading carries an accent rule, the
+   same hairline weight as the table's own. */
+.plan-table {
+  min-width: 760px;
+  /* fixed, so the five plan columns share what the label column leaves */
+  table-layout: fixed;
+}
+.plan-table .plan-label {
+  width: 25%;
+}
+.plan-table th,
+.plan-table td {
+  padding-right: 12px;
+  padding-left: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+.plan-table tbody th {
+  position: sticky;
+  left: 0;
+  padding-left: 0;
+  text-align: left;
+  white-space: normal;
+  background: var(--bg);
+}
+/* On a phone the pinned labels would take half the screen, so the column
+   narrows and the labels wrap. */
+@media (max-width: 620px) {
+  .plan-table {
+    min-width: 680px;
+  }
+  .plan-table .plan-label {
+    width: 128px;
+  }
+  .plan-table tbody th {
+    font-size: 14.5px;
+  }
+}
+.plan-table thead th[scope="col"] {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+}
+.plan-table .plan-group {
+  border-bottom-color: var(--accent);
+  padding-bottom: 8px;
+}
+.plan-table tbody tr:first-child td {
+  color: var(--ink);
+  font-weight: 600;
+}
+/* A drawn tick rather than a glyph: U+2713 is outside the font's cuts and
+   would fall back to whatever the system draws. The word sits beside it,
+   visually hidden, for a screen reader. */
+.plan-table .yes::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  border: solid var(--accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 /* ---------- figures ---------- */

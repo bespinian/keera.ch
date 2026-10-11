@@ -7,7 +7,7 @@
 > vLLM and llm-d.
 > Inference, logs and backups stay in Swiss data centres.
 
-The site is eighteen static pages in three languages. German is the default and
+The site is twenty-one static pages in three languages. German is the default and
 lives at the root, French under `/fr/` and English under `/en/`, and every page
 carries the same path in all three: the gateway is `/gateway`, `/fr/gateway`
 and `/en/gateway`. The links below point at the English
@@ -27,6 +27,7 @@ than failing over abroad.
 
 - [Keera Gateway](https://keera.ch/en/gateway): The Swiss LLM gateway: one endpoint between your teams and every model, with policies, budgets and an audit log with no gaps.
 - [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
+- [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Free, Pro and Max in the Swiss cloud from CHF 0 a month, an instance of your own at CHF 495, or on-premise on request.
 - [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 
 ## Background
@@ -37,6 +38,6 @@ than failing over abroad.
 
 ## Optional
 
-- [Deutsch](https://keera.ch/): the same six pages in German, the site's default language.
-- [Français](https://keera.ch/fr/): the same six pages in French.
-- [Sitemap](https://keera.ch/sitemap.xml): all eighteen URLs with their language alternates.
+- [Deutsch](https://keera.ch/): the same seven pages in German, the site's default language.
+- [Français](https://keera.ch/fr/): the same seven pages in French.
+- [Sitemap](https://keera.ch/sitemap.xml): all twenty-one URLs with their language alternates.

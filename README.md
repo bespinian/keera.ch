@@ -1,9 +1,9 @@
 # Keera - static site
 
-Plain static pages, no build step. Eighteen content `.html` files - six pages in
-German at the root, English under `en/`, French under `fr/` - plus `404.html`,
-the shared files under `assets/`, and `robots.txt`, `sitemap.xml`, `llms.txt`,
-`CNAME` and the IndexNow key file at the root.
+Plain static pages, no build step. Twenty-one content `.html` files - seven
+pages in German at the root, English under `en/`, French under `fr/` - plus
+`404.html`, the shared files under `assets/`, and `robots.txt`, `sitemap.xml`,
+`llms.txt`, `CNAME` and the IndexNow key file at the root.
 
 Edit the HTML by hand. A change to a page's shell - header, footer, contact
 form, metadata - has to be made in all three language copies. `AGENTS.md` has
