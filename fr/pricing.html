@@ -116,12 +116,20 @@
                 "name": "Dédié",
                 "price": "495",
                 "priceCurrency": "CHF",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "495",
-                  "priceCurrency": "CHF",
-                  "unitCode": "MON"
-                },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "495",
+                    "priceCurrency": "CHF",
+                    "unitCode": "MON"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "5346",
+                    "priceCurrency": "CHF",
+                    "unitCode": "ANN"
+                  }
+                ],
                 "description": "Une instance privée dédiée chez un fournisseur cloud suisse, SSO avec fédération des groupes, tokens d'entrée illimités.",
                 "url": "https://keera.ch/fr/pricing"
               }
@@ -191,7 +199,7 @@
             <p class="lede">
               Keera Gateway existe en trois formules. Dans le Swiss Cloud, vous
               ne payez aucuns frais de base, seulement l'utilisation des
-              modèles. Dédié et Sur site vous donnent une passerelle rien qu'à
+              modèles. Dédié et Enterprise vous donnent une passerelle rien qu'à
               vous.
             </p>
             <p class="btn-row">
@@ -235,11 +243,12 @@
                 </li>
                 <li>SSO avec fédération des groupes</li>
                 <li>Support 24/7 en option, en supplément</li>
+                <li>10&#x202F;% de moins avec un contrat annuel&nbsp;: CHF 5&#x202F;346 par an</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Nous contacter</a></p>
             </div>
             <div class="card plan">
-              <h3>Sur site</h3>
+              <h3>Enterprise</h3>
               <p class="price">Sur demande</p>
               <ul class="plain-list">
                 <li>Hébergée et maintenue sur votre propre infrastructure, par exemple dans votre cluster Kubernetes</li>
@@ -268,7 +277,7 @@
                   <td role="cell"></td>
                   <th scope="col" role="columnheader">Swiss Cloud</th>
                   <th scope="col" role="columnheader">Dédié</th>
-                  <th scope="col" role="columnheader">Sur site</th>
+                  <th scope="col" role="columnheader">Enterprise</th>
                 </tr>
               </thead>
               <tbody role="rowgroup">
@@ -348,8 +357,9 @@
             </table>
           </div>
           <p class="note">
-            Prix en francs suisses par mois. L'utilisation des modèles
-            s'y ajoute, au prix catalogue de chaque fournisseur.
+            Prix en francs suisses par mois. Un contrat annuel réduit les
+            frais de base de 10&#x202F;%. L'utilisation des modèles s'y
+            ajoute, au prix catalogue de chaque fournisseur.
           </p>
         </div>
       </section>

@@ -164,11 +164,17 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   `#plans` is three cards, one per way of running the gateway, in the order
   of `index.html#deploy`: Swiss Cloud (CHF 0 a month, a shared instance - no
   base fee, the customer pays only for model usage), Dedicated (CHF 495 a
-  month, a private instance at a Swiss cloud provider) and On-Premise (price
+  month, a private instance at a Swiss cloud provider) and Enterprise (price
   on request, on the customer's own infrastructure). All three have unlimited
   tokens; the table says so, the cards do not. The paragraph above them says what sets
   the shared instance apart from one of your own, and that the price is per
   organisation, not per user.
+
+  A yearly contract takes 10% off the base fee. The Dedicated card says so
+  in the last line of its list, with the yearly price (CHF 5’346, 495 × 12 ×
+  0.9); the note under the table says it for every plan, since Enterprise
+  has a base fee too and Swiss Cloud has none to discount. Model usage is
+  never discounted.
 
   Each plan is a `.card.plan`: `<h3>` name, `p.price` with the period in a
   `<span>`, a `.plain-list` over a hairline, and a `p.plan-cta` button
@@ -192,7 +198,8 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   belonging to neither. A yes is a tick drawn in CSS on `td.yes`, a no is a dash on
   `td.no`, each with its word in a `.visually-hidden` span; the tick is a
   table mark, not part of the icon set. The mono note under the table says
-  the prices are Swiss francs a month and that model usage comes on top, at
+  the prices are Swiss francs a month, that a yearly contract takes 10% off
+  the base fee, and that model usage comes on top, at
   each provider's list price - a hint, not a price; the Swiss Cloud card says
   the same of its own plan.
 
@@ -207,12 +214,17 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   The cards, the table, the description, the JSON-LD, `llms.txt` and the
   Swiss Cloud line of `index.html#deploy` (_ohne Grundgebühr_) all carry
   prices, so a price change is all six together. Plan names stay English in
-  German and English; French says _Swiss Cloud_, _Dédié_, _Sur site_,
-  matching `index.html#deploy`. A number on the page follows its language:
+  German and English; French says _Swiss Cloud_, _Dédié_ and _Enterprise_ -
+  not _Entreprise_, which the same section already uses for the company the
+  price is per. The plans are not the deployment options of
+  `index.html#deploy`: those keep _On-Premise_ / _Sur site_, and so does the
+  Hosting row of the table, because that is where the Enterprise plan runs. A number on the page follows its language:
   `1’000’000`, `1,000,000`, `1&#x202F;000&#x202F;000` (a narrow no-break
   space, a literal U+202F in the JSON-LD). The page's `SoftwareApplication` node
   reuses `https://keera.ch/#gateway` and carries only the two priced plans,
-  Swiss Cloud and Dedicated, as `offers`.
+  Swiss Cloud and Dedicated, as `offers`; Dedicated carries two
+  `UnitPriceSpecification`s, `495` a month (`MON`) and `5346` a year
+  (`ANN`), so a change to the monthly price or the discount moves both.
 
 - `sustainability.html` - two levers and one story: how we pick infrastructure
   partners (`#partners`), how Keera spends fewer tokens (`#tokens`), the Omnivor

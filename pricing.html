@@ -109,12 +109,20 @@
                 "name": "Dedicated",
                 "price": "495",
                 "priceCurrency": "CHF",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "495",
-                  "priceCurrency": "CHF",
-                  "unitCode": "MON"
-                },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "495",
+                    "priceCurrency": "CHF",
+                    "unitCode": "MON"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "5346",
+                    "priceCurrency": "CHF",
+                    "unitCode": "ANN"
+                  }
+                ],
                 "description": "Private, dedizierte Instanz bei einem Schweizer Cloud-Anbieter, SSO mit Gruppen-Föderation, unbegrenzt Input-Tokens.",
                 "url": "https://keera.ch/pricing"
               }
@@ -185,7 +193,7 @@
             <p class="lede">
               Keera Gateway gibt es in drei Plänen. In der Swiss Cloud zahlst du
               keine Grundgebühr, nur die Nutzung der Modelle. Dedicated und
-              On-Premise geben dir ein Gateway für dich allein.
+              Enterprise geben dir ein Gateway für dich allein.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Kostenlos starten</a>
@@ -228,18 +236,19 @@
                 </li>
                 <li>SSO mit Gruppen-Föderation</li>
                 <li>24/7-Support auf Wunsch, gegen Aufpreis</li>
+                <li>Mit Jahresvertrag 10&nbsp;% günstiger: CHF 5’346 pro Jahr</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Dedicated anfragen</a></p>
             </div>
             <div class="card plan">
-              <h3>On-Premise</h3>
+              <h3>Enterprise</h3>
               <p class="price">Auf Anfrage</p>
               <ul class="plain-list">
                 <li>Gehostet und gewartet auf deiner eigenen Infrastruktur, etwa in deinem Kubernetes-Cluster</li>
                 <li>SSO mit Gruppen-Föderation</li>
                 <li>Mit 24/7-Support</li>
               </ul>
-              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">On-Premise anfragen</a></p>
+              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Enterprise anfragen</a></p>
             </div>
           </div>
         </div>
@@ -261,7 +270,7 @@
                   <td role="cell"></td>
                   <th scope="col" role="columnheader">Swiss Cloud</th>
                   <th scope="col" role="columnheader">Dedicated</th>
-                  <th scope="col" role="columnheader">On-Premise</th>
+                  <th scope="col" role="columnheader">Enterprise</th>
                 </tr>
               </thead>
               <tbody role="rowgroup">
@@ -341,8 +350,9 @@
             </table>
           </div>
           <p class="note">
-            Preise in Schweizer Franken pro Monat. Die Nutzung der Modelle
-            kommt dazu, zum Listenpreis des jeweiligen Anbieters.
+            Preise in Schweizer Franken pro Monat. Mit einem Jahresvertrag
+            sinkt die Grundgebühr um 10&nbsp;%. Die Nutzung der Modelle kommt
+            dazu, zum Listenpreis des jeweiligen Anbieters.
           </p>
         </div>
       </section>

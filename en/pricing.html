@@ -116,12 +116,20 @@
                 "name": "Dedicated",
                 "price": "495",
                 "priceCurrency": "CHF",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "price": "495",
-                  "priceCurrency": "CHF",
-                  "unitCode": "MON"
-                },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "495",
+                    "priceCurrency": "CHF",
+                    "unitCode": "MON"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "5346",
+                    "priceCurrency": "CHF",
+                    "unitCode": "ANN"
+                  }
+                ],
                 "description": "A private dedicated instance at a Swiss cloud provider, SSO with group federation, unlimited input tokens.",
                 "url": "https://keera.ch/en/pricing"
               }
@@ -191,7 +199,7 @@
             <h1>Start free, grow with your volume</h1>
             <p class="lede">
               Keera Gateway comes in three plans. In the Swiss Cloud you pay no
-              base fee, only for model usage. Dedicated and On-Premise give you
+              base fee, only for model usage. Dedicated and Enterprise give you
               a gateway of your own.
             </p>
             <p class="btn-row">
@@ -232,18 +240,19 @@
                 <li>A private dedicated instance at a Swiss cloud provider</li>
                 <li>SSO with group federation</li>
                 <li>24/7 support if you want it, at extra cost</li>
+                <li>10% off with a yearly contract: CHF 5,346 a year</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about Dedicated</a></p>
             </div>
             <div class="card plan">
-              <h3>On-Premise</h3>
+              <h3>Enterprise</h3>
               <p class="price">On request</p>
               <ul class="plain-list">
                 <li>Hosted and maintained on your own infrastructure, in your Kubernetes cluster for example</li>
                 <li>SSO with group federation</li>
                 <li>With 24/7 support</li>
               </ul>
-              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about On-Premise</a></p>
+              <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about Enterprise</a></p>
             </div>
           </div>
         </div>
@@ -265,7 +274,7 @@
                   <td role="cell"></td>
                   <th scope="col" role="columnheader">Swiss Cloud</th>
                   <th scope="col" role="columnheader">Dedicated</th>
-                  <th scope="col" role="columnheader">On-Premise</th>
+                  <th scope="col" role="columnheader">Enterprise</th>
                 </tr>
               </thead>
               <tbody role="rowgroup">
@@ -345,8 +354,9 @@
             </table>
           </div>
           <p class="note">
-            Prices in Swiss francs per month. Model usage comes on top, at
-            each provider's list price.
+            Prices in Swiss francs per month. A yearly contract takes 10% off
+            the base fee. Model usage comes on top, at each provider's list
+            price.
           </p>
         </div>
       </section>
