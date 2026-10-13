@@ -193,4 +193,28 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/imprint"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/imprint"/>
   </url>
+  <url>
+    <loc>https://keera.ch/terms</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/terms"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/terms"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/en/terms</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/terms"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/terms"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/fr/terms</loc>
+    <lastmod>2026-10-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/terms"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/terms"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/terms"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/terms"/>
+  </url>
 </urlset>

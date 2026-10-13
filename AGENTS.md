@@ -1,6 +1,6 @@
 # Keera Website
 
-Twenty-four hand-written static content pages plus `404.html`, served off GitHub
+Twenty-seven hand-written static content pages plus `404.html`, served off GitHub
 Pages with no build step. `.github/workflows/deploy.yml` publishes the repo
 there on every push to `main`. The host runs no configuration of its own: what
 `.htaccess` used to express is now a Pages setting, a Pages default, a script,
@@ -9,7 +9,7 @@ or gone - see the README.
 Markup carries classes only. The whole design lives in `assets/css/keera.css`.
 Four scripts run on the site: `assets/js/contact-form.js` on the twelve pages
 with a form, `assets/js/google-tag.js` and the hosted Simple Analytics tag on
-all twenty-four content pages, and `assets/js/language.js` on the German home page
+all twenty-seven content pages, and `assets/js/language.js` on the German home page
 alone.
 
 Never add inline `style` attributes, per-page `<style>` blocks, or client-side
@@ -47,7 +47,8 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
   leads with one illustration of its own - in the same `.hero-art` figure on
   `sustainability.html` and `404.html` - except the story, which leads with its
   cast, pricing, which has no artwork of its own yet and leads with its
-  text alone, and the imprint, which never will.
+  text alone, and the two legal pages - the imprint and the terms -
+  which never will.
 
 Do not add: logo strips, fake terminal sessions, benefit grids, integration
 cards, pricing tiers outside `pricing.html`, customer quotes, hosted-provider model tables, or a
@@ -238,10 +239,23 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   `.band--alt`). The figures are bespinian's own imprint at
   `bespinian.io/de/imprint` plus the UID from the commercial register, which
   the register cell links; a change there is a change here, in all three
-  languages. It is the one content page with no _Kostenlos starten_ button:
-  a legal page carries no sales pitch. Linked from the footer only, labelled
+  languages. It is one of the two content pages with no _Kostenlos
+  starten_ button, beside the terms: a legal page carries no sales pitch. Linked from the footer only, labelled
   _Impressum_ / _Imprint_ / _Mentions légales_; French writes _IDE_ where
   German and English write _UID_.
+- `terms.html` - the general terms and conditions (_AGB_ / _Terms and
+  conditions_ / _Conditions générales_) for Keera Gateway and Keera Engine:
+  a text-only hero with the date in a `.note`, then eight bands of one
+  `<h2>` and at most two paragraphs (or one paragraph and a `.plain-list`) -
+  scope, service, payment, duties, data, liability, term, law. PostFinance
+  Checkout requires them in the footer and at checkout; the checkout itself
+  is the gateway's billing page, which links here from the gateway repo. The payment band restates the pricing page:
+  prices in CHF plus VAT, per organisation, 10% off the base fee for a year,
+  model usage at list price, Swiss Cloud on prepaid credit. A price change
+  there is a look here. The data band keeps the line between content and
+  record that the two FAQs draw.
+  It carries `Stand` / `Last updated` / `Version du` in the hero; change
+  the date when the text changes.
 
 ## Root files
 
@@ -252,18 +266,19 @@ domain to the deployment; it has to match the custom domain set under Settings
 its own name and nothing else; the deploy's IndexNow step names it, so the two
 change together.
 
-The sitemap lists all twenty-four content URLs with `xhtml:link` alternates and a
+The sitemap lists all twenty-seven content URLs with `xhtml:link` alternates and a
 `<lastmod>`. Regenerate it when a page is added, and touch the `<lastmod>` of
 any page whose main content changed - not for an edit to the shared header,
-footer or form, which moves all twenty-four dates at once and teaches a search
+footer or form, which moves all twenty-seven dates at once and teaches a search
 engine to ignore them. No `<changefreq>`, no `<priority>`, and
 `404.html` is not in it.
 
 `llms.txt` is the [llmstxt.org](https://llmstxt.org/) file: an H1, a blockquote
 summary, a few lines of orientation, then `## Overview`, `## Products`,
 `## Background` and `## Optional`, each a list of `[title](url): description`
-links. It is Markdown despite the `.txt` name. Only the eight English URLs are in
-it, with the imprint, the German and French home pages and the sitemap under
+links. It is Markdown despite the `.txt` name. Only the nine English URLs are in
+it, with the imprint, the terms, the German and French home pages and the
+sitemap under
 `## Optional`; the one off-site link is the gateway's GitHub repository, under `## Products` right
 after the gateway page, with its licence spelled out. The descriptions
 are the pages' own `<meta name="description">` strings, so a reworded
@@ -273,7 +288,7 @@ order.
 ## The 404 page
 
 GitHub Pages serves a root `404.html` for every missing path, in all three
-language trees, so this one page is built differently from the twenty-four:
+language trees, so this one page is built differently from the twenty-seven:
 
 - **Every URL in it is root-absolute** (`/assets/...`, `/engine`, `/`),
   because it renders under the path that was requested. This is the one place
@@ -291,9 +306,9 @@ language trees, so this one page is built differently from the twenty-four:
 
 ## Languages
 
-Three languages, eight pages each. German (Swiss spelling - `ss`, never `ß`) is
+Three languages, nine pages each. German (Swiss spelling - `ss`, never `ß`) is
 the default at the root, English under `en/`, French under `fr/`, with the same
-eight filenames. Filenames stay English; only the prose is translated.
+nine filenames. Filenames stay English; only the prose is translated.
 
 Every page carries a DE/FR/EN switcher in the header, always in that order with
 the current language unlinked, and four `rel="alternate" hreflang` links in
@@ -331,8 +346,8 @@ for redaction, _groupe_ for Omnivor, and _nLPD_ where the German says revDSG.
 Every character French adds already sits in the `latin` / `latin-ext` font cuts
 that ship.
 
-The imprint is the site's own page in all three languages, not a link to
-`bespinian.io`, which has no French locale.
+The imprint and the terms are the site's own pages in all three languages,
+not links to `bespinian.io`, which has no French locale.
 
 ## Header and footer
 
@@ -362,7 +377,8 @@ so the menu needs no JavaScript. Three things are load-bearing:
   hidden with a clip, and is localised (`Menü` / `Menu` / `Menu`).
 
 The footer is one line of prose, one row of links (the six pages, GitHub, LinkedIn,
-Contact, Imprint) and one mono line with the copyright and the city (`© 2026 bespinian ·
+Contact, Imprint, Terms - _AGB_ in German, _Conditions générales_ in French)
+and one mono line with the copyright and the city (`© 2026 bespinian ·
 Bern`, `Berne` in French).
 
 ## Icons
@@ -621,7 +637,7 @@ read off the encoded file - and a re-read of both paragraphs.
 ## Contact form
 
 The site's one call to action is the filled button in every content page's hero
-(at the foot of `story.html`, and none on the imprint): _Kostenlos starten_ / _Start for free_ /
+(at the foot of `story.html`, and none on the imprint or the terms): _Kostenlos starten_ / _Start for free_ /
 _Commencer gratuitement_, pointing at the hosted gateway,
 `https://gateway.keera.ch`, not at the form. The form is for everything else,
 and its heading and lede say so, the same on all twelve pages: _Fragen,
@@ -746,14 +762,14 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   pages with a form.
 - `assets/js/google-tag.js` - the Google Ads tag `AW-18327942303`: the
   `dataLayer` bootstrap, the `config` call, and the conversion helper. Loaded
-  `defer` by all twenty-four content pages, last in the head. It sits on every page
+  `defer` by all twenty-seven content pages, last in the head. It sits on every page
   because an ad click lands wherever the ad points. **The file fetches gtag.js
   itself, on `load`**, so the ~120 KB third-party fetch lands after the paint;
   do not put a markup tag back. It is the site's only cookie, and it has no
   consent gate by decision.
 - **Simple Analytics** - `https://scripts.simpleanalyticscdn.com/latest.js`,
   the one third-party script that is not a local file, because the vendor
-  serves it. It is the last thing in the body on all twenty-four content pages,
+  serves it. It is the last thing in the body on all twenty-seven content pages,
   `async` and unannotated. It sets no cookie and collects no personal data, so
   it needs no consent gate either. Not on `404.html`.
 - `assets/js/language.js` - the Accept-Language redirect described under
@@ -809,7 +825,7 @@ passage gets read without its page.
 Every URL in the metadata is absolute `https://keera.ch/...`, so all of them
 need updating if the domain changes. Canonicals, `og:url`, `hreflang`, the
 JSON-LD, the sitemap and `llms.txt` use the directory form for the three home
-pages - `https://keera.ch/`, `/en/`, `/fr/` - and drop `.html` from the fifteen
+pages - `https://keera.ch/`, `/en/`, `/fr/` - and drop `.html` from the twenty-four
 others - `https://keera.ch/gateway`, `/en/gateway`. Internal links match:
 `href="./"` for the current language's home page, `href="gateway"` for a page.
 GitHub Pages resolves `/gateway` to `gateway.html` itself, so the files keep
@@ -843,5 +859,6 @@ artwork on the `#091023` navy of `keera-og-image.jpg`. The home pages keep
 `keera-og-image.jpg`; the rest use `keera-og-<page>.jpg`. `og:image:alt`
 describes the artwork in the page's own language. The pricing pages are the
 exception until they have artwork: they borrow `keera-og-gateway.jpg` and its
-alt text, since the plans are the gateway's. The imprint borrows the home
-pages' `keera-og-image.jpg` and alt text, since it speaks for the whole site.
+alt text, since the plans are the gateway's. The imprint and the terms borrow
+the home pages' `keera-og-image.jpg` and alt text, since they speak for the
+whole site.

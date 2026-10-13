@@ -7,7 +7,7 @@
 > vLLM and llm-d.
 > Inference, logs and backups stay in Swiss data centres.
 
-The site is twenty-four static pages in three languages. German is the default and
+The site is twenty-seven static pages in three languages. German is the default and
 lives at the root, French under `/fr/` and English under `/en/`, and every page
 carries the same path in all three: the gateway is `/gateway`, `/fr/gateway`
 and `/en/gateway`. The links below point at the English
@@ -38,7 +38,8 @@ than failing over abroad.
 
 ## Optional
 
-- [Deutsch](https://keera.ch/): the same eight pages in German, the site's default language.
-- [Français](https://keera.ch/fr/): the same eight pages in French.
+- [Deutsch](https://keera.ch/): the same nine pages in German, the site's default language.
+- [Français](https://keera.ch/fr/): the same nine pages in French.
 - [Imprint](https://keera.ch/en/imprint): Imprint of keera.ch: bespinian GmbH, Sonnenweg 9, 3073 Gümligen, Switzerland, with an office at Kramgasse 68 in Bern. Contact, UID and commercial register.
-- [Sitemap](https://keera.ch/sitemap.xml): all twenty-four URLs with their language alternates.
+- [Terms and conditions](https://keera.ch/en/terms): Terms and conditions for Keera Gateway and Keera Engine by bespinian GmbH: the contract, prices, prepaid credit, data, liability and termination.
+- [Sitemap](https://keera.ch/sitemap.xml): all twenty-seven URLs with their language alternates.
