@@ -439,7 +439,10 @@ white lettering and a white plate (`#fefefe`) outlining a dark helmet
 `.partner-plate` and the five helmet paths `.partner-cut`. In the light scheme
 the plate takes `--card` and everything else `--ink`; in the dark scheme the
 plate takes `--ink` and the helmet `--card`, which is nine's own dark-ground
-look. The markup keeps both brand fills, cropped to `0 0 384.67 129.08`. Keep
+look. The markup keeps both brand fills, cropped to `0 0 384.67 129.08`. The
+PeakPrivacy master (`../artwork/peakprivacy.svg`) is drawn for a light ground,
+grey (`#353535`) lettering beside two reds (`#ff5060`, `#aa1825`), so it is a
+plain link like stepping stone's, cropped to `0 0 162.87 27.99`. Keep
 the three copies identical.
 
 The `#partners` `<h2>` is **the one heading on the site that is a direct child
