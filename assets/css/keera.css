@@ -748,6 +748,43 @@ thead th,
   }
 }
 
+/* The customer row under the home hero: a slim plain band, label and logos on
+   one line, so the alternation from #problem down stays as it was. A logo
+   keeps its brand fills like a partner wordmark; a part drawn in white for a
+   dark ground or in black for a light one (.customer-ink) takes --ink in both
+   schemes instead. */
+.customers {
+  padding: 28px 0;
+}
+.customers .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 40px;
+}
+.band.customers > .wrap > * {
+  margin: 0;
+}
+.customer-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 40px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.customer-list a {
+  display: block;
+}
+.customer-list svg {
+  display: block;
+  height: auto;
+}
+.customer-list .customer-ink {
+  fill: var(--ink);
+}
+
 /* ---------- diagrams ---------- */
 /* The diagrams are HTML and CSS rather than SVG, so they reflow from a row into
    a column, inherit the colour tokens in both schemes, and stay in source order

@@ -55,7 +55,9 @@ cards, pricing tiers outside `pricing.html`, customer quotes, hosted-provider mo
 light/dark screenshot toggle. The partner row on
 `sovereignty.html#infrastructure` is not a logo strip: it names the companies
 whose hardware Keera runs on, so a reader can check them, and nobody else goes
-in it.
+in it. The customer row under the home hero is the other exception: it names
+real customers, each linked, and nothing else - no prospects, no
+partners, no quote beside a logo.
 
 ## Pages
 
@@ -83,10 +85,17 @@ organisation; the differentiator answer on `gateway.html`; the gateway line of
 the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
 `SoftwareApplication` node; and `llms.txt`.
 
-- `index.html` - hero, the problem (`#problem`), the endpoint that answers it
-  (`#solution`), the two products, three deployment options, the story teaser,
-  the form. Four visuals and no more: the hero, the `.sprawl` figure, the
-  `.stack`, and page 1 of the comic.
+- `index.html` - hero, the customer row (`.customers`), the problem
+  (`#problem`), the endpoint that answers it (`#solution`), the two products,
+  three deployment options, the story teaser, the form. Four visuals and no
+  more: the hero, the `.sprawl` figure, the `.stack`, and page 1 of the comic.
+  The customer logos are names, not visuals, and do not count.
+
+  The customer row is a slim plain `.band.customers` between the hero and
+  `#problem`: a mono eyebrow (_Unsere Kunden_ / _Our customers_ / _Nos
+  clients_) and a `ul.customer-list` on one line, one `<li>` and one link per
+  customer. Being white under a white hero, it leaves the alternation from
+  `#problem` down untouched. letsboot.ch (`letsboot.ch`) is the first.
 
   `#problem` states the problem before naming the product. Its `<h2>` is the
   missing overview; three `.facts` cells carry the damage - no overview, no
@@ -445,6 +454,19 @@ grey (`#353535`) lettering beside two reds (`#ff5060`, `#aa1825`), so it is a
 plain link like stepping stone's, cropped to `0 0 162.87 27.99`. Keep
 the three copies identical.
 
+The customer logos in the home page's `.customers` row are a fourth kind, built
+like the partner wordmarks: inline SVG, `role="img"` with an `aria-label`
+naming the customer, inside a link to it, brand fills as `fill` attributes and
+the same exception to the token rule. A part the customer draws in white for a
+dark ground, or in black for a light one, carries `.customer-ink` and takes
+`--ink` in both schemes, so it holds on white and turns white on near-black.
+The letsboot.ch master (`../artwork/letsboot.svg`) builds its rocket
+from clipped rectangles; the page copy fills the clip paths instead, in four
+paths - the two reds of the shield (`#c82934`, `#ae2632`), the white rocket
+(`#fffffe`) and `.customer-ink` lettering (black in the master) - scaled by
+1/20, cropped to `0 0 369.54 93.12` and rounded to two decimals. Keep the three
+copies identical.
+
 The `#partners` `<h2>` is **the one heading on the site that is a direct child
 of `.wrap`**, outside any `.prose`, so it and the leaf hold one line. Do not move any other
 heading out to match.
@@ -742,7 +764,8 @@ sections need nothing new.
   `.plain-list`, `.plan` / `.price` / `.plan-cta` and
   `.plan-table` on the pricing page (`.plan--start` / `.plan-tag` on the
   Swiss Cloud card), `.visually-hidden`, `.partners` (one bordered tile per partner link, wordmark
-  centred), `.table-wrap` + plain `<table>` (`td.tight` keeps a short value on
+  centred), `.customers` / `.customer-list` / `.customer-ink` (the home
+  page's customer row), `.table-wrap` + plain `<table>` (`td.tight` keeps a short value on
   one line; `.layer-table` colours its last column in the accent by
   `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
   `.hero` / `.hero--split` / `.hero-art`, `.btn` / `.btn--quiet` / `.btn-row` /
