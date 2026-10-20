@@ -36,7 +36,6 @@ jobs:
       # what binds the custom domain to this deployment.
       - name: Stage the site
         run: |
-          mkdir -p _site
           rsync -a \
             --exclude '.git/' \
             --exclude '.github/' \
@@ -80,8 +79,8 @@ jobs:
             exit 0
           fi
           printf '%s\n' $urls
-          printf '%s\n' $urls | jq -R . | jq -s --arg key "$KEY" \
+          printf '%s\n' $urls | jq -Rn --arg key "$KEY" \
             '{host: "keera.ch", key: $key,
-              keyLocation: ("https://keera.ch/" + $key + ".txt"), urlList: .}' \
+              keyLocation: ("https://keera.ch/" + $key + ".txt"), urlList: [inputs]}' \
             | curl -fsS -X POST https://api.indexnow.org/indexnow \
                 -H 'Content-Type: application/json; charset=utf-8' --data-binary @-
