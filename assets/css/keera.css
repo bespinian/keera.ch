@@ -728,7 +728,8 @@ thead th,
   }
 }
 /* A wordmark that only ships in a colour meant for a dark ground - onprem.ai's
-   mint - would vanish on white, so it takes --ink in both schemes. */
+   mint, Hidora's white - would vanish on white, so it takes --ink in both
+   schemes. */
 .partners .partner--ink path {
   fill: var(--ink);
 }

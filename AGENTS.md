@@ -452,7 +452,11 @@ plate takes `--ink` and the helmet `--card`, which is nine's own dark-ground
 look. The markup keeps both brand fills, cropped to `0 0 384.67 129.08`. The
 PeakPrivacy master (`../artwork/peakprivacy.svg`) is drawn for a light ground,
 grey (`#353535`) lettering beside two reds (`#ff5060`, `#aa1825`), so it is a
-plain link like stepping stone's, cropped to `0 0 162.87 27.99`. Keep
+plain link like stepping stone's, cropped to `0 0 162.87 27.99`. The
+Hidora master (`../artwork/hidora.svg`) is all white (`#ffffff`), drawn for a
+dark ground, so its `<a>` carries `.partner--ink` like onprem.ai's; its padded
+viewBox and nested translates are flattened into the paths, cropped to
+`0 0 399.96 123.19`. Keep
 the three copies identical.
 
 The customer logos in the home page's `.customers` row are a fourth kind, built
