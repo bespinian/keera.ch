@@ -843,6 +843,20 @@ fetchpriority="high">`) as the first hint in the head, ahead of the fonts. The
   preload `href` must match the `<img src>` exactly, or the image downloads
   twice - a page that changes its hero changes both.
 
+  The five `.hero-art` images also ship at 400 and 640 pixels wide, as
+  `<name>-400.webp` and `<name>-640.webp` beside the full file, because the
+  figure is at most 360px wide on a phone and about 395px on a desktop. The
+  `<img>` carries them in `srcset` with the full file as its largest width,
+  and `sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px,
+38vw)"`, which is the `.hero--split` column worked out from `.wrap`; a
+  change to that grid, its gap or the 360px cap changes `sizes` on all
+  sixteen pages. The preload repeats both as `imagesrcset` and `imagesizes`,
+  character for character, or the browser preloads one width and paints
+  another. Encode a new hero at all three widths from its master with the
+  command above. The mascot's master is `badass2.png` with `-trim +repage`
+  first. The laptop and the dam have no master that matches the shipped
+  crop, so their two small widths are scaled from the shipped `.webp`.
+
 ## Metadata
 
 Every content page carries its `<title>`, `description`, `rel="canonical"`,
