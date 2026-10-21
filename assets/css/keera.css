@@ -1,4 +1,4 @@
-/* Keera - one stylesheet for the twenty-one content pages and 404.html.
+/* Keera - one stylesheet for the thirty-three content pages and 404.html.
    Quiet, one accent, light or dark from the viewer's system setting. Layout is
    a single column: .wrap for full-width bands, .prose for anything meant to be
    read. Pages carry classes only - no inline styles. */
@@ -182,6 +182,7 @@ p + p,
 h2 + p,
 h3 + p,
 p + ul,
+ul + p,
 p + .btn-row {
   margin-top: 14px;
 }
@@ -189,13 +190,14 @@ strong {
   font-weight: 600;
 }
 
-/* The small mono label, in five places. Each rule below adds only its own
+/* The small mono label, in six places. Each rule below adds only its own
    size and spacing. */
 .eyebrow,
 .stack-label,
 .flow-title,
 thead th,
-.label {
+.label,
+.plan-tag {
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 500;
@@ -563,7 +565,8 @@ thead th,
    heading rather than above a name. It aligns top, so a heading that wraps
    keeps the leaf on its first line, and it is sized in em because the heading
    is a clamp. */
-.icon-head {
+.icon-head,
+.provider-head {
   display: flex;
   align-items: flex-start;
   gap: 12px;
@@ -578,6 +581,23 @@ thead th,
    the 14px a heading wants over its own paragraph, so the gap is restated. */
 .icon-head + .prose {
   margin-top: 14px;
+}
+/* A model provider's mark beside the <h2> of its section on models.html. The
+   path data is the gateway web UI's own, filled with currentColor, so the mark
+   takes the heading's ink in both schemes and needs no colour of its own. Its
+   width follows from its viewBox; a wide one is drawn smaller so it does not
+   outweigh the name. Sized in em, because the heading is a clamp, and aligned
+   to the first line, as the leaf is: .provider-head shares .icon-head's
+   rule above. */
+.provider-mark {
+  flex: none;
+  width: auto;
+  height: 0.9em;
+  margin-top: 0.15em;
+}
+.provider-mark--wide {
+  height: 0.7em;
+  margin-top: 0.25em;
 }
 .logo {
   flex: none;
@@ -635,16 +655,10 @@ thead th,
   top: 0;
   left: clamp(20px, 3vw, 26px);
   transform: translateY(-50%);
-  margin: 0;
   padding: 3px 10px;
   border-radius: 999px;
   background: var(--accent);
   color: var(--btn-ink);
-  font-family: var(--mono);
-  font-size: 11.5px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 .card .plan-tag + h3 {
   margin-top: 0;
@@ -667,6 +681,7 @@ thead th,
 
 .plain-list,
 .partners,
+.customer-list,
 .flow-steps {
   margin: 0;
   padding: 0;
@@ -717,15 +732,10 @@ thead th,
 .partners a:hover {
   border-color: var(--ink);
 }
-.partners svg {
+.partners svg,
+.customer-list svg {
   display: block;
   height: auto;
-}
-/* screen only, so a page printed from a dark system keeps the brand fills */
-@media screen and (prefers-color-scheme: dark) {
-  .partners path {
-    fill: var(--ink);
-  }
 }
 /* A wordmark that only ships in a colour meant for a dark ground - onprem.ai's
    mint, Hidora's white - would vanish on white, so it takes --ink in both
@@ -740,7 +750,11 @@ thead th,
 .partners .partner--ink .partner-plate {
   fill: var(--card);
 }
+/* screen only, so a page printed from a dark system keeps the brand fills */
 @media screen and (prefers-color-scheme: dark) {
+  .partners path {
+    fill: var(--ink);
+  }
   .partners .partner--ink .partner-plate {
     fill: var(--ink);
   }
@@ -757,7 +771,8 @@ thead th,
 .customers {
   padding: 28px 0;
 }
-.customers .wrap {
+.customers .wrap,
+.customer-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -766,21 +781,8 @@ thead th,
 .band.customers > .wrap > * {
   margin: 0;
 }
-.customer-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 16px 40px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
 .customer-list a {
   display: block;
-}
-.customer-list svg {
-  display: block;
-  height: auto;
 }
 .customer-list .customer-ink {
   fill: var(--ink);
@@ -880,12 +882,15 @@ thead th,
 }
 /* In --ok, the way .sprawl-void is in --err: the same slot in the same kind of
    diagram, saying the opposite thing. The two are a pair and move together. */
-.flow-branch {
-  grid-column: 3;
+.flow-branch,
+.sprawl-void {
   text-align: center;
-  color: var(--ok);
   font-family: var(--mono);
   font-size: 12px;
+}
+.flow-branch {
+  grid-column: 3;
+  color: var(--ok);
 }
 @media (max-width: 860px) {
   .flow {
@@ -913,17 +918,9 @@ thead th,
 /* Equal rows on both sides, so a team and its providers line up with the ends
    of the paths drawn between them. */
 .sprawl-side {
-  grid-row: 1;
   display: grid;
   grid-auto-rows: 1fr;
   gap: 10px;
-}
-/* of-type, because the last child of .sprawl is the .sprawl-void line */
-.sprawl > .sprawl-side:first-of-type {
-  grid-column: 1;
-}
-.sprawl > .sprawl-side:last-of-type {
-  grid-column: 3;
 }
 .sprawl-node {
   border: 1px solid var(--line);
@@ -944,9 +941,8 @@ thead th,
 }
 /* The viewBox stretches to the middle column, so the path ends stay on the node
    rows at any width; non-scaling strokes keep the hairlines hairlines. */
+/* Side, links, side fill the first row in source order. */
 .sprawl-links {
-  grid-row: 1;
-  grid-column: 2;
   width: 100%;
   height: 100%;
   /* the quietest thing in the figure. Opacity rather than a paler colour,
@@ -957,13 +953,10 @@ thead th,
 /* The mono line under the gap, the way .flow-branch hangs under the gateway. In
    --err, because it is the one line in the figure that names a fault rather
    than a fact. 6.1:1 on the light band, 8.7:1 on the dark one. */
+/* Its column alone places it: past the first row, it opens the second. */
 .sprawl-void {
-  grid-row: 2;
   grid-column: 2;
-  text-align: center;
   color: var(--err);
-  font-family: var(--mono);
-  font-size: 12px;
 }
 /* Stacked, the two columns sit above each other and the paths join nothing, so
    below 700px the figure goes. The whole figure, not just .sprawl: an empty
@@ -1058,6 +1051,29 @@ td.tight {
 .layer-table td:last-child {
   color: var(--accent);
 }
+/* The model tables on models.html, one per provider: the model id leads, and
+   the figures are right-aligned in tabular digits so a column of prices reads
+   down. The last column runs to the wrap's edge. */
+.model-table th + th,
+.model-table td {
+  text-align: right;
+}
+.model-table td {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.model-table th:last-child,
+.model-table td:last-child {
+  padding-right: 0;
+}
+/* A price column names its unit on a second line, so a table read without
+   its note still says what the figures are. MTok keeps its own case. */
+.model-table .unit {
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 0;
+  text-transform: none;
+}
 /* The plan comparison on pricing.html: three centred plan columns, the row
    labels pinned left so a phone scrolling the table sideways keeps them in
    view. */
@@ -1119,12 +1135,19 @@ td.tight {
    scroll past. Changing a table's display can cost it its table semantics in
    a screen reader, which is why the markup spells the roles out. */
 @media (max-width: 620px) {
-  .table-wrap:has(.plan-table) {
+  /* The model tables on models.html break up the same way: the id on a line
+     of its own, its three or four figures in columns under it, and the
+     column names pinned while the rows pass. Their "Model" header is the
+     cell kept in the tree by a clip, for the same reason. */
+  .table-wrap:has(.plan-table, .model-table) {
     overflow: visible;
   }
   .plan-table,
   .plan-table thead,
-  .plan-table tbody {
+  .plan-table tbody,
+  .model-table,
+  .model-table thead,
+  .model-table tbody {
     display: block;
     min-width: 0;
   }
@@ -1134,41 +1157,62 @@ td.tight {
   /* The empty corner stays in the tree, or the header row would have one
      cell fewer than the rows and a screen reader would pair every value with
      the wrong plan. */
-  .plan-table thead td {
+  .plan-table thead td,
+  .model-table thead th:first-child {
     position: absolute;
     width: 1px;
     height: 1px;
     overflow: hidden;
     clip-path: inset(50%);
   }
-  .plan-table tr {
+  .plan-table tr,
+  .model-table tr {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 12px;
     border-bottom: 1px solid var(--line);
   }
+  /* a provider with a cache price has a fourth figure */
+  .model-table:has(thead th:nth-child(5)) tr {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
   .plan-table th,
-  .plan-table td {
+  .plan-table td,
+  .model-table th,
+  .model-table td {
     padding: 0;
     border-bottom: 0;
-    font-size: 14.5px;
-    hyphens: auto;
   }
-  .plan-table thead {
+  .plan-table thead,
+  .model-table thead {
     position: sticky;
     top: 0;
     z-index: 1;
-    border-bottom: 1px solid var(--line);
     background: var(--bg);
   }
-  .plan-table thead tr {
-    border-bottom: 0;
-  }
-  .band--alt .plan-table thead {
+  .band--alt .plan-table thead,
+  .band--alt .model-table thead {
     background: var(--surface);
   }
-  .plan-table thead th[scope="col"] {
+  .plan-table thead th[scope="col"],
+  .model-table thead th {
     padding: 12px 0 10px;
+  }
+  .model-table tbody tr {
+    padding: 12px 0;
+    row-gap: 4px;
+  }
+  .model-table tbody th {
+    grid-column: 1 / -1;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .plan-table th,
+  .plan-table td {
+    font-size: 14.5px;
+    hyphens: auto;
+  }
+  .plan-table thead th[scope="col"] {
     font-size: 15px;
   }
   .plan-table tbody tr {
@@ -1178,11 +1222,6 @@ td.tight {
   .plan-table tbody th {
     position: static;
     grid-column: 1 / -1;
-    font-size: 14.5px;
-    background: none;
-  }
-  .band--alt .plan-table tbody th {
-    background: none;
   }
 }
 .visually-hidden {

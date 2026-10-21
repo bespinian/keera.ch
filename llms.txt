@@ -7,7 +7,7 @@
 > vLLM and llm-d.
 > Inference, logs and backups stay in Swiss data centres.
 
-The site is thirty static pages in three languages. German is the default and
+The site is thirty-three static pages in three languages. German is the default and
 lives at the root, French under `/fr/` and English under `/en/`, and every page
 carries the same path in all three: the gateway is `/gateway`, `/fr/gateway`
 and `/en/gateway`. The links below point at the English
@@ -27,7 +27,8 @@ than failing over abroad.
 
 - [Keera Gateway](https://keera.ch/en/gateway): The Swiss LLM gateway: one endpoint between your teams and every model, with policies, budgets and an audit log with no gaps.
 - [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
-- [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and unlimited input tokens, an instance of your own at CHF 495 a month, or on-premise on request.
+- [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and unlimited tokens, an instance of your own at CHF 495 a month, or Enterprise on request.
+- [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, priced in CHF: open models from stepping stone, Infomaniak, Phoeniqs and CSCS in Switzerland, Claude and GPT from the USA.
 - [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 
 ## Background
@@ -38,9 +39,9 @@ than failing over abroad.
 
 ## Optional
 
-- [Deutsch](https://keera.ch/): the same ten pages in German, the site's default language.
-- [Français](https://keera.ch/fr/): the same ten pages in French.
+- [Deutsch](https://keera.ch/): the same eleven pages in German, the site's default language.
+- [Français](https://keera.ch/fr/): the same eleven pages in French.
 - [Imprint](https://keera.ch/en/imprint): Imprint of keera.ch: bespinian GmbH, Sonnenweg 9, 3073 Gümligen, Switzerland, with an office at Kramgasse 68 in Bern. Contact, UID and commercial register.
 - [Terms and conditions](https://keera.ch/en/terms): Terms and conditions for Keera Gateway and Keera Engine by bespinian GmbH: the contract, prices, prepaid credit, data, liability and termination.
 - [Privacy policy](https://keera.ch/en/privacy): Privacy policy for keera.ch and Keera Gateway: which personal data bespinian GmbH processes, who receives it, and the rights you have over it.
-- [Sitemap](https://keera.ch/sitemap.xml): all thirty URLs with their language alternates.
+- [Sitemap](https://keera.ch/sitemap.xml): all thirty-three URLs with their language alternates.

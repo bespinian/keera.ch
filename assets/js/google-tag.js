@@ -1,5 +1,5 @@
 /* The Google Ads tag (AW-18327942303), kept out of the markup like the rest of
-   the site's JavaScript. It sits on every page, not only the nine with a form,
+   the site's JavaScript. It sits on every page, not only the twelve with a form,
    because an ad click lands wherever the ad points and the click id has to be
    recorded there. */
 window.dataLayer = window.dataLayer || [];

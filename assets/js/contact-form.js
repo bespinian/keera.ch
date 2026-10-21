@@ -1,6 +1,6 @@
 /* Submit handler for the #contact form: posts to Formspree over fetch so the
    visitor never leaves the page. Every message comes from the data-cf-*
-   attributes on the form, so one file serves all nine forms in all three
+   attributes on the form, so one file serves all twelve forms in all three
    languages. */
 (function () {
   var SEL = "form[data-contact-form]";
@@ -14,7 +14,7 @@
 
   document.addEventListener("submit", function (ev) {
     var form = ev.target;
-    if (!form.matches || !form.matches(SEL)) return;
+    if (!form.matches(SEL)) return;
     ev.preventDefault();
 
     /* the one rule the browser cannot check itself */
@@ -40,7 +40,6 @@
         var fields = form.querySelector("[data-cf-fields]");
         if (fields) fields.hidden = true;
         say(form, "sent", true);
-        form.reset();
         /* The lead exists once Formspree has taken it, so this is the one
            place the Google Ads conversion fires. Guarded, because the form has
            to keep working when the tag is blocked. */

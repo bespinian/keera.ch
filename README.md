@@ -1,6 +1,6 @@
 # Keera - static site
 
-Plain static pages, no build step. Thirty content `.html` files - ten
+Plain static pages, no build step. Thirty-three content `.html` files - eleven
 pages in German at the root, English under `en/`, French under `fr/` - plus
 `404.html`, the shared files under `assets/`, and `robots.txt`, `sitemap.xml`,
 `llms.txt`, `CNAME` and the IndexNow key file at the root.

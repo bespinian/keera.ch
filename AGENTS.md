@@ -1,6 +1,6 @@
 # Keera Website
 
-Thirty hand-written static content pages plus `404.html`, served off GitHub
+Thirty-three hand-written static content pages plus `404.html`, served off GitHub
 Pages with no build step. `.github/workflows/deploy.yml` publishes the repo
 there on every push to `main`. The host runs no configuration of its own: what
 `.htaccess` used to express is now a Pages setting, a Pages default, a script,
@@ -9,7 +9,7 @@ or gone - see the README.
 Markup carries classes only. The whole design lives in `assets/css/keera.css`.
 Four scripts run on the site: `assets/js/contact-form.js` on the twelve pages
 with a form, `assets/js/google-tag.js` and the hosted Simple Analytics tag on
-all thirty content pages, and `assets/js/language.js` on the German home page
+all thirty-three content pages, and `assets/js/language.js` on the German home page
 alone.
 
 Never add inline `style` attributes, per-page `<style>` blocks, or client-side
@@ -24,8 +24,8 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
 - **Every colour goes through a token.** Hex values live in the token blocks -
   `:root`, its dark copy, the two `.theme-leaf` hover shades and `@media print`.
   Anywhere else a hex value is a bug - it can only be right in one of the two
-  schemes. The one exception is a partner wordmark, which keeps its own brand
-  fills in the light scheme.
+  schemes. The one exception is a partner wordmark or a customer logo, which
+  keeps its own brand fills in the light scheme.
 - **The accent is blue (`--accent`)** everywhere but the three sustainability
   pages, which carry `class="theme-leaf"` on `<body>` and run the same design in
   green. That is a swap, not an addition: no page shows both. No other page gets
@@ -46,12 +46,12 @@ rendering. Write plain HTML with classes and put new rules in the stylesheet.
   gate on Keera Gateway, Keera patching a rack on Souveränität. Every other page
   leads with one illustration of its own - in the same `.hero-art` figure on
   `sustainability.html` and `404.html` - except the story, which leads with its
-  cast, pricing, which has no artwork of its own yet and leads with its
-  text alone, and the three legal pages - the imprint, the terms and the
-  privacy policy - which never will.
+  cast, pricing and the model catalogue, which have no artwork of their
+  own yet and lead with their text alone, and the three legal pages - the
+  imprint, the terms and the privacy policy - which never will.
 
 Do not add: logo strips, fake terminal sessions, benefit grids, integration
-cards, pricing tiers outside `pricing.html`, customer quotes, hosted-provider model tables, or a
+cards, pricing tiers outside `pricing.html`, customer quotes, hosted-provider model tables outside `models.html`, or a
 light/dark screenshot toggle. The partner row on
 `sovereignty.html#infrastructure` is not a logo strip: it names the companies
 whose hardware Keera runs on, so a reader can check them, and nobody else goes
@@ -206,8 +206,8 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   at extra cost, 24/7). The plan columns
   share the width equally, and a value several plans share is repeated
   in each column, never one cell spanning them - a spanning cell reads as
-  belonging to neither. A yes is a tick drawn in CSS on `td.yes`, a no is a dash on
-  `td.no`, each with its word in a `.visually-hidden` span; the tick is a
+  belonging to neither. A yes is a tick drawn in CSS on `td.yes`, a no is a literal
+  `–` in `td.no`, which has no rule of its own; each carries its word in a `.visually-hidden` span; the tick is a
   table mark, not part of the icon set. The mono note under the table says
   the prices are Swiss francs a month, that a yearly contract takes 10% off
   the base fee, and that model usage comes on top, at
@@ -230,12 +230,55 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
   price is per. The plans are not the deployment options of
   `index.html#deploy`: those keep _On-Premise_ / _Sur site_, and so does the
   Hosting row of the table, because that is where the Enterprise plan runs. A number on the page follows its language:
-  `1’000’000`, `1,000,000`, `1&#x202F;000&#x202F;000` (a narrow no-break
-  space, a literal U+202F in the JSON-LD). The page's `SoftwareApplication` node
+  `5’346`, `5,346`, `5&#x202F;346` (a narrow no-break space); the JSON-LD
+  writes the bare `5346`. The page's `SoftwareApplication` node
   reuses `https://keera.ch/#gateway` and carries only the two priced plans,
   Swiss Cloud and Dedicated, as `offers`; Dedicated carries two
   `UnitPriceSpecification`s, `495` a month (`MON`) and `5346` a year
   (`ANN`), so a change to the monthly price or the discount moves both.
+
+- `models.html` - the model catalogue: every model Keera Gateway knows by
+  name, with its context window and price. A text-only hero (eyebrow, `<h1>`,
+  lede, the start button, an arrow to pricing, and a mono line of jump links
+  to the six providers), one band per provider, and a closing band
+  (`#other`) for what is not in it: any open model on Keera Engine, price on
+  request, and any OpenAI-compatible endpoint, priced by the customer. No
+  form, so no `contact-form.js`.
+
+  The data is the gateway's, not ours. Providers, model ids, context windows
+  and prices come from `catalog.Providers()` - `internal/catalog/providers.go`
+  in the gateway repo - and the marks from `providerMarks` in its
+  `internal/webui/assets/ui.js`. Regenerate the tables from those files rather
+  than retyping them, in all three languages at once. The notes carry no
+  date and no provider name, only the unit. Prices are CHF per
+  million tokens, exactly what the gateway bills: never round, convert or
+  discount one. Context is written `256k` / `1M`, as on `engine.html`, and a
+  price with the language's decimal mark (`0.092`, `0,092`).
+
+  The Swiss providers come first - stepping stone, Infomaniak, Phoeniqs,
+  CSCS - then Anthropic and OpenAI; the order is the sovereignty argument, not
+  the gateway's. Each band is an eyebrow with the country and the kind of
+  model, an `<h2>` that names the provider (_Modelle bei Infomaniak_), two or
+  three short sentences, one `.model-table` and one `.note`. The rows keep the
+  gateway's order and its ids, capitals and all, because the id is what a
+  customer types. The columns are model, context, input and output, plus
+  cached input for the two providers that have a cache price, Anthropic and OpenAI. Each price
+  header names its unit, `CHF/MTok`, in a `span.unit` on a second line, so a
+  table read without its note still says what the figures are. A row that
+  costs more for a long prompt carries a `*`, and the note says above how many
+  tokens and by how much; every starred row of one table shares that
+  threshold and factor, or the note is wrong. The two US bands say the prompts
+  leave the country and the models stay blocked until opened per team and data
+  class, the claim of the footnote under `engine.html#models`.
+
+  The tables carry their ARIA roles on every element, for the reason the plan
+  table does: below 620px each row becomes a block, the id on a line of its
+  own and the figures in columns under it.
+
+  The catalogue is linked from the footer, the note under `pricing.html#compare`,
+  the note under `gateway.html#architecture` and the footnote under
+  `engine.html#models`, and from the payment band of `terms.html`. It is not in the header nav, which has no room for a
+  seventh label at 1100px.
 
 - `sustainability.html` - two levers and one story: how we pick infrastructure
   partners (`#partners`), how Keera spends fewer tokens (`#tokens`), the Omnivor
@@ -268,7 +311,8 @@ the open stack on `sovereignty.html`; `sameAs` / `license` on the gateway's
 - `privacy.html` - the privacy policy (_Datenschutzerklärung_ / _Privacy
   policy_ / _Politique de confidentialité_). Same shape as the terms:
   controller, the website, the form, the gateway, payment, rights. It names every service that receives personal data - GitHub Pages,
-  Formspree, Nine, PostFinance and the model providers - so a new third-party script, host or processor is a
+  the Google Ads tag, Formspree, Nine, PostFinance and the model providers, plus
+  Simple Analytics, which receives none - so a new third-party script, host or processor is a
   change here, in all three languages, before it ships.
 - Both carry `Stand` / `Last updated` / `Version du` in the hero; change the
   date when the text changes.
@@ -282,17 +326,17 @@ domain to the deployment; it has to match the custom domain set under Settings
 its own name and nothing else; the deploy's IndexNow step names it, so the two
 change together.
 
-The sitemap lists all thirty content URLs with `xhtml:link` alternates and a
+The sitemap lists all thirty-three content URLs with `xhtml:link` alternates and a
 `<lastmod>`. Regenerate it when a page is added, and touch the `<lastmod>` of
 any page whose main content changed - not for an edit to the shared header,
-footer or form, which moves all thirty dates at once and teaches a search
+footer or form, which moves all thirty-three dates at once and teaches a search
 engine to ignore them. No `<changefreq>`, no `<priority>`, and
 `404.html` is not in it.
 
 `llms.txt` is the [llmstxt.org](https://llmstxt.org/) file: an H1, a blockquote
 summary, a few lines of orientation, then `## Overview`, `## Products`,
 `## Background` and `## Optional`, each a list of `[title](url): description`
-links. It is Markdown despite the `.txt` name. Only the ten English URLs are in
+links. It is Markdown despite the `.txt` name. Only the eleven English URLs are in
 it, with the imprint, the terms, the privacy policy, the German and French
 home pages and the sitemap under
 `## Optional`; the one off-site link is the gateway's GitHub repository, under `## Products` right
@@ -304,7 +348,7 @@ order.
 ## The 404 page
 
 GitHub Pages serves a root `404.html` for every missing path, in all three
-language trees, so this one page is built differently from the thirty:
+language trees, so this one page is built differently from the thirty-three:
 
 - **Every URL in it is root-absolute** (`/assets/...`, `/engine`, `/`),
   because it renders under the path that was requested. This is the one place
@@ -322,9 +366,9 @@ language trees, so this one page is built differently from the thirty:
 
 ## Languages
 
-Three languages, ten pages each. German (Swiss spelling - `ss`, never `ß`) is
+Three languages, eleven pages each. German (Swiss spelling - `ss`, never `ß`) is
 the default at the root, English under `en/`, French under `fr/`, with the same
-ten filenames. Filenames stay English; only the prose is translated.
+eleven filenames. Filenames stay English; only the prose is translated.
 
 Every page carries a DE/FR/EN switcher in the header, always in that order with
 the current language unlinked, and four `rel="alternate" hreflang` links in
@@ -392,9 +436,11 @@ so the menu needs no JavaScript. Three things are load-bearing:
 - `.site-menu-text` is the checkbox's accessible name. It stays in the markup,
   hidden with a clip, and is localised (`Menü` / `Menu` / `Menu`).
 
-The footer is one line of prose, one row of links (the six pages, GitHub, LinkedIn,
-Contact, Imprint, Terms, Privacy - _AGB_ / _Datenschutz_ in German,
-_Conditions générales_ / _Confidentialité_ in French) and one mono line with the copyright and the city (`© 2026 bespinian ·
+The footer is one line of prose, one row of links (Gateway, Engine, Pricing,
+the model catalogue, Sovereignty, Sustainability, the story - not the nav's
+order - then GitHub, LinkedIn, Contact, Imprint, Terms, Privacy -
+_AGB_ / _Datenschutz_ in German, _Conditions générales_ / _Confidentialité_ in
+French) and one mono line with the copyright and the city (`© 2026 bespinian ·
 Bern`, `Berne` in French).
 
 ## Icons
@@ -429,7 +475,8 @@ thing telling the two apart.
 The partner wordmarks in `sovereignty.html#infrastructure` are a third kind:
 inline SVG in the colours the partner's own logo file came with, as `fill`
 attributes in the markup, each an `<svg role="img">` with an `aria-label`
-naming the partner, inside a link to it. These fills are **the one exception to the token rule**:
+naming the partner, inside a link to it. These fills are **the exception to the token rule**, shared only with the
+customer logos:
 they are the partner's brand, not ours, so they stay out of `keera.css`. They
 hold in the light scheme only. In the dark scheme one `.partners path` rule in
 `keera.css` sets every path to `--ink` (screen only, so a print keeps them), because a brand navy disappears on the
@@ -459,7 +506,18 @@ viewBox and nested translates are flattened into the paths, cropped to
 `0 0 399.96 123.19`. Keep
 the three copies identical.
 
-The customer logos in the home page's `.customers` row are a fourth kind, built
+The provider marks on `models.html` are a fourth kind: each provider's own
+logo beside the `<h2>` of its band, via `.provider-head`, drawn as the gateway's
+web UI draws it - the path data of `providerMarks`, filled with
+`currentColor` (CSCS as five opacity layers), on the artwork's own viewBox, and
+`aria-hidden`, because the heading names the provider. Unlike the partner
+wordmarks they carry no brand colour, so they take the heading's ink in both
+schemes and need no exception to the token rule. A mark the gateway flags
+`wide` (Phoeniqs) gets `.provider-mark--wide` and is drawn smaller. They are
+the providers' trademarks, used only to name the service, as the gateway's
+`internal/webui/marks/NOTICE` says. Keep the three copies identical.
+
+The customer logos in the home page's `.customers` row are a fifth kind, built
 like the partner wordmarks: inline SVG, `role="img"` with an `aria-label`
 naming the customer, inside a link to it, brand fills as `fill` attributes and
 the same exception to the token rule. A part the customer draws in white for a
@@ -646,10 +704,13 @@ fine-tunes, the customer's own fine-tune and a row for any other open model -
 then a short paragraph naming the upstreams (Qwen-Coder, Apertus) and the
 Apache-2.0 licence, then one mono footnote.
 
-The footnote is load-bearing: the hosted models are proprietary, run on the
-provider's infrastructure rather than Swiss GPUs, are blocked by default, and a
-tenant opens them per team and data class. It carries the month the lineup was
-checked (September 2026) - update the stamp when the sentence changes.
+The footnote is load-bearing: hosted providers sit behind the same policies but
+run on their own infrastructure rather than on Keera Engine - four in
+Switzerland, Anthropic and OpenAI in the USA, all in `models.html` - are
+blocked by default, and a tenant opens them per team and data class. It
+carries the month the lineup was checked (October 2026) - update the stamp
+when the sentence changes, and change the sentence when the catalogue gains or
+loses a provider.
 `gateway.html` calls them external providers opened by policy, in the models
 column of its flow, so the two pages move together.
 
@@ -723,8 +784,9 @@ sections need nothing new.
   copy of the hover. Custom properties inherit, so a declaration on `<body>`
   beats `:root` for the whole subtree.
 - **Dark scheme**: one `@media (prefers-color-scheme: dark)` block redefining
-  those thirteen colours and nothing else. Two smaller dark-scheme rules sit
-  with what they colour: the `.theme-leaf` hover and `.partners path`. It follows the system setting; there
+  those thirteen colours and nothing else. Two smaller dark-scheme blocks sit
+  with what they colour: the `.theme-leaf` hover, and the partner wordmarks
+  (`.partners path` and nine's plate swap). It follows the system setting; there
   is no toggle. `:root` carries `color-scheme: light dark`. `@media print` puts
   the light values back, with `--muted` and `--line` a step darker for paper.
 - **Contrast**: every text-on-ground pair is at least 5.5:1 in light and 6.7:1
@@ -775,7 +837,9 @@ sections need nothing new.
   centred), `.customers` / `.customer-list` / `.customer-ink` (the home
   page's customer row), `.table-wrap` + plain `<table>` (`td.tight` keeps a short value on
   one line; `.layer-table` colours its last column in the accent by
-  `:last-child`, and `engine.html`'s model table stays plain), `.figure`, `.faq`,
+  `:last-child`, and `engine.html`'s model table stays plain), `.model-table`
+  on the model catalogue (figures right-aligned in tabular digits), its
+  `.provider-head` / `.provider-mark` / `.provider-mark--wide`, `.figure`, `.faq`,
   `.hero` / `.hero--split` / `.hero-art`, `.btn` / `.btn--quiet` / `.btn-row` /
   `.arrow`, the form controls (`.form`, `.field`, `.label`, `.input`,
   `.choices`, `.choice`, `.form-actions`, `.form-status` with `.is-shown` /
@@ -789,8 +853,8 @@ sections need nothing new.
   labels plus the login need that width on one line), 860px (the flow
   turns into a column), 780px (a split hero and `.split` stack), 700px (nav
   becomes the hamburger, the screenshot scrolls, the sprawl figure goes), 620px
-  (the stack's label column and `.facts--four` stack, the plan table
-  turns into one block per row). Plus
+  (the stack's label column and `.facts--four` stack, the plan table and the
+  model tables turn into one block per row). Plus
   `pointer: coarse`, a `print` block, and `prefers-reduced-motion`.
 
 Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
@@ -798,18 +862,18 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
 ## Assets
 
 - `assets/css/keera.css` - the stylesheet. One file, no imports.
-- `assets/js/contact-form.js` - the form handler, loaded `defer` by the nine
+- `assets/js/contact-form.js` - the form handler, loaded `defer` by the twelve
   pages with a form.
 - `assets/js/google-tag.js` - the Google Ads tag `AW-18327942303`: the
   `dataLayer` bootstrap, the `config` call, and the conversion helper. Loaded
-  `defer` by all thirty content pages, last in the head. It sits on every page
+  `defer` by all thirty-three content pages, last in the head. It sits on every page
   because an ad click lands wherever the ad points. **The file fetches gtag.js
   itself, on `load`**, so the ~120 KB third-party fetch lands after the paint;
   do not put a markup tag back. It is the site's only cookie, and it has no
   consent gate by decision.
 - **Simple Analytics** - `https://scripts.simpleanalyticscdn.com/latest.js`,
   the one third-party script that is not a local file, because the vendor
-  serves it. It is the last thing in the body on all thirty content pages,
+  serves it. It is the last thing in the body on all thirty-three content pages,
   `async` and unannotated. It sets no cookie and collects no personal data, so
   it needs no consent gate either. Not on `404.html`.
 - `assets/js/language.js` - the Accept-Language redirect described under
@@ -825,7 +889,8 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   same-origin, or the preload is thrown away. The `latin-ext` cuts are
   deliberately not preloaded - umlauts and accents sit inside `latin`. Re-add a
   Google Fonts cut only if a page ever contains a glyph in its range.
-- `assets/img/` - artwork and icons, `.webp` only; the masters live in
+- `assets/img/` - artwork as `.webp`, plus the SVG favicon, the PNG touch icon
+  and the `.jpg` Open Graph cards; the masters live in
   `../artwork/`, beside this repo rather than in it. Re-encoding means re-exporting the source, then
   `magick <src> -resize <w>x\> -strip tmp.png && cwebp -q 82 -alpha_q 90 -m 6`.
   `keera-og-image.jpg` is the 1200×630 social card and
@@ -838,8 +903,9 @@ Text stays at or above 16px in inputs - iOS Safari zooms the page in below that.
   `width`/`height` from the file's own
   pixel size, `alt`, `decoding="async"`, and either `loading="lazy"` or, for
   heroes, `fetchpriority="high"`. Crop and corners come from the stylesheet.
-  **Every head preloads its own hero image** (`<link rel="preload" as="image"
-fetchpriority="high">`) as the first hint in the head, ahead of the fonts. The
+  **Every head with a hero image preloads it** (`<link rel="preload" as="image"
+fetchpriority="high">`) as the first hint in the head, ahead of the fonts; the
+  pricing page, the model catalogue and the three legal pages have none. The
   preload `href` must match the `<img src>` exactly, or the image downloads
   twice - a page that changes its hero changes both.
 
@@ -879,7 +945,7 @@ passage gets read without its page.
 Every URL in the metadata is absolute `https://keera.ch/...`, so all of them
 need updating if the domain changes. Canonicals, `og:url`, `hreflang`, the
 JSON-LD, the sitemap and `llms.txt` use the directory form for the three home
-pages - `https://keera.ch/`, `/en/`, `/fr/` - and drop `.html` from the twenty-seven
+pages - `https://keera.ch/`, `/en/`, `/fr/` - and drop `.html` from the thirty
 others - `https://keera.ch/gateway`, `/en/gateway`. Internal links match:
 `href="./"` for the current language's home page, `href="gateway"` for a page.
 GitHub Pages resolves `/gateway` to `gateway.html` itself, so the files keep
@@ -911,8 +977,9 @@ once it is real and verified.
 Every page carries its own Open Graph image, 1200×630, built from that page's
 artwork on the `#091023` navy of `keera-og-image.jpg`. The home pages keep
 `keera-og-image.jpg`; the rest use `keera-og-<page>.jpg`. `og:image:alt`
-describes the artwork in the page's own language. The pricing pages are the
-exception until they have artwork: they borrow `keera-og-gateway.jpg` and its
-alt text, since the plans are the gateway's. The imprint, the terms and the
-privacy policy borrow the home pages' `keera-og-image.jpg` and alt text, since
-they speak for the whole site.
+describes the artwork in the page's own language. The pricing and model
+catalogue pages are the exception until they have artwork: they borrow
+`keera-og-gateway.jpg` and its alt text, since the plans and the models are the
+gateway's. The imprint, the terms and the privacy policy borrow the home
+pages' `keera-og-image.jpg` and alt text, since they speak for the whole
+site.
