@@ -197,7 +197,8 @@ strong {
 .flow-title,
 thead th,
 .label,
-.plan-tag {
+.plan-tag,
+.footer-head {
   font-family: var(--mono);
   font-size: 11.5px;
   font-weight: 500;
@@ -302,6 +303,55 @@ thead th,
 }
 .site-nav a[aria-current="page"] {
   color: var(--ink);
+}
+/* Sovereignty, sustainability and the story sit under one label. A <details>,
+   so it opens without JavaScript and says whether it is open: below the label
+   on a wide screen, in place in the phone menu. */
+.nav-group {
+  position: relative;
+}
+.nav-group summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+}
+.nav-group summary::-webkit-details-marker {
+  display: none;
+}
+.nav-group summary:hover {
+  text-decoration: underline;
+}
+.nav-group:has([aria-current="page"]) summary {
+  color: var(--ink);
+}
+/* the chevron, drawn like the plan table's tick */
+.nav-group summary::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-2px) rotate(45deg);
+}
+.nav-group[open] summary::after {
+  transform: translateY(1px) rotate(-135deg);
+}
+.nav-group-links {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: -16px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  white-space: nowrap;
 }
 /* The login into the hosted gateway, twice in the markup and once on screen:
    .header-login is an outlined button right of the switcher, and the copy at
@@ -444,12 +494,41 @@ thead th,
   .site-menu-state:checked ~ .site-nav a:last-child {
     border-bottom: 0;
   }
+  /* the group is a row like the links, and opens its three in place */
+  .site-menu-state:checked ~ .site-nav summary {
+    padding: 12px 2px;
+    font-size: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .site-menu-state:checked ~ .site-nav .nav-group-links {
+    position: static;
+    gap: 0;
+    padding: 0 0 0 16px;
+    border: 0;
+    border-radius: 0;
+    background: none;
+  }
+  .site-menu-state:checked ~ .site-nav .nav-group-links a:last-child {
+    border-bottom: 1px solid var(--line);
+  }
   /* no room beside the switcher and the toggle on a 320px phone */
   .header-login {
     display: none;
   }
-  .site-menu-state:checked ~ .site-nav .nav-login {
+  /* the same outlined button, as the menu's last item */
+  .site-menu-state:checked ~ .site-nav a.nav-login {
     display: block;
+    align-self: flex-start;
+    margin-top: 16px;
+    padding: 10px 16px;
+    border: 1px solid var(--muted);
+    border-radius: 8px;
+    color: var(--ink);
+  }
+  .site-menu-state:checked ~ .site-nav a.nav-login:hover {
+    text-decoration: none;
+    border-color: var(--ink);
+    background: var(--card);
   }
 }
 
@@ -1446,27 +1525,43 @@ textarea.input {
   color: var(--muted);
 }
 .site-footer .wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px 32px;
-  align-items: baseline;
-  justify-content: space-between;
+  display: grid;
+  gap: 28px;
 }
-.site-footer nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 18px;
+.site-footer p {
+  margin: 0;
+}
+/* The links in four labelled groups - products, about, resources, legal - so
+   fifteen links read as four short lists. Four columns, two on a phone. */
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+.site-footer .footer-head {
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+.footer-nav ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .site-footer a {
   color: var(--muted);
 }
-.site-footer .note {
-  flex: 1 1 100%;
+@media (max-width: 700px) {
+  .footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ---------- coarse pointers and print ---------- */
 @media (pointer: coarse) {
   .site-nav a,
+  .nav-group summary,
   .site-footer nav a,
   .lang a {
     padding: 4px 0;
