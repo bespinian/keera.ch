@@ -409,8 +409,9 @@
               <div class="stack-layer">
                 <p class="stack-label">Souveraineté</p>
                 <p class="stack-text">
-                  Inférence, journaux et sauvegardes dans des centres de données
-                  suisses. Aucun entraînement sur vos données.
+                  Les fournisseurs suisses d'abord, ceux de l'étranger bloqués
+                  jusqu'à ce que vous les ouvriez. Les prompts et les réponses
+                  ne sont jamais stockés ni utilisés pour l'entraînement.
                 </p>
               </div>
             </div>
@@ -430,11 +431,12 @@
       <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
-            <h2>D'abord la passerelle, ensuite les modèles</h2>
+            <h2>D'abord la passerelle, ensuite le moteur</h2>
             <p>
-              Commencez par la passerelle&nbsp;: elle pilote aussi les modèles
-              que vous avez déjà sous licence. Keera Engine vient ensuite, quand
-              vous voulez les modèles ouverts chez vous.
+              Commencez par la passerelle&nbsp;: elle pilote les modèles que
+              vous payez déjà, et ceux du
+              <a href="models">catalogue de modèles</a>. Keera Engine vient
+              ensuite, quand vous voulez les modèles ouverts chez vous.
             </p>
           </div>
           <div class="grid grid--two">
@@ -457,9 +459,10 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                Le point d'accès&nbsp;: un chart Helm dans votre cluster, piloté
+                Le point d'accès, sur Swiss Cloud ou dans votre cluster, piloté
                 depuis une interface web et une CLI. Vos outils, agents et
-                notebooks pointent dessus et tournent comme avant.
+                notebooks pointent dessus et tournent comme avant&nbsp;; tous
+                les autres discutent dans <a href="chat">Keera Chat</a>.
               </p>
               <p>
                 <a class="arrow" href="gateway">Voir Keera Gateway &#x2794;</a>
@@ -498,7 +501,7 @@
       <section class="band" id="deploy">
         <div class="wrap">
           <div class="prose">
-            <h2>Trois façons d'exploiter Keera</h2>
+            <h2>Trois façons d'exploiter Keera Gateway</h2>
           </div>
           <div class="grid">
             <div class="card card--quiet">
@@ -518,7 +521,7 @@
               </svg>
               <h3>Swiss Cloud</h3>
               <p>
-                Multi-tenant, sans frais de base, en service en un
+                Une instance partagée, sans frais de base, en service en un
                 après-midi.
               </p>
             </div>
@@ -543,8 +546,11 @@
                 ></rect>
                 <path d="M7 7.5h.01M7 16.5h.01"></path>
               </svg>
-              <h3>Tenant dédié</h3>
-              <p>Vos GPU dans un centre de données suisse, vos clés.</p>
+              <h3>Dédié</h3>
+              <p>
+                Votre propre instance chez un fournisseur cloud suisse, en
+                connexion privée.
+              </p>
             </div>
             <div class="card card--quiet">
               <svg
@@ -561,10 +567,10 @@
                 <path d="M9.6 20.2v-4.9h4.8v4.9"></path>
                 <path d="M3.2 20.2h17.6"></path>
               </svg>
-              <h3>Sur site</h3>
+              <h3>Enterprise</h3>
               <p>
-                Un chart Helm dans vos propres baies, même sans aucune
-                connexion.
+                Sur votre propre infrastructure, dans votre cluster Kubernetes,
+                même sans aucune connexion.
               </p>
             </div>
           </div>
