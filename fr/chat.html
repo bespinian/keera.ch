@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keera Chat - le chat IA dans le navigateur, via Keera Gateway</title>
+    <meta
+      name="description"
+      content="Keera Chat, l'assistant IA dans le navigateur pour toute l'entreprise. Chaque message passe par Keera Gateway, les conversations restent dans votre navigateur."
+    />
+    <link rel="canonical" href="https://keera.ch/fr/chat" />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/chat" />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/chat" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/chat" />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://keera.ch/chat"
+    />
+    <link
+      rel="preload"
+      href="../assets/img/keera-chatting-on-a-phone.webp"
+      as="image"
+      imagesrcset="../assets/img/keera-chatting-on-a-phone-400.webp 400w, ../assets/img/keera-chatting-on-a-phone-640.webp 640w, ../assets/img/keera-chatting-on-a-phone.webp 750w"
+      imagesizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/space-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/jetbrains-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../assets/css/keera.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/img/keera-favicon.svg"
+    />
+    <link
+      rel="alternate icon"
+      type="image/png"
+      href="../assets/img/keera-apple-touch-icon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/img/keera-apple-touch-icon.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Keera" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:url" content="https://keera.ch/fr/chat" />
+    <meta
+      property="og:title"
+      content="Keera Chat - le chat IA dans le navigateur, via Keera Gateway"
+    />
+    <meta
+      property="og:description"
+      content="Keera Chat, l'assistant IA dans le navigateur pour toute l'entreprise. Chaque message passe par Keera Gateway, les conversations restent dans votre navigateur."
+    />
+    <meta
+      property="og:image"
+      content="https://keera.ch/assets/img/keera-og-chat.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Keera, assise, tape sur son téléphone en souriant"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://keera.ch/fr/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Keera Chat",
+                "item": "https://keera.ch/fr/chat"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Keera Chat conserve-t-il mes conversations ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Seulement dans votre navigateur. Ni le prompt ni la réponse ne sont conservés sur un serveur ou utilisés pour l'entraînement. Keera Gateway ne conserve que la requête : qui, quand, quel modèle, combien de tokens, quelle décision - dans le journal d'audit de votre entreprise."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Quels modèles puis-je utiliser dans Keera Chat ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ceux que votre clé autorise. L'administration les choisit dans Keera Gateway, par équipe et par classe de données, parmi les modèles du catalogue."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Combien coûte Keera Chat ?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keera Chat fait partie de Keera Gateway et ne coûte rien de plus. Vous payez l'utilisation des modèles, comme pour toute autre requête via la passerelle, et elle compte dans votre budget."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script src="../assets/js/google-tag.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./"
+          ><img
+            src="../assets/img/keera-favicon.svg"
+            width="24"
+            height="24"
+            alt=""
+            aria-hidden="true"
+          /><span>Keera</span></a
+        >
+        <span class="lang"
+          ><a
+            href="../chat"
+            lang="de"
+            hreflang="de"
+            title="Diese Seite auf Deutsch"
+            >DE</a
+          ><span aria-hidden="true">/</span><span aria-current="true">FR</span
+          ><span aria-hidden="true">/</span
+          ><a
+            href="../en/chat"
+            lang="en"
+            hreflang="en"
+            title="This page in English"
+            >EN</a
+          ></span
+        >
+        <input class="site-menu-state" type="checkbox" id="site-menu" />
+        <label class="site-menu-toggle" for="site-menu"
+          ><span class="site-menu-bars" aria-hidden="true"></span
+          ><span class="site-menu-text">Menu</span></label
+        >
+        <nav class="site-nav" aria-label="Navigation principale">
+          <a href="gateway">Gateway</a
+          ><a href="models">Modèles</a
+          ><a href="chat" aria-current="page">Chat</a
+          ><a href="engine">Inférence</a
+          ><a href="pricing">Tarifs</a
+          ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
+          ><details class="nav-group">
+            <summary>À propos</summary>
+            <span class="nav-group-links"
+              ><a href="sovereignty">Souveraineté</a
+              ><a href="sustainability">Durabilité</a
+              ><a href="story">L'histoire</a></span
+            >
+          </details
+          ><a class="nav-login" href="https://gateway.keera.ch">Connexion</a>
+        </nav>
+        <a class="header-login" href="https://gateway.keera.ch">Connexion</a>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero hero--split">
+        <div class="wrap">
+          <div>
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M5.5 4.5h13a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H11l-4.5 3.5v-3.5h-1a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z"
+              ></path>
+              <path d="M8 9h8M8 12.5h5"></path>
+            </svg>
+            <p class="eyebrow">Keera Chat</p>
+            <h1>Un chat IA privé, selon vos règles</h1>
+            <p class="lede">
+              Keera Chat est l'assistant IA dans le navigateur pour toute votre
+              entreprise. Chaque message passe par
+              <a href="gateway">Keera Gateway</a> et suit les mêmes règles que
+              toute autre requête.
+            </p>
+            <p class="btn-row">
+              <a class="btn" href="https://gateway.keera.ch">Commencer gratuitement</a>
+              <a class="arrow" href="https://chat.keera.ch"
+                >Ouvrir Keera Chat &#x2794;</a
+              >
+            </p>
+          </div>
+          <figure class="hero-art">
+            <img
+              src="../assets/img/keera-chatting-on-a-phone.webp"
+              srcset="../assets/img/keera-chatting-on-a-phone-400.webp 400w, ../assets/img/keera-chatting-on-a-phone-640.webp 640w, ../assets/img/keera-chatting-on-a-phone.webp 750w"
+              sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+              width="750"
+              height="868"
+              alt="Keera, assise, tape sur son téléphone en souriant"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="how">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Comment fonctionne Keera Chat</h2>
+            <p>
+              Connectez-vous avec votre compte Keera et commencez à discuter.
+              Rien à installer, aucune clé API à copier. La consommation et les
+              coûts apparaissent dans la passerelle à votre nom.
+            </p>
+          </div>
+          <figure class="figure">
+            <img
+              src="../assets/img/keera-chat-dark.webp"
+              width="1920"
+              height="1083"
+              alt="Keera Chat avant une nouvelle conversation&nbsp;: à gauche la liste des chats, au centre Keera, le modèle choisi et le champ de saisie"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="note">Keera Chat en mode sombre.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="features">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Ce que fait Keera Chat</h2>
+          </div>
+          <div class="facts facts--four">
+            <div>
+              <h3>Seulement les modèles autorisés</h3>
+              <p>
+                Vous ne voyez que les modèles que vos clés autorisent.
+              </p>
+            </div>
+            <div>
+              <h3>Le budget en vue</h3>
+              <p>
+                Vous voyez quelle part de votre budget est déjà dépensée.
+              </p>
+            </div>
+            <div>
+              <h3>Vos conversations restent chez vous</h3>
+              <p>
+                Vos conversations restent dans votre navigateur. Le journal
+                d'audit enregistre la requête, jamais son contenu.
+              </p>
+            </div>
+            <div>
+              <h3>Comme d'habitude</h3>
+              <p>
+                Markdown, tableaux, code et images, aussi sur mobile.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="access">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Comment votre équipe obtient Keera Chat</h2>
+            <p>
+              Sur Swiss Cloud, vous discutez sur <a href="https://chat.keera.ch">chat.keera.ch</a> avec
+              votre compte de la passerelle. Si vous exploitez Keera Gateway
+              vous-même, vous installez Keera Chat à côté. Son code source est
+              lisible <a href="https://github.com/bespinian/keera-chat">sur GitHub</a> (Keera
+              Community Licence).
+            </p>
+            <p>
+              Pour discuter, une personne a besoin d'une clé qui autorise un
+              modèle de chat. L'administration l'émet dans la passerelle.
+            </p>
+          </div>
+          <p class="note">
+            La <a href="https://docs.keera.ch/use/chat/" target="_blank" rel="noopener">documentation</a>
+            explique comment utiliser et exploiter Keera Chat.
+          </p>
+        </div>
+      </section>
+      <section class="band band--alt" id="faq">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Questions fréquentes sur Keera Chat</h2>
+            <p>
+              Ce que les équipes nous demandent avant d'ouvrir Keera Chat à tout
+              le monde.
+            </p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Keera Chat conserve-t-il mes conversations&nbsp;?</summary>
+              <p>
+                Seulement dans votre navigateur. Ni le prompt ni la réponse ne
+                sont conservés sur un serveur ou utilisés pour l'entraînement.
+                Keera Gateway ne conserve que la requête&nbsp;: qui, quand, quel
+                modèle, combien de tokens, quelle décision&nbsp;- dans le
+                journal d'audit de votre entreprise.
+              </p>
+            </details>
+            <details>
+              <summary>Quels modèles puis-je utiliser dans Keera Chat&nbsp;?</summary>
+              <p>
+                Ceux que votre clé autorise. L'administration les choisit dans
+                Keera Gateway, par équipe et par classe de données, parmi les
+                modèles du <a href="models">catalogue</a>.
+              </p>
+            </details>
+            <details>
+              <summary>Combien coûte Keera Chat&nbsp;?</summary>
+              <p>
+                Keera Chat fait partie de Keera Gateway et ne coûte rien de
+                plus. Vous payez l'utilisation des modèles, comme pour toute
+                autre requête via la passerelle, et elle compte dans votre
+                budget.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Keera&nbsp;- Un point d'accès unique pour chaque requête IA.
+          Souveraineté numérique. Conçu à Berne par bespinian.
+        </p>
+        <nav class="footer-nav" aria-label="Navigation de pied de page">
+          <div>
+            <p class="footer-head">Produits</p>
+            <ul>
+              <li><a href="gateway">Keera Gateway</a></li>
+              <li><a href="engine">Keera Engine</a></li>
+              <li><a href="chat">Keera Chat</a></li>
+              <li><a href="models">Modèles</a></li>
+              <li><a href="pricing">Tarifs</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">À propos</p>
+            <ul>
+              <li><a href="sovereignty">Souveraineté</a></li>
+              <li><a href="sustainability">Durabilité</a></li>
+              <li><a href="story">L'histoire</a></li>
+              <li><a href="./#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">Ressources</p>
+            <ul>
+              <li><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a></li>
+              <li><a href="https://github.com/bespinian/keera-gateway">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/showcase/keera-ai">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">Juridique</p>
+            <ul>
+              <li><a href="imprint">Mentions légales</a></li>
+              <li><a href="terms">Conditions générales</a></li>
+              <li><a href="privacy">Confidentialité</a></li>
+            </ul>
+          </div>
+        </nav>
+        <p class="note">© 2026 bespinian · Berne</p>
+      </div>
+    </footer>
+    <script
+      async
+      src="https://scripts.simpleanalyticscdn.com/latest.js"
+    ></script>
+  </body>
+</html>

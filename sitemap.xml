@@ -74,8 +74,32 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
   </url>
   <url>
+    <loc>https://keera.ch/chat</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/chat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/chat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/chat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/chat"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/en/chat</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/chat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/chat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/chat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/chat"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/fr/chat</loc>
+    <lastmod>2026-10-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/chat"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/chat"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/chat"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/chat"/>
+  </url>
+  <url>
     <loc>https://keera.ch/pricing</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/pricing"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/pricing"/>
@@ -83,7 +107,7 @@
   </url>
   <url>
     <loc>https://keera.ch/en/pricing</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/pricing"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/pricing"/>
@@ -91,7 +115,7 @@
   </url>
   <url>
     <loc>https://keera.ch/fr/pricing</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/pricing"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/pricing"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/pricing"/>
