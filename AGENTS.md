@@ -97,10 +97,10 @@ What the markup does not already show.
   page's only observability claim and stays; the caption says the figures come
   from a demo instance.
 - **`engine.html`** - `#models` opens on "any open model vLLM can serve". Its
-  mono footnote is load-bearing: the hosted providers (four Swiss, Anthropic and
-  OpenAI in the USA, all in `models.html`) run on their own infrastructure, are
-  blocked by default and are opened per team and data class. It carries the
-  month it was checked: update the stamp when the sentence changes, and the
+  mono footnote is load-bearing: the hosted providers (four Swiss, Mistral in
+  the EU, Anthropic, OpenAI and Google in the USA, all in `models.html`) run on
+  their own infrastructure, are blocked by default and are opened per team and
+  data class. It carries the month it was checked: update the stamp when the sentence changes, and the
   sentence when a provider comes or goes. The models column of
   `gateway.html#architecture` says the same.
 - **`chat.html`** - Short, because the docs carry the detail. No form; its
@@ -126,8 +126,9 @@ What the markup does not already show.
   `internal/webui/assets/ui.js` in the gateway repo, all three languages at
   once; never retype them. Prices are CHF per million tokens exactly as the
   gateway bills: never round, convert or discount. The Swiss providers come
-  first (stepping stone, Infomaniak, Phoeniqs, CSCS), then Anthropic and OpenAI.
-  Rows keep the gateway's order and use its `DisplayName`. A starred row costs
+  first (stepping stone, Infomaniak, Phoeniqs, CSCS), then Mistral in the EU,
+  then Anthropic, OpenAI and Google in the USA. A provider the gateway marks
+  `CachedInput` gets the cached-input column and its note. Rows keep the gateway's order and use its `DisplayName`. A starred row costs
   more for long prompts, and every starred row in one table must share the
   note's threshold and factor.
 - **`sustainability.html`** - Swiss hosting is a fact here, not the argument.

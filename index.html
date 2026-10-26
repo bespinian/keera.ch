@@ -186,16 +186,17 @@
       <section class="hero hero--split">
         <div class="wrap">
           <div>
-            <h1>Dein KI-Stack, betrieben in der Schweiz.</h1>
+            <h1>Alle KI im Unternehmen unter Kontrolle.</h1>
             <p class="lede">
-              Ein Endpunkt für jede KI-Anfrage - du bestimmst, wer welches
-              Modell wie nutzen darf, auch bei den Anbietern, die deine Teams
-              heute schon nutzen. Dazu, wenn du willst, die Engine für offene
-              Modelle. Alles in Schweizer Rechenzentren.
+              Keera Gateway ist ein LLM-Gateway aus der Schweiz: ein Endpunkt
+              für jede KI-Anfrage, auch bei den Anbietern, die deine Teams heute
+              schon nutzen. Du bestimmst, wer welches Modell mit welchen Daten
+              und zu welchen Kosten nutzen darf. Es läuft in Schweizer
+              Rechenzentren oder in deinem eigenen Cluster.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Kostenlos starten</a>
-              <a class="arrow" href="story">Warum es Keera gibt &#x2794;</a>
+              <a class="arrow" href="#solution">So funktioniert es &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -424,12 +425,12 @@
       <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
-            <h2>Erst das Gateway, dann die Engine</h2>
+            <h2>Fang mit dem Gateway an</h2>
             <p>
-              Fang mit dem Gateway an - es steuert die Modelle, die du heute
-              schon nutzt, und die aus dem <a href="models">Modellkatalog</a>.
-              Keera Engine kommt dazu, wenn offene Modelle ins eigene Haus
-              sollen.
+              Keera Gateway steuert die Modelle, die du heute schon bezahlst,
+              und die aus dem <a href="models">Modellkatalog</a>. Keera Engine
+              ist der nächste Schritt, wenn du offene Modelle selbst betreiben
+              willst.
             </p>
           </div>
           <div class="grid grid--two">
@@ -452,10 +453,11 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                Der Endpunkt, in der Swiss Cloud oder in deinem Cluster,
-                steuerbar über Web-UI und CLI. Deine Tools, Agenten und
-                Notebooks zeigen darauf und laufen wie bisher; alle anderen
-                chatten in <a href="chat">Keera Chat</a>.
+                Der Endpunkt, steuerbar über Web-UI und CLI. Deine Tools,
+                Agenten und Notebooks zeigen darauf und laufen wie bisher; alle
+                anderen chatten in <a href="chat">Keera Chat</a>. Den Quellcode
+                kannst du <a href="https://github.com/bespinian/keera-gateway">auf GitHub</a> lesen
+                (Keera Community Licence).
               </p>
               <p>
                 <a class="arrow" href="gateway"
@@ -480,10 +482,9 @@
               </svg>
               <h3>Keera Engine</h3>
               <p>
-                Der nächste Schritt: die Inferenz-Engine für jedes offene
-                Modell, gebaut aus Kubernetes, vLLM und llm-d. Auf Schweizer
-                GPUs oder in deinem Cluster, mit drei Keera-Fine-Tunes ab dem
-                ersten Tag.
+                Der nächste Schritt: eine Inferenz-Engine für jedes offene
+                Modell, das vLLM bereitstellen kann, gebaut aus Kubernetes, vLLM
+                und llm-d. Auf Schweizer GPUs oder in deinem eigenen Cluster.
               </p>
               <p>
                 <a class="arrow" href="engine">Keera Engine ansehen &#x2794;</a>
@@ -497,6 +498,7 @@
         <div class="wrap">
           <div class="prose">
             <h2>Drei Wege, Keera Gateway zu betreiben</h2>
+            <p>Jedes Mal dasselbe Gateway. Du wählst, wo es läuft.</p>
           </div>
           <div class="grid">
             <div class="card card--quiet">
@@ -516,7 +518,8 @@
               </svg>
               <h3>Swiss Cloud</h3>
               <p>
-                Gemeinsame Instanz, ohne Grundgebühr, an einem Nachmittag live.
+                Um heute zu starten: eine gemeinsame Instanz ohne Grundgebühr,
+                an einem Nachmittag live.
               </p>
             </div>
             <div class="card card--quiet">
@@ -542,8 +545,8 @@
               </svg>
               <h3>Dedicated</h3>
               <p>
-                Eine eigene Instanz bei einem Schweizer Cloud-Anbieter, privat
-                angebunden.
+                Für eine eigene Instanz, bei einem Schweizer Cloud-Anbieter,
+                privat angebunden.
               </p>
             </div>
             <div class="card card--quiet">
@@ -563,8 +566,8 @@
               </svg>
               <h3>Enterprise</h3>
               <p>
-                Auf deiner eigenen Infrastruktur, etwa im Kubernetes-Cluster,
-                auch air-gapped.
+                Wenn nichts das Haus verlassen darf: in deinem eigenen
+                Kubernetes-Cluster, auch air-gapped.
               </p>
             </div>
           </div>

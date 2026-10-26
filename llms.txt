@@ -29,7 +29,7 @@ than failing over abroad.
 - [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
 - [Keera documentation](https://docs.keera.ch/): User documentation for Keera Gateway and Keera Chat, the browser chat at chat.keera.ch that sends every message through the gateway: getting started, connecting tools, managing an organisation, self-hosting, the API and the CLI.
 - [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and unlimited tokens, an instance of your own at CHF 495 a month, or Enterprise on request.
-- [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, priced in CHF: open models from stepping stone, Infomaniak, Phoeniqs and CSCS in Switzerland, Claude and GPT from the USA.
+- [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, priced in CHF: open models from Switzerland, Mistral from the EU, Claude, GPT and Gemini from the USA.
 - [Keera Chat](https://keera.ch/en/chat): Keera Chat is the AI assistant in the browser for everyone in your company. Every message passes through Keera Gateway, and your chats stay in your browser.
 - [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 

@@ -6,7 +6,7 @@
     <title>Modellkatalog von Keera Gateway - LLM-Preise in CHF</title>
     <meta
       name="description"
-      content="Die Modelle hinter Keera Gateway mit Preis in CHF: offene Modelle von stepping stone, Infomaniak, Phoeniqs und CSCS in der Schweiz, Claude und GPT aus den USA."
+      content="Die Modelle hinter Keera Gateway mit Preis in CHF: offene Modelle aus der Schweiz, Mistral aus der EU, Claude, GPT und Gemini aus den USA."
     />
     <link rel="canonical" href="https://keera.ch/models" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/models" />
@@ -49,7 +49,7 @@
     />
     <meta
       property="og:description"
-      content="Die Modelle hinter Keera Gateway mit Preis in CHF: offene Modelle von stepping stone, Infomaniak, Phoeniqs und CSCS in der Schweiz, Claude und GPT aus den USA."
+      content="Die Modelle hinter Keera Gateway mit Preis in CHF: offene Modelle aus der Schweiz, Mistral aus der EU, Claude, GPT und Gemini aus den USA."
     />
     <meta
       property="og:image"
@@ -152,11 +152,11 @@
             <p class="eyebrow">Modellkatalog · Keera Gateway</p>
             <h1>Die Modelle hinter deinem Endpunkt</h1>
             <p class="lede">
-              Keera Gateway kennt sechs Modellanbieter, vier in der Schweiz und
-              zwei in den USA. Hier steht jedes ihrer Modelle mit Kontextfenster
-              und Preis in CHF pro Million Tokens. Du gibst pro Team frei, welche
-              Modelle es nutzt, und zahlst die Nutzung zum Listenpreis des
-              Anbieters.
+              Keera Gateway kennt acht Modellanbieter: vier in der Schweiz,
+              einen in der EU und drei in den USA. Hier steht jedes ihrer
+              Modelle mit Kontextfenster und Preis in CHF pro Million Tokens. Du
+              gibst pro Team frei, welche Modelle es nutzt, und zahlst die
+              Nutzung zum Listenpreis des Anbieters.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Kostenlos starten</a>
@@ -165,9 +165,10 @@
             <p class="note">
               In der Schweiz: <a href="#stepping-stone">stepping stone</a> · <a
               href="#infomaniak">Infomaniak</a> · <a
-              href="#phoeniqs">Phoeniqs</a> · <a href="#cscs">CSCS</a>. In den
-              USA: <a href="#anthropic">Anthropic</a> · <a
-              href="#openai">OpenAI</a>.
+              href="#phoeniqs">Phoeniqs</a> · <a href="#cscs">CSCS</a>. In der
+              EU: <a href="#mistral">Mistral</a>. In den USA: <a
+              href="#anthropic">Anthropic</a> · <a href="#openai">OpenAI</a> · <a
+              href="#google">Google</a>.
             </p>
           </div>
         </div>
@@ -191,66 +192,67 @@
           <div class="table-wrap">
             <table class="model-table" role="table">
               <thead role="rowgroup">
-                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
+                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Aus dem Cache<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
                   <th scope="row" role="rowheader">MiniMax M2.5</th>
-                  <td role="cell">192k</td><td role="cell">1.94</td><td role="cell">9.70</td>
+                  <td role="cell">192k</td><td role="cell">1.94</td><td role="cell">0.291</td><td role="cell">9.70</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Nemotron 3 Super</th>
-                  <td role="cell">128k</td><td role="cell">2.00</td><td role="cell">5.00</td>
+                  <td role="cell">128k</td><td role="cell">2.00</td><td role="cell">0.30</td><td role="cell">5.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">DeepSeek V4 Flash</th>
-                  <td role="cell">512k</td><td role="cell">0.45</td><td role="cell">1.80</td>
+                  <td role="cell">512k</td><td role="cell">0.45</td><td role="cell">0.0675</td><td role="cell">1.80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3 Coder Next</th>
-                  <td role="cell">256k</td><td role="cell">0.34</td><td role="cell">1.70</td>
+                  <td role="cell">256k</td><td role="cell">0.34</td><td role="cell">0.0375</td><td role="cell">1.70</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GLM-5.3 Flash</th>
-                  <td role="cell">256k</td><td role="cell">0.30</td><td role="cell">1.50</td>
+                  <td role="cell">256k</td><td role="cell">0.30</td><td role="cell">0.045</td><td role="cell">1.50</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">gpt-oss-120b</th>
-                  <td role="cell">128k</td><td role="cell">0.40</td><td role="cell">1.60</td>
+                  <td role="cell">128k</td><td role="cell">0.40</td><td role="cell">0.06</td><td role="cell">1.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3.8 27B</th>
-                  <td role="cell">256k</td><td role="cell">0.25</td><td role="cell">1.50</td>
+                  <td role="cell">256k</td><td role="cell">0.25</td><td role="cell">0.051</td><td role="cell">1.50</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Gemma 4 31B</th>
-                  <td role="cell">160k</td><td role="cell">0.25</td><td role="cell">1.00</td>
+                  <td role="cell">160k</td><td role="cell">0.25</td><td role="cell">0.0375</td><td role="cell">1.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3.5 35B A3B FP8</th>
-                  <td role="cell">128k</td><td role="cell">0.17</td><td role="cell">1.00</td>
+                  <td role="cell">128k</td><td role="cell">0.17</td><td role="cell">0.0255</td><td role="cell">1.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 8B</th>
-                  <td role="cell">128k</td><td role="cell">0.02</td><td role="cell">0.10</td>
+                  <td role="cell">128k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.10</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">olmOCR 2</th>
-                  <td role="cell">8k</td><td role="cell">0.06</td><td role="cell">0.29</td>
+                  <td role="cell">8k</td><td role="cell">0.06</td><td role="cell">0.009</td><td role="cell">0.29</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">LightOnOCR 2</th>
-                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.06</td>
+                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.06</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">MinerU 2.5</th>
-                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.06</td>
+                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.06</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
-            CHF pro Million Tokens.
+            CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
+            aus seinem Prompt-Cache liefert.
           </p>
         </div>
       </section>
@@ -296,7 +298,7 @@
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3.8 27B FP8</th>
-                  <td role="cell">256k</td><td role="cell">0.448</td><td role="cell">3.36</td>
+                  <td role="cell">100k</td><td role="cell">0.448</td><td role="cell">3.36</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Ministral 3 14B</th>
@@ -427,59 +429,119 @@
           <div class="table-wrap">
             <table class="model-table" role="table">
               <thead role="rowgroup">
-                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
+                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Aus dem Cache<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
                   <th scope="row" role="rowheader">Kimi K2.7 Code</th>
-                  <td role="cell">262k</td><td role="cell">1.30</td><td role="cell">6.05</td>
+                  <td role="cell">262k</td><td role="cell">0.64</td><td role="cell">0.1272</td><td role="cell">6.05</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">GLM-5.3</th>
+                  <td role="cell">976k</td><td role="cell">0.1811</td><td role="cell">0.0315</td><td role="cell">6.642</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GLM-5.2</th>
-                  <td role="cell">976k</td><td role="cell">6.36</td><td role="cell">27.31</td>
+                  <td role="cell">976k</td><td role="cell">1.0567</td><td role="cell">0.2157</td><td role="cell">27.31</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Nemotron 3 Super BF16</th>
-                  <td role="cell">262k</td><td role="cell">0.30</td><td role="cell">1.49</td>
+                  <td role="cell">262k</td><td role="cell">0.3038</td><td role="cell">0.3038</td><td role="cell">1.4944</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Gemma 4 31B</th>
-                  <td role="cell">262k</td><td role="cell">0.06</td><td role="cell">0.42</td>
+                  <td role="cell">262k</td><td role="cell">0.068</td><td role="cell">0.0136</td><td role="cell">0.42</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 70B</th>
-                  <td role="cell">262k</td><td role="cell">0.06</td><td role="cell">0.40</td>
+                  <td role="cell">262k</td><td role="cell">0.1946</td><td role="cell">0.0195</td><td role="cell">0.3928</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 70B Thinking</th>
-                  <td role="cell">262k</td><td role="cell">0.06</td><td role="cell">0.40</td>
+                  <td role="cell">262k</td><td role="cell">0.1946</td><td role="cell">0.0195</td><td role="cell">0.3928</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 8B</th>
-                  <td role="cell">262k</td><td role="cell">0.01</td><td role="cell">0.04</td>
+                  <td role="cell">262k</td><td role="cell">0.0185</td><td role="cell">0.0019</td><td role="cell">0.0404</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 8B Thinking</th>
-                  <td role="cell">262k</td><td role="cell">0.01</td><td role="cell">0.04</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">Apertus 70B</th>
-                  <td role="cell">64k</td><td role="cell">0.06</td><td role="cell">0.40</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">Apertus 8B</th>
-                  <td role="cell">33k</td><td role="cell">0.01</td><td role="cell">0.04</td>
+                  <td role="cell">262k</td><td role="cell">0.0185</td><td role="cell">0.0019</td><td role="cell">0.0404</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
-            CHF pro Million Tokens.
+            CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
+            aus seinem Prompt-Cache liefert.
           </p>
         </div>
       </section>
 
-      <section class="band" id="anthropic">
+      <section class="band" id="mistral">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">EU · offene und proprietäre Modelle</p>
+            <h2 class="provider-head">
+              <svg class="provider-mark" viewBox="0 0 7 5" fill="currentColor" aria-hidden="true"><path fill-opacity="0.4" d="M1 0h1v1H1zM5 0h1v1H5z" /><path fill-opacity="0.55" d="M1 1h2v1H1zM4 1h2v1H4z" /><path fill-opacity="0.7" d="M1 2h5v1H1z" /><path fill-opacity="0.85" d="M1 3h1v1H1zM3 3h1v1H3zM5 3h1v1H5z" /><path fill-opacity="1" d="M0 4h3v1H0zM4 4h3v1H4z" /></svg>
+              <span>Modelle bei Mistral</span>
+            </h2>
+            <p>
+              Mistral betreibt seine Modelle auf der eigenen API in der EU.
+              Die Prompts verlassen also die Schweiz, bleiben aber in Europa.
+              Keera Gateway hält die Modelle gesperrt, bis du sie pro Team und
+              Datenklasse freigibst.
+            </p>
+          </div>
+          <div class="table-wrap">
+            <table class="model-table" role="table">
+              <thead role="rowgroup">
+                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Aus dem Cache<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">Mistral Large 4</th>
+                  <td role="cell">1M</td><td role="cell">0.672</td><td role="cell">0.0672</td><td role="cell">2.016</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Mistral Medium 3.5</th>
+                  <td role="cell">262k</td><td role="cell">1.44</td><td role="cell">0.144</td><td role="cell">7.20</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Mistral Small 4</th>
+                  <td role="cell">262k</td><td role="cell">0.144</td><td role="cell">0.0144</td><td role="cell">0.576</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Codestral 25.08</th>
+                  <td role="cell">128k</td><td role="cell">0.288</td><td role="cell">0.0288</td><td role="cell">0.864</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Mistral Large 3</th>
+                  <td role="cell">262k</td><td role="cell">0.48</td><td role="cell">0.048</td><td role="cell">1.44</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Ministral 3 14B</th>
+                  <td role="cell">262k</td><td role="cell">0.192</td><td role="cell">0.0192</td><td role="cell">0.192</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Ministral 3 8B</th>
+                  <td role="cell">262k</td><td role="cell">0.144</td><td role="cell">0.0144</td><td role="cell">0.144</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Ministral 3 3B</th>
+                  <td role="cell">262k</td><td role="cell">0.096</td><td role="cell">0.0096</td><td role="cell">0.096</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
+            aus seinem Prompt-Cache liefert.
+          </p>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="anthropic">
         <div class="wrap">
           <div class="prose">
             <p class="eyebrow">USA · proprietäre Modelle</p>
@@ -501,39 +563,39 @@
               <tbody role="rowgroup">
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Opus 5.5</th>
-                  <td role="cell">1M</td><td role="cell">3.68</td><td role="cell">0.184</td><td role="cell">18.40</td>
+                  <td role="cell">1M</td><td role="cell">3.84</td><td role="cell">0.192</td><td role="cell">19.20</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Sonnet 5.5</th>
-                  <td role="cell">1M</td><td role="cell">1.84</td><td role="cell">0.092</td><td role="cell">9.20</td>
+                  <td role="cell">1M</td><td role="cell">1.92</td><td role="cell">0.096</td><td role="cell">9.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Haiku 5.5 *</th>
-                  <td role="cell">1M</td><td role="cell">0.092</td><td role="cell">0.0092</td><td role="cell">0.46</td>
+                  <td role="cell">1M</td><td role="cell">0.096</td><td role="cell">0.0096</td><td role="cell">0.48</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Fable 5.1</th>
-                  <td role="cell">1M</td><td role="cell">9.20</td><td role="cell">0.23</td><td role="cell">46.00</td>
+                  <td role="cell">1M</td><td role="cell">9.60</td><td role="cell">0.24</td><td role="cell">48.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Sonnet 5</th>
-                  <td role="cell">1M</td><td role="cell">1.84</td><td role="cell">0.184</td><td role="cell">9.20</td>
+                  <td role="cell">1M</td><td role="cell">1.92</td><td role="cell">0.192</td><td role="cell">9.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Haiku 4.5</th>
-                  <td role="cell">200k</td><td role="cell">0.92</td><td role="cell">0.092</td><td role="cell">4.60</td>
+                  <td role="cell">200k</td><td role="cell">0.96</td><td role="cell">0.096</td><td role="cell">4.80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Opus 5</th>
-                  <td role="cell">1M</td><td role="cell">4.60</td><td role="cell">0.46</td><td role="cell">23.00</td>
+                  <td role="cell">1M</td><td role="cell">4.80</td><td role="cell">0.48</td><td role="cell">24.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Opus 4.8</th>
-                  <td role="cell">1M</td><td role="cell">4.60</td><td role="cell">0.46</td><td role="cell">23.00</td>
+                  <td role="cell">1M</td><td role="cell">4.80</td><td role="cell">0.48</td><td role="cell">24.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Sonnet 4.6</th>
-                  <td role="cell">1M</td><td role="cell">2.76</td><td role="cell">0.276</td><td role="cell">13.80</td>
+                  <td role="cell">1M</td><td role="cell">2.88</td><td role="cell">0.288</td><td role="cell">14.40</td>
                 </tr>
               </tbody>
             </table>
@@ -546,7 +608,7 @@
         </div>
       </section>
 
-      <section class="band band--alt" id="openai">
+      <section class="band" id="openai">
         <div class="wrap">
           <div class="prose">
             <p class="eyebrow">USA · proprietäre Modelle</p>
@@ -568,71 +630,75 @@
               <tbody role="rowgroup">
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-6 Astra *</th>
-                  <td role="cell">1.05M</td><td role="cell">9.20</td><td role="cell">0.92</td><td role="cell">46.00</td>
+                  <td role="cell">1.05M</td><td role="cell">9.60</td><td role="cell">0.96</td><td role="cell">48.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-6.1 Sol *</th>
-                  <td role="cell">1.05M</td><td role="cell">1.84</td><td role="cell">0.092</td><td role="cell">9.20</td>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.096</td><td role="cell">9.60</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">GPT-6.1 Terra *</th>
+                  <td role="cell">1.05M</td><td role="cell">0.96</td><td role="cell">0.048</td><td role="cell">4.80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-6 Sol *</th>
-                  <td role="cell">1.05M</td><td role="cell">1.84</td><td role="cell">0.184</td><td role="cell">9.20</td>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.192</td><td role="cell">9.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-6 Luna *</th>
-                  <td role="cell">1.05M</td><td role="cell">0.092</td><td role="cell">0.0092</td><td role="cell">0.46</td>
+                  <td role="cell">1.05M</td><td role="cell">0.096</td><td role="cell">0.0096</td><td role="cell">0.48</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.6 Sol *</th>
-                  <td role="cell">1.05M</td><td role="cell">3.68</td><td role="cell">0.368</td><td role="cell">18.40</td>
+                  <td role="cell">1.05M</td><td role="cell">3.84</td><td role="cell">0.384</td><td role="cell">19.20</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.6 Terra *</th>
-                  <td role="cell">1.05M</td><td role="cell">1.84</td><td role="cell">0.184</td><td role="cell">11.04</td>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.192</td><td role="cell">11.52</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.6 Luna *</th>
-                  <td role="cell">1.05M</td><td role="cell">0.184</td><td role="cell">0.0184</td><td role="cell">1.104</td>
+                  <td role="cell">1.05M</td><td role="cell">0.192</td><td role="cell">0.0192</td><td role="cell">1.152</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.5 *</th>
-                  <td role="cell">1.05M</td><td role="cell">4.60</td><td role="cell">0.46</td><td role="cell">27.60</td>
+                  <td role="cell">1.05M</td><td role="cell">4.80</td><td role="cell">0.48</td><td role="cell">28.80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.4 *</th>
-                  <td role="cell">1.05M</td><td role="cell">2.30</td><td role="cell">0.23</td><td role="cell">13.80</td>
+                  <td role="cell">1.05M</td><td role="cell">2.40</td><td role="cell">0.24</td><td role="cell">14.40</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.4 mini</th>
-                  <td role="cell">400k</td><td role="cell">0.69</td><td role="cell">0.069</td><td role="cell">4.14</td>
+                  <td role="cell">400k</td><td role="cell">0.72</td><td role="cell">0.072</td><td role="cell">4.32</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.4 nano</th>
-                  <td role="cell">400k</td><td role="cell">0.184</td><td role="cell">0.0184</td><td role="cell">1.15</td>
+                  <td role="cell">400k</td><td role="cell">0.192</td><td role="cell">0.0192</td><td role="cell">1.20</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.2</th>
-                  <td role="cell">400k</td><td role="cell">1.61</td><td role="cell">0.161</td><td role="cell">12.88</td>
+                  <td role="cell">400k</td><td role="cell">1.68</td><td role="cell">0.168</td><td role="cell">13.44</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.1</th>
-                  <td role="cell">400k</td><td role="cell">1.15</td><td role="cell">0.115</td><td role="cell">9.20</td>
+                  <td role="cell">400k</td><td role="cell">1.20</td><td role="cell">0.12</td><td role="cell">9.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-4.1</th>
-                  <td role="cell">1.05M</td><td role="cell">1.84</td><td role="cell">0.46</td><td role="cell">7.36</td>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.48</td><td role="cell">7.68</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-4.1 mini</th>
-                  <td role="cell">1.05M</td><td role="cell">0.368</td><td role="cell">0.092</td><td role="cell">1.472</td>
+                  <td role="cell">1.05M</td><td role="cell">0.384</td><td role="cell">0.096</td><td role="cell">1.536</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-4o</th>
-                  <td role="cell">128k</td><td role="cell">2.30</td><td role="cell">1.15</td><td role="cell">9.20</td>
+                  <td role="cell">128k</td><td role="cell">2.40</td><td role="cell">1.20</td><td role="cell">9.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GPT-4o mini</th>
-                  <td role="cell">128k</td><td role="cell">0.138</td><td role="cell">0.069</td><td role="cell">0.552</td>
+                  <td role="cell">128k</td><td role="cell">0.144</td><td role="cell">0.072</td><td role="cell">0.576</td>
                 </tr>
               </tbody>
             </table>
@@ -641,6 +707,70 @@
             CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
             aus seinem Prompt-Cache liefert.<br />
             * Über 272’000 Tokens im Prompt kostet der Input das Doppelte und der
+            Output das Anderthalbfache.
+          </p>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="google">
+        <div class="wrap">
+          <div class="prose">
+            <p class="eyebrow">USA · proprietäre Modelle</p>
+            <h2 class="provider-head">
+              <svg class="provider-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 12a6 6 0 0 0 11.659 2H12v-4h9.805v4H21.8c-.927 4.564-4.962 8-9.8 8c-5.523 0-10-4.477-10-10S6.477 2 12 2a9.99 9.99 0 0 1 8.282 4.393l-3.278 2.295A6 6 0 0 0 6 12" /></svg>
+              <span>Modelle bei Google</span>
+            </h2>
+            <p>
+              Die Gemini-Modelle laufen auf der Gemini-API von Google in den
+              USA. Wie bei Anthropic und OpenAI gehen die Prompts ins Ausland,
+              und die Modelle bleiben gesperrt, bis du sie freigibst.
+            </p>
+          </div>
+          <div class="table-wrap">
+            <table class="model-table" role="table">
+              <thead role="rowgroup">
+                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Aus dem Cache<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
+              </thead>
+              <tbody role="rowgroup">
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 4 Argon</th>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.096</td><td role="cell">9.60</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 3.8 Flash</th>
+                  <td role="cell">1.05M</td><td role="cell">0.72</td><td role="cell">0.072</td><td role="cell">3.60</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 3.5 Flash-Lite</th>
+                  <td role="cell">1.05M</td><td role="cell">0.288</td><td role="cell">0.0288</td><td role="cell">2.40</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 3.1 Pro Preview *</th>
+                  <td role="cell">1.05M</td><td role="cell">1.92</td><td role="cell">0.192</td><td role="cell">11.52</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 3.6 Flash</th>
+                  <td role="cell">1.05M</td><td role="cell">0.72</td><td role="cell">0.072</td><td role="cell">3.60</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 3.1 Flash-Lite</th>
+                  <td role="cell">1.05M</td><td role="cell">0.24</td><td role="cell">0.024</td><td role="cell">1.44</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 2.5 Pro *</th>
+                  <td role="cell">1.05M</td><td role="cell">1.20</td><td role="cell">0.12</td><td role="cell">9.60</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 2.5 Flash</th>
+                  <td role="cell">1.05M</td><td role="cell">0.288</td><td role="cell">0.0288</td><td role="cell">2.40</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="note">
+            CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
+            aus seinem Prompt-Cache liefert.<br />
+            * Über 200’000 Tokens im Prompt kostet der Input das Doppelte und der
             Output das Anderthalbfache.
           </p>
         </div>

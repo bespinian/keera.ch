@@ -189,17 +189,18 @@
       <section class="hero hero--split">
         <div class="wrap">
           <div>
-            <h1>Votre pile IA, exploitée en Suisse.</h1>
+            <h1>Toute l'IA de votre entreprise, sous contrôle.</h1>
             <p class="lede">
-              Un point d'accès unique pour chaque requête IA&nbsp;- vous décidez
-              qui peut utiliser quel modèle, et comment, y compris chez les
-              fournisseurs que vos équipes utilisent déjà. Et, si vous le
-              souhaitez, le moteur pour les modèles ouverts. Le tout dans des
-              centres de données suisses.
+              Keera Gateway est une passerelle LLM suisse&nbsp;: un point
+              d'accès unique pour chaque requête IA, y compris chez les
+              fournisseurs que vos équipes utilisent déjà. Vous décidez qui peut
+              utiliser quel modèle, avec quelles données et à quel coût. Elle
+              tourne dans des centres de données suisses ou dans votre propre
+              cluster.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Commencer gratuitement</a>
-              <a class="arrow" href="story">Pourquoi Keera existe &#x2794;</a>
+              <a class="arrow" href="#solution">Comment ça marche &#x2794;</a>
             </p>
           </div>
           <figure class="hero-art">
@@ -431,12 +432,12 @@
       <section class="band band--alt" id="products">
         <div class="wrap">
           <div class="prose">
-            <h2>D'abord la passerelle, ensuite le moteur</h2>
+            <h2>Commencez par la passerelle</h2>
             <p>
-              Commencez par la passerelle&nbsp;: elle pilote les modèles que
-              vous payez déjà, et ceux du
-              <a href="models">catalogue de modèles</a>. Keera Engine vient
-              ensuite, quand vous voulez les modèles ouverts chez vous.
+              Keera Gateway pilote les modèles que vous payez déjà, et ceux du
+              <a href="models">catalogue de modèles</a>. Keera Engine est
+              l'étape suivante, quand vous voulez exploiter vous-même des
+              modèles ouverts.
             </p>
           </div>
           <div class="grid grid--two">
@@ -459,10 +460,12 @@
               </svg>
               <h3>Keera Gateway</h3>
               <p>
-                Le point d'accès, sur Swiss Cloud ou dans votre cluster, piloté
-                depuis une interface web et une CLI. Vos outils, agents et
-                notebooks pointent dessus et tournent comme avant&nbsp;; tous
-                les autres discutent dans <a href="chat">Keera Chat</a>.
+                Le point d'accès, piloté depuis une interface web et une CLI.
+                Vos outils, agents et notebooks pointent dessus et tournent
+                comme avant&nbsp;; tous les autres discutent dans
+                <a href="chat">Keera Chat</a>. Son code source est lisible
+                <a href="https://github.com/bespinian/keera-gateway">sur GitHub</a> (Keera
+                Community Licence).
               </p>
               <p>
                 <a class="arrow" href="gateway">Voir Keera Gateway &#x2794;</a>
@@ -485,10 +488,9 @@
               </svg>
               <h3>Keera Engine</h3>
               <p>
-                L'étape suivante&nbsp;: le moteur d'inférence pour tout modèle
-                ouvert, construit avec Kubernetes, vLLM et llm-d. Sur des GPU
-                suisses ou dans votre cluster, avec trois fine-tunes Keera dès
-                le premier jour.
+                L'étape suivante&nbsp;: un moteur d'inférence pour tout modèle
+                ouvert que vLLM sait servir, construit avec Kubernetes, vLLM et
+                llm-d. Sur des GPU suisses ou dans votre propre cluster.
               </p>
               <p>
                 <a class="arrow" href="engine">Voir Keera Engine &#x2794;</a>
@@ -502,6 +504,9 @@
         <div class="wrap">
           <div class="prose">
             <h2>Trois façons d'exploiter Keera Gateway</h2>
+            <p>
+              Chaque fois la même passerelle. Vous choisissez où elle tourne.
+            </p>
           </div>
           <div class="grid">
             <div class="card card--quiet">
@@ -521,8 +526,8 @@
               </svg>
               <h3>Swiss Cloud</h3>
               <p>
-                Une instance partagée, sans frais de base, en service en un
-                après-midi.
+                Pour commencer aujourd'hui&nbsp;: une instance partagée, sans
+                frais de base, en service en un après-midi.
               </p>
             </div>
             <div class="card card--quiet">
@@ -548,7 +553,7 @@
               </svg>
               <h3>Dédié</h3>
               <p>
-                Votre propre instance chez un fournisseur cloud suisse, en
+                Pour une instance à vous, chez un fournisseur cloud suisse, en
                 connexion privée.
               </p>
             </div>
@@ -569,8 +574,8 @@
               </svg>
               <h3>Enterprise</h3>
               <p>
-                Sur votre propre infrastructure, dans votre cluster Kubernetes,
-                même sans aucune connexion.
+                Quand rien ne doit sortir de chez vous&nbsp;: dans votre propre
+                cluster Kubernetes, même sans aucune connexion.
               </p>
             </div>
           </div>
