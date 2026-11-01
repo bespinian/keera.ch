@@ -21,8 +21,10 @@ twelve under `en/` and `fr/` - plus `404.html`. No build step: every push to
 ## Design
 
 - **Quiet.** One accent on a white or near-black ground, following the system
-  scheme; there is no toggle. No gradients, glows or animation. Smooth anchor
-  scrolling is the one motion, off under `prefers-reduced-motion`.
+  scheme; there is no toggle. No gradients, glows or animation. There are two
+  motions, both off under `prefers-reduced-motion`: smooth anchor scrolling,
+  and the home hero's `.intro`, CSS only, which plays once on load and settles
+  on its final frame. Do not add a third.
 - **Every colour is a token.** Hex values live only in the token blocks
   (`:root`, its dark copy, the `.theme-leaf` hovers, `@media print`); anywhere
   else a hex is right in one scheme only. Partner and customer logos are the
@@ -84,7 +86,14 @@ twelve under `en/` and `fr/` - plus `404.html`. No build step: every push to
 What the markup does not already show.
 
 - **`index.html`** - Four visuals, no more: the hero, the `.sprawl`, the
-  `.stack` and comic page 1; the customer logos do not count. The customer row
+  `.stack` and comic page 1; the customer logos do not count. The hero is
+  `figure.hero-art.intro`: Keera steps in ("Das ist Keera."), her gateway
+  rises in front of her, and requests from an engineer, an agent and an
+  application go through its three checks to Anthropic, an open-weight model
+  or a local LLM. The CSS outside its motion block is the final frame, so a
+  still viewer sees the same figure; the checks follow `#solution`'s labels
+  where they share one. The `<img>` is the plain hero image, so its preload
+  is unaffected. The customer row
   is a white band under the white hero, so the alternation from `#problem` down
   is untouched. `#problem` states the problem before naming the product, and
   its middle fact (cost control) sets up the Budgets row of `#solution`, a

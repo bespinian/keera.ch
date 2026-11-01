@@ -557,6 +557,218 @@ thead th,
   }
 }
 
+/* ---------- home intro ---------- */
+/* The home hero's figure, and the site's one animation besides smooth
+   scrolling. It plays once on load: Keera steps in and says who she is, her
+   gateway rises in front of her, three requests go in, are checked, and go on
+   to a model. Every rule outside the motion block below is the final frame,
+   so under prefers-reduced-motion, in print and without animation support the
+   figure is simply that frame. The <img> is the plain .hero-art one, so its
+   preload and sizes are untouched. */
+.intro {
+  position: relative;
+  container-type: inline-size;
+}
+.intro-name {
+  position: absolute;
+  top: 4%;
+  right: 0;
+  padding: 4px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  font-size: 14px;
+  font-weight: 500;
+}
+/* Teams, wires, the gateway, wires, regions: one row, the sides and the wires
+   split into three equal rows so each team lines up with its wire. The strip
+   overlaps the bottom of the artwork, so Keera stands behind her gate. The
+   gateway and the senders take their full width and the wires the rest; the
+   destinations are capped, so they wrap onto two lines rather than squeeze
+   the gateway. The type is the usual 11.5px mono label down to a 340px
+   figure, then shrinks with it to 10px, or a 320px phone scrolls sideways. */
+.intro-gate {
+  position: relative;
+  margin-top: -12%;
+  display: grid;
+  grid-template-columns:
+    auto minmax(8px, 1fr) minmax(min-content, max-content)
+    minmax(8px, 1fr) fit-content(26%);
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: clamp(10px, 3.4cqw, 11.5px);
+  line-height: 1.4;
+}
+.intro-side,
+.intro-checks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.intro-side,
+.intro-wires {
+  display: grid;
+  grid-auto-rows: 1fr;
+  align-items: center;
+}
+.intro-side {
+  color: var(--muted);
+}
+.intro-side--models {
+  color: var(--ink);
+}
+/* A dot travels the width of its wire: 100cqw is that width, so the move is a
+   transform and stays off the layout. */
+.intro-wires {
+  container-type: inline-size;
+}
+.intro-wires span {
+  position: relative;
+  height: 100%;
+}
+.intro-wires span::before,
+.intro-wires span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.intro-wires span::before {
+  right: 0;
+  top: 50%;
+  border-top: 1px solid var(--muted);
+  opacity: 0.55;
+}
+.intro-wires span::after {
+  top: calc(50% - 3px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+/* At rest the requests have gone through: none waits at the door, one has
+   arrived at each region. */
+.intro-wires--in span::after {
+  opacity: 0;
+}
+.intro-wires--out span::after {
+  transform: translateX(calc(100cqw - 6px));
+}
+/* Centred rather than stretched: where the labels wrap, the rows outgrow the
+   gateway's four lines. */
+.intro-gateway {
+  align-self: center;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 8px;
+}
+.intro-title {
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.intro-checks li {
+  position: relative;
+  padding-left: 14px;
+}
+/* Drawn like the ticks in .plan-table, for the same reason. */
+.intro-checks li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 3px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .intro img {
+    animation: intro-rise 0.8s ease-out backwards;
+  }
+  .intro-name {
+    animation: intro-fade 0.5s ease-out 0.5s backwards;
+  }
+  .intro-gate {
+    animation: intro-rise 0.6s ease-out 0.9s backwards;
+  }
+  .intro-wires--in span::after {
+    animation: intro-in 0.7s ease-in 1.6s backwards;
+  }
+  .intro-wires--in span:nth-child(2)::after {
+    animation-delay: 1.75s;
+  }
+  .intro-wires--in span:nth-child(3)::after {
+    animation-delay: 1.9s;
+  }
+  .intro-gateway {
+    animation: intro-arm 0.4s ease-out 2.2s backwards;
+  }
+  .intro-checks li {
+    animation: intro-check 0.3s ease-out 2.4s backwards;
+  }
+  .intro-checks li:nth-child(2) {
+    animation-delay: 2.6s;
+  }
+  .intro-checks li:nth-child(3) {
+    animation-delay: 2.8s;
+  }
+  .intro-wires--out span::after {
+    animation: intro-out 0.7s ease-out 3s backwards;
+  }
+  .intro-wires--out span:nth-child(2)::after {
+    animation-delay: 3.15s;
+  }
+  .intro-wires--out span:nth-child(3)::after {
+    animation-delay: 3.3s;
+  }
+}
+/* Each keyframe names only where a part starts; it ends on the rule above. */
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes intro-in {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(calc(100cqw - 6px));
+  }
+}
+@keyframes intro-arm {
+  from {
+    border-color: var(--line);
+  }
+}
+@keyframes intro-check {
+  from {
+    opacity: 0.3;
+  }
+}
+@keyframes intro-out {
+  from {
+    opacity: 0;
+    transform: translateX(0);
+  }
+  20% {
+    opacity: 1;
+  }
+}
+
 /* ---------- buttons and links ---------- */
 .btn-row {
   display: flex;
