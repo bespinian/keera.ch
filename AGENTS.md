@@ -121,15 +121,15 @@ What the markup does not already show.
   only that the partners are Swiss and run data centres, GPUs and inference.
 - **`pricing.html`** - Gateway only; Keera Engine has no price anywhere on the
   site. Three plans, in the order of `index.html#deploy`: Swiss Cloud (no base
-  fee, a shared instance, model usage only), Dedicated (CHF 495 a month, CHF
-  5’346 a year), Enterprise (on request, on the customer's infrastructure).
+  fee, a shared instance, model usage only), Dedicated (CHF 890 a month, CHF
+  9’612 a year), Enterprise (on request, on the customer's infrastructure).
   Prices are per organisation; a yearly contract takes 10% off the base fee,
   never off model usage. Swiss Cloud alone is `.plan--start`, and its button
   and the hero's go to `gateway.keera.ch`; the other two go to `#contact`. In
   `.plan-table` a value several plans share is repeated in each column, never
   spanned. Plan names stay English in German and English; French says _Swiss
-  Cloud_, _Dédié_, _Enterprise_. Numbers follow the language - `5’346`,
-  `5,346`, `5&#x202F;346` - and the JSON-LD writes `5346`.
+  Cloud_, _Dédié_, _Enterprise_. Numbers follow the language - `9’612`,
+  `9,612`, `9&#x202F;612` - and the JSON-LD writes `9612`.
 - **`models.html`** - The data is the gateway's. Regenerate the tables from
   `internal/catalog/providers.go` and the marks from `providerMarks` in
   `internal/webui/assets/ui.js` in the gateway repo, all three languages at
