@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Keera Agents - AI agents in Microsoft Teams and Slack</title>
+    <meta
+      name="description"
+      content="Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway."
+    />
+    <link rel="canonical" href="https://keera.ch/en/agents" />
+    <link rel="alternate" hreflang="de" href="https://keera.ch/agents" />
+    <link rel="alternate" hreflang="fr" href="https://keera.ch/fr/agents" />
+    <link rel="alternate" hreflang="en" href="https://keera.ch/en/agents" />
+    <link rel="alternate" hreflang="x-default" href="https://keera.ch/agents" />
+    <link
+      rel="preload"
+      href="../assets/img/keera-talking-with-a-robot.webp"
+      as="image"
+      imagesrcset="../assets/img/keera-talking-with-a-robot-400.webp 400w, ../assets/img/keera-talking-with-a-robot-640.webp 640w, ../assets/img/keera-talking-with-a-robot.webp 750w"
+      imagesizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/space-grotesk-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../assets/fonts/jetbrains-mono-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../assets/css/keera.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../assets/img/keera-favicon.svg"
+    />
+    <link
+      rel="alternate icon"
+      type="image/png"
+      href="../assets/img/keera-apple-touch-icon.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="../assets/img/keera-apple-touch-icon.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Keera" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:url" content="https://keera.ch/en/agents" />
+    <meta
+      property="og:title"
+      content="Keera Agents - AI agents in Microsoft Teams and Slack"
+    />
+    <meta
+      property="og:description"
+      content="Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway."
+    />
+    <meta
+      property="og:image"
+      content="https://keera.ch/assets/img/keera-og-agents.jpg"
+    />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Keera kneeling beside a small robot and explaining something with open hands"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://keera.ch/en/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Keera Agents",
+                "item": "https://keera.ch/en/agents"
+              }
+            ]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://keera.ch/#agents",
+            "name": "Keera Agents",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Kubernetes",
+            "url": "https://keera.ch/en/agents",
+            "description": "Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway.",
+            "featureList": [
+              "Work from your chats",
+              "A board and a schedule",
+              "Your folders",
+              "Your repositories"
+            ],
+            "publisher": {
+              "@id": "https://keera.ch/#organization"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does Keera Agents keep of my data?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "What the work needs: the agent's memory and files in its workspace, and each task's log for 90 days, so a person can check its work. Keera Gateway never stores or trains on the prompt or the answer; it keeps only the request - who, when, which model - in your audit log. Deleting an agent deletes its workspace."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What can an agent in Keera Agents reach?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Only what you connect: models and MCP servers through Keera Gateway, the chats it is in, its folders, and pushes to branches that start with keera/. Its sandbox holds no password or token for those services. Keera Agents makes those calls itself, after checking that the agent may."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does Keera Agents fit with Keera Gateway?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Keera Agents is built on the gateway. Each agent calls models with its own key, in its owner's name, so model access, budgets, filters and the audit log apply to it as to a person. Each task shows in the gateway as one session."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is Keera Agents different from Hermes Agent or OpenClaw?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Hermes Agent and OpenClaw are open-source assistants for one person, on their own computer or server, with that person's keys and accounts. They do that well. Keera Agents runs agents for a whole business: each has an owner, a rule for who may give it work, and no passwords for your services in its sandbox. Every model call goes through Keera Gateway, within budget and into your audit log."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script src="../assets/js/google-tag.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="./"
+          ><img
+            src="../assets/img/keera-favicon.svg"
+            width="24"
+            height="24"
+            alt=""
+          /><span>Keera</span></a
+        >
+        <span class="lang"
+          ><a
+            href="../agents"
+            lang="de"
+            hreflang="de"
+            title="Diese Seite auf Deutsch"
+            >DE</a
+          ><span aria-hidden="true">/</span
+          ><a
+            href="../fr/agents"
+            lang="fr"
+            hreflang="fr"
+            title="Cette page en français"
+            >FR</a
+          ><span aria-hidden="true">/</span
+          ><span aria-current="true">EN</span></span
+        >
+        <input class="site-menu-state" type="checkbox" id="site-menu" />
+        <label class="site-menu-toggle" for="site-menu"
+          ><span class="site-menu-bars" aria-hidden="true"></span
+          ><span class="site-menu-text">Menu</span></label
+        >
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="gateway">Gateway</a
+          ><a href="agents" aria-current="page">Agents</a
+          ><a href="chat">Chat</a
+          ><a href="engine">Inference</a
+          ><a href="models">Models</a
+          ><a href="pricing">Pricing</a
+          ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
+          ><details class="nav-group">
+            <summary>About</summary>
+            <span class="nav-group-links"
+              ><a href="sovereignty">Sovereignty</a
+              ><a href="sustainability">Sustainability</a
+              ><a href="story">The story</a></span
+            >
+          </details
+          ><a class="nav-login" href="https://gateway.keera.ch">Login</a>
+        </nav>
+        <a class="header-login" href="https://gateway.keera.ch">Login</a>
+      </div>
+    </header>
+    <main id="main" tabindex="-1">
+      <section class="hero hero--split">
+        <div class="wrap">
+          <div>
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="5" y="8" width="14" height="11" rx="2"></rect>
+              <path d="M12 8V4.5M10 4.5h4"></path>
+              <path d="M9.5 12.5v1.5M14.5 12.5v1.5"></path>
+              <path d="M2.5 12v3M21.5 12v3"></path>
+            </svg>
+            <p class="eyebrow">Keera Agents</p>
+            <h1>Sandboxed AI agents that assist your team</h1>
+            <p class="lede">
+              Keera Agents runs AI agents for your business. Each agent is an
+              assistant with its own sandbox, workspace and memory. Your team
+              gives it work in Microsoft Teams or Slack, and every model call
+              passes through <a href="gateway">Keera Gateway</a>.
+            </p>
+            <p class="btn-row">
+              <a class="btn" href="https://gateway.keera.ch">Start for free</a>
+              <a class="arrow" href="gateway">See Keera Gateway &#x2794;</a>
+            </p>
+          </div>
+          <figure class="hero-art">
+            <img
+              src="../assets/img/keera-talking-with-a-robot.webp"
+              srcset="../assets/img/keera-talking-with-a-robot-400.webp 400w, ../assets/img/keera-talking-with-a-robot-640.webp 640w, ../assets/img/keera-talking-with-a-robot.webp 750w"
+              sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+              width="750"
+              height="769"
+              alt="Keera kneeling beside a small robot and explaining something with open hands"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="how">
+        <div class="wrap">
+          <div class="prose">
+            <h2>How Keera Agents works</h2>
+            <p>
+              Work reaches an agent's sandbox through Keera Agents, and every
+              model call leaves through Keera Gateway. Without work, an agent
+              sleeps and holds no compute.
+            </p>
+          </div>
+          <figure class="fleet">
+            <ul class="fleet-chips">
+              <li>Teams</li>
+              <li>Slack</li>
+              <li>Keera Chat</li>
+              <li>Schedule</li>
+              <li>GitHub and GitLab</li>
+            </ul>
+            <div class="fleet-box fleet-box--agent">
+              <p class="fleet-title">Keera Agents</p>
+              <p class="fleet-text">Your agent in its own sandbox, with its memory and files</p>
+            </div>
+            <div class="fleet-box">
+              <p class="fleet-title">Keera Gateway</p>
+              <p class="fleet-text">Checks every model call: own key, budget, filters, audit log</p>
+            </div>
+            <ul class="fleet-chips">
+              <li>Swiss open-weight models</li>
+              <li>Frontier models</li>
+              <li>Self-hosted models</li>
+            </ul>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="features">
+        <div class="wrap">
+          <div class="prose">
+            <h2>What Keera Agents does</h2>
+            <p>
+              Each agent has instructions, a model, tools and a monthly budget.
+            </p>
+          </div>
+          <div class="facts facts--four">
+            <div>
+              <h3>Work from your chats</h3>
+              <p>
+                Write to an agent in Teams, Slack or
+                <a href="chat">Keera Chat</a>. It answers in the same thread and
+                remembers what was said there.
+              </p>
+            </div>
+            <div>
+              <h3>A board and a schedule</h3>
+              <p>
+                Assign it a card, and it moves the card to Review when it is
+                done. Or let it run every weekday at eight and post the result
+                to a channel.
+              </p>
+            </div>
+            <div>
+              <h3>Your folders</h3>
+              <p>
+                It reads and writes in the Google Drive, OneDrive and SharePoint
+                folders you connect, and starts when a new file lands.
+              </p>
+            </div>
+            <div>
+              <h3>Your repositories</h3>
+              <p>
+                In GitHub or GitLab it pushes a branch of its own and opens a
+                pull request for a person to review. Your main branch stays
+                yours.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="security">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Agents under your rules</h2>
+            <p>
+              An agent is not a loophole. It follows the same rules as the
+              person who owns it, and it only reaches what you connect.
+            </p>
+          </div>
+          <div class="facts facts--four">
+            <div>
+              <h3>Its own key</h3>
+              <p>
+                Every model call goes through Keera Gateway with the agent's own
+                key, in its owner's name. Model access, budgets and the audit
+                log apply as they do to people.
+              </p>
+            </div>
+            <div>
+              <h3>A sandbox of its own</h3>
+              <p>
+                Keera Agents runs on your existing Kubernetes cluster. Each agent
+                gets a sandboxed container or a micro VM of its own, and what it
+                runs stays inside.
+              </p>
+            </div>
+            <div>
+              <h3>No secrets inside</h3>
+              <p>
+                The agent's sandbox holds no password for your chats, drives or
+                repositories. Keera Agents makes those calls and checks first
+                that the agent may.
+              </p>
+            </div>
+            <div>
+              <h3>You decide who asks</h3>
+              <p>
+                Only its owner, everyone in the organisation, or the people you
+                list. Anyone else gets a short no. When the owner leaves, the
+                agent stops.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="faq">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Questions about Keera Agents</h2>
+            <p>What teams ask us before they hand work to an agent.</p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>What does Keera Agents keep of my data?</summary>
+              <p>
+                What the work needs: the agent's memory and files in its
+                workspace, and each task's log for 90 days, so a person can
+                check its work. Keera Gateway never stores or trains on the
+                prompt or the answer; it keeps only the request - who, when,
+                which model - in your audit log. Deleting an agent deletes its
+                workspace.
+              </p>
+            </details>
+            <details>
+              <summary>What can an agent in Keera Agents reach?</summary>
+              <p>
+                Only what you connect: models and MCP servers through Keera
+                Gateway, the chats it is in, its folders, and pushes to branches
+                that start with keera/. Its sandbox holds no password or token
+                for those services. Keera Agents makes those calls itself, after
+                checking that the agent may.
+              </p>
+            </details>
+            <details>
+              <summary>How does Keera Agents fit with Keera Gateway?</summary>
+              <p>
+                Keera Agents is built on the gateway. Each agent calls models
+                with its own key, in its owner's name, so model access, budgets,
+                filters and the audit log apply to it as to a person. Each task
+                shows in the gateway as one session.
+              </p>
+            </details>
+            <details>
+              <summary>How is Keera Agents different from Hermes Agent or OpenClaw?</summary>
+              <p>
+                Hermes Agent and OpenClaw are open-source assistants for one
+                person, on their own computer or server, with that person's keys
+                and accounts. They do that well. Keera Agents runs agents for a
+                whole business: each has an owner, a rule for who may give it
+                work, and no passwords for your services in its sandbox. Every
+                model call goes through Keera Gateway, within budget and into
+                your audit log.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="band" id="contact">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Questions, comments, quotes</h2>
+            <p class="lede">
+              Have a question or a comment? Need a quote for on-premise or an
+              SLA? Write to us.
+            </p>
+          </div>
+          <form
+            class="form"
+            action="https://formspree.io/f/xvkobjyb"
+            method="post"
+            data-contact-form
+            data-cf-sending="Sending …"
+            data-cf-sent="Thank you. We will get back to you within two working days."
+            data-cf-error="That did not work. Please write to hello@bespinian.io."
+            data-cf-need-interest="Please pick at least one product."
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Keera - enquiry from the website"
+            />
+            <input
+              class="hp"
+              type="text"
+              name="_gotcha"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <input type="hidden" name="Language" value="English" />
+            <div data-cf-fields>
+              <div class="field">
+                <label class="label" for="cf-name">Name</label>
+                <input
+                  class="input"
+                  id="cf-name"
+                  name="Name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="cf-email">E-mail</label>
+                <input
+                  class="input"
+                  id="cf-email"
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="cf-company"
+                  >Company <span>(optional)</span></label
+                >
+                <input
+                  class="input"
+                  id="cf-company"
+                  name="Company"
+                  type="text"
+                  autocomplete="organization"
+                />
+              </div>
+              <fieldset class="choices" data-cf-interest>
+                <legend class="label">Interested in</legend>
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
+                    value="Keera Gateway"
+                  />
+                  Keera Gateway</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
+                    value="Keera Agents"
+                    checked
+                  />
+                  Keera Agents</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
+                    value="Keera Chat"
+                  />
+                  Keera Chat</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
+                    value="Keera Engine"
+                  />
+                  Keera Engine</label
+                >
+              </fieldset>
+              <div class="field">
+                <label class="label" for="cf-message"
+                  >Message <span>(optional)</span></label
+                >
+                <textarea
+                  class="input"
+                  id="cf-message"
+                  name="message"
+                  rows="4"
+                ></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="btn" type="submit">Send enquiry</button>
+                <span class="note"
+                  >We use your details only to answer this enquiry.</span
+                >
+              </div>
+            </div>
+            <p
+              class="form-status"
+              data-cf-status
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>
+          Keera - One endpoint for every AI request. Digitally sovereign. Built
+          in Bern by bespinian.
+        </p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div>
+            <p class="footer-head">Products</p>
+            <ul>
+              <li><a href="gateway">Keera Gateway</a></li>
+              <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
+              <li><a href="chat">Keera Chat</a></li>
+              <li><a href="models">Models</a></li>
+              <li><a href="pricing">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">About Keera</p>
+            <ul>
+              <li><a href="sovereignty">Sovereignty</a></li>
+              <li><a href="sustainability">Sustainability</a></li>
+              <li><a href="story">The story</a></li>
+              <li><a href="./#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">Resources</p>
+            <ul>
+              <li><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a></li>
+              <li><a href="https://github.com/bespinian/keera-gateway">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/showcase/keera-ai">LinkedIn</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-head">Legal</p>
+            <ul>
+              <li><a href="imprint">Imprint</a></li>
+              <li><a href="terms">Terms</a></li>
+              <li><a href="privacy">Privacy</a></li>
+            </ul>
+          </div>
+        </nav>
+        <p class="note">© 2026 bespinian · Bern</p>
+      </div>
+    </footer>
+    <script src="../assets/js/contact-form.js" defer></script>
+    <script
+      async
+      src="https://scripts.simpleanalyticscdn.com/latest.js"
+    ></script>
+  </body>
+</html>

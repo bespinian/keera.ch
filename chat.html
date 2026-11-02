@@ -116,7 +116,15 @@
                 "name": "Was kostet Keera Chat?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Keera Chat gehört zu Keera Gateway und kostet nichts extra. Du zahlst die Modellnutzung wie bei jeder anderen Anfrage durch das Gateway, und sie zählt gegen dein Budget."
+                  "text": "Nichts extra: Keera Chat gehört zu Keera Gateway. Du zahlst die Modellnutzung wie bei jeder Anfrage, und sie zählt gegen dein Budget."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Was unterscheidet Keera Chat von LibreChat?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "LibreChat ist ein Open-Source-Chat, der für sich allein mehr kann: Er hat eigene Konten, speichert die Chats in seiner Datenbank und hält die Keys der Modellanbieter. Keera Chat kann bewusst weniger. Du meldest dich über Keera Gateway an, jede Nachricht geht mit deinem eigenen Key raus, und deine Chats bleiben in deinem Browser. So gibt es keine Kopie auf einem Server, die jemand schützen muss."
                 }
               }
             ]
@@ -137,7 +145,6 @@
             width="24"
             height="24"
             alt=""
-            aria-hidden="true"
           /><span>Keera</span></a
         >
         <span class="lang"
@@ -164,9 +171,10 @@
         >
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a href="gateway">Gateway</a
-          ><a href="models">Modelle</a
+          ><a href="agents">Agents</a
           ><a href="chat" aria-current="page">Chat</a
           ><a href="engine">Inference</a
+          ><a href="models">Modelle</a
           ><a href="pricing">Preise</a
           ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
           ><details class="nav-group">
@@ -342,9 +350,21 @@
             <details>
               <summary>Was kostet Keera Chat?</summary>
               <p>
-                Keera Chat gehört zu Keera Gateway und kostet nichts extra. Du
-                zahlst die Modellnutzung wie bei jeder anderen Anfrage durch das
-                Gateway, und sie zählt gegen dein Budget.
+                Nichts extra: Keera Chat gehört zu Keera Gateway. Du zahlst die
+                Modellnutzung wie bei jeder Anfrage, und sie zählt gegen dein
+                Budget.
+              </p>
+            </details>
+            <details>
+              <summary>Was unterscheidet Keera Chat von LibreChat?</summary>
+              <p>
+                LibreChat ist ein Open-Source-Chat, der für sich allein mehr
+                kann: Er hat eigene Konten, speichert die Chats in seiner
+                Datenbank und hält die Keys der Modellanbieter. Keera Chat kann
+                bewusst weniger. Du meldest dich über Keera Gateway an, jede
+                Nachricht geht mit deinem eigenen Key raus, und deine Chats
+                bleiben in deinem Browser. So gibt es keine Kopie auf einem
+                Server, die jemand schützen muss.
               </p>
             </details>
           </div>
@@ -363,6 +383,7 @@
             <ul>
               <li><a href="gateway">Keera Gateway</a></li>
               <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
               <li><a href="chat">Keera Chat</a></li>
               <li><a href="models">Modelle</a></li>
               <li><a href="pricing">Preise</a></li>

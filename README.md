@@ -1,7 +1,7 @@
 # Keera - static site
 
-Hand-written static pages with no build step: twelve pages in German at the
-root, the same twelve under `en/` and `fr/`, plus `404.html`, `assets/` and a
+Hand-written static pages with no build step: thirteen pages in German at the
+root, the same thirteen under `en/` and `fr/`, plus `404.html`, `assets/` and a
 few root files. Edit the HTML directly, in all three languages. `AGENTS.md`
 holds the content and design rules.
 

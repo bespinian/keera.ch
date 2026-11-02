@@ -19,6 +19,14 @@
     />
     <link
       rel="preload"
+      href="assets/img/keera-with-a-gateway-and-models.webp"
+      as="image"
+      imagesrcset="assets/img/keera-with-a-gateway-and-models-400.webp 400w, assets/img/keera-with-a-gateway-and-models-640.webp 640w, assets/img/keera-with-a-gateway-and-models.webp 900w"
+      imagesizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
       href="assets/fonts/space-grotesk-latin.woff2"
       as="font"
       type="font/woff2"
@@ -100,7 +108,6 @@
             width="24"
             height="24"
             alt=""
-            aria-hidden="true"
           /><span>Keera</span></a
         >
         <span class="lang"
@@ -127,9 +134,10 @@
         >
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a href="gateway">Gateway</a
-          ><a href="models" aria-current="page">Modelle</a
+          ><a href="agents">Agents</a
           ><a href="chat">Chat</a
           ><a href="engine">Inference</a
+          ><a href="models" aria-current="page">Modelle</a
           ><a href="pricing">Preise</a
           ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
           ><details class="nav-group">
@@ -146,17 +154,17 @@
       </div>
     </header>
     <main id="main" tabindex="-1">
-      <section class="hero">
+      <section class="hero hero--split">
         <div class="wrap">
-          <div class="prose">
+          <div>
             <p class="eyebrow">Modellkatalog · Keera Gateway</p>
             <h1>Die Modelle hinter deinem Endpunkt</h1>
             <p class="lede">
               Keera Gateway kennt acht Modellanbieter: vier in der Schweiz,
               einen in der EU und drei in den USA. Hier steht jedes ihrer
               Modelle mit Kontextfenster und Preis in CHF pro Million Tokens. Du
-              gibst pro Team frei, welche Modelle es nutzt, und zahlst die
-              Nutzung zum Listenpreis des Anbieters.
+              gibst pro Team frei, welche Modelle es nutzt, und zahlst den
+              Listenpreis des Anbieters.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Kostenlos starten</a>
@@ -171,6 +179,18 @@
               href="#google">Google</a>.
             </p>
           </div>
+          <figure class="hero-art">
+            <img
+              src="assets/img/keera-with-a-gateway-and-models.webp"
+              srcset="assets/img/keera-with-a-gateway-and-models-400.webp 400w, assets/img/keera-with-a-gateway-and-models-640.webp 640w, assets/img/keera-with-a-gateway-and-models.webp 900w"
+              sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+              width="900"
+              height="675"
+              alt="Keera hält auf ihrer Hand ein Gateway, von dem Kabel zu vier Modellen führen"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
@@ -192,67 +212,66 @@
           <div class="table-wrap">
             <table class="model-table" role="table">
               <thead role="rowgroup">
-                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Aus dem Cache<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
+                <tr role="row"><th scope="col" role="columnheader">Modell</th><th scope="col" role="columnheader">Kontext</th><th scope="col" role="columnheader">Input<span class="unit">CHF/MTok</span></th><th scope="col" role="columnheader">Output<span class="unit">CHF/MTok</span></th></tr>
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
                   <th scope="row" role="rowheader">MiniMax M2.5</th>
-                  <td role="cell">192k</td><td role="cell">1.94</td><td role="cell">0.291</td><td role="cell">9.70</td>
+                  <td role="cell">192k</td><td role="cell">1.94</td><td role="cell">9.70</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Nemotron 3 Super</th>
-                  <td role="cell">128k</td><td role="cell">2.00</td><td role="cell">0.30</td><td role="cell">5.00</td>
+                  <td role="cell">128k</td><td role="cell">2.00</td><td role="cell">5.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">DeepSeek V4 Flash</th>
-                  <td role="cell">512k</td><td role="cell">0.45</td><td role="cell">0.0675</td><td role="cell">1.80</td>
+                  <td role="cell">512k</td><td role="cell">0.45</td><td role="cell">1.80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3 Coder Next</th>
-                  <td role="cell">256k</td><td role="cell">0.34</td><td role="cell">0.0375</td><td role="cell">1.70</td>
+                  <td role="cell">256k</td><td role="cell">0.34</td><td role="cell">1.70</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">GLM-5.3 Flash</th>
-                  <td role="cell">256k</td><td role="cell">0.30</td><td role="cell">0.045</td><td role="cell">1.50</td>
+                  <td role="cell">256k</td><td role="cell">0.30</td><td role="cell">1.50</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">gpt-oss-120b</th>
-                  <td role="cell">128k</td><td role="cell">0.40</td><td role="cell">0.06</td><td role="cell">1.60</td>
+                  <td role="cell">128k</td><td role="cell">0.40</td><td role="cell">1.60</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3.8 27B</th>
-                  <td role="cell">256k</td><td role="cell">0.25</td><td role="cell">0.051</td><td role="cell">1.50</td>
+                  <td role="cell">256k</td><td role="cell">0.25</td><td role="cell">1.50</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Gemma 4 31B</th>
-                  <td role="cell">160k</td><td role="cell">0.25</td><td role="cell">0.0375</td><td role="cell">1.00</td>
+                  <td role="cell">160k</td><td role="cell">0.25</td><td role="cell">1.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3.5 35B A3B FP8</th>
-                  <td role="cell">128k</td><td role="cell">0.17</td><td role="cell">0.0255</td><td role="cell">1.00</td>
+                  <td role="cell">128k</td><td role="cell">0.17</td><td role="cell">1.00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Apertus v1.5 8B</th>
-                  <td role="cell">128k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.10</td>
+                  <td role="cell">128k</td><td role="cell">0.02</td><td role="cell">0.10</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">olmOCR 2</th>
-                  <td role="cell">8k</td><td role="cell">0.06</td><td role="cell">0.009</td><td role="cell">0.29</td>
+                  <td role="cell">8k</td><td role="cell">0.06</td><td role="cell">0.29</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">LightOnOCR 2</th>
-                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.06</td>
+                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.06</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">MinerU 2.5</th>
-                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.003</td><td role="cell">0.06</td>
+                  <td role="cell">16k</td><td role="cell">0.02</td><td role="cell">0.06</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
-            CHF pro Million Tokens. «Aus dem Cache» ist Input, den der Anbieter
-            aus seinem Prompt-Cache liefert.
+            CHF pro Million Tokens.
           </p>
         </div>
       </section>
@@ -811,6 +830,7 @@
             <ul>
               <li><a href="gateway">Keera Gateway</a></li>
               <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
               <li><a href="chat">Keera Chat</a></li>
               <li><a href="models">Modelle</a></li>
               <li><a href="pricing">Preise</a></li>

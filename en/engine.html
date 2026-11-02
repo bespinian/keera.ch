@@ -15,9 +15,9 @@
     <link rel="alternate" hreflang="x-default" href="https://keera.ch/engine" />
     <link
       rel="preload"
-      href="../assets/img/keera-coding-on-a-laptop.webp"
+      href="../assets/img/keera-leaning-on-a-server-rack.webp"
       as="image"
-      imagesrcset="../assets/img/keera-coding-on-a-laptop-400.webp 400w, ../assets/img/keera-coding-on-a-laptop-640.webp 640w, ../assets/img/keera-coding-on-a-laptop.webp 900w"
+      imagesrcset="../assets/img/keera-leaning-on-a-server-rack-400.webp 400w, ../assets/img/keera-leaning-on-a-server-rack-640.webp 640w, ../assets/img/keera-leaning-on-a-server-rack.webp 900w"
       imagesizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
       fetchpriority="high"
     />
@@ -69,7 +69,7 @@
     <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Keera coding on her laptop" />
+    <meta property="og:image:alt" content="Keera leaning on a server rack" />
     <meta name="twitter:card" content="summary_large_image" />
     <script type="application/ld+json">
       {
@@ -120,7 +120,7 @@
                 "name": "Does my data leave the building with Keera Engine?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "No. The models run on Swiss GPUs or in your own racks; prompts and code go there for inference and come back. They are not stored, the model's answer is not stored, and nothing is trained on either. What is kept is the request itself - who, when, which model - in the log in your own infrastructure."
+                  "text": "No. The models run on Swiss GPUs or in your own racks. Prompts and answers are never stored or trained on. Only the request is kept - who, when, which model - in the log in your own infrastructure."
                 }
               },
               {
@@ -128,7 +128,7 @@
                 "name": "Are open models on Keera Engine good enough?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "For everyday work, yes: refactoring across many files, tests, migrations, reviews. On the hardest reasoning the large proprietary models are still ahead - which is why they sit behind the same gateway and can be opened per team and data class. We do not claim open weights win everywhere. We claim you keep the choice."
+                  "text": "For everyday work, yes. On the hardest reasoning the large proprietary models still lead, so they sit behind the same gateway, opened per team and data class. We do not claim open weights win everywhere, only that you keep the choice."
                 }
               },
               {
@@ -136,7 +136,7 @@
                 "name": "How does Keera Engine fit with Keera Gateway?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Keera Engine sits behind the gateway and runs the open models the gateway routes to. The gateway decides who may use which model and writes every request to the audit log; the engine computes the answer. You can start with the gateway and the providers you already have, and add the engine once the models should move in-house."
+                  "text": "Keera Engine sits behind the gateway and runs the open models it routes to. The gateway decides who may use which model, the engine computes the answer. Start with the gateway and the providers you have, and add the engine when the models should move in-house."
                 }
               }
             ]
@@ -157,7 +157,6 @@
             width="24"
             height="24"
             alt=""
-            aria-hidden="true"
           /><span>Keera</span></a
         >
         <span class="lang"
@@ -184,9 +183,10 @@
         >
         <nav class="site-nav" aria-label="Main navigation">
           <a href="gateway">Gateway</a
-          ><a href="models">Models</a
+          ><a href="agents">Agents</a
           ><a href="chat">Chat</a
           ><a href="engine" aria-current="page">Inference</a
+          ><a href="models">Models</a
           ><a href="pricing">Pricing</a
           ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
           ><details class="nav-group">
@@ -235,12 +235,12 @@
           </div>
           <figure class="hero-art">
             <img
-              src="../assets/img/keera-coding-on-a-laptop.webp"
-              srcset="../assets/img/keera-coding-on-a-laptop-400.webp 400w, ../assets/img/keera-coding-on-a-laptop-640.webp 640w, ../assets/img/keera-coding-on-a-laptop.webp 900w"
+              src="../assets/img/keera-leaning-on-a-server-rack.webp"
+              srcset="../assets/img/keera-leaning-on-a-server-rack-400.webp 400w, ../assets/img/keera-leaning-on-a-server-rack-640.webp 640w, ../assets/img/keera-leaning-on-a-server-rack.webp 900w"
               sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
               width="900"
-              height="750"
-              alt="Keera coding on her laptop"
+              height="822"
+              alt="Keera leaning on a server rack"
               fetchpriority="high"
               decoding="async"
             />
@@ -265,8 +265,7 @@
                 <p class="stack-label">The API</p>
                 <p class="stack-text">
                   OpenAI-compatible and reached through Keera Gateway. One base
-                  URL, one key, and any client that already speaks to OpenAI
-                  speaks to Keera - no new SDK, no plugin.
+                  URL, one key, no new SDK and no plugin.
                 </p>
               </div>
               <div class="stack-layer">
@@ -306,11 +305,10 @@
           <div class="prose">
             <h2>Models on Keera Engine</h2>
             <p>
-              The engine runs any open model vLLM can serve - Qwen, Llama,
+              The engine runs any open model vLLM can serve: Qwen, Llama,
               Mistral, Apertus or your own fine-tune. Three fine-tunes of ours
-              run from day one. Pick one per workspace - or let the gateway
-              route: small tasks to the fast model, hard reasoning to the strong
-              one.
+              run from day one. Let the gateway route: small tasks to the fast
+              model, hard reasoning to the strong one.
             </p>
           </div>
           <div class="table-wrap">
@@ -413,33 +411,29 @@
                 Does my data leave the building with Keera Engine?
               </summary>
               <p>
-                No. The models run on Swiss GPUs or in your own racks; prompts
-                and code go there for inference and come back. They are not
-                stored, the model's answer is not stored, and nothing is trained
-                on either. What is kept is the request itself - who, when, which
-                model - in the log in your own infrastructure.
+                No. The models run on Swiss GPUs or in your own racks. Prompts
+                and answers are never stored or trained on. Only the request is
+                kept - who, when, which model - in the log in your own
+                infrastructure.
               </p>
             </details>
             <details>
               <summary>Are open models on Keera Engine good enough?</summary>
               <p>
-                For everyday work, yes: refactoring across many files, tests,
-                migrations, reviews. On the hardest reasoning the large
-                proprietary models are still ahead - which is why they sit
-                behind the same gateway and can be opened per team and data
-                class. We do not claim open weights win everywhere. We claim you
-                keep the choice.
+                For everyday work, yes. On the hardest reasoning the large
+                proprietary models still lead, so they sit behind the same
+                gateway, opened per team and data class. We do not claim open
+                weights win everywhere, only that you keep the choice.
               </p>
             </details>
             <details>
               <summary>How does Keera Engine fit with Keera Gateway?</summary>
               <p>
-                Keera Engine sits behind the gateway and runs the open models
-                the gateway routes to. The gateway decides who may use which
-                model and writes every request to the audit log; the engine
-                computes the answer. You can start with the gateway and the
-                providers you already have, and add the engine once the models
-                should move in-house.
+                Keera Engine sits behind the gateway and runs the open models it
+                routes to. The gateway decides who may use which model, the
+                engine computes the answer. Start with the gateway and the
+                providers you have, and add the engine when the models should
+                move in-house.
               </p>
             </details>
           </div>
@@ -527,6 +521,22 @@
                   ><input
                     type="checkbox"
                     name="Interest"
+                    value="Keera Agents"
+                  />
+                  Keera Agents</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
+                    value="Keera Chat"
+                  />
+                  Keera Chat</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interest"
                     value="Keera Engine"
                     checked
                   />
@@ -573,6 +583,7 @@
             <ul>
               <li><a href="gateway">Keera Gateway</a></li>
               <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
               <li><a href="chat">Keera Chat</a></li>
               <li><a href="models">Models</a></li>
               <li><a href="pricing">Pricing</a></li>

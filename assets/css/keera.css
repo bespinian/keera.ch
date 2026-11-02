@@ -1,4 +1,4 @@
-/* Keera - one stylesheet for the thirty-three content pages and 404.html.
+/* Keera - one stylesheet for the thirty-nine content pages and 404.html.
    Quiet, one accent, light or dark from the viewer's system setting. Layout is
    a single column: .wrap for full-width bands, .prose for anything meant to be
    read. Pages carry classes only - no inline styles. */
@@ -190,11 +190,12 @@ strong {
   font-weight: 600;
 }
 
-/* The small mono label, in six places. Each rule below adds only its own
+/* The small mono label, in eight places. Each rule below adds only its own
    size and spacing. */
 .eyebrow,
 .stack-label,
 .flow-title,
+.fleet-title,
 thead th,
 .label,
 .plan-tag,
@@ -361,15 +362,7 @@ thead th,
 .header-login {
   order: 3;
   padding: 0 12px;
-  border: 1px solid var(--muted);
-  border-radius: 8px;
-  color: var(--ink);
   font-size: 14.5px;
-}
-.header-login:hover {
-  text-decoration: none;
-  border-color: var(--ink);
-  background: var(--card);
 }
 .site-nav .nav-login {
   display: none;
@@ -521,14 +514,6 @@ thead th,
     align-self: flex-start;
     margin-top: 16px;
     padding: 10px 16px;
-    border: 1px solid var(--muted);
-    border-radius: 8px;
-    color: var(--ink);
-  }
-  .site-menu-state:checked ~ .site-nav a.nav-login:hover {
-    text-decoration: none;
-    border-color: var(--ink);
-    background: var(--card);
   }
 }
 
@@ -559,11 +544,12 @@ thead th,
 
 /* ---------- home intro ---------- */
 /* The home hero's figure, and the site's one animation besides smooth
-   scrolling. It plays once on load: Keera steps in and says who she is, her
-   gateway rises in front of her, three requests go in, are checked, and go on
-   to a model. Every rule outside the motion block below is the final frame,
-   so under prefers-reduced-motion, in print and without animation support the
-   figure is simply that frame. The <img> is the plain .hero-art one, so its
+   scrolling. On load Keera steps in and says who she is and her gateway rises
+   in front of her; from then on requests keep flowing, three at a time: they
+   go in, the gateway ticks its checks, and they go on to a model. Every rule
+   outside the motion block below is a still frame of that flow, so under
+   prefers-reduced-motion, in print and without animation support the figure
+   is simply that frame. The <img> is the plain .hero-art one, so its
    preload and sizes are untouched. */
 .intro {
   position: relative;
@@ -580,8 +566,8 @@ thead th,
   font-size: 14px;
   font-weight: 500;
 }
-/* Teams, wires, the gateway, wires, regions: one row, the sides and the wires
-   split into three equal rows so each team lines up with its wire. The strip
+/* Senders, wires, the gateway, wires, models: one row, the sides and the wires
+   split into three equal rows so each sender lines up with its wire. The strip
    overlaps the bottom of the artwork, so Keera stands behind her gate. The
    gateway and the senders take their full width and the wires the rest; the
    destinations are capped, so they wrap onto two lines rather than squeeze
@@ -650,7 +636,7 @@ thead th,
   background: var(--accent);
 }
 /* At rest the requests have gone through: none waits at the door, one has
-   arrived at each region. */
+   arrived at each model. */
 .intro-wires--in span::after {
   opacity: 0;
 }
@@ -696,38 +682,42 @@ thead th,
   .intro-gate {
     animation: intro-rise 0.6s ease-out 0.9s backwards;
   }
+  /* One 5.6s cycle, repeated: in over 0.85s, checks from 1s, out from
+     1.7s, then a rest. The stagger between the three wires is in the delays,
+     so it holds on every pass. */
   .intro-wires--in span::after {
-    animation: intro-in 0.7s ease-in 1.6s backwards;
+    animation: intro-in 5.6s ease-in-out 1.6s infinite backwards;
   }
   .intro-wires--in span:nth-child(2)::after {
-    animation-delay: 1.75s;
+    animation-delay: 1.85s;
   }
   .intro-wires--in span:nth-child(3)::after {
-    animation-delay: 1.9s;
+    animation-delay: 2.1s;
   }
   .intro-gateway {
     animation: intro-arm 0.4s ease-out 2.2s backwards;
   }
   .intro-checks li {
-    animation: intro-check 0.3s ease-out 2.4s backwards;
+    animation: intro-check 5.6s ease-in-out 2.6s infinite backwards;
   }
   .intro-checks li:nth-child(2) {
-    animation-delay: 2.6s;
+    animation-delay: 2.85s;
   }
   .intro-checks li:nth-child(3) {
-    animation-delay: 2.8s;
+    animation-delay: 3.1s;
   }
   .intro-wires--out span::after {
-    animation: intro-out 0.7s ease-out 3s backwards;
+    animation: intro-out 5.6s ease-in-out 3.3s infinite backwards;
   }
   .intro-wires--out span:nth-child(2)::after {
-    animation-delay: 3.15s;
+    animation-delay: 3.55s;
   }
   .intro-wires--out span:nth-child(3)::after {
-    animation-delay: 3.3s;
+    animation-delay: 3.8s;
   }
 }
-/* Each keyframe names only where a part starts; it ends on the rule above. */
+/* The one-shot keyframes name only where a part starts and end on the rule
+   above; the looping ones spell out the whole cycle. */
 @keyframes intro-rise {
   from {
     opacity: 0;
@@ -740,12 +730,20 @@ thead th,
   }
 }
 @keyframes intro-in {
-  from {
-    opacity: 1;
+  0% {
+    opacity: 0;
     transform: translateX(0);
   }
-  to {
+  3% {
     opacity: 1;
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(calc(100cqw - 6px));
+  }
+  18%,
+  100% {
+    opacity: 0;
     transform: translateX(calc(100cqw - 6px));
   }
 }
@@ -755,17 +753,34 @@ thead th,
   }
 }
 @keyframes intro-check {
-  from {
+  0% {
+    opacity: 0.3;
+  }
+  6%,
+  50% {
+    opacity: 1;
+  }
+  65%,
+  100% {
     opacity: 0.3;
   }
 }
 @keyframes intro-out {
-  from {
+  0% {
     opacity: 0;
     transform: translateX(0);
   }
-  20% {
+  4% {
     opacity: 1;
+  }
+  15%,
+  70% {
+    opacity: 1;
+    transform: translateX(calc(100cqw - 6px));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(100cqw - 6px));
   }
 }
 
@@ -797,14 +812,24 @@ thead th,
   background: var(--accent-hover);
   border-color: var(--accent-hover);
 }
-/* The outlined secondary. Its border is --muted rather than --line, because it
-   sits on a band--alt where --line is barely darker than --surface. */
+/* The outlined secondary, and the look of the header login and its copy in
+   the phone menu. Its border is --muted rather than --line, because it sits on
+   a band--alt where --line is barely darker than --surface. The menu copy is
+   named in full, to outrank the menu's own link rules. */
+.btn--quiet,
+.header-login,
+.site-menu-state:checked ~ .site-nav a.nav-login {
+  border: 1px solid var(--muted);
+  border-radius: 8px;
+  color: var(--ink);
+}
 .btn--quiet {
   background: transparent;
-  color: var(--ink);
-  border-color: var(--muted);
 }
-.btn--quiet:hover {
+.btn--quiet:hover,
+.header-login:hover,
+.site-menu-state:checked ~ .site-nav a.nav-login:hover {
+  text-decoration: none;
   background: var(--card);
   border-color: var(--ink);
 }
@@ -973,7 +998,8 @@ thead th,
 .plain-list,
 .partners,
 .customer-list,
-.flow-steps {
+.flow-steps,
+.fleet-chips {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1198,7 +1224,71 @@ thead th,
   }
 }
 
-/* Three teams, three ways out: the counter-image to #solution's one stack. The
+/* How Keera Agents runs, on agents.html: one column from the top down, where
+   work comes from, the agent in its sandbox, Keera Gateway, the models. Top to
+   bottom rather than the flow's left to right, so the two diagrams do not
+   read as the same picture. The agent is the box in the accent, since the page
+   is about it. The joining lines are pseudo-elements: grey where work arrives,
+   accent where a model call travels. */
+.fleet {
+  --fleet-gap: 30px;
+  display: grid;
+  justify-items: center;
+  gap: var(--fleet-gap);
+}
+.fleet > * {
+  position: relative;
+}
+.fleet > * + *::before {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--fleet-gap));
+  left: calc(50% - 1px);
+  width: 2px;
+  height: var(--fleet-gap);
+  background: var(--muted);
+  opacity: 0.55;
+}
+.fleet > .fleet-box--agent ~ *::before {
+  background: var(--accent);
+  opacity: 1;
+}
+.fleet-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.fleet-chips li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  padding: 3px 12px;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+}
+.fleet-box {
+  width: min(100%, 440px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 14px 20px;
+  text-align: center;
+}
+.fleet-box--agent {
+  border-color: var(--accent);
+}
+.fleet-box--agent .fleet-title {
+  color: var(--accent);
+}
+.fleet-box .fleet-text {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 15.5px;
+}
+
+/* Three teams, three ways out: the counter-image to #control's one stack. The
    crossing paths are the argument, and they are the one SVG among the diagrams,
    because crossing diagonals are what HTML boxes cannot draw. */
 .sprawl {
@@ -1230,9 +1320,9 @@ thead th,
   font-size: 11.5px;
   color: var(--muted);
 }
-/* The viewBox stretches to the middle column, so the path ends stay on the node
-   rows at any width; non-scaling strokes keep the hairlines hairlines. */
-/* Side, links, side fill the first row in source order. */
+/* Side, links, side fill the first row in source order. The viewBox stretches
+   to the middle column, so the path ends stay on the node rows at any width;
+   non-scaling strokes keep the hairlines hairlines. */
 .sprawl-links {
   width: 100%;
   height: 100%;
@@ -1243,8 +1333,8 @@ thead th,
 }
 /* The mono line under the gap, the way .flow-branch hangs under the gateway. In
    --err, because it is the one line in the figure that names a fault rather
-   than a fact. 6.1:1 on the light band, 8.7:1 on the dark one. */
-/* Its column alone places it: past the first row, it opens the second. */
+   than a fact. 6.1:1 on the light band, 8.7:1 on the dark one. Its column
+   alone places it: past the first row, it opens the second. */
 .sprawl-void {
   grid-column: 2;
   color: var(--err);
@@ -1565,9 +1655,10 @@ figure figcaption {
 }
 
 /* ---------- faq ---------- */
-/* The questions at the foot of gateway.html, engine.html and chat.html, each a
-   <details> the visitor opens: the list is read by scanning the questions, and
-   a disclosure needs no JavaScript. The native marker is kept rather than drawn. */
+/* The questions at the foot of gateway.html, engine.html, agents.html and
+   chat.html, each a <details> the visitor opens: the list is read by scanning
+   the questions, and a disclosure needs no JavaScript. The native marker is
+   kept rather than drawn. */
 .faq {
   max-width: var(--prose);
   border-top: 1px solid var(--line);

@@ -1,6 +1,6 @@
 /* Submit handler for the #contact form: posts to Formspree over fetch so the
    visitor never leaves the page. Every message comes from the data-cf-*
-   attributes on the form, so one file serves all twelve forms in all three
+   attributes on the form, so one file serves all fifteen forms in all three
    languages. */
 (function () {
   var SEL = "form[data-contact-form]";

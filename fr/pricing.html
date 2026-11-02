@@ -19,6 +19,14 @@
     />
     <link
       rel="preload"
+      href="../assets/img/keera-comparing-plans-on-a-tablet.webp"
+      as="image"
+      imagesrcset="../assets/img/keera-comparing-plans-on-a-tablet-400.webp 400w, ../assets/img/keera-comparing-plans-on-a-tablet-640.webp 640w, ../assets/img/keera-comparing-plans-on-a-tablet.webp 900w"
+      imagesizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
       href="../assets/fonts/space-grotesk-latin.woff2"
       as="font"
       type="font/woff2"
@@ -154,7 +162,6 @@
             width="24"
             height="24"
             alt=""
-            aria-hidden="true"
           /><span>Keera</span></a
         >
         <span class="lang"
@@ -181,9 +188,10 @@
         >
         <nav class="site-nav" aria-label="Navigation principale">
           <a href="gateway">Gateway</a
-          ><a href="models">Modèles</a
+          ><a href="agents">Agents</a
           ><a href="chat">Chat</a
           ><a href="engine">Inférence</a
+          ><a href="models">Modèles</a
           ><a href="pricing" aria-current="page">Tarifs</a
           ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
           ><details class="nav-group">
@@ -200,9 +208,9 @@
       </div>
     </header>
     <main id="main" tabindex="-1">
-      <section class="hero">
+      <section class="hero hero--split">
         <div class="wrap">
-          <div class="prose">
+          <div>
             <p class="eyebrow">Tarifs · Keera Gateway</p>
             <h1>Commencer gratuitement, grandir avec le volume</h1>
             <p class="lede">
@@ -216,6 +224,18 @@
               <a class="arrow" href="gateway">Voir Keera Gateway &#x2794;</a>
             </p>
           </div>
+          <figure class="hero-art">
+            <img
+              src="../assets/img/keera-comparing-plans-on-a-tablet.webp"
+              srcset="../assets/img/keera-comparing-plans-on-a-tablet-400.webp 400w, ../assets/img/keera-comparing-plans-on-a-tablet-640.webp 640w, ../assets/img/keera-comparing-plans-on-a-tablet.webp 900w"
+              sizes="(max-width: 780px) min(360px, 100vw - 40px), min(395px, 38vw)"
+              width="900"
+              height="634"
+              alt="Keera, le menton dans la main, compare trois formules sur une tablette"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
@@ -224,11 +244,10 @@
           <div class="prose">
             <h2>Trois façons d'exploiter Keera Gateway</h2>
             <p>
-              Swiss Cloud tourne sur une instance partagée chez un fournisseur
-              cloud suisse. Plus de contrôle, les groupes de votre annuaire, un
-              centre de données que vous choisissez&nbsp;: votre entreprise
-              reçoit alors sa propre instance. Le prix s'entend par
-              organisation, <strong>pas par utilisateur</strong>.
+              Plus de contrôle, les groupes de votre annuaire, un centre de
+              données de votre choix&nbsp;? Votre entreprise reçoit alors sa
+              propre instance. Les prix s'entendent par organisation,
+              <strong>pas par utilisateur</strong>.
             </p>
           </div>
           <div class="grid">
@@ -252,8 +271,8 @@
                 </li>
                 <li>SSO avec fédération des groupes</li>
                 <li>Connexion via LDAP ou Active Directory</li>
-                <li>Support 24/7 en option, en supplément</li>
-                <li>10&#x202F;% de moins avec un contrat annuel&nbsp;: CHF 9&#x202F;612 par an</li>
+                <li>Support 24/7 sur demande</li>
+                <li>10&#x202F;% de moins avec un contrat annuel</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Demander le plan Dédié</a></p>
             </div>
@@ -323,13 +342,31 @@
                   <td role="cell">Même sans connexion</td>
                 </tr>
                 <tr role="row">
+                  <th scope="row" role="rowheader"><a href="gateway">Keera Gateway</a></th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader"><a href="agents">Keera Agents</a></th>
+                  <td role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">Non</span></td>
+                  <td role="cell">Sur demande</td>
+                  <td role="cell">Sur demande</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader"><a href="chat">Keera Chat</a></th>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
+                </tr>
+                <tr role="row">
                   <th scope="row" role="rowheader"><a href="engine">Keera Engine</a></th>
                   <td role="cell">Sur demande</td>
                   <td role="cell">Sur demande</td>
                   <td role="cell">Sur demande</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader"><a href="chat">Keera Chat</a></th>
+                  <th scope="row" role="rowheader"><a href="models">Catalogue de modèles</a></th>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
@@ -347,12 +384,6 @@
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Tous les fournisseurs de modèles</th>
-                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
-                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
-                  <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
-                </tr>
-                <tr role="row">
                   <th scope="row" role="rowheader">SSO</th>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
@@ -360,20 +391,20 @@
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Fédération des groupes</th>
-                  <td class="no" role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">Non</span></td>
+                  <td role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">Non</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">LDAP et Active Directory</th>
-                  <td class="no" role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">Non</span></td>
+                  <td role="cell"><span aria-hidden="true">–</span><span class="visually-hidden">Non</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Support</th>
                   <td role="cell">E-mail</td>
-                  <td role="cell">Heures de bureau, 24/7 en supplément</td>
+                  <td role="cell">Heures de bureau, 24/7 sur demande</td>
                   <td role="cell">24/7</td>
                 </tr>
               </tbody>
@@ -469,6 +500,14 @@
                   Keera Gateway</label
                 >
                 <label class="choice"
+                  ><input type="checkbox" name="Intérêt" value="Keera Agents" />
+                  Keera Agents</label
+                >
+                <label class="choice"
+                  ><input type="checkbox" name="Intérêt" value="Keera Chat" />
+                  Keera Chat</label
+                >
+                <label class="choice"
                   ><input type="checkbox" name="Intérêt" value="Keera Engine" />
                   Keera Engine</label
                 >
@@ -514,6 +553,7 @@
             <ul>
               <li><a href="gateway">Keera Gateway</a></li>
               <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
               <li><a href="chat">Keera Chat</a></li>
               <li><a href="models">Modèles</a></li>
               <li><a href="pricing">Tarifs</a></li>

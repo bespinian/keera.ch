@@ -126,7 +126,7 @@
                 "name": "Speichert Keera Gateway meine Prompts?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Nein. Weder der Prompt noch die Antwort des Modells wird gespeichert - der Inhalt läuft durch und ist danach weg. Festgehalten wird die Anfrage selbst: wer, wann, welches Modell, wie viele Tokens, welcher Entscheid. Genau daraus entstehen die Kosten pro Team und der Nachweis, und das Log liegt in deiner Infrastruktur."
+                  "text": "Nein. Weder der Prompt noch die Antwort wird gespeichert. Festgehalten wird nur die Anfrage: wer, wann, welches Modell, wie viele Tokens, welcher Entscheid. Daraus entstehen die Kosten pro Team und der Nachweis, und das Log bleibt in deiner Infrastruktur."
                 }
               },
               {
@@ -134,7 +134,7 @@
                 "name": "Macht uns Keera Gateway sicherer?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ja, vor allem über die Schlüssel. Die API-Schlüssel für alle Modelle liegen an einem Ort statt verstreut in .env-Dateien, CI-Secrets und auf Laptops. Du gibst sie pro Team frei und ziehst sie an einem Ort zurück. Deine Anwendungen bekommen den echten Schlüssel nie zu sehen."
+                  "text": "Ja, vor allem über die Schlüssel. Die Schlüssel für alle Modelle liegen an einem Ort statt in .env-Dateien, CI-Secrets und auf Laptops. Du gibst sie pro Team frei, ziehst sie an einem Ort zurück, und deine Anwendungen sehen den echten Schlüssel nie."
                 }
               },
               {
@@ -142,7 +142,7 @@
                 "name": "Hilft mir Keera Gateway beim EU AI Act?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ja. Der AI Act verlangt, dass du belegen kannst, was dein Unternehmen mit KI tut. Das Gateway protokolliert jede Anfrage mit Identität, Modell und Entscheid und zeigt dir Nutzung und Kosten pro Team. Die Belege sind da, wenn jemand fragt. Die Compliance-Arbeit bleibt deine."
+                  "text": "Ja. Der AI Act verlangt, dass du belegen kannst, was dein Unternehmen mit KI tut. Das Gateway protokolliert jede Anfrage mit Identität, Modell und Entscheid, also sind die Belege da, wenn jemand fragt. Die Compliance-Arbeit bleibt deine."
                 }
               },
               {
@@ -150,7 +150,7 @@
                 "name": "Wie unterscheidet sich Keera Gateway von anderen AI Gateways?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Routen können andere auch, und als Open Source kostet das nichts. Drei Dinge kommen dabei nicht mit. Wir betreiben das Gateway in Schweizer Rechenzentren, du bekommst Enterprise-Support direkt von uns mit einem Ansprechpartner in der Schweiz, und die Keera-Modelle stehen vom ersten Tag an dahinter. Dafür braucht es keinen eigenen Client und keine eigene Library: deine Tools sprechen weiter die APIs, die sie schon sprechen, und du änderst eine Base-URL. Das hält dich unabhängig - auch von uns. Den Quellcode liest du auf GitHub."
+                  "text": "Routen können andere auch, und als Open Source kostet das nichts. Bei Keera kommen dazu: das Gateway in Schweizer Rechenzentren, Enterprise-Support direkt aus der Schweiz und offene Modelle aus der Schweiz vom ersten Tag an. Deine Tools ändern nur eine Base-URL und behalten ihre APIs. So bleibst du unabhängig - auch von uns. Den Quellcode liest du auf GitHub."
                 }
               },
               {
@@ -166,7 +166,7 @@
                 "name": "Kostet Keera Gateway Latenz?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Sehr wenig. Der Weg durch Policy, Budget und Log kostet Mikrosekunden - neben einer Modellantwort, die Sekunden dauert, fällt das nicht auf. Nur wer Smart Filters oder Smart Routers einschaltet, kauft sich den kleinen Modellaufruf bewusst dazu."
+                  "text": "Sehr wenig. Policy, Budget und Log kosten Mikrosekunden, neben einer Modellantwort, die Sekunden dauert. Nur Smart Filters und Smart Routers bringen einen kleinen Modellaufruf dazu, und die schaltest du selbst ein."
                 }
               },
               {
@@ -174,7 +174,7 @@
                 "name": "Ist Keera Gateway leichtgewichtig?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ja. Es braucht sehr wenig Arbeitsspeicher und ist schnell. Keine schwere Laufzeit, keine Farm aus Diensten davor - du stellst es neben deine Anwendungen, ohne dafür eine eigene Plattform zu bauen."
+                  "text": "Ja. Wenig Arbeitsspeicher, keine schwere Laufzeit, keine Farm aus Diensten davor. Du stellst es neben deine Anwendungen, ohne dafür eine Plattform zu bauen."
                 }
               },
               {
@@ -182,7 +182,7 @@
                 "name": "Ist Keera Gateway cloud-native?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ja, Cloud und Kubernetes sind sein Zuhause. Es läuft als Container, skaliert horizontal und nimmt seine Konfiguration aus dem Cluster. In deiner Cloud, in deinem Cluster oder im eigenen Rechenzentrum ist es dieselbe Software."
+                  "text": "Ja. Es läuft als Container, skaliert horizontal und nimmt seine Konfiguration aus dem Cluster. In deiner Cloud, deinem Cluster oder im eigenen Rechenzentrum ist es dieselbe Software."
                 }
               }
             ]
@@ -203,7 +203,6 @@
             width="24"
             height="24"
             alt=""
-            aria-hidden="true"
           /><span>Keera</span></a
         >
         <span class="lang"
@@ -230,9 +229,10 @@
         >
         <nav class="site-nav" aria-label="Hauptnavigation">
           <a href="gateway" aria-current="page">Gateway</a
-          ><a href="models">Modelle</a
+          ><a href="agents">Agents</a
           ><a href="chat">Chat</a
           ><a href="engine">Inference</a
+          ><a href="models">Modelle</a
           ><a href="pricing">Preise</a
           ><a href="https://docs.keera.ch" target="_blank" rel="noopener">Docs</a
           ><details class="nav-group">
@@ -271,10 +271,10 @@
             <p class="eyebrow">Keera Gateway</p>
             <h1>Ein Endpunkt für jedes Modell im Unternehmen</h1>
             <p class="lede">
-              Keera Gateway ist ein LLM-Gateway aus der Schweiz. Zwischen deinen
-              Teams und jedem Modell steht eine Base-URL: Keera-Modelle, deine
-              eigenen Fine-Tunes und externe Anbieter, wo die Policy es zulässt.
-              Policies, Budgets und Audit an einem Ort.
+              Keera Gateway ist ein LLM-Gateway aus der Schweiz. Deine Teams
+              erreichen jedes Modell über eine Base-URL, externe Anbieter nur,
+              wo deine Policy es zulässt. Policies, Budgets und Audit an einem
+              Ort.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Kostenlos starten</a>
@@ -340,9 +340,8 @@
           </figure>
           <p class="note">
             OpenAI- und Anthropic-kompatibel: bestehende SDKs und Agenten
-            wechseln mit einer Umgebungsvariable. Welche Anbieter und Modelle
-            Keera Gateway kennt, steht im <a href="models">Modellkatalog</a>.
-            Wie du deine Tools anschliesst, steht in der
+            wechseln mit einer Umgebungsvariable. Anbieter und Modelle stehen im
+            <a href="models">Modellkatalog</a>, die Einrichtung in der
             <a href="https://docs.keera.ch/use/connect/" target="_blank" rel="noopener">Dokumentation</a>.
           </p>
         </div>
@@ -397,23 +396,19 @@
           <div class="prose">
             <h2>Web-UI oder CLI, dieselbe Kontrolle</h2>
             <p>
-              Du verwaltest das Gateway über eine aufgeräumte Web-UI: Policies,
-              Budgets, Teams, Modelle und jede einzelne Session sind ein paar
-              Klicks entfernt. Wer lieber tippt oder automatisiert, nimmt die
-              keera CLI - gleicher Funktionsumfang, skriptbar und reif für deine
-              Pipeline. Beide Wege schreiben dieselbe versionierte Policy: was
-              du im Browser klickst, liest die CLI - und umgekehrt. Wer im
-              Unternehmen einfach chatten will, nimmt
-              <a href="chat">Keera Chat</a> im Browser: Jede
-              Nachricht läuft durch dasselbe Gateway, unter derselben Policy.
+              Policies, Budgets, Teams, Modelle und jede Session sind in der
+              Web-UI ein paar Klicks entfernt. Die keera CLI kann dasselbe im
+              Skript oder in deiner Pipeline, und beide schreiben dieselbe
+              versionierte Policy. Wer einfach chatten will, öffnet
+              <a href="chat">Keera Chat</a>, unter derselben Policy.
             </p>
             <p>
-              Und weil jede Anfrage über denselben Endpunkt läuft, siehst du zum
-              ersten Mal, was dein Unternehmen mit LLMs wirklich tut. Die Live
-              Map zieht eine Linie dort, wo eine Anfrage dein Netz verlässt, und
-              zeigt, wie viele Tokens und Franken draussen landen. Tokens,
-              Kosten und abgelehnte Anfragen pro Team, Modell und Zeitraum gibt
-              es im Browser oder als CSV für deine eigenen Auswertungen.
+              Weil jede Anfrage über einen Endpunkt läuft, siehst du endlich,
+              was dein Unternehmen mit LLMs tut. Die Live Map zieht eine Linie
+              dort, wo eine Anfrage dein Netz verlässt, und zeigt, wie viele
+              Tokens und Franken draussen landen. Tokens, Kosten und abgelehnte
+              Anfragen pro Team, Modell und Zeitraum gibt es im Browser oder als
+              CSV.
             </p>
           </div>
           <figure class="figure figure--shot">
@@ -446,8 +441,8 @@
           <div class="prose">
             <h2>Features von Keera Gateway</h2>
             <p>
-              Das Gateway ist mehr als ein Proxy. Hier sind einige seiner
-              stärksten Features - jedes davon in der Web-UI und in der CLI.
+              Mehr als ein Proxy: Jedes dieser Features funktioniert in der
+              Web-UI und in der CLI.
             </p>
           </div>
           <div class="grid">
@@ -515,22 +510,20 @@
             <details>
               <summary>Speichert Keera Gateway meine Prompts?</summary>
               <p>
-                Nein. Weder der Prompt noch die Antwort des Modells wird
-                gespeichert - der Inhalt läuft durch und ist danach weg.
-                Festgehalten wird die Anfrage selbst: wer, wann, welches Modell,
-                wie viele Tokens, welcher Entscheid. Genau daraus entstehen die
-                Kosten pro Team und der Nachweis, und das Log liegt in deiner
+                Nein. Weder der Prompt noch die Antwort wird gespeichert.
+                Festgehalten wird nur die Anfrage: wer, wann, welches Modell,
+                wie viele Tokens, welcher Entscheid. Daraus entstehen die Kosten
+                pro Team und der Nachweis, und das Log bleibt in deiner
                 Infrastruktur.
               </p>
             </details>
             <details>
               <summary>Macht uns Keera Gateway sicherer?</summary>
               <p>
-                Ja, vor allem über die Schlüssel. Die API-Schlüssel für alle
-                Modelle liegen an einem Ort statt verstreut in .env-Dateien,
-                CI-Secrets und auf Laptops. Du gibst sie pro Team frei und
-                ziehst sie an einem Ort zurück. Deine Anwendungen bekommen den
-                echten Schlüssel nie zu sehen.
+                Ja, vor allem über die Schlüssel. Die Schlüssel für alle Modelle
+                liegen an einem Ort statt in .env-Dateien, CI-Secrets und auf
+                Laptops. Du gibst sie pro Team frei, ziehst sie an einem Ort
+                zurück, und deine Anwendungen sehen den echten Schlüssel nie.
               </p>
             </details>
             <details>
@@ -538,9 +531,8 @@
               <p>
                 Ja. Der AI Act verlangt, dass du belegen kannst, was dein
                 Unternehmen mit KI tut. Das Gateway protokolliert jede Anfrage
-                mit Identität, Modell und Entscheid und zeigt dir Nutzung und
-                Kosten pro Team. Die Belege sind da, wenn jemand fragt. Die
-                Compliance-Arbeit bleibt deine.
+                mit Identität, Modell und Entscheid, also sind die Belege da,
+                wenn jemand fragt. Die Compliance-Arbeit bleibt deine.
               </p>
             </details>
             <details>
@@ -549,17 +541,13 @@
               </summary>
               <p>
                 Routen können andere auch, und als Open Source kostet das
-                nichts. Drei Dinge kommen dabei nicht mit. Wir betreiben das
-                Gateway in Schweizer Rechenzentren, du bekommst
-                Enterprise-Support direkt von uns mit einem Ansprechpartner in
-                der Schweiz, und die Keera-Modelle stehen vom ersten Tag an
-                dahinter. Dafür braucht es keinen eigenen Client und keine
-                eigene Library: deine Tools sprechen weiter die APIs, die sie
-                schon sprechen, und du änderst eine Base-URL. Das hält dich
+                nichts. Bei Keera kommen dazu: das Gateway in Schweizer
+                Rechenzentren, Enterprise-Support direkt aus der Schweiz und
+                offene Modelle aus der Schweiz vom ersten Tag an. Deine Tools
+                ändern nur eine Base-URL und behalten ihre APIs. So bleibst du
                 unabhängig - auch von uns. Den Quellcode liest du
-                <a href="https://github.com/bespinian/keera-gateway"
-                  >auf GitHub</a
-                >.
+                <a href="https://github.com/bespinian/keera-gateway">auf
+                GitHub</a>.
               </p>
             </details>
             <details>
@@ -574,28 +562,26 @@
             <details>
               <summary>Kostet Keera Gateway Latenz?</summary>
               <p>
-                Sehr wenig. Der Weg durch Policy, Budget und Log kostet
-                Mikrosekunden - neben einer Modellantwort, die Sekunden dauert,
-                fällt das nicht auf. Nur wer Smart Filters oder Smart Routers
-                einschaltet, kauft sich den kleinen Modellaufruf bewusst dazu.
+                Sehr wenig. Policy, Budget und Log kosten Mikrosekunden, neben
+                einer Modellantwort, die Sekunden dauert. Nur Smart Filters und
+                Smart Routers bringen einen kleinen Modellaufruf dazu, und die
+                schaltest du selbst ein.
               </p>
             </details>
             <details>
               <summary>Ist Keera Gateway leichtgewichtig?</summary>
               <p>
-                Ja. Es braucht sehr wenig Arbeitsspeicher und ist schnell. Keine
-                schwere Laufzeit, keine Farm aus Diensten davor - du stellst es
-                neben deine Anwendungen, ohne dafür eine eigene Plattform zu
-                bauen.
+                Ja. Wenig Arbeitsspeicher, keine schwere Laufzeit, keine Farm
+                aus Diensten davor. Du stellst es neben deine Anwendungen, ohne
+                dafür eine Plattform zu bauen.
               </p>
             </details>
             <details>
               <summary>Ist Keera Gateway cloud-native?</summary>
               <p>
-                Ja, Cloud und Kubernetes sind sein Zuhause. Es läuft als
-                Container, skaliert horizontal und nimmt seine Konfiguration aus
-                dem Cluster. In deiner Cloud, in deinem Cluster oder im eigenen
-                Rechenzentrum ist es dieselbe Software.
+                Ja. Es läuft als Container, skaliert horizontal und nimmt seine
+                Konfiguration aus dem Cluster. In deiner Cloud, deinem Cluster
+                oder im eigenen Rechenzentrum ist es dieselbe Software.
               </p>
             </details>
           </div>
@@ -684,6 +670,22 @@
                   ><input
                     type="checkbox"
                     name="Interesse"
+                    value="Keera Agents"
+                  />
+                  Keera Agents</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interesse"
+                    value="Keera Chat"
+                  />
+                  Keera Chat</label
+                >
+                <label class="choice"
+                  ><input
+                    type="checkbox"
+                    name="Interesse"
                     value="Keera Engine"
                   />
                   Keera Engine</label
@@ -730,6 +732,7 @@
             <ul>
               <li><a href="gateway">Keera Gateway</a></li>
               <li><a href="engine">Keera Engine</a></li>
+              <li><a href="agents">Keera Agents</a></li>
               <li><a href="chat">Keera Chat</a></li>
               <li><a href="models">Modelle</a></li>
               <li><a href="pricing">Preise</a></li>
