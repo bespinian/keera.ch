@@ -12,9 +12,9 @@ thirteen under `en/` and `fr/` - plus `404.html`. No build step: every push to
 - Every page exists three times. A change to one language is a change to all
   three, and copies of shared markup (icons, logos, header, footer, form) stay
   identical.
-- The site runs four scripts and no others: `contact-form.js` on pages with a
-  form, `google-tag.js` and the hosted Simple Analytics tag on every content
-  page, `language.js` on the German home page.
+- The site runs three scripts and no others: `contact-form.js` on pages with a
+  form, `google-tag.js` on every content page, `language.js` on the German home
+  page.
 - A new third-party script, host or processor goes into `privacy.html`, in all
   three languages, before it ships.
 
@@ -374,12 +374,12 @@ when Formspree accepts.
 
 ## Assets
 
-- **`google-tag.js`** (Google Ads `AW-18327942303`) loads `defer`, last in the
-  head, on every content page because an ad can land anywhere. It fetches
-  gtag.js itself on `load`, after the paint; do not put a markup tag back. It
-  sets the site's only cookie and has no consent gate, by decision.
-- **Simple Analytics** is the last thing in the body, `async`; no cookie, no
-  personal data.
+- **`google-tag.js`** (Google Ads `AW-18327942303` and the Google Tag Manager
+  container `GTM-KLJMRV64`, which runs Google Analytics) loads `defer`, last in
+  the head, on every content page because an ad can land anywhere. It fetches
+  gtag.js and gtm.js itself on `load`, after the paint; do not put a markup tag
+  back. Its tags set the site's only cookies and have no consent gate, by
+  decision.
 - **`language.js`** loads without `defer`, ahead of the stylesheet, so the
   redirect happens before the page paints.
 - **Fonts**: JetBrains Mono and Space Grotesk, variable, `latin` and
