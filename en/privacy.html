@@ -6,7 +6,7 @@
     <title>Privacy policy - Keera by bespinian</title>
     <meta
       name="description"
-      content="Privacy policy for keera.ch and Keera Gateway: which personal data bespinian GmbH processes, who receives it, and the rights you have over it."
+      content="Privacy policy for keera.ch, Keera Gateway, Keera Chat and Keera Agents: which personal data bespinian GmbH processes, who receives it, and your rights."
     />
     <link rel="canonical" href="https://keera.ch/en/privacy" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/privacy" />
@@ -56,7 +56,7 @@
     />
     <meta
       property="og:description"
-      content="Privacy policy for keera.ch and Keera Gateway: which personal data bespinian GmbH processes, who receives it, and the rights you have over it."
+      content="Privacy policy for keera.ch, Keera Gateway, Keera Chat and Keera Agents: which personal data bespinian GmbH processes, who receives it, and your rights."
     />
     <meta
       property="og:image"
@@ -160,9 +160,9 @@
             <h1>Privacy policy</h1>
             <p class="lede">
               Which personal data we process on keera.ch and in Keera Gateway,
-              what for, and who receives it.
+              Keera Chat and Keera Agents, what for, and who receives it.
             </p>
-            <p class="note">Last updated: 6 November 2026</p>
+            <p class="note">Last updated: 10 November 2026</p>
           </div>
         </div>
       </section>
@@ -235,11 +235,52 @@
               your organisation's log, which its administrators see.
             </p>
             <p>
-              We do not store prompts or answers. We forward them to the model
-              provider your organisation chose. The shared instance runs at
-              Nine in Switzerland. Your organisation is the controller of the
+              We do not store prompts or answers, and we train no model on them.
+              We forward them to the model provider your organisation chose,
+              which processes them under its own terms. The shared instance
+              runs at Nine in Switzerland. Your organisation is the controller of the
               data in
               its requests; we process it on its behalf.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="chat">
+        <div class="wrap">
+          <div class="prose">
+            <h2>In Keera Chat</h2>
+            <p>
+              Keera Chat keeps your chats only in your browser; we keep no copy.
+              Clearing the site data in your browser deletes them. You sign in
+              with your Keera Gateway account, and a cookie keeps you signed in.
+            </p>
+            <p>
+              Every message goes through Keera Gateway as a request like any
+              other, as described above. If you write to an agent, the message
+              goes to Keera Agents, which keeps what is described below.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="agents">
+        <div class="wrap">
+          <div class="prose">
+            <h2>In Keera Agents</h2>
+            <p>
+              Keera Agents is the one Keera product that keeps content, because
+              an agent needs it to work: its memory, the files in its workspace,
+              and each task's log, so a person can check its work. Finished
+              tasks and their logs are deleted after 90 days, and deleting an
+              agent deletes its workspace.
+            </p>
+            <p>
+              Keera Agents runs on your organisation's Kubernetes cluster, and
+              this data stays there. An agent reads only what your organisation
+              connects to it, such as chats, folders and repositories, and its
+              model calls go through Keera Gateway as described above. Your
+              organisation is the controller of this data.
             </p>
           </div>
         </div>

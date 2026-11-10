@@ -6,7 +6,7 @@
     <title>Politique de confidentialité - Keera by bespinian</title>
     <meta
       name="description"
-      content="Politique de confidentialité de keera.ch et de Keera Gateway : les données personnelles que traite bespinian GmbH, qui les reçoit et vos droits."
+      content="Politique de confidentialité de keera.ch, Keera Gateway, Keera Chat et Keera Agents : les données que traite bespinian GmbH, qui les reçoit et vos droits."
     />
     <link rel="canonical" href="https://keera.ch/fr/privacy" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/privacy" />
@@ -56,7 +56,7 @@
     />
     <meta
       property="og:description"
-      content="Politique de confidentialité de keera.ch et de Keera Gateway : les données personnelles que traite bespinian GmbH, qui les reçoit et vos droits."
+      content="Politique de confidentialité de keera.ch, Keera Gateway, Keera Chat et Keera Agents : les données que traite bespinian GmbH, qui les reçoit et vos droits."
     />
     <meta
       property="og:image"
@@ -160,9 +160,10 @@
             <h1>Politique de confidentialité</h1>
             <p class="lede">
               Quelles données personnelles nous traitons sur keera.ch et dans
-              Keera Gateway, dans quel but, et qui les reçoit.
+              Keera Gateway, Keera Chat et Keera Agents, dans quel but, et qui
+              les reçoit.
             </p>
-            <p class="note">Version du 6&nbsp;novembre 2026</p>
+            <p class="note">Version du 10&nbsp;novembre 2026</p>
           </div>
         </div>
       </section>
@@ -241,11 +242,58 @@
               consultent.
             </p>
             <p>
-              Nous ne conservons ni les prompts ni les réponses. Nous les
-              transmettons au fournisseur de modèles que votre organisation a
-              choisi. L'instance partagée tourne chez Nine en Suisse.
+              Nous ne conservons ni les prompts ni les réponses, et nous
+              n'entraînons aucun modèle avec eux. Nous les transmettons au
+              fournisseur de modèles que votre organisation a choisi, qui les
+              traite selon ses propres conditions. L'instance partagée tourne
+              chez Nine en Suisse.
               Votre organisation est responsable des données de ses
               requêtes&nbsp;; nous les traitons pour son compte.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band" id="chat">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Dans Keera Chat</h2>
+            <p>
+              Keera Chat conserve vos conversations uniquement dans votre
+              navigateur&nbsp;; nous n'en gardons aucune copie. Effacer les
+              données du site dans votre navigateur les supprime. Vous vous
+              connectez avec votre compte Keera Gateway, et un cookie vous garde
+              connecté.
+            </p>
+            <p>
+              Chaque message passe par Keera Gateway comme toute autre requête,
+              ainsi que décrit ci-dessus. Si vous écrivez à un agent, le message
+              va à Keera Agents, qui conserve ce qui est décrit ci-dessous.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="agents">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Dans Keera Agents</h2>
+            <p>
+              Keera Agents est le seul produit Keera qui conserve du contenu,
+              parce qu'un agent en a besoin pour travailler&nbsp;: sa mémoire,
+              les fichiers de son espace de travail et le journal de chaque
+              tâche, pour qu'une personne puisse vérifier son travail. Les
+              tâches terminées et leurs journaux sont supprimés après
+              90&nbsp;jours, et supprimer un agent supprime son espace de
+              travail.
+            </p>
+            <p>
+              Keera Agents tourne sur le cluster Kubernetes de votre
+              organisation, et ces données y restent. Un agent ne lit que ce que
+              votre organisation lui connecte, comme des conversations, des
+              dossiers ou des dépôts, et ses appels aux modèles passent par
+              Keera Gateway comme décrit ci-dessus. Votre organisation est
+              responsable de ces données.
             </p>
           </div>
         </div>
