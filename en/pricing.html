@@ -6,7 +6,7 @@
     <title>Keera Gateway pricing - the Swiss LLM gateway from CHF 0</title>
     <meta
       name="description"
-      content="Keera Gateway pricing: Swiss Cloud with no base fee and unlimited tokens, an instance of your own at CHF 890 a month, or Enterprise on request."
+      content="Keera Gateway pricing: Swiss Cloud with no base fee and no token cap, an instance of your own at CHF 890 a month, or Enterprise on request."
     />
     <link rel="canonical" href="https://keera.ch/en/pricing" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/pricing" />
@@ -64,7 +64,7 @@
     />
     <meta
       property="og:description"
-      content="Keera Gateway pricing: Swiss Cloud with no base fee and unlimited tokens, an instance of your own at CHF 890 a month, or Enterprise on request."
+      content="Keera Gateway pricing: Swiss Cloud with no base fee and no token cap, an instance of your own at CHF 890 a month, or Enterprise on request."
     />
     <meta
       property="og:image"
@@ -116,7 +116,7 @@
                   "priceCurrency": "CHF",
                   "unitCode": "MON"
                 },
-                "description": "Unlimited tokens on a shared instance at a Swiss cloud provider. No base fee, only model usage at the provider's list price.",
+                "description": "No token cap on a shared instance at a Swiss cloud provider. No base fee, only model usage at the provider's list price.",
                 "url": "https://keera.ch/en/pricing"
               },
               {
@@ -124,21 +124,13 @@
                 "name": "Dedicated",
                 "price": "890",
                 "priceCurrency": "CHF",
-                "priceSpecification": [
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "890",
-                    "priceCurrency": "CHF",
-                    "unitCode": "MON"
-                  },
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "9612",
-                    "priceCurrency": "CHF",
-                    "unitCode": "ANN"
-                  }
-                ],
-                "description": "A private dedicated instance at a Swiss cloud provider, SSO with group federation, LDAP and Active Directory, unlimited tokens.",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "890",
+                  "priceCurrency": "CHF",
+                  "unitCode": "MON"
+                },
+                "description": "A private dedicated instance at a Swiss cloud provider, SSO with group federation, LDAP and Active Directory, no token cap.",
                 "url": "https://keera.ch/en/pricing"
               }
             ],
@@ -268,7 +260,6 @@
                 <li>SSO with group federation</li>
                 <li>Sign-in through LDAP or Active Directory</li>
                 <li>24/7 support on request</li>
-                <li>10% off with a yearly contract</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Ask about Dedicated</a></p>
             </div>
@@ -362,13 +353,13 @@
                   <td role="cell">On request</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader"><a href="models">Model Catalogue</a></th>
+                  <th scope="row" role="rowheader"><a href="models">Model catalogue</a></th>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Unlimited tokens</th>
+                  <th scope="row" role="rowheader">No token cap</th>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Yes</span></td>
@@ -407,10 +398,9 @@
             </table>
           </div>
           <p class="note">
-            Prices in Swiss francs per month. A yearly contract takes 10% off
-            the base fee. Model usage comes on top, at each provider's list
-            price, which the <a href="models">model catalogue</a> gives per
-            model.
+            Prices in Swiss francs per month. Model usage comes on top, at
+            each provider's list price, which the
+            <a href="models">model catalogue</a> gives per model.
           </p>
         </div>
       </section>
