@@ -8,7 +8,7 @@
 > that runs any open model on Kubernetes, vLLM and llm-d. Keera Agents runs AI
 > agents that take work in Microsoft Teams and Slack and call every model
 > through the gateway.
-> Inference, logs and backups stay in Swiss data centres.
+> Keera's own inference, logs and backups stay in Swiss data centres.
 
 The site is thirty-nine static pages in three languages. German is the default and
 lives at the root, French under `/fr/` and English under `/en/`, and every page
@@ -18,8 +18,12 @@ copies; every page links its alternates with `rel="alternate" hreflang` in its h
 
 Claims the site makes and stands behind: Keera Engine runs open-weight models on
 Swiss GPUs, so they stay portable; a hosted model abroad is blocked by default
-and opened per team and data class; prompts and the model's answers are never
-stored or used for training; and at peak, requests queue in Switzerland rather
+and opened per team and data class; Keera Gateway never stores prompts or the
+model's answers or trains on them, while each request (who, when, which model,
+how many tokens, which decision) is kept in the customer's audit log; Keera
+Agents is the one place content is kept - an agent's memory, the files in its
+workspace and each task's log for 90 days, so a person can check its work; and
+at peak, requests queue in Switzerland rather
 than failing over abroad.
 
 ## Overview
@@ -31,8 +35,8 @@ than failing over abroad.
 - [Keera Gateway](https://keera.ch/en/gateway): The Swiss LLM gateway: one endpoint between your teams and every model, with policies, budgets and an audit log with no gaps.
 - [Keera Gateway source code](https://github.com/bespinian/keera-gateway): The gateway's Go source, the keera CLI and a single-host compose deployment, under the Keera Community Licence - source-available, not open source: free for evaluation, research, personal use and non-profits, a Keera Enterprise subscription for production use by companies and the public sector.
 - [Keera documentation](https://docs.keera.ch/): User documentation for Keera Gateway and Keera Chat, the browser chat at chat.keera.ch that sends every message through the gateway: getting started, connecting tools, managing an organisation, self-hosting, the API and the CLI.
-- [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and unlimited tokens, an instance of your own at CHF 890 a month, or Enterprise on request.
-- [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, priced in CHF: open models from Switzerland, Mistral from the EU, Claude, GPT and Gemini from the USA, DeepSeek from China.
+- [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and no token cap, an instance of your own at CHF 890 a month, or Enterprise on request.
+- [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, in CHF: Swiss open models, PeakPrivacy, Mistral from the EU, Claude, GPT and Gemini from the USA, DeepSeek from China.
 - [Keera Chat](https://keera.ch/en/chat): Keera Chat is the AI assistant in the browser for everyone in your company. Every message passes through Keera Gateway, and your chats stay in your browser.
 - [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
 - [Keera Agents](https://keera.ch/en/agents): Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway.

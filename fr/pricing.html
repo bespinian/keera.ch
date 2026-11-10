@@ -6,7 +6,7 @@
     <title>Tarifs de Keera Gateway - la passerelle LLM suisse dès CHF 0</title>
     <meta
       name="description"
-      content="Tarifs de Keera Gateway : Swiss Cloud sans frais de base et tokens illimités, votre propre instance à CHF 890 par mois ou Enterprise sur demande."
+      content="Tarifs de Keera Gateway : Swiss Cloud sans frais de base ni plafond de tokens, votre propre instance à CHF 890 par mois ou Enterprise sur demande."
     />
     <link rel="canonical" href="https://keera.ch/fr/pricing" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/pricing" />
@@ -64,7 +64,7 @@
     />
     <meta
       property="og:description"
-      content="Tarifs de Keera Gateway : Swiss Cloud sans frais de base et tokens illimités, votre propre instance à CHF 890 par mois ou Enterprise sur demande."
+      content="Tarifs de Keera Gateway : Swiss Cloud sans frais de base ni plafond de tokens, votre propre instance à CHF 890 par mois ou Enterprise sur demande."
     />
     <meta
       property="og:image"
@@ -116,7 +116,7 @@
                   "priceCurrency": "CHF",
                   "unitCode": "MON"
                 },
-                "description": "Tokens illimités sur une instance partagée chez un fournisseur cloud suisse. Sans frais de base, seulement l'utilisation des modèles au prix catalogue du fournisseur.",
+                "description": "Aucun plafond de tokens sur une instance partagée chez un fournisseur cloud suisse. Sans frais de base, seulement l'utilisation des modèles au prix catalogue du fournisseur.",
                 "url": "https://keera.ch/fr/pricing"
               },
               {
@@ -124,21 +124,13 @@
                 "name": "Dédié",
                 "price": "890",
                 "priceCurrency": "CHF",
-                "priceSpecification": [
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "890",
-                    "priceCurrency": "CHF",
-                    "unitCode": "MON"
-                  },
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "9612",
-                    "priceCurrency": "CHF",
-                    "unitCode": "ANN"
-                  }
-                ],
-                "description": "Une instance privée dédiée chez un fournisseur cloud suisse, SSO avec fédération des groupes, LDAP et Active Directory, tokens illimités.",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "890",
+                  "priceCurrency": "CHF",
+                  "unitCode": "MON"
+                },
+                "description": "Une instance privée dédiée chez un fournisseur cloud suisse, SSO avec fédération des groupes, LDAP et Active Directory, aucun plafond de tokens.",
                 "url": "https://keera.ch/fr/pricing"
               }
             ],
@@ -272,7 +264,6 @@
                 <li>SSO avec fédération des groupes</li>
                 <li>Connexion via LDAP ou Active Directory</li>
                 <li>Support 24/7 sur demande</li>
-                <li>10&#x202F;% de moins avec un contrat annuel</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Demander le plan Dédié</a></p>
             </div>
@@ -372,7 +363,7 @@
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Tokens illimités</th>
+                  <th scope="row" role="rowheader">Aucun plafond de tokens</th>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Oui</span></td>
@@ -411,8 +402,7 @@
             </table>
           </div>
           <p class="note">
-            Prix en francs suisses par mois. Un contrat annuel réduit les
-            frais de base de 10&#x202F;%. L'utilisation des modèles s'y
+            Prix en francs suisses par mois. L'utilisation des modèles s'y
             ajoute, au prix catalogue de chaque fournisseur, détaillé modèle
             par modèle dans le <a href="models">catalogue de modèles</a>.
           </p>

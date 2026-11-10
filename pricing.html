@@ -6,7 +6,7 @@
     <title>Preise für Keera Gateway - das LLM-Gateway ab CHF 0</title>
     <meta
       name="description"
-      content="Preise für Keera Gateway: Swiss Cloud ohne Grundgebühr und mit unbegrenzt Tokens, eine eigene Instanz für CHF 890 im Monat oder Enterprise auf Anfrage."
+      content="Preise für Keera Gateway: Swiss Cloud ohne Grundgebühr und ohne Token-Limit, eine eigene Instanz für CHF 890 im Monat oder Enterprise auf Anfrage."
     />
     <link rel="canonical" href="https://keera.ch/pricing" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/pricing" />
@@ -57,7 +57,7 @@
     />
     <meta
       property="og:description"
-      content="Preise für Keera Gateway: Swiss Cloud ohne Grundgebühr und mit unbegrenzt Tokens, eine eigene Instanz für CHF 890 im Monat oder Enterprise auf Anfrage."
+      content="Preise für Keera Gateway: Swiss Cloud ohne Grundgebühr und ohne Token-Limit, eine eigene Instanz für CHF 890 im Monat oder Enterprise auf Anfrage."
     />
     <meta
       property="og:image"
@@ -109,7 +109,7 @@
                   "priceCurrency": "CHF",
                   "unitCode": "MON"
                 },
-                "description": "Unbegrenzt Tokens auf einer gemeinsamen Instanz bei einem Schweizer Cloud-Anbieter. Keine Grundgebühr, nur die Nutzung der Modelle zum Listenpreis des Anbieters.",
+                "description": "Kein Token-Limit auf einer gemeinsamen Instanz bei einem Schweizer Cloud-Anbieter. Keine Grundgebühr, nur die Nutzung der Modelle zum Listenpreis des Anbieters.",
                 "url": "https://keera.ch/pricing"
               },
               {
@@ -117,21 +117,13 @@
                 "name": "Dedicated",
                 "price": "890",
                 "priceCurrency": "CHF",
-                "priceSpecification": [
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "890",
-                    "priceCurrency": "CHF",
-                    "unitCode": "MON"
-                  },
-                  {
-                    "@type": "UnitPriceSpecification",
-                    "price": "9612",
-                    "priceCurrency": "CHF",
-                    "unitCode": "ANN"
-                  }
-                ],
-                "description": "Private, dedizierte Instanz bei einem Schweizer Cloud-Anbieter, SSO mit Gruppen-Föderation, LDAP und Active Directory, unbegrenzt Tokens.",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "890",
+                  "priceCurrency": "CHF",
+                  "unitCode": "MON"
+                },
+                "description": "Private, dedizierte Instanz bei einem Schweizer Cloud-Anbieter, SSO mit Gruppen-Föderation, LDAP und Active Directory, kein Token-Limit.",
                 "url": "https://keera.ch/pricing"
               }
             ],
@@ -263,7 +255,6 @@
                 <li>SSO mit Gruppen-Föderation</li>
                 <li>Anmeldung über LDAP oder Active Directory</li>
                 <li>24/7-Support auf Anfrage</li>
-                <li>Mit Jahresvertrag 10&nbsp;% günstiger</li>
               </ul>
               <p class="plan-cta"><a class="btn btn--quiet" href="#contact">Dedicated anfragen</a></p>
             </div>
@@ -363,13 +354,13 @@
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Unbegrenzt Tokens</th>
+                  <th scope="row" role="rowheader">Kein Token-Limit</th>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Unbegrenzt API-Schlüssel und Nutzer</th>
+                  <th scope="row" role="rowheader">Unbegrenzt viele API-Schlüssel und Nutzer</th>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
                   <td class="yes" role="cell"><span class="visually-hidden">Ja</span></td>
@@ -402,9 +393,8 @@
             </table>
           </div>
           <p class="note">
-            Preise in Schweizer Franken pro Monat. Mit einem Jahresvertrag
-            sinkt die Grundgebühr um 10&nbsp;%. Die Nutzung der Modelle kommt
-            dazu, zum Listenpreis des jeweiligen Anbieters - pro Modell im
+            Preise in Schweizer Franken pro Monat. Die Nutzung der Modelle
+            kommt dazu, zum Listenpreis des jeweiligen Anbieters - pro Modell im
             <a href="models">Modellkatalog</a>.
           </p>
         </div>
