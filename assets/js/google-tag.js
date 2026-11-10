@@ -10,6 +10,10 @@ function gtag() {
 gtag("js", new Date());
 gtag("config", "AW-18327942303");
 
+/* The start event Google's own GTM snippet pushes. The container's Page View
+   triggers wait for `gtm.js`, so without it GA4 never sees a page. */
+dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+
 /* gtag.js and gtm.js are fetched on `load` rather than from async <script>s in
    the head, so their third-party handshakes and payloads land after the paint
    instead of competing with the hero image. Nothing is lost: the calls above
