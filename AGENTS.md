@@ -424,7 +424,8 @@ Open Graph tags, `twitter:card` (the only Twitter tag) and a JSON-LD `@graph`.
   elsewhere, `SoftwareApplication` on the product pages and pricing (offers
   only), `FAQPage` where there are FAQs. The product nodes keep one `@id` across
   languages, `https://keera.ch/#gateway`, `#engine` and `#agents`. The
-  Organization's only `sameAs` is `linkedin.com/showcase/keera-ai`; add a
+  Organization's `sameAs` lists `linkedin.com/showcase/keera-ai` and
+  `youtube.com/@keera-ai`, the same profiles as the footer's Resources; add a
   profile only once it is real.
 - Each page has its own 1200×630 Open Graph image, `keera-og-<page>.jpg`, on the
   navy of `keera-og-image.jpg`, which the home pages use. Pricing and the model
