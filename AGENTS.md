@@ -128,7 +128,7 @@ What the markup does not already show.
   page's only observability claim and stays; the caption says the figures come
   from a demo instance.
 - **`engine.html`** - `#models` opens on "any open model vLLM can serve". Its
-  mono footnote is load-bearing: the hosted providers (five Swiss, Mistral and
+  mono footnote is load-bearing: the hosted providers (four Swiss, Mistral and
   PeakPrivacy in the EU, Anthropic, OpenAI and Google in the USA, DeepSeek in
   China, all in `models.html`) run on their own infrastructure, are blocked by
   default and are opened per team and data class. It carries the month it was checked: update
@@ -167,10 +167,11 @@ What the markup does not already show.
   `internal/webui/assets/ui.js` in the gateway repo, all three languages at
   once; never retype them. Prices are CHF per million tokens exactly as the
   gateway bills: never round, convert or discount. The Swiss providers come
-  first (stepping stone, Phoeniqs, CSCS, Infomaniak), then PeakPrivacy, whose
+  first (stepping stone, CSCS, Infomaniak), then PeakPrivacy, whose
   one band sits between Switzerland and the EU and gives each row its location,
   then Mistral in the EU, then Anthropic, OpenAI and Google in the USA, then
-  DeepSeek in China.
+  DeepSeek in China. Phoeniqs is in the gateway's catalogue but held off the
+  page for now: drop its band when regenerating, and the counts with it.
   PeakPrivacy is the one exception to the gateway's data: it is not in the
   catalogue yet, so its band (`#peakprivacy`) comes from
   its own price list at `help.peakprivacy.ch` (CHF per 1'000 tokens times 1'000)
