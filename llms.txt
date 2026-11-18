@@ -1,13 +1,13 @@
 # Keera
 
 > Keera is the sovereign AI platform bespinian runs for Swiss companies and
-> public organisations: chat, agents and inference behind one gateway, with
+> public organisations: agents, chat and inference behind one gateway, with
 > open-weight models hosted in Switzerland and the global frontier models.
 > Keera Gateway is an LLM gateway: one endpoint that decides who may use which
-> model for what and logs every request. Keera Engine is the inference engine
-> that runs any open model on Kubernetes, vLLM and llm-d. Keera Agents runs AI
-> agents that take work in Microsoft Teams and Slack and call every model
-> through the gateway.
+> model for what and logs every request. Keera Agents runs AI agents that take
+> work in Microsoft Teams and Slack and call every model through the gateway.
+> Keera Engine is the inference engine that runs any open model on Kubernetes,
+> vLLM and llm-d.
 > Keera's own inference, logs and backups stay in Swiss data centres.
 
 The site is thirty-nine static pages in three languages. German is the default and
@@ -28,7 +28,7 @@ than failing over abroad.
 
 ## Overview
 
-- [Keera](https://keera.ch/en/): Keera is the sovereign AI platform for Swiss companies and public organisations: chat, agents and inference, with full control over cost and data flows.
+- [Keera](https://keera.ch/en/): Keera is the sovereign AI platform for Swiss companies and public organisations: agents, chat and inference, with full control over cost and data flows.
 
 ## Products
 
@@ -37,9 +37,9 @@ than failing over abroad.
 - [Keera documentation](https://docs.keera.ch/): User documentation for Keera Gateway and Keera Chat, the browser chat at chat.keera.ch that sends every message through the gateway: getting started, connecting tools, managing an organisation, self-hosting, the API and the CLI.
 - [Keera Gateway pricing](https://keera.ch/en/pricing): Keera Gateway pricing: Swiss Cloud with no base fee and no token cap, an instance of your own at CHF 890 a month, or Enterprise on request.
 - [Keera Gateway model catalogue](https://keera.ch/en/models): The models behind Keera Gateway, in CHF: Swiss open models, PeakPrivacy, Mistral from the EU, Claude, GPT and Gemini from the USA, DeepSeek from China.
+- [Keera Agents](https://keera.ch/en/agents): Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway.
 - [Keera Chat](https://keera.ch/en/chat): Keera Chat is the AI assistant in the browser for everyone in your company. Every message passes through Keera Gateway, and your chats stay in your browser.
 - [Keera Engine](https://keera.ch/en/engine): The inference engine behind Keera Gateway: any open model on Kubernetes, vLLM and llm-d, on Swiss GPUs or in your own cluster.
-- [Keera Agents](https://keera.ch/en/agents): Keera Agents runs AI agents for your business. They take work in Microsoft Teams and Slack, and every model call passes through Keera Gateway.
 
 ## Background
 
@@ -53,5 +53,5 @@ than failing over abroad.
 - [Français](https://keera.ch/fr/): the same thirteen pages in French.
 - [Imprint](https://keera.ch/en/imprint): Imprint of keera.ch: bespinian GmbH, Sonnenweg 9, 3073 Gümligen, Switzerland, with an office at Kramgasse 68 in Bern. Contact, UID and commercial register.
 - [Terms and conditions](https://keera.ch/en/terms): Terms and conditions for Keera Gateway and Keera Engine by bespinian GmbH: the contract, prices, prepaid credit, data, liability and termination.
-- [Privacy policy](https://keera.ch/en/privacy): Privacy policy for keera.ch, Keera Gateway, Keera Chat and Keera Agents: which personal data bespinian GmbH processes, who receives it, and your rights.
+- [Privacy policy](https://keera.ch/en/privacy): Privacy policy for keera.ch, Keera Gateway, Keera Agents and Keera Chat: which personal data bespinian GmbH processes, who receives it, and your rights.
 - [Sitemap](https://keera.ch/sitemap.xml): all thirty-nine URLs with their language alternates.

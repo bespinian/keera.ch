@@ -1,9 +1,7 @@
 /* Sends a first-time visitor on the German home page to the language their
-   browser asks for: French to /fr/, anything that is not German to /en/. The
-   Apache host did this with an Accept-Language rewrite, and GitHub Pages
-   serves static files only, so the rule runs here instead - on the German root
-   alone. Deep links and the other two home pages never negotiate, exactly as
-   before.
+   browser asks for: French to /fr/, anything that is not German to /en/.
+   GitHub Pages serves static files only, so the rule runs here - on the German
+   root alone. Deep links and the other two home pages never negotiate.
 
    Loaded without `defer` and ahead of the stylesheet, so the redirect fires
    while the page is still parsing rather than after a flash of German. */
@@ -26,7 +24,7 @@
   /* Crawlers render this page in headless Chrome with no referrer, an empty
      sessionStorage and an en-US locale, so they would follow the redirect and
      index /en/ in place of the German root that hreflang and x-default name.
-     They get the page as served, as they did from Apache. */
+     They get the page as served. */
   if (
     navigator.webdriver ||
     /bot|crawl|spider|slurp|google|headless/i.test(navigator.userAgent)

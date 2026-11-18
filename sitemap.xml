@@ -50,30 +50,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/gateway"/>
   </url>
   <url>
-    <loc>https://keera.ch/engine</loc>
-    <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
-  </url>
-  <url>
-    <loc>https://keera.ch/en/engine</loc>
-    <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
-  </url>
-  <url>
-    <loc>https://keera.ch/fr/engine</loc>
-    <lastmod>2026-11-18</lastmod>
-    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
-  </url>
-  <url>
     <loc>https://keera.ch/agents</loc>
     <lastmod>2026-11-02</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/agents"/>
@@ -120,6 +96,30 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/chat"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/chat"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/chat"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/engine</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/en/engine</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
+  </url>
+  <url>
+    <loc>https://keera.ch/fr/engine</loc>
+    <lastmod>2026-11-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/engine"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/engine"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/engine"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://keera.ch/engine"/>
   </url>
   <url>
     <loc>https://keera.ch/pricing</loc>
@@ -291,7 +291,7 @@
   </url>
   <url>
     <loc>https://keera.ch/privacy</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/privacy"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/privacy"/>
@@ -299,7 +299,7 @@
   </url>
   <url>
     <loc>https://keera.ch/en/privacy</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/privacy"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/privacy"/>
@@ -307,7 +307,7 @@
   </url>
   <url>
     <loc>https://keera.ch/fr/privacy</loc>
-    <lastmod>2026-11-10</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <xhtml:link rel="alternate" hreflang="de" href="https://keera.ch/privacy"/>
     <xhtml:link rel="alternate" hreflang="fr" href="https://keera.ch/fr/privacy"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://keera.ch/en/privacy"/>

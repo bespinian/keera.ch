@@ -56,20 +56,16 @@ thirteen under `en/` and `fr/` - plus `404.html`. No build step: every push to
 ## Positioning
 
 - **Keera is the sovereign AI platform** for Swiss companies and public
-  organisations, and the home page says so: batteries included (chat, agents,
+  organisations, and the home page says so: batteries included (agents, chat,
   inference, every model behind one gateway), full control over cost and where
   the data flows, open-weight models hosted in Switzerland beside the global
   frontier models. The product pages keep their own product; only the home page
   and `llms.txt`'s opening present the whole platform.
-- **Keera Gateway comes first** wherever the three products are listed: nav,
-  footer, form checkboxes, sitemap, `llms.txt`, opening sentences. The home
-  page's `#platform` cards and the form checkboxes, the lists that include Keera
-  Chat, follow the nav: Gateway, Agents, Chat, Engine. The gateway is the
-  wedge - it also governs the models a customer already pays for - and Keera
-  Engine is the next step. Keera Agents comes third, after the engine,
-  everywhere but the nav, the home cards, the form checkboxes and the product
-  rows of `pricing.html`'s `.plan-table` (Gateway, Agents, Chat, Engine), where
-  it follows the gateway.
+- **One product order everywhere: Gateway, Agents, Chat, Engine** - nav,
+  footer, home cards, form checkboxes, `.plan-table`, sitemap, `llms.txt` and
+  any sentence that lists them; a list without one drops it and keeps the rest
+  in order. The gateway comes first because it is the wedge: it also governs
+  the models a customer already pays for.
 - **Keera Engine is a model-agnostic inference engine** on open technology
   (Kubernetes, vLLM, llm-d). It runs any open model vLLM can serve; Keera's
   three fine-tunes are one option, never the offer. It sits _behind_ the gateway
@@ -131,9 +127,9 @@ What the markup does not already show.
   mono footnote is load-bearing: the hosted providers (four Swiss, Mistral and
   PeakPrivacy in the EU, Anthropic, OpenAI and Google in the USA, DeepSeek in
   China, all in `models.html`) run on their own infrastructure, are blocked by
-  default and are opened per team and data class. It carries the month it was checked: update
-  the stamp when the sentence changes, and the sentence when a provider comes or
-  goes. The models column of `gateway.html#architecture` says the same.
+  default and are opened per team and data class. It carries the month it was
+  checked: update the stamp when the sentence changes, and the sentence when a
+  provider comes or goes. The models column of `gateway.html#architecture` says the same.
 - **`chat.html`** - Short, because the docs carry the detail. No form; its
   four-question `#faq` is the last section.
 - **`agents.html`** - The facts are the keera-agents repo's README and `docs/`:
@@ -141,10 +137,8 @@ What the markup does not already show.
   one column from the top down - where work comes from, the agent in its
   sandbox, Keera Gateway, the models - with the agent's box in the accent, a
   grey line where work arrives and accent lines where model calls travel. Keep
-  it that simple. It runs top to
-  bottom, deliberately not a `.flow`, so it does not repeat the gateway's
-  picture.
-  `#features` is where work comes from, `#security` why an agent is no loophole,
+  it that simple. It runs top to bottom, deliberately not a `.flow`, so it does
+  not repeat the gateway's picture. `#features` is where work comes from, `#security` why an agent is no loophole,
   its sandbox among the reasons. The sandbox fact says where: the customer's
   existing Kubernetes cluster, one sandboxed container or micro VM per agent.
 - **`sovereignty.html`** - The argument is the gateway's; the engine is one
@@ -199,7 +193,8 @@ What the markup does not already show.
 - **A page description**: `<meta name="description">`, the JSON-LD and
   `llms.txt` share one string.
 - **An FAQ**: the `FAQPage` node mirrors the prose on `gateway.html`,
-  `engine.html`, `chat.html` and `sovereignty.html`; regenerate it from the
+  `engine.html`, `agents.html` and `chat.html` (their `#faq`) and
+  `sovereignty.html` (its three question cards); regenerate it from the
   markup.
 - **A feature name**: the gateway's six `#features` `<h3>`s are its
   `featureList`; the engine's `featureList` restates its four `#what` layers,
@@ -279,7 +274,8 @@ one, drawn white or black for a single ground carries `.partner--ink` or
 
 The provider marks on `models.html` are the gateway's `providerMarks`, filled
 with `currentColor`, `aria-hidden`, beside the band's heading; marks flagged
-`wide` get `.provider-mark--wide`.
+`wide` get `.provider-mark--wide`. Phoeniqs is the only one, so while it is off
+the page the rule is unused: keep it.
 
 The `#partners` `<h2>` is the one heading that is a direct child of `.wrap`, so
 it holds a line with the leaf. Do not move another heading out to match.
@@ -343,8 +339,9 @@ soften:
 components.
 
 - **Tokens**: thirteen colours on `:root`, redefined - and nothing else - in one
-  `prefers-color-scheme: dark` block; `@media print` restores the light values.
-  `--omnivor` colours only the Omnivor mark, `--leaf` only `.theme-leaf`.
+  `prefers-color-scheme: dark` block; `@media print` restores the light values,
+  with `--muted` and `--line` darker for paper. `--omnivor` colours only the
+  Omnivor mark, `--leaf` only `.theme-leaf`.
 - **Contrast**: text on ground at least 5.5:1 in light and 6.7:1 in dark, button
   ink on the accent 6.5:1 / 8:1. Recheck after retuning a colour; `--muted`,
   `--accent` and `--leaf` have the least headroom.

@@ -911,6 +911,8 @@ thead th,
   height: 0.9em;
   margin-top: 0.15em;
 }
+/* Phoeniqs is the gateway's one `wide` mark. It is off the page for now, so
+   this rule waits for it; keep it. */
 .provider-mark--wide {
   height: 0.7em;
   margin-top: 0.25em;

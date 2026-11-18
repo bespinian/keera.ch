@@ -31,10 +31,9 @@ DNS: four `A` records for the apex at `185.199.108.153` to `185.199.111.153`
 (plus `AAAA` if the zone has IPv6), and `www` as a `CNAME` to
 `<owner>.github.io.`, which Pages redirects to the apex.
 
-## Coming from Apache
+## What Pages handles
 
-The site used to run on Apache, configured by `.htaccess`. On Pages the root
-`404.html` serves every missing path, directories are never listed, HTTPS and
-`www` are handled by the settings above, and the language redirect is
-`assets/js/language.js`. Cache lifetimes are gone: Pages sends
-`max-age=600` on everything.
+The root `404.html` serves every missing path, directories are never listed,
+HTTPS and `www` are handled by the settings above, and the language redirect is
+`assets/js/language.js`. Pages sends `max-age=600` on everything; there is no
+way to set cache lifetimes.
