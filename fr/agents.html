@@ -105,7 +105,7 @@
             "description": "Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Microsoft Teams et Slack, et chaque appel de modèle passe par Keera Gateway.",
             "featureList": [
               "Du travail depuis vos chats",
-              "Un tableau et un horaire",
+              "Un tableau et une planification",
               "Vos dossiers",
               "Vos dépôts"
             ],
@@ -121,12 +121,12 @@
                 "name": "Que garde Keera Agents de mes données ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Ce dont le travail a besoin : la mémoire et les fichiers de l'agent dans son espace de travail, et le journal de chaque tâche pendant 90 jours, pour qu'une personne puisse vérifier son travail. Keera Gateway ne stocke jamais le prompt ni la réponse et rien n'est entraîné dessus ; elle ne garde que la requête - qui, quand, quel modèle - dans votre journal d'audit. Supprimer un agent supprime son espace de travail."
+                  "text": "Ce dont le travail a besoin : la mémoire et les fichiers de l'agent dans son espace de travail, et le journal de chaque tâche pendant 90 jours, pour qu'une personne puisse vérifier son travail. Keera Gateway ne stocke jamais le prompt ni la réponse, et aucun modèle n'est entraîné avec eux ; elle ne garde que la requête - qui, quand, quel modèle - dans votre journal d'audit. Supprimer un agent supprime son espace de travail."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Que peut atteindre un agent dans Keera Agents ?",
+                "name": "À quoi un agent peut-il accéder dans Keera Agents ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Seulement ce que vous connectez : les modèles et serveurs MCP par Keera Gateway, les chats où il se trouve, ses dossiers, et, pour pousser du code, les branches qui commencent par keera/. Son bac à sable ne détient ni mot de passe ni token pour ces services. Keera Agents fait ces appels lui-même, après avoir vérifié que l'agent en a le droit."
@@ -274,7 +274,7 @@
               <li>Teams</li>
               <li>Slack</li>
               <li>Keera Chat</li>
-              <li>Horaire</li>
+              <li>Planification</li>
               <li>GitHub et GitLab</li>
             </ul>
             <div class="fleet-box fleet-box--agent">
@@ -283,7 +283,7 @@
             </div>
             <div class="fleet-box">
               <p class="fleet-title">Keera Gateway</p>
-              <p class="fleet-text">Vérifie chaque appel de modèle&nbsp;: clé propre, budget, filtres, journal d'audit</p>
+              <p class="fleet-text">Vérifie chaque appel de modèle&nbsp;: sa propre clé, budget, filtres, journal d'audit</p>
             </div>
             <ul class="fleet-chips">
               <li>Modèles suisses à poids ouverts</li>
@@ -313,7 +313,7 @@
               </p>
             </div>
             <div>
-              <h3>Un tableau et un horaire</h3>
+              <h3>Un tableau et une planification</h3>
               <p>
                 Assignez-lui une carte, et il la déplace vers Review une fois le
                 travail fini. Ou laissez-le tourner chaque jour ouvrable à huit
@@ -346,7 +346,7 @@
             <h2>Des agents sous vos règles</h2>
             <p>
               Un agent n'est pas une porte dérobée. Il suit les mêmes règles que
-              la personne à qui il appartient, et n'atteint que ce que vous
+              la personne à qui il appartient, et n'accède qu'à ce que vous
               connectez.
             </p>
           </div>
@@ -354,7 +354,7 @@
             <div>
               <h3>Sa propre clé</h3>
               <p>
-                Chaque appel de modèle passe par Keera Gateway avec la clé propre
+                Chaque appel de modèle passe par Keera Gateway avec la propre clé
                 de l'agent, au nom de son propriétaire. L'accès aux modèles, les
                 budgets et le journal d'audit s'appliquent comme pour les
                 personnes.
@@ -404,14 +404,14 @@
                 Ce dont le travail a besoin&nbsp;: la mémoire et les fichiers de
                 l'agent dans son espace de travail, et le journal de chaque
                 tâche pendant 90 jours, pour qu'une personne puisse vérifier son
-                travail. Keera Gateway ne stocke jamais le prompt ni la réponse
-                et rien n'est entraîné dessus&nbsp;; elle ne garde que la
+                travail. Keera Gateway ne stocke jamais le prompt ni la réponse,
+                et aucun modèle n'est entraîné avec eux&nbsp;; elle ne garde que la
                 requête&nbsp;- qui, quand, quel modèle&nbsp;- dans votre journal
                 d'audit. Supprimer un agent supprime son espace de travail.
               </p>
             </details>
             <details>
-              <summary>Que peut atteindre un agent dans Keera Agents&nbsp;?</summary>
+              <summary>À quoi un agent peut-il accéder dans Keera Agents&nbsp;?</summary>
               <p>
                 Seulement ce que vous connectez&nbsp;: les modèles et serveurs MCP
                 par Keera Gateway, les chats où il se trouve, ses dossiers, et,

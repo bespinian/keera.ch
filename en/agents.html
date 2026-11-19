@@ -118,7 +118,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "What does Keera Agents keep of my data?",
+                "name": "What data does Keera Agents keep?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "What the work needs: the agent's memory and files in its workspace, and each task's log for 90 days, so a person can check its work. Keera Gateway never stores or trains on the prompt or the answer; it keeps only the request - who, when, which model - in your audit log. Deleting an agent deletes its workspace."
@@ -129,7 +129,7 @@
                 "name": "What can an agent in Keera Agents reach?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Only what you connect: models and MCP servers through Keera Gateway, the chats it is in, its folders, and pushes to branches that start with keera/. Its sandbox holds no password or token for those services. Keera Agents makes those calls itself, after checking that the agent may."
+                  "text": "Only what you connect: models and MCP servers through Keera Gateway, the chats it is in, its folders, and pushes to branches that start with keera/. Its sandbox holds no password or token for those services. Keera Agents makes those calls itself, after checking that the agent is allowed to."
                 }
               },
               {
@@ -368,7 +368,7 @@
               <p>
                 The agent's sandbox holds no password for your chats, drives or
                 repositories. Keera Agents makes those calls and checks first
-                that the agent may.
+                that the agent is allowed to.
               </p>
             </div>
             <div>
@@ -391,7 +391,7 @@
           </div>
           <div class="faq">
             <details>
-              <summary>What does Keera Agents keep of my data?</summary>
+              <summary>What data does Keera Agents keep?</summary>
               <p>
                 What the work needs: the agent's memory and files in its
                 workspace, and each task's log for 90 days, so a person can
@@ -408,7 +408,7 @@
                 Gateway, the chats it is in, its folders, and pushes to branches
                 that start with keera/. Its sandbox holds no password or token
                 for those services. Keera Agents makes those calls itself, after
-                checking that the agent may.
+                checking that the agent is allowed to.
               </p>
             </details>
             <details>
