@@ -4,6 +4,12 @@ Thirty-nine hand-written static pages - thirteen in German at the root, the same
 thirteen under `en/` and `fr/` - plus `404.html`. No build step: every push to
 `main` deploys the repo to GitHub Pages as committed (see the README).
 
+Run `python3 .github/check.py` before committing. It checks what a program can:
+shared markup, the switcher, metadata and the strings pages share, FAQ JSON-LD,
+hero preloads, links, anchors, scripts, unused files and classes, and hex values
+outside the tokens. The deploy runs it and stops on a failure. The rules below
+still apply where it is silent.
+
 ## Ground rules
 
 - Markup carries classes only. The whole design is `assets/css/keera.css`: no
@@ -342,9 +348,10 @@ soften:
 components.
 
 - **Tokens**: thirteen colours on `:root`, redefined - and nothing else - in one
-  `prefers-color-scheme: dark` block; `@media print` restores the light values,
-  with `--muted` and `--line` darker for paper. `--omnivor` colours only the
-  Omnivor mark, `--leaf` only `.theme-leaf`.
+  `screen and (prefers-color-scheme: dark)` block. Dark is screen only, so
+  print keeps the light values and `@media print` only darkens `--muted` and
+  `--line` for paper. `--omnivor` colours only the Omnivor mark, `--leaf` only
+  `.theme-leaf`.
 - **Contrast**: text on ground at least 5.5:1 in light and 6.7:1 in dark, button
   ink on the accent 6.5:1 / 8:1. Recheck after retuning a colour; `--muted`,
   `--accent` and `--leaf` have the least headroom.

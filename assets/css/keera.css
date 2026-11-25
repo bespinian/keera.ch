@@ -80,10 +80,11 @@
   --radius: 10px;
 }
 
-/* Dark scheme, from the system setting only - there is no toggle. The artwork
-   is left alone: the mascot is transparent and sits on either ground, and the
-   comic pages and the screenshot carry their own light. */
-@media (prefers-color-scheme: dark) {
+/* Dark scheme, from the system setting only - there is no toggle. Screen only,
+   so print always gets the light values above. The artwork is left alone: the
+   mascot is transparent and sits on either ground, and the comic pages and the
+   screenshot carry their own light. */
+@media screen and (prefers-color-scheme: dark) {
   :root {
     --bg: #0f1218;
     --surface: #161a21;
@@ -108,7 +109,7 @@
   --accent: var(--leaf);
   --accent-hover: #135432;
 }
-@media (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   .theme-leaf {
     --accent-hover: #8ee0ae;
   }
@@ -1872,21 +1873,13 @@ textarea.input {
     padding: 4px 0;
   }
 }
+/* The dark blocks are screen only, so print already has the light tokens;
+   paper only wants the quiet greys darker. */
 @media print {
   :root {
-    --bg: #ffffff;
-    --surface: #f6f7f8;
-    --card: #ffffff;
-    --ink: #14171c;
+    color-scheme: light;
     --muted: #3f4650;
     --line: #d9dde2;
-    --accent: #1657c8;
-    --accent-hover: #0f47a8;
-    --btn-ink: #ffffff;
-    --ok: #166534;
-    --err: #b42318;
-    --omnivor: #c0271d;
-    --leaf: #18693a;
   }
   .site-header,
   .site-footer,

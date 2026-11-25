@@ -6,12 +6,14 @@ few root files. Edit the HTML directly, in all three languages. `AGENTS.md`
 holds the content and design rules.
 
 Preview with a server that resolves extensionless URLs, such as `npx serve`.
+Before committing, run `python3 .github/check.py`: it checks the rules in
+`AGENTS.md` that a program can check, and the deploy runs it too.
 
 ## Deploy
 
 `.github/workflows/deploy.yml` runs on every push to `main`, or by hand. It
-copies the repo, minus `.git/`, `.github/`, `AGENTS.md` and `README.md`, to
-GitHub Pages unchanged.
+runs the check, stopping if anything fails, then copies the repo, minus
+`.git/`, `.github/`, `AGENTS.md` and `README.md`, to GitHub Pages unchanged.
 
 It then pings [IndexNow](https://www.indexnow.org/) with the pages the push
 changed (every page on a manual run), which reaches Bing and through it
