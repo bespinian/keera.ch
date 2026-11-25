@@ -19,17 +19,14 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  # Upload and deploy run in separate jobs: deploy-pages looks the artifact up
+  # through the API, which can miss one finalized a moment earlier in the same
+  # job and fail with "No artifacts named github-pages were found".
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Full history, so the IndexNow step can diff against the previous push.
       - name: Checkout
         uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
 
       # The mechanical rules of AGENTS.md: copies that must match, shared
       # strings, files and anchors that must exist. A failure stops the deploy,
@@ -58,9 +55,22 @@ jobs:
         with:
           path: _site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      # Full history, so the IndexNow step can diff against the previous push.
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
       # Tells Bing - and through its index ChatGPT search, Copilot and
       # DuckDuckGo - which pages this push changed, so they are recrawled now
