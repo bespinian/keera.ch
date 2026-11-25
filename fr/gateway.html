@@ -118,7 +118,7 @@
               "Filtres intelligents",
               "Routeurs intelligents",
               "Carte en direct",
-              "Bacs à sable d'agents",
+              "Serveurs MCP",
               "SSO et rôles"
             ],
             "publisher": {
@@ -317,9 +317,9 @@
             <div class="flow-stage">
               <p class="flow-title">Vos outils</p>
               <ul class="plain-list">
-                <li>Agent de code dans le terminal et dans l'IDE</li>
-                <li>Applications internes et copilotes</li>
-                <li>Notebooks et jobs CI</li>
+                <li>Keera Agents et Keera Chat</li>
+                <li>Agents de code dans le terminal et dans l'IDE</li>
+                <li>Applications internes, notebooks et jobs CI</li>
               </ul>
             </div>
             <div class="flow-arrow" aria-hidden="true">&rarr;</div>
@@ -346,7 +346,8 @@
             </p>
           </figure>
           <p class="note">
-            Compatible OpenAI et Anthropic&nbsp;: les SDK et agents existants
+            Compatible OpenAI et Anthropic, pour le chat, les embeddings, le
+            reranking et la transcription&nbsp;: les SDK et agents existants
             basculent avec une seule variable d'environnement. Fournisseurs et
             modèles figurent dans le <a href="models">catalogue de modèles</a>,
             la mise en place dans la
@@ -487,19 +488,20 @@
               </p>
             </div>
             <div class="card">
-              <h3>Bacs à sable d'agents</h3>
+              <h3>Serveurs MCP</h3>
               <p>
-                La passerelle offre aux agents des conteneurs isolés&nbsp;:
-                comme environnement de développement ou pour un pipeline CI. À
-                l'intérieur, ils n'accèdent qu'à ce dont ils ont vraiment
-                besoin.
+                Les agents appellent les outils d'un serveur MCP par la
+                passerelle, avec leur propre clé. Ils ne voient que les outils que
+                leurs garde-fous autorisent, et chaque appel est filtré et
+                journalisé.
               </p>
             </div>
             <div class="card">
               <h3>SSO et rôles</h3>
               <p>
                 Connexion via votre propre fournisseur d'identité, LDAP ou Active
-                Directory, droits issus de vos groupes d'annuaire. Chaque
+                Directory, droits issus de vos groupes d'annuaire. Une
+                seule connexion vaut aussi pour Keera Agents et Keera Chat. Chaque
                 modification passe dans le journal d'audit.
               </p>
             </div>

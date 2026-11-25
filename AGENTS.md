@@ -70,13 +70,16 @@ thirteen under `en/` and `fr/` - plus `404.html`. No build step: every push to
   (Kubernetes, vLLM, llm-d). It runs any open model vLLM can serve; Keera's
   three fine-tunes are one option, never the offer. It sits _behind_ the gateway
   and is never called a client of it. Its efficiency claims stay with what vLLM
-  and llm-d do. Nothing sells Keera as a coding agent or as a set of models.
+  and llm-d do. Nothing sells Keera as a set of models.
 - **Keera Agents runs AI agents for a business**, built on the gateway: each
   agent has its own sandbox, workspace and memory, takes work from Teams, Slack,
-  Keera Chat, the board, a schedule or a folder, and calls every model through
-  the gateway with a key of its own. Code in GitHub and GitLab is one of its
-  sources of work, never the lead. It has no price anywhere on the site, and its
-  source is not public: no repo link.
+  Google Chat, Keera Chat, a squad's board, a schedule or a folder, works in the
+  services it is connected to, read-only or with write access, and calls every
+  model through the gateway with a key of its own. Code in GitHub and GitLab is
+  one of those services, never the lead. It also gives engineers workspaces: a
+  machine of their own with a coding agent (pi in a terminal, or VS Code with
+  Cline), whose model calls go through the gateway with their own key. It has no
+  price anywhere on the site, and its source is not public: no repo link.
 - **Keera Chat** (`chat.keera.ch`) is part of the gateway, not a product of its
   own: a page, a nav item, a home card and a form checkbox, but no price.
 - **Source-available, not open source.** The gateway and the chat are public on
@@ -132,14 +135,16 @@ What the markup does not already show.
   provider comes or goes. The models column of `gateway.html#architecture` says the same.
 - **`chat.html`** - Short, because the docs carry the detail. No form; its
   four-question `#faq` is the last section.
-- **`agents.html`** - The facts are the keera-agents repo's README and `docs/`:
-  check them before adding a claim. `#how` is the page's one diagram, `.fleet`:
+- **`agents.html`** - The facts are the keera-agents repo's README and
+  `docs.keera.ch/use/agents/`: check them before adding a claim. `#how` is the page's one diagram, `.fleet`:
   one column from the top down - where work comes from, the agent in its
   sandbox, Keera Gateway, the models - with the agent's box in the accent, a
   grey line where work arrives and accent lines where model calls travel. Keep
   it that simple. It runs top to bottom, deliberately not a `.flow`, so it does
-  not repeat the gateway's picture. `#features` is where work comes from, `#security` why an agent is no loophole,
-  its sandbox among the reasons. The sandbox fact says where: the customer's
+  not repeat the gateway's picture. `#features` is where work comes from and
+  the services it works in, `#workspaces` the engineers' machines
+  with a coding agent, `#security` why an agent is no loophole, its sandbox
+  among the reasons. The sandbox fact says where: the customer's
   existing Kubernetes cluster, one sandboxed container or micro VM per agent.
 - **`sovereignty.html`** - The argument is the gateway's; the engine is one
   backend behind it. The last column of `.layer-table` is in the accent because
@@ -159,24 +164,21 @@ What the markup does not already show.
 - **`models.html`** - The data is the gateway's. Regenerate the tables from
   `internal/catalog/providers.go` and the marks from `providerMarks` in
   `internal/webui/assets/ui.js` in the gateway repo, all three languages at
-  once; never retype them. Prices are CHF per million tokens exactly as the
-  gateway bills: never round, convert or discount. The Swiss providers come
-  first (stepping stone, Infomaniak), then PeakPrivacy, whose
-  one band sits between Switzerland and the EU and gives each row its location,
-  then Mistral in the EU, then Anthropic, OpenAI and Google in the USA, then
-  DeepSeek in China. Phoeniqs and CSCS are in the gateway's catalogue but held
-  off the page for now: drop their bands when regenerating, and the counts with
-  them.
-  PeakPrivacy is the one exception to the gateway's data: it is not in the
-  catalogue yet, so its band (`#peakprivacy`) comes from
-  its own price list at `help.peakprivacy.ch` (CHF per 1'000 tokens times 1'000)
-  with its own model ids, its mark drawn from its favicon, and only the models
-  it hosts in Switzerland and the EU. Keep it when regenerating the rest, and
-  move it under the gateway's rules once it knows PeakPrivacy. A provider the
-  gateway marks `CachedInput` gets the cached-input column and its note. Rows
-  keep the gateway's order and use its `DisplayName`. A starred row costs more
-  for long prompts, and every starred row in one table must share the note's
-  threshold and factor.
+  once; never retype them. Prices are CHF exactly as the gateway bills, per
+  million tokens or, for a transcription model, per minute of audio (the input
+  cell carries its `CHF/min` unit, output is `–`): never round, convert or
+  discount. The Swiss providers come first (stepping stone, Infomaniak), then
+  PeakPrivacy, whose one band sits between Switzerland and the EU and takes
+  each row's location from the model's `Location`, then Mistral in the EU, then
+  Anthropic, OpenAI and Google in the USA, then DeepSeek in China. Phoeniqs and
+  CSCS are in the gateway's catalogue but held off the page for now: drop their
+  bands when regenerating, and the counts with them. A provider the gateway
+  marks `CachedInput` gets the cached-input column and its note. Rows keep the
+  gateway's order and use its `DisplayName`. A starred row costs more for long
+  prompts, and every starred row in one table must share the note's threshold
+  and factor. A context window in round thousands is written in thousands, any
+  other multiple of 1,024 in k of 1,024 (131,072 is `128k`), a million or more
+  in `M`.
 - **`sustainability.html`** - Swiss hosting is a fact here, not the argument.
   The refusal of a climate-neutral claim survives every rewrite, here and in the
   story.

@@ -118,7 +118,7 @@
               "Smart Filters",
               "Smart Routers",
               "Live map",
-              "Agent Sandboxes",
+              "MCP servers",
               "SSO and roles"
             ],
             "publisher": {
@@ -316,9 +316,9 @@
             <div class="flow-stage">
               <p class="flow-title">Your tools</p>
               <ul class="plain-list">
-                <li>Coding agent in the terminal and the IDE</li>
-                <li>Internal apps and copilots</li>
-                <li>Notebooks and CI jobs</li>
+                <li>Keera Agents and Keera Chat</li>
+                <li>Coding agents in the terminal and the IDE</li>
+                <li>Internal apps, notebooks and CI jobs</li>
               </ul>
             </div>
             <div class="flow-arrow" aria-hidden="true">&rarr;</div>
@@ -345,8 +345,9 @@
             </p>
           </figure>
           <p class="note">
-            OpenAI- and Anthropic-compatible: existing SDKs and agents switch
-            with one environment variable. The providers and models are in the
+            OpenAI- and Anthropic-compatible, for chat, embeddings, reranking and
+            transcription: existing SDKs and agents switch with one environment
+            variable. The providers and models are in the
             <a href="models">model catalogue</a>, the setup in the
             <a href="https://docs.keera.ch/use/connect/" target="_blank" rel="noopener">documentation</a>.
           </p>
@@ -480,19 +481,20 @@
               </p>
             </div>
             <div class="card">
-              <h3>Agent Sandboxes</h3>
+              <h3>MCP servers</h3>
               <p>
-                The gateway offers coding agents isolated containers - as a
-                development environment, or for a CI pipeline. Inside, they
-                reach only what they really need.
+                Agents call an MCP server's tools through the gateway, with their
+                own key. They see only the tools their guardrail allows, and every
+                call is filtered and logged.
               </p>
             </div>
             <div class="card">
               <h3>SSO and roles</h3>
               <p>
                 Sign-in against your own identity provider, LDAP or Active
-                Directory, permissions from your directory groups. Every change
-                goes into the audit log.
+                Directory, permissions from your directory groups. One
+                sign-in also covers Keera Agents and Keera Chat. Every change goes
+                into the audit log.
               </p>
             </div>
           </div>

@@ -111,7 +111,7 @@
               "Smart Filters",
               "Smart Routers",
               "Live Map",
-              "Agent Sandboxes",
+              "MCP servers",
               "SSO und Rollen"
             ],
             "publisher": {
@@ -310,9 +310,9 @@
             <div class="flow-stage">
               <p class="flow-title">Deine Tools</p>
               <ul class="plain-list">
-                <li>Coding Agent im Terminal und in der IDE</li>
-                <li>Interne Apps und Copiloten</li>
-                <li>Notebooks und CI-Jobs</li>
+                <li>Keera Agents und Keera Chat</li>
+                <li>Coding Agents im Terminal und in der IDE</li>
+                <li>Interne Apps, Notebooks und CI-Jobs</li>
               </ul>
             </div>
             <div class="flow-arrow" aria-hidden="true">&rarr;</div>
@@ -339,8 +339,9 @@
             </p>
           </figure>
           <p class="note">
-            OpenAI- und Anthropic-kompatibel: bestehende SDKs und Agenten
-            wechseln mit einer Umgebungsvariable. Anbieter und Modelle stehen im
+            OpenAI- und Anthropic-kompatibel, für Chat, Embeddings, Reranking und
+            Transkription: bestehende SDKs und Agenten wechseln mit einer
+            Umgebungsvariable. Anbieter und Modelle stehen im
             <a href="models">Modellkatalog</a>, die Einrichtung in der
             <a href="https://docs.keera.ch/use/connect/" target="_blank" rel="noopener">Dokumentation</a>.
           </p>
@@ -479,19 +480,21 @@
               </p>
             </div>
             <div class="card">
-              <h3>Agent Sandboxes</h3>
+              <h3>MCP servers</h3>
               <p>
-                Das Gateway bietet Coding Agents isolierte Container - als
-                Entwicklungsumgebung oder für die CI-Pipeline. Darin greifen
-                sie nur auf das zu, was sie wirklich brauchen.
+                Agenten rufen die Tools eines MCP-Servers über das Gateway auf,
+                mit ihrem eigenen Schlüssel. Sie sehen nur die Tools, die ihre
+                Guardrails erlauben, und jeder Aufruf wird gefiltert und
+                protokolliert.
               </p>
             </div>
             <div class="card">
               <h3>SSO und Rollen</h3>
               <p>
                 Anmeldung an deinem eigenen Identity Provider, auch per LDAP oder
-                Active Directory, Rechte aus deinen Verzeichnisgruppen. Jede
-                Änderung steht im Audit-Log.
+                Active Directory, Rechte aus deinen Verzeichnisgruppen. Eine
+                Anmeldung gilt auch für Keera Agents und Keera Chat. Jede Änderung
+                steht im Audit-Log.
               </p>
             </div>
           </div>

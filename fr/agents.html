@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Agents - agents IA dans Microsoft Teams et Slack</title>
+    <title>Keera Agents - agents IA dans Teams, Slack et Google Chat</title>
     <meta
       name="description"
-      content="Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Microsoft Teams et Slack, et chaque appel de modèle passe par Keera Gateway."
+      content="Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Teams, Slack et Google Chat, et chaque appel de modèle passe par Keera Gateway."
     />
     <link rel="canonical" href="https://keera.ch/fr/agents" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/agents" />
@@ -56,11 +56,11 @@
     <meta property="og:url" content="https://keera.ch/fr/agents" />
     <meta
       property="og:title"
-      content="Keera Agents - agents IA dans Microsoft Teams et Slack"
+      content="Keera Agents - agents IA dans Teams, Slack et Google Chat"
     />
     <meta
       property="og:description"
-      content="Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Microsoft Teams et Slack, et chaque appel de modèle passe par Keera Gateway."
+      content="Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Teams, Slack et Google Chat, et chaque appel de modèle passe par Keera Gateway."
     />
     <meta
       property="og:image"
@@ -102,12 +102,12 @@
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Kubernetes",
             "url": "https://keera.ch/fr/agents",
-            "description": "Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Microsoft Teams et Slack, et chaque appel de modèle passe par Keera Gateway.",
+            "description": "Keera Agents exploite des agents IA pour votre entreprise. Ils travaillent dans Teams, Slack et Google Chat, et chaque appel de modèle passe par Keera Gateway.",
             "featureList": [
               "Du travail depuis vos chats",
-              "Un tableau et une planification",
+              "Des équipes et des planifications",
               "Vos dossiers",
-              "Vos dépôts"
+              "Vos services"
             ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
@@ -129,7 +129,7 @@
                 "name": "À quoi un agent peut-il accéder dans Keera Agents ?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Seulement ce que vous connectez : les modèles et serveurs MCP par Keera Gateway, les chats où il se trouve, ses dossiers, et, pour pousser du code, les branches qui commencent par keera/. Son bac à sable ne détient ni mot de passe ni token pour ces services. Keera Agents fait ces appels lui-même, après avoir vérifié que l'agent en a le droit."
+                  "text": "Seulement ce que vous connectez : les modèles et serveurs MCP par Keera Gateway, les chats où il se trouve, ses dossiers et ses services (en lecture seule ou en écriture), et, pour pousser du code, les branches qui commencent par keera/. Son bac à sable ne détient ni mot de passe ni token pour ces services. Keera Agents fait ces appels lui-même, après avoir vérifié que l'agent en a le droit."
                 }
               },
               {
@@ -236,8 +236,8 @@
               Keera Agents exploite des agents IA pour votre entreprise. Chaque
               agent est un assistant avec son propre bac à sable, son espace de
               travail et sa mémoire. Votre équipe lui confie du travail dans
-              Microsoft Teams ou Slack, et chaque appel de modèle passe par
-              <a href="gateway">Keera Gateway</a>.
+              Microsoft Teams, Slack, Google Chat ou Keera Chat, et chaque appel
+              de modèle passe par <a href="gateway">Keera Gateway</a>.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Commencer gratuitement</a>
@@ -273,9 +273,11 @@
             <ul class="fleet-chips">
               <li>Teams</li>
               <li>Slack</li>
+              <li>Google Chat</li>
               <li>Keera Chat</li>
+              <li>Tableau</li>
               <li>Planification</li>
-              <li>GitHub et GitLab</li>
+              <li>Dossiers</li>
             </ul>
             <div class="fleet-box fleet-box--agent">
               <p class="fleet-title">Keera Agents</p>
@@ -307,17 +309,17 @@
             <div>
               <h3>Du travail depuis vos chats</h3>
               <p>
-                Écrivez à un agent dans Teams, Slack ou
+                Écrivez à un agent dans Teams, Slack, Google Chat ou
                 <a href="chat">Keera Chat</a>. Il répond dans le même fil et se
                 souvient de ce qui s'y est dit.
               </p>
             </div>
             <div>
-              <h3>Un tableau et une planification</h3>
+              <h3>Des équipes et des planifications</h3>
               <p>
-                Assignez-lui une carte, et il la déplace vers Review une fois le
-                travail fini. Ou laissez-le tourner chaque jour ouvrable à huit
-                heures et publier le résultat dans un canal.
+                Les agents d'une équipe partagent un tableau et se confient du
+                travail sous forme de cartes. Ou laissez un agent tourner chaque
+                jour ouvrable à huit heures et publier le résultat dans un chat.
               </p>
             </div>
             <div>
@@ -329,18 +331,58 @@
               </p>
             </div>
             <div>
-              <h3>Vos dépôts</h3>
+              <h3>Vos services</h3>
               <p>
-                Dans GitHub ou GitLab, il pousse une branche à lui et ouvre une
-                pull request qu'une personne relit. Votre branche principale
-                reste la vôtre.
+                Jira, Confluence, HubSpot, Salesforce, Outlook, Google Workspace,
+                AWS et d'autres, en lecture seule ou en écriture. Dans GitHub ou
+                GitLab, il ouvre une pull request qu'une personne relit.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="band" id="security">
+      <section class="band" id="workspaces">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Des espaces de travail avec un agent de code</h2>
+            <p>
+              Keera Agents donne aussi à vos ingénieurs un espace de
+              travail&nbsp;: une machine à eux avec un agent de code, pi dans un
+              terminal ou VS Code avec Cline. Chaque appel de modèle passe par
+              Keera Gateway avec leur propre clé.
+            </p>
+          </div>
+          <div class="facts">
+            <div>
+              <h3>Accessible partout</h3>
+              <p>
+                Dans le navigateur, avec la ligne de commande keera, ou en SSH
+                depuis VS Code ou JetBrains. Vos fichiers restent là où vous les
+                avez laissés.
+              </p>
+            </div>
+            <div>
+              <h3>Prêt dès le départ</h3>
+              <p>
+                Les modèles que votre clé autorise et les services que vous
+                connectez sont en place avant le premier démarrage.
+                L'administration peut en créer un pour une nouvelle personne.
+              </p>
+            </div>
+            <div>
+              <h3>Rien qu'à vous</h3>
+              <p>
+                Personne d'autre n'y entre. L'administration peut le démarrer,
+                l'arrêter et le supprimer, mais pas s'y connecter. L'agent de
+                code ne voit jamais votre clé.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="security">
         <div class="wrap">
           <div class="prose">
             <h2>Des agents sous vos règles</h2>
@@ -372,8 +414,9 @@
               <h3>Aucun secret à l'intérieur</h3>
               <p>
                 Le bac à sable de l'agent ne détient aucun mot de passe pour vos
-                chats, vos disques ou vos dépôts. Keera Agents fait ces appels
-                et vérifie d'abord que l'agent en a le droit.
+                chats, vos disques, vos dépôts ou vos autres services. Keera
+                Agents fait ces appels et vérifie d'abord que l'agent en a le
+                droit. En lecture seule, il ne peut rien écrire.
               </p>
             </div>
             <div>
@@ -388,7 +431,7 @@
         </div>
       </section>
 
-      <section class="band band--alt" id="faq">
+      <section class="band" id="faq">
         <div class="wrap">
           <div class="prose">
             <h2>Questions fréquentes sur Keera Agents</h2>
@@ -413,12 +456,13 @@
             <details>
               <summary>À quoi un agent peut-il accéder dans Keera Agents&nbsp;?</summary>
               <p>
-                Seulement ce que vous connectez&nbsp;: les modèles et serveurs MCP
-                par Keera Gateway, les chats où il se trouve, ses dossiers, et,
-                pour pousser du code, les branches qui commencent par keera/.
-                Son bac à sable ne détient ni mot de passe ni token pour ces
-                services. Keera Agents fait ces appels lui-même, après avoir
-                vérifié que l'agent en a le droit.
+                Seulement ce que vous connectez&nbsp;: les modèles et serveurs
+                MCP par Keera Gateway, les chats où il se trouve, ses dossiers
+                et ses services (en lecture seule ou en écriture), et, pour
+                pousser du code, les branches qui commencent par keera/. Son bac
+                à sable ne détient ni mot de passe ni token pour ces services.
+                Keera Agents fait ces appels lui-même, après avoir vérifié que
+                l'agent en a le droit.
               </p>
             </details>
             <details>
@@ -447,7 +491,7 @@
           </div>
         </div>
       </section>
-      <section class="band" id="contact">
+      <section class="band band--alt" id="contact">
         <div class="wrap">
           <div class="prose">
             <h2>Questions, remarques, offres</h2>

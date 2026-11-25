@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Keera Agents - KI-Agenten in Microsoft Teams und Slack</title>
+    <title>Keera Agents - KI-Agenten in Teams, Slack und Google Chat</title>
     <meta
       name="description"
-      content="Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Microsoft Teams und Slack an, und jeder Modellaufruf läuft durch Keera Gateway."
+      content="Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Teams, Slack und Google Chat an, und jeder Modellaufruf läuft durch Keera Gateway."
     />
     <link rel="canonical" href="https://keera.ch/agents" />
     <link rel="alternate" hreflang="de" href="https://keera.ch/agents" />
@@ -56,11 +56,11 @@
     <meta property="og:url" content="https://keera.ch/agents" />
     <meta
       property="og:title"
-      content="Keera Agents - KI-Agenten in Microsoft Teams und Slack"
+      content="Keera Agents - KI-Agenten in Teams, Slack und Google Chat"
     />
     <meta
       property="og:description"
-      content="Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Microsoft Teams und Slack an, und jeder Modellaufruf läuft durch Keera Gateway."
+      content="Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Teams, Slack und Google Chat an, und jeder Modellaufruf läuft durch Keera Gateway."
     />
     <meta
       property="og:image"
@@ -102,12 +102,12 @@
             "applicationCategory": "BusinessApplication",
             "operatingSystem": "Kubernetes",
             "url": "https://keera.ch/agents",
-            "description": "Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Microsoft Teams und Slack an, und jeder Modellaufruf läuft durch Keera Gateway.",
+            "description": "Keera Agents betreibt KI-Agenten für dein Unternehmen. Sie nehmen Arbeit in Teams, Slack und Google Chat an, und jeder Modellaufruf läuft durch Keera Gateway.",
             "featureList": [
               "Arbeit aus deinen Chats",
-              "Board und Zeitplan",
+              "Squads und Zeitpläne",
               "Deine Ordner",
-              "Deine Repositories"
+              "Deine Dienste"
             ],
             "publisher": {
               "@id": "https://keera.ch/#organization"
@@ -129,7 +129,7 @@
                 "name": "Worauf kann ein Agent in Keera Agents zugreifen?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Nur, was du verbindest: Modelle und MCP-Server über Keera Gateway, die Chats, in denen er ist, seine Ordner und Pushes auf Branches, die mit keera/ beginnen. Seine Sandbox hat kein Passwort und kein Token für diese Dienste. Diese Aufrufe macht Keera Agents selbst, nachdem es geprüft hat, dass der Agent darf."
+                  "text": "Nur, was du verbindest: Modelle und MCP-Server über Keera Gateway, die Chats, in denen er ist, seine Ordner, seine Dienste - nur lesend oder auch schreibend - und Pushes auf Branches, die mit keera/ beginnen. Seine Sandbox hat kein Passwort und kein Token für diese Dienste. Diese Aufrufe macht Keera Agents selbst, nachdem es geprüft hat, dass der Agent darf."
                 }
               },
               {
@@ -235,8 +235,8 @@
             <p class="lede">
               Keera Agents betreibt KI-Agenten für dein Unternehmen. Jeder Agent
               ist ein Assistent mit eigener Sandbox, eigenem Arbeitsbereich und
-              eigenem Gedächtnis. Dein Team gibt ihm Arbeit in Microsoft Teams
-              oder Slack, und jeder Modellaufruf läuft durch
+              eigenem Gedächtnis. Dein Team gibt ihm Arbeit in Microsoft Teams,
+              Slack, Google Chat oder Keera Chat, und jeder Modellaufruf läuft durch
               <a href="gateway">Keera Gateway</a>.
             </p>
             <p class="btn-row">
@@ -273,9 +273,11 @@
             <ul class="fleet-chips">
               <li>Teams</li>
               <li>Slack</li>
+              <li>Google Chat</li>
               <li>Keera Chat</li>
+              <li>Board</li>
               <li>Zeitplan</li>
-              <li>GitHub und GitLab</li>
+              <li>Ordner</li>
             </ul>
             <div class="fleet-box fleet-box--agent">
               <p class="fleet-title">Keera Agents</p>
@@ -306,17 +308,17 @@
             <div>
               <h3>Arbeit aus deinen Chats</h3>
               <p>
-                Schreib einem Agenten in Teams, Slack oder
+                Schreib einem Agenten in Teams, Slack, Google Chat oder
                 <a href="chat">Keera Chat</a>. Er antwortet im selben Thread und
                 weiss, was dort gesagt wurde.
               </p>
             </div>
             <div>
-              <h3>Board und Zeitplan</h3>
+              <h3>Squads und Zeitpläne</h3>
               <p>
-                Weise ihm eine Karte zu, und er schiebt sie auf Review, wenn er
-                fertig ist. Oder lass ihn jeden Werktag um acht laufen und das
-                Ergebnis in einen Kanal posten.
+                Agenten in einem Squad teilen sich ein Board und geben einander
+                Arbeit als Karten. Oder lass einen Agenten jeden Werktag um acht
+                laufen und das Ergebnis in einen Chat posten.
               </p>
             </div>
             <div>
@@ -328,18 +330,57 @@
               </p>
             </div>
             <div>
-              <h3>Deine Repositories</h3>
+              <h3>Deine Dienste</h3>
               <p>
-                In GitHub oder GitLab pusht er einen eigenen Branch und öffnet
-                einen Pull Request, den ein Mensch prüft. Dein Main-Branch
-                bleibt deiner.
+                Jira, Confluence, HubSpot, Salesforce, Outlook, Google Workspace,
+                AWS und mehr, nur lesend oder auch schreibend. In GitHub oder
+                GitLab öffnet er einen Pull Request, den ein Mensch prüft.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="band" id="security">
+      <section class="band" id="workspaces">
+        <div class="wrap">
+          <div class="prose">
+            <h2>Workspaces mit Coding Agent</h2>
+            <p>
+              Keera Agents gibt auch deinem Engineering-Team Workspaces: für
+              jede Person eine eigene Maschine mit einem Coding Agent, pi im
+              Terminal oder VS Code mit Cline. Jeder Modellaufruf läuft mit
+              ihrem eigenen Schlüssel durch Keera Gateway.
+            </p>
+          </div>
+          <div class="facts">
+            <div>
+              <h3>Von überall erreichbar</h3>
+              <p>
+                Im Browser, mit der keera-Kommandozeile oder per SSH aus VS Code
+                oder JetBrains. Deine Dateien bleiben, wo du sie gelassen hast.
+              </p>
+            </div>
+            <div>
+              <h3>Fertig eingerichtet</h3>
+              <p>
+                Die Modelle, die dein Schlüssel erlaubt, und die Dienste, die du
+                verbindest, sind vor dem ersten Start eingerichtet. Die
+                Administration kann einen Workspace für neue Leute anlegen.
+              </p>
+            </div>
+            <div>
+              <h3>Nur deiner</h3>
+              <p>
+                Nur du kommst hinein. Die Administration kann ihn starten,
+                stoppen und löschen, aber sich nicht verbinden. Der Coding Agent
+                sieht deinen Schlüssel nie.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="band band--alt" id="security">
         <div class="wrap">
           <div class="prose">
             <h2>Agenten unter deinen Regeln</h2>
@@ -369,8 +410,9 @@
               <h3>Keine Secrets in der Sandbox</h3>
               <p>
                 Die Sandbox des Agenten kennt kein Passwort für deine Chats,
-                Laufwerke oder Repositories. Diese Aufrufe macht Keera Agents
-                und prüft vorher, ob der Agent darf.
+                Laufwerke, Repositories oder anderen Dienste. Diese Aufrufe macht
+                Keera Agents und prüft vorher, ob der Agent darf. Darf er nur
+                lesen, schreibt er nicht.
               </p>
             </div>
             <div>
@@ -385,7 +427,7 @@
         </div>
       </section>
 
-      <section class="band band--alt" id="faq">
+      <section class="band" id="faq">
         <div class="wrap">
           <div class="prose">
             <h2>Häufige Fragen zu Keera Agents</h2>
@@ -410,11 +452,11 @@
               <summary>Worauf kann ein Agent in Keera Agents zugreifen?</summary>
               <p>
                 Nur, was du verbindest: Modelle und MCP-Server über Keera
-                Gateway, die Chats, in denen er ist, seine Ordner und Pushes auf
-                Branches, die mit keera/ beginnen. Seine Sandbox hat kein
-                Passwort und kein Token für diese Dienste. Diese Aufrufe macht
-                Keera Agents selbst, nachdem es geprüft hat, dass der Agent
-                darf.
+                Gateway, die Chats, in denen er ist, seine Ordner, seine Dienste
+                - nur lesend oder auch schreibend - und Pushes auf Branches, die
+                mit keera/ beginnen. Seine Sandbox hat kein Passwort und kein
+                Token für diese Dienste. Diese Aufrufe macht Keera Agents
+                selbst, nachdem es geprüft hat, dass der Agent darf.
               </p>
             </details>
             <details>
@@ -442,7 +484,7 @@
           </div>
         </div>
       </section>
-      <section class="band" id="contact">
+      <section class="band band--alt" id="contact">
         <div class="wrap">
           <div class="prose">
             <h2>Fragen, Feedback, Angebote</h2>

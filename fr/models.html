@@ -169,10 +169,10 @@
             <p class="lede">
               Keera Gateway connaît huit fournisseurs de modèles&nbsp;: trois en
               Suisse, un dans l'UE, trois aux États-Unis et un en Chine.
-              PeakPrivacy exploite aussi des modèles dans l'UE. Voici chacun de leurs
-              modèles, avec fenêtre de contexte et prix en CHF par million de
-              tokens. Vous décidez quelle équipe utilise quel modèle et payez le
-              prix catalogue du fournisseur.
+              PeakPrivacy exploite aussi des modèles dans l'UE. Voici chacun de
+              leurs modèles, avec fenêtre de contexte et prix en CHF. Vous
+              décidez quelle équipe utilise quel modèle et payez le prix
+              catalogue du fournisseur.
             </p>
             <p class="btn-row">
               <a class="btn" href="https://gateway.keera.ch">Commencer gratuitement</a>
@@ -277,11 +277,30 @@
                   <th scope="row" role="rowheader">MinerU 2.5</th>
                   <td role="cell">16k</td><td role="cell">0,02</td><td role="cell">0,06</td>
                 </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">BGE M3</th>
+                  <td role="cell">8k</td><td role="cell">0,10</td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">BGE Reranker v2 M3</th>
+                  <td role="cell">8k</td><td role="cell">0,10</td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Whisper Large v3</th>
+                  <td role="cell">224</td><td role="cell">0,12<span class="unit">CHF/min</span></td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Voxtral Mini 3B</th>
+                  <td role="cell">32k</td><td role="cell">0,012<span class="unit">CHF/min</span></td><td role="cell">–</td>
+                </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
-            CHF par million de tokens.
+            CHF par million de tokens. Un modèle d'embedding ou de reranking ne
+            génère pas de texte, il n'a donc pas de prix de sortie. Un modèle de
+            transcription est facturé à la minute d'audio plutôt qu'au token, et
+            n'a pas de prix de sortie.
           </p>
         </div>
       </section>
@@ -352,7 +371,7 @@
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Qwen3 Reranker 0.6B</th>
-                  <td role="cell">33k</td><td role="cell">0,01008</td><td role="cell">–</td>
+                  <td role="cell">32k</td><td role="cell">0,01008</td><td role="cell">–</td>
                 </tr>
               </tbody>
             </table>
@@ -369,7 +388,7 @@
           <div class="prose">
             <p class="eyebrow">Suisse et UE · poids ouverts</p>
             <h2 class="provider-head">
-              <svg class="provider-mark" viewBox="0 0 421.05 421.05" fill="currentColor" aria-hidden="true"><path d="M263.16 157.9H78.95V342.11H263.16V157.9H342.1V421.05H0V78.95H263.16V157.9ZM421.05 78.95H342.1V0H421.05V78.95Z" /></svg>
+              <svg class="provider-mark" viewBox="-3.5 -3.5 34.88 34.99" fill="currentColor" aria-hidden="true"><path fill-opacity="0.7" d="M17.49 10.5H5.25V22.74H17.49V10.5H22.74V27.99H0L0 5.25H17.49V10.5Z" /><path fill-opacity="1" d="M27.88 5.25H22.63V0H27.88V5.25Z" /></svg>
               <span>Modèles chez PeakPrivacy</span>
             </h2>
             <p>
@@ -380,10 +399,8 @@
               ouvriez par équipe et par classe de données.
             </p>
             <p>
-              Les noms sont ceux de PeakPrivacy&nbsp;: gpt-swiss est
-              gpt-oss-120b en Suisse, gpt-eu le même en France, glm5 est
-              GLM-5.2. L'API de PeakPrivacy permet CHF 50 par mois pour tous
-              les modèles, jusqu'à ce que vous demandiez davantage.
+              GPT Swiss et GPT EU sont tous deux gpt-oss-120b, l'un en Suisse,
+              l'autre dans l'UE.
             </p>
           </div>
           <div class="table-wrap">
@@ -393,39 +410,39 @@
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
-                  <th scope="row" role="rowheader">gpt-swiss</th>
+                  <th scope="row" role="rowheader">GPT Swiss</th>
                   <td role="cell">Suisse</td><td role="cell">131k</td><td role="cell">20,00</td><td role="cell">60,00</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">mistral-small-swiss</th>
+                  <th scope="row" role="rowheader">Mistral Small Swiss</th>
                   <td role="cell">Suisse</td><td role="cell">30k</td><td role="cell">0,15</td><td role="cell">0,45</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">glm5</th>
-                  <td role="cell">Suisse</td><td role="cell">130k</td><td role="cell">1,00</td><td role="cell">3,40</td>
+                  <th scope="row" role="rowheader">GLM-5.2</th>
+                  <td role="cell">Suisse</td><td role="cell">130k</td><td role="cell">2,154</td><td role="cell">6,772</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">deepseek-v4-flash</th>
-                  <td role="cell">Suisse</td><td role="cell">1M</td><td role="cell">0,15</td><td role="cell">0,39</td>
+                  <th scope="row" role="rowheader">DeepSeek V4.1 Flash</th>
+                  <td role="cell">Suisse</td><td role="cell">1M</td><td role="cell">0,375</td><td role="cell">1,50</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">gpt-eu</th>
-                  <td role="cell">UE</td><td role="cell">124k</td><td role="cell">20,00</td><td role="cell">60,00</td>
+                  <th scope="row" role="rowheader">GPT EU</th>
+                  <td role="cell">UE</td><td role="cell">124k</td><td role="cell">0,375</td><td role="cell">1,50</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">deepseek-r1</th>
+                  <th scope="row" role="rowheader">DeepSeek V4 Pro</th>
                   <td role="cell">UE</td><td role="cell">128k</td><td role="cell">2,625</td><td role="cell">5,25</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">gemma-3</th>
-                  <td role="cell">UE</td><td role="cell">128k</td><td role="cell">17,00</td><td role="cell">40,00</td>
+                  <th scope="row" role="rowheader">Gemma 3 27B</th>
+                  <td role="cell">UE</td><td role="cell">128k</td><td role="cell">0,15</td><td role="cell">0,45</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">qwen-3-fast</th>
+                  <th scope="row" role="rowheader">Qwen3 Fast</th>
                   <td role="cell">UE</td><td role="cell">262k</td><td role="cell">0,45</td><td role="cell">1,35</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">qwen-3</th>
+                  <th scope="row" role="rowheader">Qwen3</th>
                   <td role="cell">UE</td><td role="cell">256k</td><td role="cell">0,30</td><td role="cell">0,90</td>
                 </tr>
               </tbody>
@@ -446,7 +463,7 @@
               <span>Modèles chez Mistral</span>
             </h2>
             <p>
-              Mistral exploite ses modèles sur sa propre API dans l'UE. Les
+              Mistral exploite les modèles sur sa propre API dans l'UE. Les
               prompts quittent la Suisse, mais restent en Europe. Keera Gateway
               garde les modèles bloqués jusqu'à ce que vous les ouvriez par
               équipe et par classe de données.
@@ -463,39 +480,62 @@
                   <td role="cell">1M</td><td role="cell">0,672</td><td role="cell">0,0672</td><td role="cell">2,016</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Mistral Medium 3.5</th>
-                  <td role="cell">262k</td><td role="cell">1,44</td><td role="cell">0,144</td><td role="cell">7,20</td>
-                </tr>
-                <tr role="row">
                   <th scope="row" role="rowheader">Mistral Small 4</th>
-                  <td role="cell">262k</td><td role="cell">0,144</td><td role="cell">0,0144</td><td role="cell">0,576</td>
+                  <td role="cell">256k</td><td role="cell">0,144</td><td role="cell">0,0144</td><td role="cell">0,576</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Codestral 25.08</th>
                   <td role="cell">128k</td><td role="cell">0,288</td><td role="cell">0,0288</td><td role="cell">0,864</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Mistral Large 3</th>
-                  <td role="cell">262k</td><td role="cell">0,48</td><td role="cell">0,048</td><td role="cell">1,44</td>
+                  <th scope="row" role="rowheader">GLM-5.3</th>
+                  <td role="cell">1M</td><td role="cell">1,344</td><td role="cell">0,1344</td><td role="cell">4,224</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">GLM-5.3 Flash</th>
+                  <td role="cell">1M</td><td role="cell">0,144</td><td role="cell">0,0288</td><td role="cell">0,48</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">DeepSeek V4.1 Flash</th>
+                  <td role="cell">1M</td><td role="cell">0,288</td><td role="cell">0,00672</td><td role="cell">1,152</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Ministral 3 14B</th>
-                  <td role="cell">262k</td><td role="cell">0,192</td><td role="cell">0,0192</td><td role="cell">0,192</td>
+                  <td role="cell">256k</td><td role="cell">0,192</td><td role="cell">0,0192</td><td role="cell">0,192</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Ministral 3 8B</th>
-                  <td role="cell">262k</td><td role="cell">0,144</td><td role="cell">0,0144</td><td role="cell">0,144</td>
+                  <td role="cell">256k</td><td role="cell">0,144</td><td role="cell">0,0144</td><td role="cell">0,144</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Ministral 3 3B</th>
-                  <td role="cell">262k</td><td role="cell">0,096</td><td role="cell">0,0096</td><td role="cell">0,096</td>
+                  <td role="cell">256k</td><td role="cell">0,096</td><td role="cell">0,0096</td><td role="cell">0,096</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Voxtral Mini Transcribe 3</th>
+                  <td role="cell">32k</td><td role="cell">0,00336<span class="unit">CHF/min</span></td><td role="cell">–</td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Voxtral Small Transcribe 3</th>
+                  <td role="cell">32k</td><td role="cell">0,00384<span class="unit">CHF/min</span></td><td role="cell">–</td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Mistral Embed</th>
+                  <td role="cell">8k</td><td role="cell">0,096</td><td role="cell">0,0096</td><td role="cell">–</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Codestral Embed</th>
+                  <td role="cell">8k</td><td role="cell">0,144</td><td role="cell">0,0144</td><td role="cell">–</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
             CHF par million de tokens. L'entrée en cache est l'entrée que le
-            fournisseur sert depuis son cache de prompts.
+            fournisseur sert depuis son cache de prompts. Un modèle d'embedding
+            ou de reranking ne génère pas de texte, il n'a donc pas de prix de
+            sortie. Un modèle de transcription est facturé à la minute d'audio
+            plutôt qu'au token, et n'a pas de prix de sortie.
           </p>
         </div>
       </section>
@@ -534,16 +574,16 @@
                   <td role="cell">1M</td><td role="cell">0,096</td><td role="cell">0,0096</td><td role="cell">0,48</td>
                 </tr>
                 <tr role="row">
+                  <th scope="row" role="rowheader">Claude Fable 5.2</th>
+                  <td role="cell">1M</td><td role="cell">7,68</td><td role="cell">0,192</td><td role="cell">38,40</td>
+                </tr>
+                <tr role="row">
                   <th scope="row" role="rowheader">Claude Fable 5.1</th>
                   <td role="cell">1M</td><td role="cell">9,60</td><td role="cell">0,24</td><td role="cell">48,00</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Sonnet 5</th>
                   <td role="cell">1M</td><td role="cell">1,92</td><td role="cell">0,192</td><td role="cell">9,60</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">Claude Haiku 4.5</th>
-                  <td role="cell">200k</td><td role="cell">0,96</td><td role="cell">0,096</td><td role="cell">4,80</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Claude Opus 5</th>
@@ -590,6 +630,14 @@
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
+                  <th scope="row" role="rowheader">GPT-6.2 Astra *</th>
+                  <td role="cell">1,05M</td><td role="cell">7,68</td><td role="cell">0,384</td><td role="cell">38,40</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">GPT-6.2 Sol *</th>
+                  <td role="cell">1,05M</td><td role="cell">1,92</td><td role="cell">0,096</td><td role="cell">9,60</td>
+                </tr>
+                <tr role="row">
                   <th scope="row" role="rowheader">GPT-6 Astra *</th>
                   <td role="cell">1,05M</td><td role="cell">9,60</td><td role="cell">0,96</td><td role="cell">48,00</td>
                 </tr>
@@ -634,39 +682,21 @@
                   <td role="cell">400k</td><td role="cell">0,72</td><td role="cell">0,072</td><td role="cell">4,32</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">GPT-5.4 nano</th>
-                  <td role="cell">400k</td><td role="cell">0,192</td><td role="cell">0,0192</td><td role="cell">1,20</td>
-                </tr>
-                <tr role="row">
                   <th scope="row" role="rowheader">GPT-5.2</th>
                   <td role="cell">400k</td><td role="cell">1,68</td><td role="cell">0,168</td><td role="cell">13,44</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">GPT-5.1</th>
-                  <td role="cell">400k</td><td role="cell">1,20</td><td role="cell">0,12</td><td role="cell">9,60</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">GPT-4.1</th>
-                  <td role="cell">1,05M</td><td role="cell">1,92</td><td role="cell">0,48</td><td role="cell">7,68</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">GPT-4.1 mini</th>
-                  <td role="cell">1,05M</td><td role="cell">0,384</td><td role="cell">0,096</td><td role="cell">1,536</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">GPT-4o</th>
-                  <td role="cell">128k</td><td role="cell">2,40</td><td role="cell">1,20</td><td role="cell">9,60</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">GPT-4o mini</th>
-                  <td role="cell">128k</td><td role="cell">0,144</td><td role="cell">0,072</td><td role="cell">0,576</td>
+                  <th scope="row" role="rowheader">GPT-Transcribe</th>
+                  <td role="cell">16k</td><td role="cell">0,00432<span class="unit">CHF/min</span></td><td role="cell">–</td><td role="cell">–</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
             CHF par million de tokens. L'entrée en cache est l'entrée que le
-            fournisseur sert depuis son cache de prompts.<br />
+            fournisseur sert depuis son cache de prompts. Un modèle de
+            transcription est facturé à la minute d'audio plutôt qu'au token, et
+            n'a pas de prix de sortie.<br />
             * Au-delà de 272&#x202F;000 tokens dans le prompt, l'entrée coûte
             deux fois plus cher et la sortie une fois et demie plus cher.
           </p>
@@ -695,8 +725,20 @@
               </thead>
               <tbody role="rowgroup">
                 <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 4 Neon</th>
+                  <td role="cell">1,05M</td><td role="cell">2,88</td><td role="cell">0,144</td><td role="cell">14,40</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 4 Hydrogen</th>
+                  <td role="cell">1,05M</td><td role="cell">1,44</td><td role="cell">0,072</td><td role="cell">7,20</td>
+                </tr>
+                <tr role="row">
+                  <th scope="row" role="rowheader">Gemini 4 Carbon</th>
+                  <td role="cell">1,05M</td><td role="cell">3,84</td><td role="cell">0,192</td><td role="cell">19,20</td>
+                </tr>
+                <tr role="row">
                   <th scope="row" role="rowheader">Gemini 4 Argon</th>
-                  <td role="cell">1,05M</td><td role="cell">1,92</td><td role="cell">0,096</td><td role="cell">9,60</td>
+                  <td role="cell">1,05M</td><td role="cell">3,84</td><td role="cell">0,192</td><td role="cell">19,20</td>
                 </tr>
                 <tr role="row">
                   <th scope="row" role="rowheader">Gemini 3.8 Flash</th>
@@ -715,23 +757,17 @@
                   <td role="cell">1,05M</td><td role="cell">0,72</td><td role="cell">0,072</td><td role="cell">3,60</td>
                 </tr>
                 <tr role="row">
-                  <th scope="row" role="rowheader">Gemini 3.1 Flash-Lite</th>
-                  <td role="cell">1,05M</td><td role="cell">0,24</td><td role="cell">0,024</td><td role="cell">1,44</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">Gemini 2.5 Pro *</th>
-                  <td role="cell">1,05M</td><td role="cell">1,20</td><td role="cell">0,12</td><td role="cell">9,60</td>
-                </tr>
-                <tr role="row">
-                  <th scope="row" role="rowheader">Gemini 2.5 Flash</th>
-                  <td role="cell">1,05M</td><td role="cell">0,288</td><td role="cell">0,0288</td><td role="cell">2,40</td>
+                  <th scope="row" role="rowheader">Gemini Embedding 2</th>
+                  <td role="cell">8k</td><td role="cell">0,192</td><td role="cell">–</td><td role="cell">–</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <p class="note">
             CHF par million de tokens. L'entrée en cache est l'entrée que le
-            fournisseur sert depuis son cache de prompts.<br />
+            fournisseur sert depuis son cache de prompts. Un modèle d'embedding
+            ou de reranking ne génère pas de texte, il n'a donc pas de prix de
+            sortie.<br />
             * Au-delà de 200&#x202F;000 tokens dans le prompt, l'entrée coûte
             deux fois plus cher et la sortie une fois et demie plus cher.
           </p>
@@ -751,7 +787,8 @@
               c'est là que vont aussi les prompts. Keera Gateway les garde
               bloqués jusqu'à ce que vous les ouvriez par équipe et par classe
               de données. DeepSeek V4 Flash tourne aussi en Suisse, chez
-              <a href="#stepping-stone">stepping stone</a>.
+              <a href="#stepping-stone">stepping stone</a>, et DeepSeek V4.1
+              Flash chez <a href="#peakprivacy">PeakPrivacy</a>.
             </p>
           </div>
           <div class="table-wrap">
