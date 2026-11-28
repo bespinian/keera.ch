@@ -21,6 +21,8 @@ SITE = "https://keera.ch/"
 CSS = "assets/css/keera.css"
 # Kept on purpose with no page using it; see the provider marks in AGENTS.md.
 UNUSED_CLASSES_OK = {"provider-mark--wide"}
+VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+        "meta", "source", "track", "wbr"}
 
 errors = []
 
@@ -56,9 +58,10 @@ class Page(HTMLParser):
     def handle_starttag(self, tag, attrs):
         a = {k: (v if v is not None else "") for k, v in attrs}
         self.tags.append((tag, a))
-        void = tag in ("img", "input", "link", "meta", "br", "source", "path",
-                       "rect", "circle", "line", "polyline", "polygon", "use")
-        if not void:
+        # HTML's void elements only. An SVG child written <path/> arrives at
+        # handle_startendtag; one written <path></path> has an end tag that
+        # handle_endtag counts, so it must count here too.
+        if tag not in VOID:
             self._depth += 1
         if self._lang_at is None and "lang" in a.get("class", "").split():
             self._lang_at = self._depth

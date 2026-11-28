@@ -145,9 +145,12 @@ What the markup does not already show.
 - **`agents.html`** - The facts are the keera-agents repo's README and
   `docs.keera.ch/use/agents/`: check them before adding a claim. `#how` is the page's one diagram, `.fleet`:
   one column from the top down - where work comes from, the agent in its
-  sandbox, Keera Gateway, the models - with the agent's box in the accent, a
-  grey line where work arrives and accent lines where model calls travel. Keep
-  it that simple. It runs top to bottom, deliberately not a `.flow`, so it does
+  sandbox, Keera Gateway, the models - with the agent's box in the accent and
+  the services it works in branching off it, files and code on one side, the
+  rest on the other (below 860px they fork under it, the accent line running
+  between them). Grey lines where work arrives or a service is reached, accent
+  lines where model calls travel. The service names follow `#features` and
+  stay the same in every language. Keep it that simple. It runs top to bottom, deliberately not a `.flow`, so it does
   not repeat the gateway's picture. `#features` is where work comes from and
   the services it works in, `#workspaces` the engineers' machines
   with a coding agent, `#security` why an agent is no loophole, its sandbox

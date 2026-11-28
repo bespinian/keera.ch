@@ -1220,8 +1220,11 @@ thead th,
    work comes from, the agent in its sandbox, Keera Gateway, the models. Top to
    bottom rather than the flow's left to right, so the two diagrams do not
    read as the same picture. The agent is the box in the accent, since the page
-   is about it. The joining lines are pseudo-elements: grey where work arrives,
-   accent where a model call travels. */
+   is about it, with the services it works in branching off to either side:
+   files and code, then the rest. The joining lines are pseudo-elements: grey
+   where work arrives or a service is reached, accent where a model call
+   travels. Below 860px the two branches fork under the agent instead, and the
+   accent line runs down between them to the gateway. */
 .fleet {
   --fleet-gap: 30px;
   display: grid;
@@ -1241,7 +1244,7 @@ thead th,
   background: var(--muted);
   opacity: 0.55;
 }
-.fleet > .fleet-box--agent ~ *::before {
+.fleet > .fleet-agent ~ *::before {
   background: var(--accent);
   opacity: 1;
 }
@@ -1275,6 +1278,81 @@ thead th,
   margin-top: 4px;
   color: var(--muted);
   font-size: 15.5px;
+}
+.fleet-agent {
+  justify-self: stretch;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) min(100%, 440px) minmax(0, 1fr);
+  grid-template-areas: "files agent services";
+  align-items: center;
+  gap: var(--fleet-gap);
+}
+.fleet-agent .fleet-box {
+  grid-area: agent;
+  width: auto;
+}
+.fleet-tools {
+  position: relative;
+  justify-content: flex-start;
+}
+.fleet-tools:first-of-type {
+  grid-area: files;
+  justify-content: flex-end;
+}
+.fleet-tools:last-of-type {
+  grid-area: services;
+}
+.fleet-tools::before,
+.fleet-tools::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  width: var(--fleet-gap);
+  height: 2px;
+  background: var(--muted);
+  opacity: 0.55;
+}
+.fleet-tools:first-of-type::before {
+  right: calc(-1 * var(--fleet-gap));
+}
+.fleet-tools:last-of-type::before {
+  left: calc(-1 * var(--fleet-gap));
+}
+.fleet-tools::after {
+  content: none;
+}
+@media (max-width: 860px) {
+  .fleet-agent {
+    justify-self: center;
+    width: min(100%, 440px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "agent agent" "files services";
+    align-items: stretch;
+  }
+  .fleet-tools,
+  .fleet-tools:first-of-type {
+    justify-content: center;
+    align-content: flex-start;
+  }
+  .fleet-tools::before,
+  .fleet-tools:first-of-type::before,
+  .fleet-tools:last-of-type::before {
+    top: calc(-1 * var(--fleet-gap));
+    left: calc(50% - 1px);
+    right: auto;
+    width: 2px;
+    height: var(--fleet-gap);
+  }
+  .fleet-tools:last-of-type::after {
+    content: "";
+    top: calc(-1 * var(--fleet-gap));
+    bottom: -1px;
+    left: calc(-0.5 * var(--fleet-gap) - 1px);
+    width: 2px;
+    height: auto;
+    background: var(--accent);
+    opacity: 1;
+  }
 }
 
 /* Three teams, three ways out: the counter-image to #control's one stack. The
