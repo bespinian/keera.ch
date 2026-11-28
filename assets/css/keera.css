@@ -100,7 +100,14 @@
 }
 html {
   -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+/* Smooth anchor scrolling, one of the site's two motions, only for a viewer
+   who has not asked for less. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 body {
   margin: 0;
@@ -153,8 +160,10 @@ h3 {
   font-size: 18px;
   letter-spacing: -0.01em;
 }
+/* No paragraph ends on a single orphaned word; short card copy shows it most. */
 p {
   margin: 0;
+  text-wrap: pretty;
 }
 p + p,
 h2 + p,
@@ -216,11 +225,19 @@ thead th,
 }
 
 /* ---------- layout ---------- */
-.skip-link {
+/* Out of sight but in the accessibility tree: a label beside an icon, the
+   phone menu's checkbox and its name, and the skip link until it has focus. */
+.visually-hidden,
+.skip-link:not(:focus) {
   position: absolute;
-  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .skip-link:focus {
+  position: absolute;
   left: 12px;
   top: 12px;
   z-index: 10;
@@ -384,7 +401,8 @@ thead th,
    The toggle is a <label> for the visually hidden .site-menu-state checkbox
    just before the <nav>, so the open state is a sibling selector and needs no
    JavaScript. A checkbox rather than <details>, because the same <nav> has to
-   render inline above the breakpoint. */
+   render inline above the breakpoint. The label's word, its accessible name,
+   is .visually-hidden like the checkbox. */
 .site-menu-state,
 .site-menu-toggle {
   display: none;
@@ -400,18 +418,11 @@ thead th,
   .site-header .wrap {
     gap: 10px 14px;
   }
-  /* Both stay in the accessibility tree: the checkbox drives the menu and takes
-     the keyboard focus, and the word is its accessible name. */
-  .site-menu-state,
-  .site-menu-text {
+  /* The checkbox drives the menu and takes the keyboard focus, so here it
+     comes back into the tree, still .visually-hidden. */
+  .site-menu-state {
     display: block;
-    position: absolute;
-    width: 1px;
-    height: 1px;
     margin: 0;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
   }
   .site-menu-toggle {
     display: flex;
@@ -539,7 +550,7 @@ thead th,
    outside the motion block below is a still frame of that flow, so under
    prefers-reduced-motion, in print and without animation support the figure
    is simply that frame. The <img> is the plain .hero-art one, so its
-   preload and sizes are untouched. */
+   sizes and priority are untouched. */
 .intro {
   position: relative;
   container-type: inline-size;
@@ -1575,14 +1586,6 @@ td.tight {
     grid-column: 1 / -1;
   }
 }
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
 
 /* ---------- figures ---------- */
 /* Every image on the site but the header wordmark sits in a <figure> or in the
@@ -1859,10 +1862,5 @@ textarea.input {
   }
   a {
     color: inherit;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
   }
 }

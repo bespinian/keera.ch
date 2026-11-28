@@ -182,7 +182,7 @@ def block(s, tag):
 
 def lang_switcher(s):
     # AGENTS.md puts the switcher right before the menu checkbox.
-    m = re.search(r'<span class="lang".*?(?=<input class="site-menu-state")', s, re.S)
+    m = re.search(r'<span class="lang".*?(?=<input class="site-menu-state)', s, re.S)
     return m.group(0) if m else ""
 
 
@@ -293,12 +293,24 @@ for lang in LANGS:
                 elif text(q["acceptedAnswer"]["text"]) not in body:
                     fail(path, f"FAQPage answer not on the page: {q['name'][:60]}")
 
-        # The hero preload names the hero <img> character for character.
-        for pre in p.find("link", rel="preload", **{"as": "image"}):
-            imgs = [a for a in p.find("img") if a.get("src") == pre["href"]]
-            if not any(a.get("srcset") == pre.get("imagesrcset")
-                       and a.get("sizes") == pre.get("imagesizes") for a in imgs):
-                fail(path, f"image preload {pre['href']} does not match its <img>")
+# 404.html renders under whatever path was requested: root-absolute URLs only,
+# kept out of the index, and none of a content page's metadata.
+p = parsed["404.html"]
+if [a.get("content") for a in p.find("meta", name="robots")] != ["noindex, follow"]:
+    fail("404.html", 'needs <meta name="robots" content="noindex, follow">')
+if p.find("link", rel="canonical") or p.find("link", rel="alternate"):
+    fail("404.html", "no canonical or hreflang links")
+if any(a.get("property", "").startswith("og:") for a in p.find("meta")):
+    fail("404.html", "no Open Graph tags")
+if graph(src["404.html"]):
+    fail("404.html", "no JSON-LD")
+for t, a in p.tags:
+    refs = [a[k] for k in ("href", "src") if k in a]
+    for k in ("srcset", "imagesrcset"):
+        refs += [c.split()[0] for c in a.get(k, "").split(",") if c.strip()]
+    for ref in refs:
+        if not re.match(r"/|#|[a-z]+:", ref):
+            fail("404.html", f"{ref} is relative; every URL here is root-absolute")
 
 # Sitemap: every content URL once, with a lastmod, nothing else.
 sitemap = read("sitemap.xml")

@@ -6,7 +6,7 @@ thirteen under `en/` and `fr/` - plus `404.html`. No build step: every push to
 
 Run `python3 .github/check.py` before committing. It checks what a program can:
 shared markup, the switcher, metadata and the strings pages share, FAQ JSON-LD,
-hero preloads, links, anchors, scripts, unused files and classes, and hex values
+the 404 page, links, anchors, scripts, unused files and classes, and hex values
 outside the tokens. The deploy runs it and stops on a failure. The rules below
 still apply where it is silent.
 
@@ -117,8 +117,8 @@ What the markup does not already show.
   through its three checks to a Swiss open-weight model, a frontier model or a
   local LLM. The CSS outside its motion block is a still frame of the loop, so a
   still viewer sees the same figure; the checks follow `#control`'s labels where
-  they share one. The `<img>` is the plain hero image, so its preload is
-  unaffected. The customer row is a white band under the white hero, so the
+  they share one. The `<img>` is the plain hero image, so its `sizes` and
+  priority are unaffected. The customer row is a white band under the white hero, so the
   alternation from `#problem` down is untouched. `#problem` states the problem
   before naming the product. `#platform` is the batteries: four cards, two-up,
   one per product. `#control` is the gateway seen from the platform, a six-row
@@ -209,9 +209,6 @@ What the markup does not already show.
 - **A feature name**: the gateway's six `#features` `<h3>`s are its
   `featureList`; the engine's `featureList` restates its four `#what` layers,
   and the agents' its four `#features` `<h3>`s.
-- **A hero image**: the `<img>` `src`, `srcset` and `sizes` and the head
-  preload's `href`, `imagesrcset` and `imagesizes`, character for character, or
-  it downloads twice.
 - **Comic copy**: a re-render of the artwork in three languages, plus the
   transcript.
 - **The IndexNow key file** and the deploy step that names it; **`CNAME`** and
@@ -255,7 +252,7 @@ The phone menu is a hidden `.site-menu-state` checkbox and a `<label>`, so it
 needs no JavaScript. The checkbox must be the `<nav>`'s preceding sibling, which
 is why the switcher comes first in the DOM and `order` sets the visual order. It
 is not a `<details>` because the same nav renders inline on wide screens.
-`.site-menu-text` is its localised accessible name.
+The label's localised accessible name is a `.visually-hidden` span.
 
 The footer is one line of prose, four labelled groups - Products, About Keera,
 Resources, Legal - and `© 2026 bespinian · Bern`. A new page or profile goes
@@ -411,8 +408,9 @@ when Formspree accepts.
   `magick <src> -resize <w>x\> -strip tmp.png && cwebp -q 82 -alpha_q 90 -m 6`;
   comic pages with `cwebp -q 82 -m 6 -sharp_yuv`, screenshots with
   `cwebp -q 92`. `width`/`height` come from the file, plus `alt` and
-  `decoding="async"`; heroes get `fetchpriority="high"` and a preload as the
-  first hint in the head, everything else `loading="lazy"`. `.hero-art` images
+  `decoding="async"`; heroes get `fetchpriority="high"` and no preload (the
+  `<img>` sits in the first few kilobytes of HTML, so the browser finds it as
+  early), everything else `loading="lazy"`. `.hero-art` images
   also ship at `-400` and `-640` widths in `srcset`, with a `sizes` derived from
   the `.hero--split` grid - change the grid and every hero's `sizes` changes.
   The deploy mirrors the whole folder, so leave no unused files in it.
