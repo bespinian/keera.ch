@@ -46,11 +46,6 @@
       href="../assets/img/keera-favicon.svg"
     />
     <link
-      rel="alternate icon"
-      type="image/png"
-      href="../assets/img/keera-apple-touch-icon.png"
-    />
-    <link
       rel="apple-touch-icon"
       href="../assets/img/keera-apple-touch-icon.png"
     />
@@ -197,7 +192,13 @@
         ]
       }
     </script>
-    <!-- Google tag (gtag.js) -->
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          { "where": { "href_matches": "/*" }, "eagerness": "moderate" }
+        ]
+      }
+    </script>
     <script src="../assets/js/google-tag.js" defer></script>
   </head>
   <body>

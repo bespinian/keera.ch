@@ -35,11 +35,6 @@
     />
     <link rel="stylesheet" href="assets/css/keera.css" />
     <link rel="icon" type="image/svg+xml" href="assets/img/keera-favicon.svg" />
-    <link
-      rel="alternate icon"
-      type="image/png"
-      href="assets/img/keera-apple-touch-icon.png"
-    />
     <link rel="apple-touch-icon" href="assets/img/keera-apple-touch-icon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Keera" />
@@ -89,7 +84,13 @@
         ]
       }
     </script>
-    <!-- Google tag (gtag.js) -->
+    <script type="speculationrules">
+      {
+        "prefetch": [
+          { "where": { "href_matches": "/*" }, "eagerness": "moderate" }
+        ]
+      }
+    </script>
     <script src="assets/js/google-tag.js" defer></script>
   </head>
   <body>

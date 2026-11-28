@@ -149,6 +149,30 @@ for path in src:
     if got != sorted(want):
         fail(path, f"scripts {got}, expected {sorted(want)}")
 
+# Inline scripts are data only: the JSON-LD, and on every content page the
+# same speculation rules, which 404.html leaves out with the rest.
+rules = set()
+for path, s in src.items():
+    inline = re.findall(r"<script(?![^>]*\ssrc=)([^>]*)>(.*?)</script>", s, re.S)
+    for attrs, body in inline:
+        kind = re.search(r'type="([^"]+)"', attrs)
+        if not kind or kind.group(1) not in ("application/ld+json", "speculationrules"):
+            fail(path, f"inline <script{attrs}>; only JSON-LD and speculation rules")
+    spec = [squash(b) for a, b in inline if 'type="speculationrules"' in a]
+    if path == "404.html":
+        if spec:
+            fail(path, "speculation rules on 404.html, which runs no scripts")
+    elif len(spec) != 1:
+        fail(path, f"{len(spec)} speculation rules blocks, expected one")
+    else:
+        rules.add(spec[0])
+        try:
+            json.loads(spec[0])
+        except ValueError as e:
+            fail(path, f"speculation rules are not JSON: {e}")
+if len(rules) > 1:
+    fail("site", "speculation rules differ between pages")
+
 
 # ---------- copies that must match ----------
 def block(s, tag):

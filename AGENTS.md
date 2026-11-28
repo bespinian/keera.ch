@@ -20,7 +20,8 @@ still apply where it is silent.
   identical.
 - The site runs three scripts and no others: `contact-form.js` on pages with a
   form, `google-tag.js` on every content page, `language.js` on the German home
-  page.
+  page. Inline `<script>`s are data only: the JSON-LD, and one speculation-rules
+  block, the same on every content page.
 - A new third-party script, host or processor goes into `privacy.html`, in all
   three languages, before it ships.
 
@@ -33,9 +34,9 @@ still apply where it is silent.
   load, then requests keep flowing through the gateway's checks in a loop. Do
   not add a third.
 - **Every colour is a token.** Hex values live only in the token blocks
-  (`:root`, its dark copy, the `.theme-leaf` hovers, `@media print`); anywhere
-  else a hex is right in one scheme only. Partner and customer logos are the
-  exception: their brand fills sit as `fill` attributes in the markup.
+  (`:root`'s `light-dark()` pairs, the `.theme-leaf` hover, `@media print`);
+  anywhere else a hex is right in one scheme only. Partner and customer logos
+  are the exception: their brand fills sit as `fill` attributes in the markup.
 - **The accent is blue**, except on the three sustainability pages, where
   `class="theme-leaf"` on `<body>` swaps it for green. It is a swap: no page
   shows both, and no other page gets a theme class.
@@ -347,11 +348,12 @@ soften:
 `keera.css` runs: four `@font-face` rules, the tokens, base elements,
 components.
 
-- **Tokens**: thirteen colours on `:root`, redefined - and nothing else - in one
-  `screen and (prefers-color-scheme: dark)` block. Dark is screen only, so
-  print keeps the light values and `@media print` only darkens `--muted` and
-  `--line` for paper. `--omnivor` colours only the Omnivor mark, `--leaf` only
-  `.theme-leaf`.
+- **Tokens**: thirteen colours on `:root`, each a `light-dark(light, dark)`
+  pair, so the dark scheme needs no block of its own; `.theme-leaf`'s hover is
+  the one other pair. `@media print` sets `color-scheme: light`, so paper takes
+  the light halves, and only darkens `--muted` and `--line`. The one dark-scheme
+  media query left is the partner wordmarks', screen only. `--omnivor` colours
+  only the Omnivor mark, `--leaf` only `.theme-leaf`.
 - **Contrast**: text on ground at least 5.5:1 in light and 6.7:1 in dark, button
   ink on the accent 6.5:1 / 8:1. Recheck after retuning a colour; `--muted`,
   `--accent` and `--leaf` have the least headroom.
@@ -389,6 +391,11 @@ when Formspree accepts.
 
 ## Assets
 
+- **Speculation rules**: one `<script type="speculationrules">` in every content
+  head, just before `google-tag.js`, prefetches a same-site page once the
+  visitor hovers or presses its link, so the click lands instantly. Prefetch
+  only, never prerender: a prerendered page would run its Google tags for a
+  page nobody opened. Keep the block identical everywhere; `404.html` has none.
 - **`google-tag.js`** (Google Ads `AW-18327942303` and the Google Tag Manager
   container `GTM-KLJMRV64`, which runs Google Analytics) loads `defer`, last in
   the head, on every content page because an ad can land anywhere. It fetches

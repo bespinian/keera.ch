@@ -3,7 +3,10 @@
    container (GTM-KLJMRV64) that runs Google Analytics. Both sit on every page,
    not only the fifteen with a form, because an ad click lands wherever the ad
    points and the click id has to be recorded there. They share one dataLayer. */
-window.dataLayer = window.dataLayer || [];
+window.dataLayer ||= [];
+
+/* A plain function pushing `arguments`, as Google's snippet has it: gtag.js
+   reads the Arguments object, and a rest-parameter array would be ignored. */
 function gtag() {
   dataLayer.push(arguments);
 }
@@ -12,25 +15,26 @@ gtag("config", "AW-18327942303");
 
 /* The start event Google's own GTM snippet pushes. The container's Page View
    triggers wait for `gtm.js`, so without it GA4 never sees a page. */
-dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+dataLayer.push({ "gtm.start": Date.now(), event: "gtm.js" });
 
 /* gtag.js and gtm.js are fetched on `load` rather than from async <script>s in
    the head, so their third-party handshakes and payloads land after the paint
    instead of competing with the hero image. Nothing is lost: the calls above
    queue on dataLayer and both libraries replay the queue when they arrive. */
-window.addEventListener("load", function () {
-  [
+addEventListener("load", () => {
+  for (const src of [
     "https://www.googletagmanager.com/gtag/js?id=AW-18327942303",
     "https://www.googletagmanager.com/gtm.js?id=GTM-KLJMRV64",
-  ].forEach(function (src) {
-    var s = document.createElement("script");
+  ]) {
+    const s = document.createElement("script");
     s.async = true;
     s.src = src;
-    document.head.appendChild(s);
-  });
+    document.head.append(s);
+  }
 });
 
-/* Called by contact-form.js once Formspree accepts a submission. */
+/* Called by contact-form.js once Formspree accepts a submission. A function
+   declaration, so it is a global the other script can see. */
 function gtag_report_conversion() {
   gtag("event", "conversion", {
     send_to: "AW-18327942303/snIDCLO10vYcEJ_puKNE",

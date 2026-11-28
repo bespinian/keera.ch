@@ -50,27 +50,31 @@
 }
 
 /* ---------- tokens ---------- */
-/* Every colour comes from these thirteen tokens, which is what keeps the dark
-   scheme to one block. Hex values belong here, in the .theme-leaf hover shades
-   just below and in the print block at the end; anywhere else a hex value is
-   a bug, because it can only be right in one of the two schemes. */
+/* Every colour comes from these thirteen tokens, each a light-dark() pair: the
+   light value, then the dark one. The scheme is the viewer's system setting -
+   there is no toggle - and print sets color-scheme back to light. Hex values
+   belong here, in the .theme-leaf hover just below and in the print block at
+   the end; anywhere else a hex value is a bug, because it can only be right in
+   one of the two schemes. The artwork is left alone: the mascot is transparent
+   and sits on either ground, and the comic pages and the screenshot carry
+   their own light. */
 :root {
   color-scheme: light dark;
-  --bg: #ffffff;
-  --surface: #f6f7f8;
-  --card: #ffffff;
-  --ink: #14171c;
-  --muted: #5b6472;
-  --line: #e2e5e9;
-  --accent: #1657c8;
-  --accent-hover: #0f47a8;
-  --btn-ink: #ffffff;
-  --ok: #166534;
-  --err: #b42318;
+  --bg: light-dark(#ffffff, #0f1218);
+  --surface: light-dark(#f6f7f8, #161a21);
+  --card: light-dark(#ffffff, #1b2029);
+  --ink: light-dark(#14171c, #e7eaef);
+  --muted: light-dark(#5b6472, #a0a9b8);
+  --line: light-dark(#e2e5e9, #272d38);
+  --accent: light-dark(#1657c8, #6ea8ff);
+  --accent-hover: light-dark(#0f47a8, #8dbcff);
+  --btn-ink: light-dark(#ffffff, #0b0e14);
+  --ok: light-dark(#166534, #4ade80);
+  --err: light-dark(#b42318, #ff9c93);
   /* Read by the Omnivor brand mark in #omnivor, and by nothing else. */
-  --omnivor: #c0271d;
+  --omnivor: light-dark(#c0271d, #ff8f83);
   /* Read by the .theme-leaf block below, and by nothing else. */
-  --leaf: #18693a;
+  --leaf: light-dark(#18693a, #5fd08a);
   --sans:
     "Space Grotesk", -apple-system, BlinkMacSystemFont, Helvetica, Arial,
     sans-serif;
@@ -80,39 +84,12 @@
   --radius: 10px;
 }
 
-/* Dark scheme, from the system setting only - there is no toggle. Screen only,
-   so print always gets the light values above. The artwork is left alone: the
-   mascot is transparent and sits on either ground, and the comic pages and the
-   screenshot carry their own light. */
-@media screen and (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1218;
-    --surface: #161a21;
-    --card: #1b2029;
-    --ink: #e7eaef;
-    --muted: #a0a9b8;
-    --line: #272d38;
-    --accent: #6ea8ff;
-    --accent-hover: #8dbcff;
-    --btn-ink: #0b0e14;
-    --ok: #4ade80;
-    --err: #ff9c93;
-    --omnivor: #ff8f83;
-    --leaf: #5fd08a;
-  }
-}
-
 /* The sustainability pages, and only those, swap the accent to green: <body
-   class="theme-leaf">. --accent picks up whichever --leaf the scheme is already
-   using, so only the hover shade needs saying twice. */
+   class="theme-leaf">. --accent picks up --leaf's pair, so only the hover
+   shade needs a pair of its own. */
 .theme-leaf {
   --accent: var(--leaf);
-  --accent-hover: #135432;
-}
-@media screen and (prefers-color-scheme: dark) {
-  .theme-leaf {
-    --accent-hover: #8ee0ae;
-  }
+  --accent-hover: light-dark(#135432, #8ee0ae);
 }
 
 /* ---------- base ---------- */
@@ -207,6 +184,20 @@ thead th,
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+/* The panel every box on the site is drawn as, in eight places. Each rule
+   below adds only its own padding and layout. */
+.card,
+.stack,
+.flow-stage,
+.fleet-box,
+.sprawl-node,
+.partners a,
+.nav-group-links,
+.intro-gate {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
 }
 .eyebrow {
   font-size: 12px;
@@ -350,9 +341,6 @@ thead th,
   flex-direction: column;
   gap: 10px;
   padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   white-space: nowrap;
 }
 /* The login into the hosted gateway, twice in the markup and once on screen:
@@ -583,9 +571,6 @@ thead th,
     minmax(8px, 1fr) fit-content(26%);
   gap: 6px;
   padding: 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   font-family: var(--mono);
   font-size: clamp(10px, 3.4cqw, 11.5px);
   line-height: 1.4;
@@ -661,17 +646,22 @@ thead th,
   position: relative;
   padding-left: 14px;
 }
-/* Drawn like the ticks in .plan-table, for the same reason. */
-.intro-checks li::before {
+/* The site's tick, here and in .plan-table: drawn rather than a glyph, because
+   U+2713 is outside the font's cuts and would fall back to whatever the system
+   draws. Each place sets only its size and position. */
+.intro-checks li::before,
+.plan-table .yes::before {
   content: "";
+  border: solid var(--accent);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.intro-checks li::before {
   position: absolute;
   left: 2px;
   top: 3px;
   width: 4px;
   height: 8px;
-  border: solid var(--accent);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
 }
 @media (prefers-reduced-motion: no-preference) {
   .intro img {
@@ -848,10 +838,7 @@ thead th,
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
 }
 .card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
   padding: clamp(20px, 3vw, 26px);
-  background: var(--card);
 }
 .card > * + * {
   margin-top: 12px;
@@ -1045,9 +1032,6 @@ thead th,
   height: 100%;
   min-height: 136px;
   padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
 }
 .partners a:hover {
   border-color: var(--ink);
@@ -1117,9 +1101,6 @@ thead th,
    cross-section rather than as loose cards. The API row carries the accent
    because it is the only one a client touches. */
 .stack {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   overflow: hidden;
 }
 .stack-layer {
@@ -1158,9 +1139,6 @@ thead th,
   gap: 12px;
 }
 .flow-stage {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   padding: 18px 20px;
 }
 .flow-stage--main {
@@ -1273,9 +1251,6 @@ thead th,
 }
 .fleet-box {
   width: min(100%, 440px);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   padding: 14px 20px;
   text-align: center;
 }
@@ -1307,9 +1282,6 @@ thead th,
   gap: 10px;
 }
 .sprawl-node {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--card);
   padding: 12px 16px;
 }
 .sprawl-node p + p {
@@ -1501,17 +1473,12 @@ td.tight {
   color: var(--ink);
   font-weight: 600;
 }
-/* A drawn tick rather than a glyph: U+2713 is outside the font's cuts and
-   would fall back to whatever the system draws. The word sits beside it,
+/* The tick, shared with the home hero's checks. The word sits beside it,
    visually hidden, for a screen reader. */
 .plan-table .yes::before {
-  content: "";
   display: inline-block;
   width: 6px;
   height: 12px;
-  border: solid var(--accent);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
 }
 /* On a phone the table stops scrolling sideways and turns into one block per
    row: the row label on a line of its own, the three values in three columns
@@ -1873,8 +1840,8 @@ textarea.input {
     padding: 4px 0;
   }
 }
-/* The dark blocks are screen only, so print already has the light tokens;
-   paper only wants the quiet greys darker. */
+/* Paper takes the light half of every token pair, whatever the system scheme,
+   and wants only the quiet greys darker. */
 @media print {
   :root {
     color-scheme: light;
